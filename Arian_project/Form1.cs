@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
+using Arian_project.backend.Database;
+using ghest.Backend.Logs;
 
 namespace Arian_project
 {
@@ -15,6 +9,9 @@ namespace Arian_project
         public Form1()
         {
             InitializeComponent();
+            new log().init_logs();
+            Database databse = new Database();
+            databse.check_directorys();
         }
     }
 }
