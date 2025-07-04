@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Arian_project.screens
 {
-    public partial class Form1 : Form
+    public partial class Chouse_Item : Form
     {
-        public Form1()
+        public Chouse_Item()
         {
             InitializeComponent();
         }

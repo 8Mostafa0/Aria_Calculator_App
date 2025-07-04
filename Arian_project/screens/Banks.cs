@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Arian_project.screens
 {
-    public partial class Form3 : Form
+    public partial class Banks : Form
     {
-        public Form3()
+        public Banks()
         {
             InitializeComponent();
         }

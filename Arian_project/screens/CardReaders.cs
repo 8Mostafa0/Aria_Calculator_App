@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Arian_project.screens
 {
-    public partial class Form7 : Form
+    public partial class CardReaders : Form
     {
-        public Form7()
+        public CardReaders()
         {
             InitializeComponent();
         }

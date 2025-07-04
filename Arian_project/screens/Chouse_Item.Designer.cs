@@ -1,6 +1,6 @@
 ﻿namespace Arian_project.screens
 {
-    partial class Form3
+    partial class Chouse_Item
     {
         /// <summary>
         /// Required designer variable.
