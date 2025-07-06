@@ -35,13 +35,14 @@ namespace ghest.Backend.Logs
         {
 
             string Firstfile = "";
+            var result_log_directorys = check_log_files();
 
-            if (Directory.Exists(Dir) && File.Exists(TodayLog))
+            if (result_log_directorys)
             {
                 try
                 {
 
-                    Firstfile = Directory.GetFiles(Dir)[0];
+                    Firstfile = Directory.GetFiles(Dir)[-1];
 
                 }
                 catch (Exception)

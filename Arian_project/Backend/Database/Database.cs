@@ -4,7 +4,7 @@ using System.IO;
 using System.Reflection;
 using ghest.Backend.Logs;
 using System.Data.SQLite;
-namespace Arian_project.backend.Database
+namespace Arian_project.backend
 {
     public class Database_data
     {
@@ -27,21 +27,28 @@ namespace Arian_project.backend.Database
                 if (!Directory.Exists(directory + n))
                 {
                     Directory.CreateDirectory(directory + n);
-                    check_databases();
                 }
             }
+            check_databases();
 
         }
 
+        private log logger = new log();
+        public SQLiteConnection connection_to_db()
+        {
+            var database = Database_data.database;
+            var database_connection = new SQLiteConnection(database);
+            return database_connection;
+        }
         public void check_databases()
         {
-            string log_message_type = "check_databases";
+            string logger_message_type = "check_databases";
             
             log logger = new log();
             
             try
             {
-                logger.record_log("creating database file and tables", log_message_type);
+                logger.record_log("creating database file and tables", logger_message_type);
 
                 if (!Directory.Exists(database_path))
                 {
@@ -55,21 +62,21 @@ namespace Arian_project.backend.Database
 
                 file_connection.Close();
 
-                string clients_database_sql = "CREATE TABLE 'clients'('id' INT PRIMERY KEY NOT NULL,user_name TEXT NOT NULL,phone_number TEXT,home_number TEXT,company TEXT,email TEXT,client_type TEXT,client_group TEXT)";
+                string clients_database_sql = "CREATE TABLE 'clients'('id' INT PRIMERY KEY NOT NULL ,user_name TEXT NOT NULL,phone_number TEXT,home_number TEXT,company TEXT,email TEXT,client_type TEXT,client_group TEXT)";
 
-                string stores_database_sql = "CREATE TABLE store(id INT PRIMERY KEY NOT NULL,store_id INT NOT NULL,item_name TEXT NOT NULL,buy_price INT NOT NULL,cell_price TEXT NOT NULL,count INT NOT NULL,buy_date TEXT NOT NULL,cell_date TEXT NOT NULL,service_item BOOLIAN NOT NULL)";
+                string stores_database_sql = "CREATE TABLE stors(id INT PRIMERY KEY NOT NULL ,store_id INT NOT NULL,item_name TEXT NOT NULL,buy_price INT NOT NULL,cell_price INT NOT NULL,count INT NOT NULL,buy_date TEXT NOT NULL,cell_date TEXT NOT NULL,service_item BOOLIAN NOT NULL)";
 
-                string services_database_sql = "CREATE TABLE services(id INT PREIMERY KEY NOT NULL,item_id INT NOT NULL,service_name TEXT NOT NULL,cell_price INT NOT NULL)";
+                string services_database_sql = "CREATE TABLE services(id INT PRIMERY KEY NOT NULL ,item_id INT NOT NULL,service_name TEXT NOT NULL,cell_price INT NOT NULL)";
 
-                string transactions_database_sql = "CREATE TABLE transactions(id INT PRIMERY KEY NOT NULL,transaction_type TEXT NOT NULL,bank TEXT NOT NULL,price INT NOT NULL,client_id INT NOT NULL,transaction_date  TEXT NOT NULL,transaction_status TEXT NOT NULL)";
+                string transactions_database_sql = "CREATE TABLE transactions(id INT PRIMERY KEY NOT NULL ,transaction_type TEXT NOT NULL,bank TEXT NOT NULL,price INT NOT NULL,client_id INT NOT NULL,transaction_date  TEXT NOT NULL,transaction_status TEXT NOT NULL)";
 
-                string sms_database_sql = "CREATE TABLE sms(id INT PRIMERY KEY NOT NULL,client_id INT NOT NULL,phone_number TEXT NOT NULL,sms_status TEXT NOT NULL,sms_date  TEXT NOT NULL)";
+                string sms_database_sql = "CREATE TABLE smss(id INT PRIMERY KEY NOT NULL ,client_id INT NOT NULL,phone_number TEXT NOT NULL,sms_status TEXT NOT NULL,sms_date  TEXT NOT NULL)";
 
                 string factors_database_sql = "CREATE TABLE factors(id INT PRIMERY KEY NOT NULL,client_id int not null,full_price INT NOT NULL,profit INT NOT NULL,factor_date TEXT NOT NULL,client_group TEXT NOT NULL)";
 
-                string sub_factors_database_sql = "CREATE TABLE sub_factors(id INT PRIMERY KEY NOT NULL,factor_id INT NOT NULL,item_id INT NOT NULL,buy_prce INT NOT NULL,cell_price INT NOT NULL,profit INT NOT NULL)";
+                string sub_factors_database_sql = "CREATE TABLE sub_factors(id INT PRIMERY KEY NOT NULL ,factor_id INT NOT NULL,item_id INT NOT NULL,buy_price INT NOT NULL,cell_price INT NOT NULL,profit INT NOT NULL)";
 
-                using (var database_connection = new SQLiteConnection(database))
+                using (var database_connection = connection_to_db())
                 {
                     database_connection.Open();
 
@@ -112,10 +119,49 @@ namespace Arian_project.backend.Database
                 }
             }
             catch (Exception ex) {
-                logger.record_log(ex.ToString(), log_message_type);
+                logger.record_log(ex.ToString(), logger_message_type);
             }
         }
+        public bool run_sql_query(string sql_query,string message_type,string logger_message_type) {
 
+            logger.record_log(message_type, logger_message_type);
+            bool result = false;
+            try
+            {
+                var connection = connection_to_db();
+                connection.Open();
+                using (var command = new SQLiteCommand(sql_query, connection))
+                {
+                    result = command.ExecuteNonQuery() > 0;
+                }
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                logger.record_log("SQL QUERY => " + sql_query, logger_message_type);
+                logger.record_log(ex.ToString(), logger_message_type);
+            }
+            return result;
+        }
+
+        public int run_one_item_data_query( string sql_query, string message_type, string logger_message_type)
+        {
+            int count = 0;
+            logger.record_log(message_type, logger_message_type);
+            try
+            {
+                var connection = connection_to_db();
+                connection.Open();
+                var command = new SQLiteCommand(sql_query, connection);
+                count = Convert.ToInt32(command.ExecuteScalar());
+                connection.Close();
+            }catch(Exception ex)
+            {
+                logger.record_log("SQL QUERY => " + sql_query, logger_message_type);
+                logger.record_log(ex.ToString(), logger_message_type);
+            }
+            return count;
+        }
 
     }
 }

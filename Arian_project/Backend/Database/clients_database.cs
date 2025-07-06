@@ -1,26 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
-using System.Linq;
-using System.Windows.Forms;
-using Arian_project.backend.Database;
 using ghest.Backend.Logs;
-namespace Arian_project.backend.database
+namespace Arian_project.backend
 {
-    internal class clients_database
+    public class clients_database
     {
         private log logger = new log();
-        private SQLiteConnection clients_database_connection()
-        {
-            var database = Database_data.database;
-            var database_connection = new SQLiteConnection(database);
-            return database_connection;
-        }
 
+        Database_data database = new Database_data();
 
         public List<Client> clients_list(string sql_query="")
         {
             string logger_message_type = "clients database";
+            logger.record_log("get clients list from clients table", logger_message_type);
             if(sql_query == "")
             {
                 sql_query = "SELECT * FROM clients";
@@ -28,7 +21,7 @@ namespace Arian_project.backend.database
             var clients = new List<Client>();
             try
             {
-                using (var connection = clients_database_connection())
+                using (var connection = database.connection_to_db())
                 {
                     connection.Open();
                     using (var command = new SQLiteCommand(sql_query, connection))
@@ -64,33 +57,39 @@ namespace Arian_project.backend.database
 
         public bool insert_client_to_database(Client client) {
             string logger_message_type = "insert_client_to_database";
+            string message_type = "insert new client to clients table";
             bool result = false;
             if(client.id != 0)
             {
-                try
-                {
-                    string sql_query = $"INSERT INTO clients (id,user_name,phone_number,home_number,company,email,client_type,client_group)VALUES('{client.id}','{client.user_name}','{client.phone_number}','{client.home_number}','{client.company}','{client.email}','{client.client_type}','{client.client_group}')";
-
-                    var connection = clients_database_connection();
-                    connection.Open();
-                    var command = new SQLiteCommand(sql_query,connection);
-                    int res = command.ExecuteNonQuery();
-                    if (res > 0) { 
-                        result = true;
-                    }
-                    connection.Close() ;
-                }
-                catch (Exception ex) {
-                    logger.record_log(ex.ToString(),logger_message_type);
-                }
+                string sql_query = $"INSERT INTO clients (id,user_name,phone_number,home_number,company,email,client_type,client_group)VALUES('{client.id}','{client.user_name}','{client.phone_number}','{client.home_number}','{client.company}','{client.email}','{client.client_type}','{client.client_group}')";
+                result = database.run_sql_query( sql_query,message_type,logger_message_type);
                 return result;
             }
             else
             {
-
                 return false;
             }
 
+        }
+
+        public bool edite_client_in_database(Client user)
+        {
+            string logger_message_type = "edite_client_in_database";
+            string message_type = "edite clients in clients table";
+            string sql_query = $"UPDATE clients SET user_name='{user.user_name}',phone_number='{user.phone_number}',home_number='{user.home_number}',company='{user.company}',email='{user.email}',client_type='{user.client_type}',client_group='{user.client_group}' WHERE id='{user.id}'";
+            bool result = false;
+            database.run_sql_query(sql_query,message_type,logger_message_type);
+            return result;
+        }
+
+        public bool delete_client_from_database(int id)
+        {
+            string logger_message_type = "delete_client_from_database";
+            string message_type = "delete client from clients table";
+            string sql_query = $"DELETE FROM clients WHERE id='{id}'";
+            bool result = false;
+            database.run_sql_query(sql_query,message_type,logger_message_type);
+            return result;
         }
 
     }

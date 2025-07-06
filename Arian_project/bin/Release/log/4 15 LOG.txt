@@ -1,0 +1,135 @@
+1404-4-15T7:49 check_databases creating database file and tables
+1404-4-15T7:49 sub_factors_counter get sub_factor of sub_factors in table
+1404-4-15T7:49 insert_sub_factor_to_database insert new sub_facto to sub_factors table
+1404-4-15T7:49 sub_factors database get sub_factor list from sub_factors table
+1404-4-15T7:50 check_databases creating database file and tables
+1404-4-15T7:50 check_databases System.IO.IOException: The process cannot access the file 'D:\CODES\Aria_Calculator_App\Arian_project\bin\Release\setting\database.db' because it is being used by another process.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at Arian_project.backend.Database_data.check_databases() in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\Database.cs:line 61
+1404-4-15T7:50 edite_sub_factor_in_datebase edite sub_factor in sub_factors table
+1404-4-15T7:50 edite_sub_factor_in_datebase SQL QUERY => UPDATE sub_factor SET factor_id='1',item_id='1',buy_price='75000',cell_price='90000',profit='15000' WHERE id='1'
+1404-4-15T7:50 edite_sub_factor_in_datebase code = Error (1), message = System.Data.SQLite.SQLiteException (0x87AF001F): SQL logic error
+no such table: sub_factor
+   at System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, SQLiteCommand command, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   at System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   at System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery()
+   at Arian_project.backend.Database_data.run_sql_query(String sql_query, String message_type, String logger_message_type) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\Database.cs:line 135
+1404-4-15T7:50 sub_factors database get sub_factor list from sub_factors table
+1404-4-15T7:50 check_databases creating database file and tables
+1404-4-15T7:50 check_databases System.IO.IOException: The process cannot access the file 'D:\CODES\Aria_Calculator_App\Arian_project\bin\Release\setting\database.db' because it is being used by another process.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at Arian_project.backend.Database_data.check_databases() in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\Database.cs:line 61
+1404-4-15T7:50 edite_sub_factor_in_datebase edite sub_factor in sub_factors table
+1404-4-15T7:50 sub_factors database get sub_factor list from sub_factors table
+1404-4-15T7:50 check_databases creating database file and tables
+1404-4-15T7:50 check_databases System.IO.IOException: The process cannot access the file 'D:\CODES\Aria_Calculator_App\Arian_project\bin\Release\setting\database.db' because it is being used by another process.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at Arian_project.backend.Database_data.check_databases() in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\Database.cs:line 61
+1404-4-15T7:50 edite_sub_factor_in_datebase edite sub_factor in sub_factors table
+1404-4-15T7:50 sub_factors database get sub_factor list from sub_factors table
+1404-4-15T7:51 check_databases creating database file and tables
+1404-4-15T7:51 check_databases System.IO.IOException: The process cannot access the file 'D:\CODES\Aria_Calculator_App\Arian_project\bin\Release\setting\database.db' because it is being used by another process.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at Arian_project.backend.Database_data.check_databases() in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\Database.cs:line 61
+1404-4-15T7:51 delete_sub_factor_from_database delete sub_factor from sub_factors table
+1404-4-15T7:51 sub_factors database get sub_factor list from sub_factors table
+1404-4-15T8:0 check_databases creating database file and tables
+1404-4-15T8:0 check_databases System.IO.IOException: The process cannot access the file 'D:\CODES\Aria_Calculator_App\Arian_project\bin\Release\setting\database.db' because it is being used by another process.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at Arian_project.backend.Database_data.check_databases() in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\Database.cs:line 61
+1404-4-15T8:0 transactions_counter get counts of transactions in table
+1404-4-15T8:0 insert_transaction_to_database insert new transaction to transactions table
+1404-4-15T8:0 transactions database get transactions list from transactions table
+1404-4-15T8:0 check_databases creating database file and tables
+1404-4-15T8:0 check_databases System.IO.IOException: The process cannot access the file 'D:\CODES\Aria_Calculator_App\Arian_project\bin\Release\setting\database.db' because it is being used by another process.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at Arian_project.backend.Database_data.check_databases() in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\Database.cs:line 61
+1404-4-15T8:0 transactions_counter get counts of transactions in table
+1404-4-15T8:0 insert_transaction_to_database insert new transaction to transactions table
+1404-4-15T8:0 transactions database get transactions list from transactions table
+1404-4-15T8:0 check_databases creating database file and tables
+1404-4-15T8:0 check_databases System.IO.IOException: The process cannot access the file 'D:\CODES\Aria_Calculator_App\Arian_project\bin\Release\setting\database.db' because it is being used by another process.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at Arian_project.backend.Database_data.check_databases() in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\Database.cs:line 61
+1404-4-15T8:0 edite_transaction_in_datebase edite transaction in transactions table
+1404-4-15T8:0 edite_transaction_in_datebase SQL QUERY => UPDATE transactions SET transaction_type='aaaa',bank='melo',price='75000',client_id='1',transaction_date='1404/5/8',transaction_statis='recived' WHERE id='1'
+1404-4-15T8:0 edite_transaction_in_datebase code = Error (1), message = System.Data.SQLite.SQLiteException (0x87AF001F): SQL logic error
+no such column: transaction_statis
+   at System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, SQLiteCommand command, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   at System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   at System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery()
+   at Arian_project.backend.Database_data.run_sql_query(String sql_query, String message_type, String logger_message_type) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\Database.cs:line 135
+1404-4-15T8:0 transactions database get transactions list from transactions table
+1404-4-15T8:1 check_databases creating database file and tables
+1404-4-15T8:1 check_databases System.IO.IOException: The process cannot access the file 'D:\CODES\Aria_Calculator_App\Arian_project\bin\Release\setting\database.db' because it is being used by another process.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at Arian_project.backend.Database_data.check_databases() in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\Database.cs:line 61
+1404-4-15T8:1 edite_transaction_in_datebase edite transaction in transactions table
+1404-4-15T8:1 transactions database get transactions list from transactions table
+1404-4-15T8:1 check_databases creating database file and tables
+1404-4-15T8:1 check_databases System.IO.IOException: The process cannot access the file 'D:\CODES\Aria_Calculator_App\Arian_project\bin\Release\setting\database.db' because it is being used by another process.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at Arian_project.backend.Database_data.check_databases() in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\Database.cs:line 61
+1404-4-15T8:1 edite_transaction_in_datebase edite transaction in transactions table
+1404-4-15T8:1 transactions database get transactions list from transactions table
+1404-4-15T8:1 check_databases creating database file and tables
+1404-4-15T8:1 check_databases System.IO.IOException: The process cannot access the file 'D:\CODES\Aria_Calculator_App\Arian_project\bin\Release\setting\database.db' because it is being used by another process.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at Arian_project.backend.Database_data.check_databases() in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\Database.cs:line 61
+1404-4-15T8:1 transactions_counter get counts of transactions in table
+1404-4-15T8:1 insert_transaction_to_database insert new transaction to transactions table
+1404-4-15T8:1 transactions database get transactions list from transactions table
+1404-4-15T8:1 check_databases creating database file and tables
+1404-4-15T8:1 check_databases System.IO.IOException: The process cannot access the file 'D:\CODES\Aria_Calculator_App\Arian_project\bin\Release\setting\database.db' because it is being used by another process.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at Arian_project.backend.Database_data.check_databases() in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\Database.cs:line 61
+1404-4-15T8:1 delete_transaction_from_database delete transaction from transactions table
+1404-4-15T8:1 transactions database get transactions list from transactions table
+1404-4-15T8:2 check_databases creating database file and tables
+1404-4-15T8:2 check_databases System.IO.IOException: The process cannot access the file 'D:\CODES\Aria_Calculator_App\Arian_project\bin\Release\setting\database.db' because it is being used by another process.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at Arian_project.backend.Database_data.check_databases() in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\Database.cs:line 61
+1404-4-15T8:2 delete_transaction_from_database delete transaction from transactions table
+1404-4-15T8:2 transactions database get transactions list from transactions table
+1404-4-15T8:2 check_databases creating database file and tables
+1404-4-15T8:2 check_databases System.IO.IOException: The process cannot access the file 'D:\CODES\Aria_Calculator_App\Arian_project\bin\Release\setting\database.db' because it is being used by another process.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at Arian_project.backend.Database_data.check_databases() in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\Database.cs:line 61
+1404-4-15T8:2 delete_transaction_from_database delete transaction from transactions table
+1404-4-15T8:2 transactions database get transactions list from transactions table
