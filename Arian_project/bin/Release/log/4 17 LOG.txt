@@ -1,0 +1,7 @@
+1404-4-17T19:44 check_databases creating database file and tables
+1404-4-17T19:44 clients_count get clients count from clients table
+1404-4-17T19:51 check_databases creating database file and tables
+1404-4-17T19:51 clients_count get clients count from clients table
+1404-4-17T19:55 check_databases creating database file and tables
+1404-4-17T19:55 clients_count get clients count from clients table
+1404-4-17T19:55 insert_client_to_database insert new client to clients table

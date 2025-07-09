@@ -4,6 +4,7 @@ using System.IO;
 using System.Reflection;
 using ghest.Backend.Logs;
 using System.Data.SQLite;
+using System.Diagnostics;
 namespace Arian_project.backend
 {
     public class Database_data
@@ -163,5 +164,25 @@ namespace Arian_project.backend
             return count;
         }
 
+        public int get_one_data_query(string sql_query, string message_type, string logger_message_type)
+        {
+            try
+            {
+                logger.record_log(message_type, logger_message_type);
+                var connection = connection_to_db();
+                connection.Open();
+
+                var command = new SQLiteCommand(sql_query, connection);
+
+                int counts=Convert.ToInt32( command.ExecuteScalar());
+                connection.Close();
+                return counts;
+            }   
+            catch (Exception ex) {
+                logger.record_log(ex.ToString(), logger_message_type);
+                return 0;
+            }
+        }
     }
+
 }

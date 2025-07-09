@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Windows.Forms;
 using Arian_project.backend;
-using Arian_project.Backend;
+using Arian_project.screens;
 
 namespace Arian_project
 {
@@ -26,6 +26,12 @@ namespace Arian_project
             //MessageBox.Show(users_count.ToString(), "count");
             //MessageBox.Show(result.ToString(), "count");
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form users = new Clients_Detailes();
+            users.ShowDialog();
         }
     }
 }

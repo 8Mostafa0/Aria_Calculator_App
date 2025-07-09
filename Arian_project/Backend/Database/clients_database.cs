@@ -10,6 +10,15 @@ namespace Arian_project.backend
 
         Database_data database = new Database_data();
 
+        public int clients_count()
+        {
+            int users_count = 0;
+            string message_type = "get clients count from clients table";
+            string logger_message_type = "clients_count";
+            string sql_query = "SELECT COUNT(*) FROM clients";
+            users_count = new Database_data().get_one_data_query(sql_query, message_type, logger_message_type);
+            return users_count;
+        }
         public List<Client> clients_list(string sql_query="")
         {
             string logger_message_type = "clients database";
