@@ -65,6 +65,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Backend\class\bank.cs" />
+    <Compile Include="Backend\class\card_reader.cs" />
     <Compile Include="Backend\class\client.cs" />
     <Compile Include="Backend\class\factor.cs" />
     <Compile Include="Backend\class\service.cs" />
@@ -72,6 +74,8 @@
     <Compile Include="Backend\class\store.cs" />
     <Compile Include="Backend\class\sub_factor.cs" />
     <Compile Include="Backend\class\transaction.cs" />
+    <Compile Include="Backend\Database\banks_database.cs" />
+    <Compile Include="Backend\Database\card_reader_database.cs" />
     <Compile Include="Backend\Database\clients_database.cs" />
     <Compile Include="Backend\Database\Database.cs" />
     <Compile Include="Backend\Database\factors_database.cs" />
@@ -88,7 +92,6 @@
       <DependentUpon>rButton.cs</DependentUpon>
     </Compile>
     <Compile Include="Backend\styles\Style.cs" />
-    <Compile Include="Backend\styles\styles.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

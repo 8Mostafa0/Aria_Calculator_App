@@ -4,6 +4,7 @@ using System.IO;
 using System.Reflection;
 using ghest.Backend.Logs;
 using System.Data.SQLite;
+using System.Windows.Forms;
 namespace Arian_project.backend
 {
     public class Database_data
@@ -48,74 +49,86 @@ namespace Arian_project.backend
             
             try
             {
-                logger.record_log("creating database file and tables", logger_message_type);
 
                 if (!Directory.Exists(database_path))
                 {
                     Directory.CreateDirectory(database_path);
+                    logger.record_log("creating database file and tables", logger_message_type);
                 }
-                if(Directory.Exists(database_file))
+                if(!File.Exists(database_file))
                 {
 
             
-                var file_connection = File.Create(database_file);
+                    var file_connection = File.Create(database_file);
 
-                file_connection.Close();
+                    file_connection.Close();
 
-                string clients_database_sql = "CREATE TABLE 'clients'('id' INT PRIMERY KEY NOT NULL ,user_name TEXT NOT NULL,phone_number TEXT,home_number TEXT,company TEXT,email TEXT,client_type TEXT,client_group TEXT)";
+                    string clients_database_sql = "CREATE TABLE 'clients'('id' INT PRIMERY KEY NOT NULL ,user_name TEXT NOT NULL,phone_number TEXT,home_number TEXT,company TEXT,email TEXT,client_type TEXT,client_group TEXT)";
 
-                string stores_database_sql = "CREATE TABLE stors(id INT PRIMERY KEY NOT NULL ,store_id INT NOT NULL,item_name TEXT NOT NULL,buy_price INT NOT NULL,cell_price INT NOT NULL,count INT NOT NULL,buy_date TEXT NOT NULL,cell_date TEXT NOT NULL,service_item BOOLIAN NOT NULL)";
+                    string stores_database_sql = "CREATE TABLE stors(id INT PRIMERY KEY NOT NULL ,store_id INT NOT NULL,item_name TEXT NOT NULL,buy_price INT NOT NULL,cell_price INT NOT NULL,count INT NOT NULL,buy_date TEXT NOT NULL,cell_date TEXT NOT NULL,service_item BOOLIAN NOT NULL)";
 
-                string services_database_sql = "CREATE TABLE services(id INT PRIMERY KEY NOT NULL ,item_id INT NOT NULL,service_name TEXT NOT NULL,cell_price INT NOT NULL)";
+                    string services_database_sql = "CREATE TABLE services(id INT PRIMERY KEY NOT NULL ,item_id INT NOT NULL,service_name TEXT NOT NULL,cell_price INT NOT NULL)";
 
-                string transactions_database_sql = "CREATE TABLE transactions(id INT PRIMERY KEY NOT NULL ,transaction_type TEXT NOT NULL,bank TEXT NOT NULL,price INT NOT NULL,client_id INT NOT NULL,transaction_date  TEXT NOT NULL,transaction_status TEXT NOT NULL)";
+                    string transactions_database_sql = "CREATE TABLE transactions(id INT PRIMERY KEY NOT NULL ,transaction_type TEXT NOT NULL,bank TEXT NOT NULL,price INT NOT NULL,client_id INT NOT NULL,transaction_date  TEXT NOT NULL,transaction_status TEXT NOT NULL)";
 
-                string sms_database_sql = "CREATE TABLE smss(id INT PRIMERY KEY NOT NULL ,client_id INT NOT NULL,phone_number TEXT NOT NULL,sms_status TEXT NOT NULL,sms_date  TEXT NOT NULL)";
+                    string sms_database_sql = "CREATE TABLE smss(id INT PRIMERY KEY NOT NULL ,client_id INT NOT NULL,phone_number TEXT NOT NULL,sms_status TEXT NOT NULL,sms_date  TEXT NOT NULL)";
 
-                string factors_database_sql = "CREATE TABLE factors(id INT PRIMERY KEY NOT NULL,client_id int not null,full_price INT NOT NULL,profit INT NOT NULL,factor_date TEXT NOT NULL,client_group TEXT NOT NULL)";
+                    string factors_database_sql = "CREATE TABLE factors(id INT PRIMERY KEY NOT NULL,client_id int not null,full_price INT NOT NULL,profit INT NOT NULL,factor_date TEXT NOT NULL,client_group TEXT NOT NULL)";
 
-                string sub_factors_database_sql = "CREATE TABLE sub_factors(id INT PRIMERY KEY NOT NULL ,factor_id INT NOT NULL,item_id INT NOT NULL,buy_price INT NOT NULL,cell_price INT NOT NULL,profit INT NOT NULL)";
+                    string sub_factors_database_sql = "CREATE TABLE sub_factors(id INT PRIMERY KEY NOT NULL ,factor_id INT NOT NULL,item_id INT NOT NULL,buy_price INT NOT NULL,cell_price INT NOT NULL,profit INT NOT NULL)";
 
-                using (var database_connection = connection_to_db())
-                {
-                    database_connection.Open();
+                    string banks_database_sql = "CREATE TABLE banks(id INT PRIMARY KEY NOT NULL,name TEXT NOT NULL,bank_type TEXT NOT NULL,balance INT NOT NULL)";
 
-                    using (var command = new SQLiteCommand(clients_database_sql, database_connection))
+                    string card_readers_database_sql = "CREATE TABLE card_readers(id INT PRIMARY KEY NOT NULL,bank_id INT NOT NULL,name TEXT NOT NULL)";
+
+                    using (var database_connection = connection_to_db())
                     {
-                        command.ExecuteNonQuery();
-                    }
-                    using (var command = new SQLiteCommand(stores_database_sql, database_connection))
-                    {
-                        command.ExecuteNonQuery();
-                    }
+                        database_connection.Open();
 
-                    using (var command = new SQLiteCommand(services_database_sql, database_connection))
-                    {
-                        command.ExecuteNonQuery();
-                    }
+                        using (var command = new SQLiteCommand(clients_database_sql, database_connection))
+                        {
+                            command.ExecuteNonQuery();
+                        }
+                        using (var command = new SQLiteCommand(stores_database_sql, database_connection))
+                        {
+                            command.ExecuteNonQuery();
+                        }
 
-                    using (var command = new SQLiteCommand(transactions_database_sql, database_connection))
-                    {
-                        command.ExecuteNonQuery();
-                    }
+                        using (var command = new SQLiteCommand(services_database_sql, database_connection))
+                        {
+                            command.ExecuteNonQuery();
+                        }
 
-                    using (var command = new SQLiteCommand(sms_database_sql, database_connection))
-                    {
-                        command.ExecuteNonQuery();
-                    }
+                        using (var command = new SQLiteCommand(transactions_database_sql, database_connection))
+                        {
+                            command.ExecuteNonQuery();
+                        }
 
-                    using (var command = new SQLiteCommand(factors_database_sql, database_connection))
-                    {
-                        command.ExecuteNonQuery();
-                    }
+                        using (var command = new SQLiteCommand(sms_database_sql, database_connection))
+                        {
+                            command.ExecuteNonQuery();
+                        }
 
-                    using (var command = new SQLiteCommand(sub_factors_database_sql, database_connection))
-                    {
-                        command.ExecuteNonQuery();
-                    }
+                        using (var command = new SQLiteCommand(factors_database_sql, database_connection))
+                        {
+                            command.ExecuteNonQuery();
+                        }
 
-                    database_connection.Close();
-                }
+                        using (var command = new SQLiteCommand(sub_factors_database_sql, database_connection))
+                        {
+                            command.ExecuteNonQuery();
+                        }
+                        using (var command = new SQLiteCommand(banks_database_sql, database_connection))
+                        {
+                            command.ExecuteNonQuery();
+                        }
+                        using (var command = new SQLiteCommand(card_readers_database_sql, database_connection))
+                        {
+                            command.ExecuteNonQuery();
+                        }
+
+                        database_connection.Close();
+                    }
                 }
             }
             catch (Exception ex) {

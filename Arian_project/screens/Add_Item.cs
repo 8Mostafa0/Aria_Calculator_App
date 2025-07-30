@@ -98,16 +98,6 @@ namespace Arian_project.screens
         private void Load_Items_To_List()
         {
             items_list.Rows.Clear();
-            items_list.Columns.Clear();
-            items_list.Columns.Add("id", "شناسه");
-            items_list.Columns.Add("store_id", "کد فروشگاه");
-            items_list.Columns.Add("item_name", "نام آیتم");
-            items_list.Columns.Add("buy_price", "قیمت خرید");
-            items_list.Columns.Add("cell_price", "قیمت فروش");
-            items_list.Columns.Add("count", "تعداد");
-            items_list.Columns.Add("buy_date", "تاریخ خرید");
-            items_list.Columns.Add("cell_date", "تاریخ فروش");
-            items_list.Columns.Add("service_item", "آیتم خدماتی");
 
             List<Store> items = new stores_database().stores_list();
             selected_id = 0;

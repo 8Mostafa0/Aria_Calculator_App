@@ -32,11 +32,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
@@ -75,11 +71,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.textBox1, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.textBox3, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.textBox4, 0, 4);
-            this.tableLayoutPanel2.Controls.Add(this.label4, 1, 4);
             this.tableLayoutPanel2.Controls.Add(this.label2, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.label3, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.label1, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.textBox2, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -112,33 +104,6 @@
             this.textBox1.Size = new System.Drawing.Size(127, 20);
             this.textBox1.TabIndex = 4;
             // 
-            // textBox3
-            // 
-            this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox3.Location = new System.Drawing.Point(3, 72);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(127, 20);
-            this.textBox3.TabIndex = 6;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox4.Location = new System.Drawing.Point(3, 95);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(127, 20);
-            this.textBox4.TabIndex = 7;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Location = new System.Drawing.Point(136, 92);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(128, 23);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "نوع حساب";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -149,17 +114,6 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "بانک";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Location = new System.Drawing.Point(136, 69);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(128, 23);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "موجودی";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
@@ -202,11 +156,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox2;
     }
