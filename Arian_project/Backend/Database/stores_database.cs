@@ -41,7 +41,7 @@ namespace Arian_project.Backend
                                     reader.GetInt32(5),
                                     reader.GetString(6),
                                     reader.GetString(7),
-                                    Convert.ToBoolean(reader.GetString(8))));
+                                    reader.GetString(8)));
                             }
                         }
                     }

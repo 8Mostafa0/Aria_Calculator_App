@@ -1,0 +1,130 @@
+﻿
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace Arian_project.Backend.styles
+{
+    internal class Style
+    {
+
+        private Arian_project.Properties.Settings Props = Properties.Settings.Default;
+        private Font Get_List_Font()
+        {
+            string Font_Name = Props.Font_Name;
+            int List_Font_Size = Props.List_Font_Size;
+            bool List_Font_Bold = Props.List_Font_Bold;
+            FontStyle Bold = Props.List_Font_Bold ? FontStyle.Bold : FontStyle.Regular;
+            Font List_Font = new Font(Font_Name, List_Font_Size, Bold);
+            return List_Font;
+        }
+
+        private Font Get_Font()
+        {
+            string Font_Name = Props.Font_Name;
+            int Font_Size = Props.List_Font_Size;
+            bool Font_Bold = Props.List_Font_Bold;
+            FontStyle Bold = Props.List_Font_Bold ? FontStyle.Bold : FontStyle.Regular;
+            Font Font = new Font(Font_Name, Font_Size, Bold);
+            return Font;
+        }
+
+        public void Stores_List_Style(DataGridView List)
+        {
+            Font List_Font = Get_List_Font();
+            Font App_Font = Get_Font();
+
+
+            List.ColumnHeadersDefaultCellStyle.Font = App_Font;
+            List.Font = List_Font;
+            List.EditMode = DataGridViewEditMode.EditProgrammatically;
+            List.RightToLeft = RightToLeft.Yes;
+            List.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            List.AlternatingRowsDefaultCellStyle.ForeColor = Color.White;
+
+
+            List.Columns.Clear();
+
+            List.Columns.Add("id","ش");
+            List.Columns[0].DataPropertyName = "id";
+
+
+            List.Columns.Add("store_id", "ش انبار");
+            List.Columns[0].DataPropertyName = "store_id";
+
+
+            List.Columns.Add("item_name", "نام ایتم");
+            List.Columns[0].DataPropertyName = "item_name";
+
+
+            List.Columns.Add("buy_price", "قیمت خرید");
+            List.Columns[0].DataPropertyName = "buy_price";
+
+
+            List.Columns.Add("cell_price", "فیمت فروش");
+            List.Columns[0].DataPropertyName = "cell_price";
+
+
+            List.Columns.Add("count", "تعداد");
+            List.Columns[0].DataPropertyName = "count";
+
+
+            List.Columns.Add("buy_date", "تاریخ خرید");
+            List.Columns[0].DataPropertyName = "buy_data";
+
+
+            List.Columns.Add("cell_date", "تاریخ فروش");
+            List.Columns[0].DataPropertyName = "cell_date";
+
+            List.Columns.Add("service_item", "ایتم خدماتی");
+            List.Columns[0].DataPropertyName = "service_item";
+
+
+
+
+        }
+
+        public void Clients_List_Style(DataGridView List)
+        {
+            Font List_Font = Get_List_Font();
+            Font App_Font = Get_Font();
+            
+            
+            List.ColumnHeadersDefaultCellStyle.Font = App_Font;
+            List.Font = List_Font;
+            List.EditMode = DataGridViewEditMode.EditProgrammatically;
+            List.RightToLeft = RightToLeft.Yes;
+            List.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            List.AlternatingRowsDefaultCellStyle.ForeColor = Color.White;
+              
+            
+            List.Columns.Clear();
+
+            List.Columns.Add("id","ش");
+            List.Columns[0].DataPropertyName = "id";
+
+            List.Columns.Add("user_name", "نام کاربر");
+            List.Columns[0].DataPropertyName = "user_name";
+
+            List.Columns.Add("phone_number", "شماره همراه");
+            List.Columns[0].DataPropertyName = "phone_number";
+
+            List.Columns.Add("home_number", "شماره تلفن");
+            List.Columns[0].DataPropertyName = "home_number";
+
+            List.Columns.Add("company", "شرکت");
+            List.Columns[0].DataPropertyName = "company";
+
+            List.Columns.Add("email", "ایمیل");
+            List.Columns[0].DataPropertyName = "email";
+
+            List.Columns.Add("client_type", "نوع مشتری");
+            List.Columns[0].DataPropertyName = "client_type";
+
+            List.Columns.Add("client_group", "گروه مشتری");
+            List.Columns[0].DataPropertyName = "client_group";
+
+        }
+
+
+    }
+}

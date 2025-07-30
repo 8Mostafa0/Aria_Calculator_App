@@ -17,7 +17,6 @@ D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.screens.For
 D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.screens.CardReaders.resources
 D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.screens.Form2.resources
 D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.screens.Chouse_Item.resources
-D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.screens.Form5.resources
 D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.csproj.GenerateResource.cache
 D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.csproj.CoreCompileInputs.cache
 D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_pr.877C999B.Up2Date
@@ -49,3 +48,7 @@ C:\Users\Hp\Desktop\code\Aria_Calculator_App\Arian_project\bin\Release\EntityFra
 C:\Users\Hp\Desktop\code\Aria_Calculator_App\Arian_project\bin\Release\EntityFramework.SqlServer.xml
 C:\Users\Hp\Desktop\code\Aria_Calculator_App\Arian_project\bin\Release\System.Data.SQLite.xml
 C:\Users\Hp\Desktop\code\Aria_Calculator_App\Arian_project\obj\Release\Arian_pr.877C999B.Up2Date
+D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.screens.Clients_Detailes.resources
+D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.Backend.styles.rButton.resources
+D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.exe.config
+D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.screens.Add_Item.resources

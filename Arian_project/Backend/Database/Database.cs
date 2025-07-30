@@ -4,7 +4,6 @@ using System.IO;
 using System.Reflection;
 using ghest.Backend.Logs;
 using System.Data.SQLite;
-using System.Diagnostics;
 namespace Arian_project.backend
 {
     public class Database_data
@@ -55,7 +54,7 @@ namespace Arian_project.backend
                 {
                     Directory.CreateDirectory(database_path);
                 }
-                else
+                if(Directory.Exists(database_file))
                 {
 
             

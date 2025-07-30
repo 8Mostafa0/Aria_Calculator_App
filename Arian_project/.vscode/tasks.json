@@ -1,0 +1,14 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "Build and Run WinForms App",
+			"command": "msbuild Arian_project.csproj /p:Configuration=Release && .\\bin\\Release\\Arian_project.exe",
+			"group": "build",
+			"problemMatcher": [
+				"$msCompile"
+			]
+		}
+	]
+}

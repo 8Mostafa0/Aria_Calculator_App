@@ -11,9 +11,9 @@ namespace Arian_project
         public int count { get; set; }
         public string buy_date {  get; set; }
         public string cell_date { get; set; }
-        public bool service_item {  get; set; }
+        public string service_item {  get; set; }
 
-        public Store(int id, int store_id, string item_name, int buy_price, int cell_price, int count, string buy_date, string cell_date, bool service_item)
+        public Store(int id, int store_id, string item_name, int buy_price, int cell_price, int count, string buy_date, string cell_date, string service_item)
         {
             this.id = id;
             this.store_id = store_id;

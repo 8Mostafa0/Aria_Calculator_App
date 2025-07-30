@@ -2,7 +2,6 @@
 using System.Globalization;
 using System.IO;
 using System.Reflection;
-using System.Threading.Tasks;
 namespace ghest.Backend.Logs
 {
     internal class log
