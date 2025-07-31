@@ -44,6 +44,7 @@ namespace Arian_project.screens
                 Clients_List.Rows.Clear();
                 Clients_List.Rows.AddRange(rows.ToArray());
                 Clients_List.ClearSelection();
+                clear_data();
             }
         }
         private void save_client_bt_Click(object sender, System.EventArgs e)

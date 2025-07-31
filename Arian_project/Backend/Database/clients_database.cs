@@ -1,5 +1,6 @@
 ﻿using ghest.Backend.Logs;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 namespace Arian_project.backend
@@ -79,5 +80,44 @@ namespace Arian_project.backend
             bool result = database.run_sql_query(sql_query,message_type,logger_message_type);
             return result;
         }
+
+        public List<string> Get_Clients_Types()
+        {
+
+            string logger_message_type = "Get_Clients_Types";
+            string message_type = "get clients types from clients tabble";
+            List<string> bank_types = new List<string>();
+            string sql_query = "SELECT DISTINCT client_type FROM clients";
+            DataSet dataSet = new DataSet();
+            try
+            {
+                using (var connection = new Database_data().connection_to_db())
+                {
+                    connection.Open();
+                    using (SQLiteCommand command = new SQLiteCommand(sql_query, connection))
+                    {
+                        using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(command))
+                        {
+                            adapter.Fill(dataSet);
+                        }
+                    }
+                    connection.Close();
+                }
+                if (dataSet.Tables.Count > 0)
+                {
+                    foreach (DataRow row in dataSet.Tables[0].Rows)
+                    {
+                        bank_types.Add(row["client_type"].ToString());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.record_log("SQL QUERY => " + ex, logger_message_type);
+                logger.record_log(message_type, logger_message_type);
+            }
+            return bank_types;
+        }
+        
     }
 }

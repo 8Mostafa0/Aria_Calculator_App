@@ -130,3 +130,389 @@ UNIQUE constraint failed: card_readers.id
 1404-5-9T13:17 card_readers_list get card readers list from card_reader table
 1404-5-9T13:19 get_last_card_reader_id get last card reader id from card_readers table
 1404-5-9T13:19 card_readers_list get card readers list from card_reader table
+1404-5-9T13:24 clients_count get clients count from clients table
+1404-5-9T13:24 clients database get clients list from clients table
+1404-5-9T13:24 insert_client_to_database insert new client to clients table
+1404-5-9T13:24 clients database get clients list from clients table
+1404-5-9T13:38 clients database get clients list from clients table
+1404-5-9T13:41 clients database get clients list from clients table
+1404-5-9T13:41 clients database get clients list from clients table
+1404-5-9T13:44 clients database get clients list from clients table
+1404-5-9T13:44 Get_Clients_Types SQL QUERY => code = Error (1), message = System.Data.SQLite.SQLiteException (0x87AF001F): SQL logic error
+no such table: banclientss
+   at System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, SQLiteCommand command, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   at System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   at System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at Arian_project.backend.clients_database.Get_Clients_Types() in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\clients_database.cs:line 101
+1404-5-9T13:44 Get_Clients_Types get clients types from clients tabble
+1404-5-9T13:45 clients database get clients list from clients table
+1404-5-9T13:47 clients database get clients list from clients table
+1404-5-9T13:49 clients database get clients list from clients table
+1404-5-9T13:51 clients database get clients list from clients table
+1404-5-9T13:51 clients database get clients list from clients table
+1404-5-9T13:51 clients database SQL QUERY => SELECT * FROM clients WHERE name LIKE '%A%'
+1404-5-9T13:51 clients database code = Error (1), message = System.Data.SQLite.SQLiteException (0x87AF001F): SQL logic error
+no such column: name
+   at System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, SQLiteCommand command, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   at System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   at System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at Arian_project.backend.clients_database.Clients_list(String sql_query) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\clients_database.cs:line 39
+1404-5-9T13:51 clients database get clients list from clients table
+1404-5-9T13:51 clients database SQL QUERY => SELECT * FROM clients WHERE name LIKE '%%'
+1404-5-9T13:51 clients database code = Error (1), message = System.Data.SQLite.SQLiteException (0x87AF001F): SQL logic error
+no such column: name
+   at System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, SQLiteCommand command, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   at System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   at System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at Arian_project.backend.clients_database.Clients_list(String sql_query) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\clients_database.cs:line 39
+1404-5-9T13:51 clients database get clients list from clients table
+1404-5-9T13:51 clients database SQL QUERY => SELECT * FROM clients WHERE name LIKE '%a%'
+1404-5-9T13:51 clients database code = Error (1), message = System.Data.SQLite.SQLiteException (0x87AF001F): SQL logic error
+no such column: name
+   at System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, SQLiteCommand command, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   at System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   at System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at Arian_project.backend.clients_database.Clients_list(String sql_query) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\clients_database.cs:line 39
+1404-5-9T13:51 clients database get clients list from clients table
+1404-5-9T13:51 clients database SQL QUERY => SELECT * FROM clients WHERE name LIKE '%%'
+1404-5-9T13:51 clients database code = Error (1), message = System.Data.SQLite.SQLiteException (0x87AF001F): SQL logic error
+no such column: name
+   at System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, SQLiteCommand command, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   at System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   at System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at Arian_project.backend.clients_database.Clients_list(String sql_query) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\clients_database.cs:line 39
+1404-5-9T13:51 clients database get clients list from clients table
+1404-5-9T13:51 clients database SQL QUERY => SELECT * FROM clients WHERE name LIKE '%A%'
+1404-5-9T13:51 clients database code = Error (1), message = System.Data.SQLite.SQLiteException (0x87AF001F): SQL logic error
+no such column: name
+   at System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, SQLiteCommand command, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   at System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   at System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at Arian_project.backend.clients_database.Clients_list(String sql_query) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\clients_database.cs:line 39
+1404-5-9T13:51 clients database get clients list from clients table
+1404-5-9T13:51 clients database SQL QUERY => SELECT * FROM clients WHERE name LIKE '%%'
+1404-5-9T13:51 clients database code = Error (1), message = System.Data.SQLite.SQLiteException (0x87AF001F): SQL logic error
+no such column: name
+   at System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, SQLiteCommand command, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   at System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   at System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at Arian_project.backend.clients_database.Clients_list(String sql_query) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\clients_database.cs:line 39
+1404-5-9T13:51 clients database get clients list from clients table
+1404-5-9T13:51 clients database SQL QUERY => SELECT * FROM clients WHERE name LIKE '%a%'
+1404-5-9T13:51 clients database code = Error (1), message = System.Data.SQLite.SQLiteException (0x87AF001F): SQL logic error
+no such column: name
+   at System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, SQLiteCommand command, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   at System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   at System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at Arian_project.backend.clients_database.Clients_list(String sql_query) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\clients_database.cs:line 39
+1404-5-9T13:51 clients database get clients list from clients table
+1404-5-9T13:51 clients database SQL QUERY => SELECT * FROM clients WHERE name LIKE '%aa%'
+1404-5-9T13:51 clients database code = Error (1), message = System.Data.SQLite.SQLiteException (0x87AF001F): SQL logic error
+no such column: name
+   at System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, SQLiteCommand command, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   at System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   at System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at Arian_project.backend.clients_database.Clients_list(String sql_query) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\clients_database.cs:line 39
+1404-5-9T13:51 clients database get clients list from clients table
+1404-5-9T13:51 clients database SQL QUERY => SELECT * FROM clients WHERE name LIKE '%a%'
+1404-5-9T13:51 clients database code = Error (1), message = System.Data.SQLite.SQLiteException (0x87AF001F): SQL logic error
+no such column: name
+   at System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, SQLiteCommand command, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   at System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   at System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at Arian_project.backend.clients_database.Clients_list(String sql_query) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\clients_database.cs:line 39
+1404-5-9T13:51 clients database get clients list from clients table
+1404-5-9T13:51 clients database SQL QUERY => SELECT * FROM clients WHERE name LIKE '%%'
+1404-5-9T13:51 clients database code = Error (1), message = System.Data.SQLite.SQLiteException (0x87AF001F): SQL logic error
+no such column: name
+   at System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, SQLiteCommand command, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   at System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   at System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at Arian_project.backend.clients_database.Clients_list(String sql_query) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\clients_database.cs:line 39
+1404-5-9T13:53 clients database get clients list from clients table
+1404-5-9T13:53 clients database get clients list from clients table
+1404-5-9T13:53 clients database SQL QUERY => SELECT * FROM clients WHERE name LIKE '%aAaA%'
+1404-5-9T13:53 clients database code = Error (1), message = System.Data.SQLite.SQLiteException (0x87AF001F): SQL logic error
+no such column: name
+   at System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, SQLiteCommand command, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   at System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   at System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at Arian_project.backend.clients_database.Clients_list(String sql_query) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\clients_database.cs:line 39
+1404-5-9T13:53 clients_count get clients count from clients table
+1404-5-9T13:53 clients database get clients list from clients table
+1404-5-9T13:53 insert_client_to_database insert new client to clients table
+1404-5-9T13:53 clients database get clients list from clients table
+1404-5-9T13:53 insert_client_to_database insert new client to clients table
+1404-5-9T13:53 clients database get clients list from clients table
+1404-5-9T13:53 insert_client_to_database insert new client to clients table
+1404-5-9T13:53 clients database get clients list from clients table
+1404-5-9T13:53 insert_client_to_database insert new client to clients table
+1404-5-9T13:53 clients database get clients list from clients table
+1404-5-9T13:54 clients_count get clients count from clients table
+1404-5-9T13:54 clients database get clients list from clients table
+1404-5-9T13:54 insert_client_to_database insert new client to clients table
+1404-5-9T13:54 clients database get clients list from clients table
+1404-5-9T13:54 clients database get clients list from clients table
+1404-5-9T13:54 clients database get clients list from clients table
+1404-5-9T13:54 clients database SQL QUERY => SELECT * FROM clients WHERE name LIKE '%mosi%'
+1404-5-9T13:54 clients database code = Error (1), message = System.Data.SQLite.SQLiteException (0x87AF001F): SQL logic error
+no such column: name
+   at System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, SQLiteCommand command, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   at System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   at System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at Arian_project.backend.clients_database.Clients_list(String sql_query) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\clients_database.cs:line 39
+1404-5-9T13:54 clients database get clients list from clients table
+1404-5-9T13:54 clients database get clients list from clients table
+1404-5-9T13:54 clients database SQL QUERY => SELECT * FROM clients WHERE name LIKE '%m%'
+1404-5-9T13:54 clients database code = Error (1), message = System.Data.SQLite.SQLiteException (0x87AF001F): SQL logic error
+no such column: name
+   at System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, SQLiteCommand command, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   at System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   at System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at Arian_project.backend.clients_database.Clients_list(String sql_query) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\clients_database.cs:line 39
+1404-5-9T13:54 clients database get clients list from clients table
+1404-5-9T13:54 clients database SQL QUERY => SELECT * FROM clients WHERE name LIKE '%%'
+1404-5-9T13:54 clients database code = Error (1), message = System.Data.SQLite.SQLiteException (0x87AF001F): SQL logic error
+no such column: name
+   at System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, SQLiteCommand command, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   at System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   at System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at Arian_project.backend.clients_database.Clients_list(String sql_query) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\clients_database.cs:line 39
+1404-5-9T13:55 clients database get clients list from clients table
+1404-5-9T13:55 clients database get clients list from clients table
+1404-5-9T13:55 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:56 clients database get clients list from clients table
+1404-5-9T13:57 clients database get clients list from clients table
+1404-5-9T13:57 clients database get clients list from clients table
+1404-5-9T13:57 clients database get clients list from clients table
+1404-5-9T13:57 clients database get clients list from clients table
+1404-5-9T13:57 clients database get clients list from clients table
+1404-5-9T13:57 clients database get clients list from clients table
+1404-5-9T13:57 clients database SQL QUERY => SELECT * FROM clients WHERE home_phone LIKE '%a%'
+1404-5-9T13:57 clients database code = Error (1), message = System.Data.SQLite.SQLiteException (0x87AF001F): SQL logic error
+no such column: home_phone
+   at System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, SQLiteCommand command, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   at System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   at System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at Arian_project.backend.clients_database.Clients_list(String sql_query) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\clients_database.cs:line 39
+1404-5-9T13:57 clients database get clients list from clients table
+1404-5-9T13:57 clients database get clients list from clients table
+1404-5-9T13:57 clients database SQL QUERY => SELECT * FROM clients WHERE home_phone LIKE '%0%'
+1404-5-9T13:57 clients database code = Error (1), message = System.Data.SQLite.SQLiteException (0x87AF001F): SQL logic error
+no such column: home_phone
+   at System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, SQLiteCommand command, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   at System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   at System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at Arian_project.backend.clients_database.Clients_list(String sql_query) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\clients_database.cs:line 39
+1404-5-9T13:57 clients database get clients list from clients table
+1404-5-9T13:57 clients database get clients list from clients table
+1404-5-9T13:57 clients database SQL QUERY => SELECT * FROM clients WHERE home_phone LIKE '%A%'
+1404-5-9T13:57 clients database code = Error (1), message = System.Data.SQLite.SQLiteException (0x87AF001F): SQL logic error
+no such column: home_phone
+   at System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, SQLiteCommand command, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   at System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   at System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at Arian_project.backend.clients_database.Clients_list(String sql_query) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\clients_database.cs:line 39
+1404-5-9T13:57 clients database get clients list from clients table
+1404-5-9T13:57 clients database get clients list from clients table
+1404-5-9T13:57 clients database get clients list from clients table
+1404-5-9T13:57 clients database get clients list from clients table
+1404-5-9T13:57 clients database get clients list from clients table
+1404-5-9T13:57 clients database get clients list from clients table

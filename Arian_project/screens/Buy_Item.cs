@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace Arian_project.screens
 {
-    public partial class Form4 : Form
+    public partial class Buy_Item : Form
     {
-        public Form4()
+        public Buy_Item()
         {
             InitializeComponent();
         }

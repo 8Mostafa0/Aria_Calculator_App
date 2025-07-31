@@ -257,7 +257,7 @@
             this.label_store_id.Name = "label_store_id";
             this.label_store_id.Size = new System.Drawing.Size(112, 53);
             this.label_store_id.TabIndex = 1;
-            this.label_store_id.Text = "کد فروشگاه";
+            this.label_store_id.Text = "شماره انبار";
             this.label_store_id.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // item_name_tb

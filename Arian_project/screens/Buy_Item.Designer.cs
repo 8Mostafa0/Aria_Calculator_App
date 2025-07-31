@@ -1,6 +1,6 @@
 ﻿namespace Arian_project.screens
 {
-    partial class Form4
+    partial class Buy_Item
     {
         /// <summary>
         /// Required designer variable.
@@ -185,13 +185,13 @@
             this.textBox2.Size = new System.Drawing.Size(70, 20);
             this.textBox2.TabIndex = 7;
             // 
-            // Form4
+            // Buy_Item
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(619, 358);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "Form4";
+            this.Name = "Buy_Item";
             this.Text = "Form4";
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();

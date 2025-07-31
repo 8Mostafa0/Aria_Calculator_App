@@ -13,8 +13,6 @@ D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.csproj.Asse
 D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.Form1.resources
 D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.Properties.Resources.resources
 D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.screens.Banks.resources
-D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.screens.Form4.resources
-D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.screens.Form2.resources
 D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.screens.Chouse_Item.resources
 D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.csproj.GenerateResource.cache
 D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.csproj.CoreCompileInputs.cache
@@ -52,3 +50,5 @@ D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.Backend.sty
 D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.exe.config
 D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.screens.Add_Item.resources
 D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.screens.Card_Readers.resources
+D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.screens.Buy_Item.resources
+D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.screens.Chouse_Client.resources

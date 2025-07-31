@@ -1,6 +1,6 @@
 ﻿namespace Arian_project.screens
 {
-    partial class Form2
+    partial class Chouse_Client
     {
         /// <summary>
         /// Required designer variable.
@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Clients_List = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.name_tb = new System.Windows.Forms.TextBox();
+            this.phone_tb = new System.Windows.Forms.TextBox();
+            this.home_phone_tb = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.client_type_cb = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Clients_List)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +49,7 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.Clients_List, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -60,14 +60,16 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(563, 318);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // dataGridView1
+            // Clients_List
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 162);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(557, 153);
-            this.dataGridView1.TabIndex = 0;
+            this.Clients_List.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Clients_List.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Clients_List.Location = new System.Drawing.Point(3, 162);
+            this.Clients_List.Name = "Clients_List";
+            this.Clients_List.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Clients_List.Size = new System.Drawing.Size(557, 153);
+            this.Clients_List.TabIndex = 0;
+            this.Clients_List.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Clients_List_CellClick);
             // 
             // tableLayoutPanel2
             // 
@@ -80,14 +82,14 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel2.Controls.Add(this.textBox3, 6, 1);
-            this.tableLayoutPanel2.Controls.Add(this.textBox4, 6, 2);
-            this.tableLayoutPanel2.Controls.Add(this.textBox2, 6, 3);
-            this.tableLayoutPanel2.Controls.Add(this.textBox1, 4, 1);
+            this.tableLayoutPanel2.Controls.Add(this.name_tb, 6, 1);
+            this.tableLayoutPanel2.Controls.Add(this.phone_tb, 6, 2);
+            this.tableLayoutPanel2.Controls.Add(this.home_phone_tb, 6, 3);
             this.tableLayoutPanel2.Controls.Add(this.label4, 5, 1);
             this.tableLayoutPanel2.Controls.Add(this.label3, 7, 3);
             this.tableLayoutPanel2.Controls.Add(this.label2, 7, 2);
             this.tableLayoutPanel2.Controls.Add(this.label1, 7, 1);
+            this.tableLayoutPanel2.Controls.Add(this.client_type_cb, 4, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -101,37 +103,32 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(557, 153);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
-            // textBox3
+            // name_tb
             // 
-            this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox3.Location = new System.Drawing.Point(417, 28);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(63, 20);
-            this.textBox3.TabIndex = 6;
+            this.name_tb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.name_tb.Location = new System.Drawing.Point(417, 28);
+            this.name_tb.Name = "name_tb";
+            this.name_tb.Size = new System.Drawing.Size(63, 20);
+            this.name_tb.TabIndex = 6;
+            this.name_tb.TextChanged += new System.EventHandler(this.name_tb_TextChanged);
             // 
-            // textBox4
+            // phone_tb
             // 
-            this.textBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox4.Location = new System.Drawing.Point(417, 53);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(63, 20);
-            this.textBox4.TabIndex = 7;
+            this.phone_tb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.phone_tb.Location = new System.Drawing.Point(417, 53);
+            this.phone_tb.Name = "phone_tb";
+            this.phone_tb.Size = new System.Drawing.Size(63, 20);
+            this.phone_tb.TabIndex = 7;
+            this.phone_tb.TextChanged += new System.EventHandler(this.phone_tb_TextChanged);
             // 
-            // textBox2
+            // home_phone_tb
             // 
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox2.Location = new System.Drawing.Point(417, 78);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(63, 20);
-            this.textBox2.TabIndex = 5;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(279, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(63, 20);
-            this.textBox1.TabIndex = 4;
+            this.home_phone_tb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.home_phone_tb.Location = new System.Drawing.Point(417, 78);
+            this.home_phone_tb.Name = "home_phone_tb";
+            this.home_phone_tb.Size = new System.Drawing.Size(63, 20);
+            this.home_phone_tb.TabIndex = 5;
+            this.home_phone_tb.TextChanged += new System.EventHandler(this.home_phone_tb_TextChanged);
             // 
             // label4
             // 
@@ -177,16 +174,26 @@
             this.label1.Text = "نام";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Form2
+            // client_type_cb
+            // 
+            this.client_type_cb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.client_type_cb.FormattingEnabled = true;
+            this.client_type_cb.Location = new System.Drawing.Point(279, 28);
+            this.client_type_cb.Name = "client_type_cb";
+            this.client_type_cb.Size = new System.Drawing.Size(63, 21);
+            this.client_type_cb.TabIndex = 8;
+            // 
+            // Chouse_Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(563, 318);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "Form2";
+            this.Name = "Chouse_Client";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.Chouse_Client_Load_1);
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Clients_List)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
@@ -196,15 +203,15 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView Clients_List;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox name_tb;
+        private System.Windows.Forms.TextBox phone_tb;
+        private System.Windows.Forms.TextBox home_phone_tb;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox client_type_cb;
     }
 }
