@@ -32,3 +32,38 @@
 1404-5-8T21:35 banks_count get banks count from banks table
 1404-5-8T21:35 banks database get banks list from banks table
 1404-5-8T21:35 banks_count get banks count from banks table
+1404-5-8T22:20 banks database get banks list from banks table
+1404-5-8T22:20 banks_count get banks count from banks table
+1404-5-8T22:20 card_readers_list get card readers list from card_reader table
+1404-5-8T22:22 card_readers_list get card readers list from card_reader table
+1404-5-8T22:22 card_readers_list get card readers list from card_reader table
+1404-5-8T22:23 card_readers_list get card readers list from card_reader table
+1404-5-8T22:23 card_readers_count get card readers count from card_reader table
+1404-5-8T22:23 card_readers_list get card readers list from card_reader table
+1404-5-8T22:23 insert_card_reader_to_database insert card reader to card_readers table
+1404-5-8T22:24 card_readers_count get card readers count from card_reader table
+1404-5-8T22:24 card_readers_list get card readers list from card_reader table
+1404-5-8T22:25 card_readers_count get card readers count from card_reader table
+1404-5-8T22:25 card_readers_list get card readers list from card_reader table
+1404-5-8T22:26 card_readers_count get card readers count from card_reader table
+1404-5-8T22:26 card_readers_list get card readers list from card_reader table
+1404-5-8T22:26 card_readers_count get card readers count from card_reader table
+1404-5-8T22:26 card_readers_list get card readers list from card_reader table
+1404-5-8T22:26 card_readers_count get card readers count from card_reader table
+1404-5-8T22:26 card_readers_list get card readers list from card_reader table
+1404-5-8T22:26 card_readers_count get card readers count from card_reader table
+1404-5-8T22:26 card_readers_list get card readers list from card_reader table
+1404-5-8T22:27 card_readers_count get card readers count from card_reader table
+1404-5-8T22:27 card_readers_list get card readers list from card_reader table
+1404-5-8T22:27 card_readers_count get card readers count from card_reader table
+1404-5-8T22:27 card_readers_list get card readers list from card_reader table
+1404-5-8T22:27 card_readers_count get card readers count from card_reader table
+1404-5-8T22:27 card_readers_list get card readers list from card_reader table
+1404-5-8T22:28 card_readers_count get card readers count from card_reader table
+1404-5-8T22:28 card_readers_list get card readers list from card_reader table
+1404-5-8T22:29 card_readers_count get card readers count from card_reader table
+1404-5-8T22:29 card_readers_list get card readers list from card_reader table
+1404-5-8T22:30 card_readers_count get card readers count from card_reader table
+1404-5-8T22:30 card_readers_list get card readers list from card_reader table
+1404-5-8T22:30 card_readers_count get card readers count from card_reader table
+1404-5-8T22:30 card_readers_list get card readers list from card_reader table

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 using System.Data.SQLite;
+using System.Windows.Forms;
 
 namespace Arian_project.Backend.Database
 {
@@ -127,5 +128,116 @@ namespace Arian_project.Backend.Database
             return bank_types;
         }
 
+        public Bank get_bank_data_by_name(string name)
+        {
+            string logger_message_type = "get_bank_data";
+            string message_type = "get bank data from banks tabble";
+            Bank bank_data = new Bank(0,"0", "0",0);
+            string sql_query = $"SELECT * FROM banks WHERE name Like '%{name}%'";
+            DataTable dataSet = new DataTable();
+            try
+            {
+                using (var connection = new Database_data().connection_to_db())
+                {
+                    connection.Open();
+                    using (SQLiteCommand command = new SQLiteCommand(sql_query, connection))
+                    {
+                        using (var adapter = command.ExecuteReader())
+                        {
+                            while (adapter.Read())
+                            {
+                                bank_data = new Bank(
+                                    adapter.GetInt32(0),
+                                    adapter.GetString(1),
+                                    adapter.GetString(2),
+                                    adapter.GetInt32(3)
+                                    );
+                            }
+                        }
+                    }
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.record_log("SQL QUERY => " + ex, logger_message_type);
+                logger.record_log(message_type, logger_message_type);
+            }
+            return bank_data;
+        }
+        public Bank get_bank_data_by_id(int id)
+        {
+
+            string logger_message_type = "get_bank_data";
+            string message_type = "get bank data from banks tabble";
+            Bank bank_data = new Bank(0, "0", "0", 0);
+            string sql_query = $"SELECT * FROM banks WHERE id='{id}'";
+            DataSet dataSet = new DataSet();
+            try
+            {
+                using (var connection = new Database_data().connection_to_db())
+                {
+                    connection.Open();
+                    using (SQLiteCommand command = new SQLiteCommand(sql_query, connection))
+                    {
+                        using (var adapter = command.ExecuteReader())
+                        {
+                            while (adapter.Read())
+                            {
+                                bank_data = new Bank(
+                                    adapter.GetInt32(0),
+                                    adapter.GetString(1),
+                                    adapter.GetString(2),
+                                    adapter.GetInt32(3)
+                                    );
+                            }
+                        }
+                    }
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.record_log("SQL QUERY => " + ex, logger_message_type);
+                logger.record_log(message_type, logger_message_type);
+            }
+            return bank_data;
+        }
+        public List<string> get_bank_name()
+        {
+            string logger_message_type = "get_bank_name";
+            string message_type = "get bank names from banks tabble";
+            List<string> bank_types = new List<string>();
+            string sql_query = "SELECT DISTINCT name FROM banks";
+            DataSet dataSet = new DataSet();
+            try
+            {
+                using (var connection = new Database_data().connection_to_db())
+                {
+                    connection.Open();
+                    using (SQLiteCommand command = new SQLiteCommand(sql_query, connection))
+                    {
+                        using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(command))
+                        {
+                            adapter.Fill(dataSet);
+                        }
+                    }
+                    connection.Close();
+                }
+                if (dataSet.Tables.Count > 0)
+                {
+                    foreach (DataRow row in dataSet.Tables[0].Rows)
+                    {
+                        bank_types.Add(row["name"].ToString());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.record_log("SQL QUERY => " + ex, logger_message_type);
+                logger.record_log(message_type, logger_message_type);
+            }
+            return bank_types;
+        }
     }
 }

@@ -17,7 +17,7 @@ namespace Arian_project
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Banks());
+            Application.Run(new Card_Readers());
         }
     }
 }

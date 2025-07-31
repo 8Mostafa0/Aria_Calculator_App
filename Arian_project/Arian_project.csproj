@@ -118,11 +118,11 @@
     <Compile Include="screens\Buy_Item.Designer.cs">
       <DependentUpon>Buy_Item.cs</DependentUpon>
     </Compile>
-    <Compile Include="screens\CardReaders.cs">
+    <Compile Include="screens\Card_Reader.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="screens\CardReaders.Designer.cs">
-      <DependentUpon>CardReaders.cs</DependentUpon>
+    <Compile Include="screens\Card_Reader.Designer.cs">
+      <DependentUpon>Card_Reader.cs</DependentUpon>
     </Compile>
     <Compile Include="screens\Chouse_Client.cs">
       <SubType>Form</SubType>
@@ -167,8 +167,8 @@
     <EmbeddedResource Include="screens\Buy_Item.resx">
       <DependentUpon>Buy_Item.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="screens\CardReaders.resx">
-      <DependentUpon>CardReaders.cs</DependentUpon>
+    <EmbeddedResource Include="screens\Card_Reader.resx">
+      <DependentUpon>Card_Reader.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="screens\Chouse_Client.resx">
       <DependentUpon>Chouse_Client.cs</DependentUpon>

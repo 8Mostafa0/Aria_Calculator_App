@@ -1,0 +1,132 @@
+1404-5-9T12:58 card_readers_count get card readers count from card_reader table
+1404-5-9T12:58 card_readers_list get card readers list from card_reader table
+1404-5-9T12:59 card_readers_count get card readers count from card_reader table
+1404-5-9T12:59 card_readers_list get card readers list from card_reader table
+1404-5-9T12:59 card_readers_count get card readers count from card_reader table
+1404-5-9T12:59 card_readers_list get card readers list from card_reader table
+1404-5-9T13:0 card_readers_count get card readers count from card_reader table
+1404-5-9T13:0 card_readers_list get card readers list from card_reader table
+1404-5-9T13:0 card_readers_count get card readers count from card_reader table
+1404-5-9T13:0 card_readers_list get card readers list from card_reader table
+1404-5-9T13:4 card_readers_count get card readers count from card_reader table
+1404-5-9T13:4 card_readers_list get card readers list from card_reader table
+1404-5-9T13:6 card_readers_count get card readers count from card_reader table
+1404-5-9T13:6 card_readers_list get card readers list from card_reader table
+1404-5-9T13:7 card_readers_count get card readers count from card_reader table
+1404-5-9T13:7 card_readers_list get card readers list from card_reader table
+1404-5-9T13:7 insert_card_reader_to_database insert card reader to card_readers table
+1404-5-9T13:7 insert_card_reader_to_database SQL QUERY => INSERT INTO card_readers(id,bank_id,name)VALUES('2','1','asd')
+1404-5-9T13:7 insert_card_reader_to_database code = Constraint (19), message = System.Data.SQLite.SQLiteException (0x87AF202F): constraint failed
+UNIQUE constraint failed: card_readers.id
+   at System.Data.SQLite.SQLite3.Step(SQLiteStatement stmt)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery()
+   at Arian_project.backend.Database_data.run_sql_query(String sql_query, String message_type, String logger_message_type) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\Database.cs:line 148
+1404-5-9T13:7 insert_card_reader_to_database insert card reader to card_readers table
+1404-5-9T13:7 insert_card_reader_to_database SQL QUERY => INSERT INTO card_readers(id,bank_id,name)VALUES('2','0','asd')
+1404-5-9T13:7 insert_card_reader_to_database code = Constraint (19), message = System.Data.SQLite.SQLiteException (0x87AF202F): constraint failed
+UNIQUE constraint failed: card_readers.id
+   at System.Data.SQLite.SQLite3.Step(SQLiteStatement stmt)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery()
+   at Arian_project.backend.Database_data.run_sql_query(String sql_query, String message_type, String logger_message_type) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\Database.cs:line 148
+1404-5-9T13:7 insert_card_reader_to_database insert card reader to card_readers table
+1404-5-9T13:7 insert_card_reader_to_database SQL QUERY => INSERT INTO card_readers(id,bank_id,name)VALUES('2','0','asd')
+1404-5-9T13:7 insert_card_reader_to_database code = Constraint (19), message = System.Data.SQLite.SQLiteException (0x87AF202F): constraint failed
+UNIQUE constraint failed: card_readers.id
+   at System.Data.SQLite.SQLite3.Step(SQLiteStatement stmt)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery()
+   at Arian_project.backend.Database_data.run_sql_query(String sql_query, String message_type, String logger_message_type) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\Database.cs:line 148
+1404-5-9T13:9 card_readers_count get card readers count from card_reader table
+1404-5-9T13:9 card_readers_list get card readers list from card_reader table
+1404-5-9T13:9 insert_card_reader_to_database insert card reader to card_readers table
+1404-5-9T13:9 insert_card_reader_to_database SQL QUERY => INSERT INTO card_readers(id,bank_id,name)VALUES('2','1','123')
+1404-5-9T13:9 insert_card_reader_to_database code = Constraint (19), message = System.Data.SQLite.SQLiteException (0x87AF202F): constraint failed
+UNIQUE constraint failed: card_readers.id
+   at System.Data.SQLite.SQLite3.Step(SQLiteStatement stmt)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery()
+   at Arian_project.backend.Database_data.run_sql_query(String sql_query, String message_type, String logger_message_type) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\Database.cs:line 148
+1404-5-9T13:9 insert_card_reader_to_database insert card reader to card_readers table
+1404-5-9T13:9 insert_card_reader_to_database SQL QUERY => INSERT INTO card_readers(id,bank_id,name)VALUES('2','1','22')
+1404-5-9T13:9 insert_card_reader_to_database code = Constraint (19), message = System.Data.SQLite.SQLiteException (0x87AF202F): constraint failed
+UNIQUE constraint failed: card_readers.id
+   at System.Data.SQLite.SQLite3.Step(SQLiteStatement stmt)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery()
+   at Arian_project.backend.Database_data.run_sql_query(String sql_query, String message_type, String logger_message_type) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\Database.cs:line 148
+1404-5-9T13:9 card_readers_count get card readers count from card_reader table
+1404-5-9T13:9 card_readers_list get card readers list from card_reader table
+1404-5-9T13:9 card_readers_count get card readers count from card_reader table
+1404-5-9T13:9 card_readers_list get card readers list from card_reader table
+1404-5-9T13:9 insert_card_reader_to_database insert card reader to card_readers table
+1404-5-9T13:9 insert_card_reader_to_database SQL QUERY => INSERT INTO card_readers(id,bank_id,name)VALUES('2','1','123')
+1404-5-9T13:9 insert_card_reader_to_database code = Constraint (19), message = System.Data.SQLite.SQLiteException (0x87AF202F): constraint failed
+UNIQUE constraint failed: card_readers.id
+   at System.Data.SQLite.SQLite3.Step(SQLiteStatement stmt)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery()
+   at Arian_project.backend.Database_data.run_sql_query(String sql_query, String message_type, String logger_message_type) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\Database.cs:line 148
+1404-5-9T13:9 insert_card_reader_to_database insert card reader to card_readers table
+1404-5-9T13:9 insert_card_reader_to_database SQL QUERY => INSERT INTO card_readers(id,bank_id,name)VALUES('2','0','123')
+1404-5-9T13:9 insert_card_reader_to_database code = Constraint (19), message = System.Data.SQLite.SQLiteException (0x87AF202F): constraint failed
+UNIQUE constraint failed: card_readers.id
+   at System.Data.SQLite.SQLite3.Step(SQLiteStatement stmt)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery()
+   at Arian_project.backend.Database_data.run_sql_query(String sql_query, String message_type, String logger_message_type) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\Database.cs:line 148
+1404-5-9T13:11 get_last_card_reader_id get last card reader id from card_readers table
+1404-5-9T13:11 card_readers_list get card readers list from card_reader table
+1404-5-9T13:11 get_last_card_reader_id get last card reader id from card_readers table
+1404-5-9T13:11 card_readers_list get card readers list from card_reader table
+1404-5-9T13:11 insert_card_reader_to_database insert card reader to card_readers table
+1404-5-9T13:11 get_last_card_reader_id get last card reader id from card_readers table
+1404-5-9T13:11 card_readers_list get card readers list from card_reader table
+1404-5-9T13:11 insert_card_reader_to_database insert card reader to card_readers table
+1404-5-9T13:11 get_last_card_reader_id get last card reader id from card_readers table
+1404-5-9T13:11 card_readers_list get card readers list from card_reader table
+1404-5-9T13:11 edite_card_reader_in_database edite card reader in card_readrs table
+1404-5-9T13:11 get_last_card_reader_id get last card reader id from card_readers table
+1404-5-9T13:11 card_readers_list get card readers list from card_reader table
+1404-5-9T13:14 get_last_card_reader_id get last card reader id from card_readers table
+1404-5-9T13:14 card_readers_list get card readers list from card_reader table
+1404-5-9T13:14 delete_card_reader_from_database delete card reader from card_readrs table
+1404-5-9T13:15 get_last_card_reader_id get last card reader id from card_readers table
+1404-5-9T13:15 card_readers_list get card readers list from card_reader table
+1404-5-9T13:16 get_last_card_reader_id get last card reader id from card_readers table
+1404-5-9T13:16 card_readers_list get card readers list from card_reader table
+1404-5-9T13:16 edite_card_reader_in_database edite card reader in card_readrs table
+1404-5-9T13:16 get_last_card_reader_id get last card reader id from card_readers table
+1404-5-9T13:16 card_readers_list get card readers list from card_reader table
+1404-5-9T13:16 edite_card_reader_in_database edite card reader in card_readrs table
+1404-5-9T13:16 get_last_card_reader_id get last card reader id from card_readers table
+1404-5-9T13:16 card_readers_list get card readers list from card_reader table
+1404-5-9T13:16 edite_card_reader_in_database edite card reader in card_readrs table
+1404-5-9T13:16 get_last_card_reader_id get last card reader id from card_readers table
+1404-5-9T13:16 card_readers_list get card readers list from card_reader table
+1404-5-9T13:17 get_last_card_reader_id get last card reader id from card_readers table
+1404-5-9T13:17 card_readers_list get card readers list from card_reader table
+1404-5-9T13:19 get_last_card_reader_id get last card reader id from card_readers table
+1404-5-9T13:19 card_readers_list get card readers list from card_reader table

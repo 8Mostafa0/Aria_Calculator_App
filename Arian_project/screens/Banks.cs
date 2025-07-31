@@ -1,11 +1,9 @@
-﻿using Arian_project.backend;
-using Arian_project.Backend.Database;
+﻿using Arian_project.Backend.Database;
 using Arian_project.Backend.styles;
 using ghest.Backend.Logs;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Windows.Forms;
 
 namespace Arian_project.screens
@@ -15,8 +13,6 @@ namespace Arian_project.screens
         public Banks()
         {
             InitializeComponent();
-            var backend = new Database_data();
-            backend.check_directorys();
             load_data_to_list();
         }
         log logger = new log();

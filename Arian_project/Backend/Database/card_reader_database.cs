@@ -21,6 +21,15 @@ namespace Arian_project.Backend
             return card_readers_count;
         }
 
+        public int get_last_card_reader_id()
+        {
+            int last_card_reader_id = 0;
+            string logger_message_type = "get_last_card_reader_id";
+            string message_type = "get last card reader id from card_readers table";
+            string sql_query = "SELECT MAX(id) FROM card_readers";
+            last_card_reader_id = new Database_data().get_one_data_query(sql_query, message_type, logger_message_type);
+            return last_card_reader_id;
+        }
         public DataTable card_readers_list(string sql_query = "") {
             string logger_message_type = "card_readers_list";
             string message_type = "get card readers list from card_reader table";
