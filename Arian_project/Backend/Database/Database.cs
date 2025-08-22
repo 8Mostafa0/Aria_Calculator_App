@@ -25,9 +25,9 @@ namespace Arian_project.backend
             };
             foreach (string n in directorys)
             {
-                if (!Directory.Exists(directory + n))
+                if (!Directory.Exists( n))
                 {
-                    Directory.CreateDirectory(directory + n);
+                    Directory.CreateDirectory(n);
                 }
             }
             check_databases();

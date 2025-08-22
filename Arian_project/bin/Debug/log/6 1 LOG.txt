@@ -1,0 +1,303 @@
+1404-6-1T0:7 factors_counter SQL QUERY => SELECT COUNT(*) from factors
+1404-6-1T0:7 factors_counter code = CantOpen (14), message = System.Data.SQLite.SQLiteException (0x87AF03F3): unable to open database file
+   at System.Data.SQLite.SQLite3.Open(String strFilename, String vfsName, SQLiteConnectionFlags connectionFlags, SQLiteOpenFlagsEnum openFlags, Int32 maxPoolSize, Boolean usePool)
+   at System.Data.SQLite.SQLiteConnection.Open()
+   at Arian_project.backend.Database_data.run_one_item_data_query(String sql_query, String message_type, String logger_message_type) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\Database.cs:line 167
+1404-6-1T0:7 list_stores SQL QUERY => code = CantOpen (14), message = System.Data.SQLite.SQLiteException (0x87AF03F3): unable to open database file
+   at System.Data.SQLite.SQLite3.Open(String strFilename, String vfsName, SQLiteConnectionFlags connectionFlags, SQLiteOpenFlagsEnum openFlags, Int32 maxPoolSize, Boolean usePool)
+   at System.Data.SQLite.SQLiteConnection.Open()
+   at Arian_project.Backend.stores_database.list_stores() in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\stores_database.cs:line 108
+1404-6-1T0:7 list_stores get storte_ids list from tabble
+1404-6-1T0:7 stors database get stors list from stors table
+1404-6-1T0:7 stors database SQL QUERY => SELECT * FROM stors
+1404-6-1T0:7 stors database code = CantOpen (14), message = System.Data.SQLite.SQLiteException (0x87AF03F3): unable to open database file
+   at System.Data.SQLite.SQLite3.Open(String strFilename, String vfsName, SQLiteConnectionFlags connectionFlags, SQLiteOpenFlagsEnum openFlags, Int32 maxPoolSize, Boolean usePool)
+   at System.Data.SQLite.SQLiteConnection.Open()
+   at Arian_project.Backend.stores_database.stores_list(String sql_query) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\stores_database.cs:line 29
+1404-6-1T0:23 factors_counter get counts of factors in table
+1404-6-1T0:23 factors_counter SQL QUERY => SELECT COUNT(*) from factors
+1404-6-1T0:23 factors_counter code = CantOpen (14), message = System.Data.SQLite.SQLiteException (0x87AF03F3): unable to open database file
+   at System.Data.SQLite.SQLite3.Open(String strFilename, String vfsName, SQLiteConnectionFlags connectionFlags, SQLiteOpenFlagsEnum openFlags, Int32 maxPoolSize, Boolean usePool)
+   at System.Data.SQLite.SQLiteConnection.Open()
+   at Arian_project.backend.Database_data.run_one_item_data_query(String sql_query, String message_type, String logger_message_type) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\Database.cs:line 167
+1404-6-1T0:23 list_stores SQL QUERY => code = CantOpen (14), message = System.Data.SQLite.SQLiteException (0x87AF03F3): unable to open database file
+   at System.Data.SQLite.SQLite3.Open(String strFilename, String vfsName, SQLiteConnectionFlags connectionFlags, SQLiteOpenFlagsEnum openFlags, Int32 maxPoolSize, Boolean usePool)
+   at System.Data.SQLite.SQLiteConnection.Open()
+   at Arian_project.Backend.stores_database.list_stores() in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\stores_database.cs:line 108
+1404-6-1T0:23 list_stores get storte_ids list from tabble
+1404-6-1T0:23 stors database get stors list from stors table
+1404-6-1T0:23 stors database SQL QUERY => SELECT * FROM stors
+1404-6-1T0:23 stors database code = CantOpen (14), message = System.Data.SQLite.SQLiteException (0x87AF03F3): unable to open database file
+   at System.Data.SQLite.SQLite3.Open(String strFilename, String vfsName, SQLiteConnectionFlags connectionFlags, SQLiteOpenFlagsEnum openFlags, Int32 maxPoolSize, Boolean usePool)
+   at System.Data.SQLite.SQLiteConnection.Open()
+   at Arian_project.Backend.stores_database.stores_list(String sql_query) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\stores_database.cs:line 29
+1404-6-1T0:28 stors database get stors list from stors table
+1404-6-1T0:28 stors database SQL QUERY => SELECT * FROM stors
+1404-6-1T0:28 stors database code = CantOpen (14), message = System.Data.SQLite.SQLiteException (0x87AF03F3): unable to open database file
+   at System.Data.SQLite.SQLite3.Open(String strFilename, String vfsName, SQLiteConnectionFlags connectionFlags, SQLiteOpenFlagsEnum openFlags, Int32 maxPoolSize, Boolean usePool)
+   at System.Data.SQLite.SQLiteConnection.Open()
+   at Arian_project.Backend.stores_database.stores_list(String sql_query) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\stores_database.cs:line 29
+1404-6-1T0:28 stores_counter get stors of stors in table
+1404-6-1T0:28 stores_counter SQL QUERY => SELECT COUNT(*) from stors
+1404-6-1T0:28 stores_counter code = CantOpen (14), message = System.Data.SQLite.SQLiteException (0x87AF03F3): unable to open database file
+   at System.Data.SQLite.SQLite3.Open(String strFilename, String vfsName, SQLiteConnectionFlags connectionFlags, SQLiteOpenFlagsEnum openFlags, Int32 maxPoolSize, Boolean usePool)
+   at System.Data.SQLite.SQLiteConnection.Open()
+   at Arian_project.backend.Database_data.run_one_item_data_query(String sql_query, String message_type, String logger_message_type) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\Database.cs:line 167
+1404-6-1T0:28 insert_service_to_database insert new stor to stors table
+1404-6-1T0:28 insert_service_to_database SQL QUERY => INSERT INTO stors(id,store_id,item_name,buy_price,cell_price,count,buy_date,cell_date,service_item)VALUES('1','1','1','1','1','1','1','1','خیر')
+1404-6-1T0:28 insert_service_to_database code = CantOpen (14), message = System.Data.SQLite.SQLiteException (0x87AF03F3): unable to open database file
+   at System.Data.SQLite.SQLite3.Open(String strFilename, String vfsName, SQLiteConnectionFlags connectionFlags, SQLiteOpenFlagsEnum openFlags, Int32 maxPoolSize, Boolean usePool)
+   at System.Data.SQLite.SQLiteConnection.Open()
+   at Arian_project.backend.Database_data.run_sql_query(String sql_query, String message_type, String logger_message_type) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\Database.cs:line 145
+1404-6-1T0:28 stores_counter get stors of stors in table
+1404-6-1T0:28 stores_counter SQL QUERY => SELECT COUNT(*) from stors
+1404-6-1T0:28 stores_counter code = CantOpen (14), message = System.Data.SQLite.SQLiteException (0x87AF03F3): unable to open database file
+   at System.Data.SQLite.SQLite3.Open(String strFilename, String vfsName, SQLiteConnectionFlags connectionFlags, SQLiteOpenFlagsEnum openFlags, Int32 maxPoolSize, Boolean usePool)
+   at System.Data.SQLite.SQLiteConnection.Open()
+   at Arian_project.backend.Database_data.run_one_item_data_query(String sql_query, String message_type, String logger_message_type) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\Database.cs:line 167
+1404-6-1T0:28 insert_service_to_database insert new stor to stors table
+1404-6-1T0:28 insert_service_to_database SQL QUERY => INSERT INTO stors(id,store_id,item_name,buy_price,cell_price,count,buy_date,cell_date,service_item)VALUES('1','1','1','1','1','1','1','1','خیر')
+1404-6-1T0:28 insert_service_to_database code = CantOpen (14), message = System.Data.SQLite.SQLiteException (0x87AF03F3): unable to open database file
+   at System.Data.SQLite.SQLite3.Open(String strFilename, String vfsName, SQLiteConnectionFlags connectionFlags, SQLiteOpenFlagsEnum openFlags, Int32 maxPoolSize, Boolean usePool)
+   at System.Data.SQLite.SQLiteConnection.Open()
+   at Arian_project.backend.Database_data.run_sql_query(String sql_query, String message_type, String logger_message_type) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\Database.cs:line 145
+1404-6-1T0:28 check_databases creating database file and tables
+1404-6-1T0:28 stors database get stors list from stors table
+1404-6-1T0:28 stores_counter get stors of stors in table
+1404-6-1T0:28 insert_service_to_database insert new stor to stors table
+1404-6-1T0:28 stors database get stors list from stors table
+1404-6-1T0:28 stores_counter get stors of stors in table
+1404-6-1T0:28 insert_service_to_database insert new stor to stors table
+1404-6-1T0:28 stors database get stors list from stors table
+1404-6-1T0:28 stores_counter get stors of stors in table
+1404-6-1T0:28 insert_service_to_database insert new stor to stors table
+1404-6-1T0:28 stors database get stors list from stors table
+1404-6-1T0:28 stores_counter get stors of stors in table
+1404-6-1T0:28 insert_service_to_database insert new stor to stors table
+1404-6-1T0:28 stors database get stors list from stors table
+1404-6-1T0:29 factors_counter get counts of factors in table
+1404-6-1T0:29 stors database get stors list from stors table
+1404-6-1T0:29 stors database get stors list from stors table
+1404-6-1T0:29 stors database get stors list from stors table
+1404-6-1T0:29 stors database get stors list from stors table
+1404-6-1T0:29 clients database get clients list from clients table
+1404-6-1T0:29 clients database get clients list from clients table
+1404-6-1T0:30 factors_counter get counts of factors in table
+1404-6-1T0:30 stors database get stors list from stors table
+1404-6-1T0:30 stors database get stors list from stors table
+1404-6-1T0:30 factors_counter get counts of factors in table
+1404-6-1T0:30 stors database get stors list from stors table
+1404-6-1T0:30 stors database get stors list from stors table
+1404-6-1T0:32 factors_counter get counts of factors in table
+1404-6-1T0:32 stors database get stors list from stors table
+1404-6-1T0:32 stors database get stors list from stors table
+1404-6-1T0:32 stors database get stors list from stors table
+1404-6-1T0:32 stors database get stors list from stors table
+1404-6-1T0:32 stors database get stors list from stors table
+1404-6-1T0:32 stors database get stors list from stors table
+1404-6-1T0:32 stors database get stors list from stors table
+1404-6-1T0:32 stors database get stors list from stors table
+1404-6-1T0:32 stors database get stors list from stors table
+1404-6-1T0:32 stors database get stors list from stors table
+1404-6-1T0:32 stors database get stors list from stors table
+1404-6-1T0:32 stors database get stors list from stors table
+1404-6-1T0:33 factors_counter get counts of factors in table
+1404-6-1T0:33 stors database get stors list from stors table
+1404-6-1T0:33 stors database get stors list from stors table
+1404-6-1T0:34 factors_counter get counts of factors in table
+1404-6-1T0:36 factors_counter get counts of factors in table
+1404-6-1T0:36 stors database get stors list from stors table
+1404-6-1T0:36 stors database get stors list from stors table
+1404-6-1T0:38 factors_counter get counts of factors in table
+1404-6-1T0:38 factors_counter get counts of factors in table
+1404-6-1T0:39 factors_counter get counts of factors in table
+1404-6-1T0:39 stors database get stors list from stors table
+1404-6-1T0:39 stors database get stors list from stors table
+1404-6-1T0:39 factors_counter get counts of factors in table
+1404-6-1T0:39 stors database get stors list from stors table
+1404-6-1T0:39 stors database get stors list from stors table
+1404-6-1T0:40 factors_counter get counts of factors in table
+1404-6-1T0:40 stors database get stors list from stors table
+1404-6-1T0:40 stors database get stors list from stors table
+1404-6-1T0:45 factors_counter get counts of factors in table
+1404-6-1T0:45 stors database get stors list from stors table
+1404-6-1T0:45 stors database get stors list from stors table
+1404-6-1T1:0 factors_counter get counts of factors in table
+1404-6-1T1:0 stors database get stors list from stors table
+1404-6-1T1:0 stors database get stors list from stors table
+1404-6-1T1:1 factors_counter get counts of factors in table
+1404-6-1T1:1 stors database get stors list from stors table
+1404-6-1T1:1 stors database get stors list from stors table
+1404-6-1T1:1 stors database get stors list from stors table
+1404-6-1T1:1 stors database get stors list from stors table
+1404-6-1T1:1 factors_counter get counts of factors in table
+1404-6-1T1:1 stors database get stors list from stors table
+1404-6-1T1:1 stors database get stors list from stors table
+1404-6-1T1:1 stors database get stors list from stors table
+1404-6-1T1:1 stors database get stors list from stors table
+1404-6-1T1:1 stors database get stors list from stors table
+1404-6-1T1:1 stors database get stors list from stors table
+1404-6-1T1:1 stors database get stors list from stors table
+1404-6-1T1:1 stors database get stors list from stors table
+1404-6-1T1:2 factors_counter get counts of factors in table
+1404-6-1T1:2 stors database get stors list from stors table
+1404-6-1T1:2 stors database get stors list from stors table
+1404-6-1T1:2 stors database get stors list from stors table
+1404-6-1T1:2 stors database get stors list from stors table
+1404-6-1T1:4 factors_counter get counts of factors in table
+1404-6-1T1:4 stors database get stors list from stors table
+1404-6-1T1:4 stors database get stors list from stors table
+1404-6-1T1:4 stors database get stors list from stors table
+1404-6-1T1:4 stors database get stors list from stors table
+1404-6-1T1:7 factors_counter get counts of factors in table
+1404-6-1T1:7 stors database get stors list from stors table
+1404-6-1T1:7 stors database get stors list from stors table
+1404-6-1T1:7 stors database get stors list from stors table
+1404-6-1T1:7 stors database get stors list from stors table
+1404-6-1T1:7 factors_counter get counts of factors in table
+1404-6-1T1:7 stors database get stors list from stors table
+1404-6-1T1:7 stors database get stors list from stors table
+1404-6-1T1:7 stors database get stors list from stors table
+1404-6-1T1:7 stors database get stors list from stors table
+1404-6-1T1:8 factors_counter get counts of factors in table
+1404-6-1T1:8 stors database get stors list from stors table
+1404-6-1T1:8 stors database get stors list from stors table
+1404-6-1T1:8 stors database get stors list from stors table
+1404-6-1T1:8 stors database get stors list from stors table
+1404-6-1T1:8 stors database get stors list from stors table
+1404-6-1T1:8 stors database get stors list from stors table
+1404-6-1T1:8 stors database get stors list from stors table
+1404-6-1T1:8 stors database get stors list from stors table
+1404-6-1T1:8 stors database get stors list from stors table
+1404-6-1T1:8 stors database get stors list from stors table
+1404-6-1T1:9 factors_counter get counts of factors in table
+1404-6-1T1:9 stors database get stors list from stors table
+1404-6-1T1:9 stors database get stors list from stors table
+1404-6-1T1:10 factors_counter get counts of factors in table
+1404-6-1T1:10 stors database get stors list from stors table
+1404-6-1T1:10 stors database get stors list from stors table
+1404-6-1T1:12 factors_counter get counts of factors in table
+1404-6-1T1:13 factors_counter get counts of factors in table
+1404-6-1T1:13 stors database get stors list from stors table
+1404-6-1T1:13 stors database get stors list from stors table
+1404-6-1T1:21 factors_counter get counts of factors in table
+1404-6-1T1:21 stors database get stors list from stors table
+1404-6-1T1:21 stors database get stors list from stors table
+1404-6-1T1:21 factors_counter get counts of factors in table
+1404-6-1T1:21 stors database get stors list from stors table
+1404-6-1T1:21 stors database get stors list from stors table
+1404-6-1T1:22 factors_counter get counts of factors in table
+1404-6-1T1:22 stors database get stors list from stors table
+1404-6-1T1:22 stors database get stors list from stors table
+1404-6-1T1:24 factors_counter get counts of factors in table
+1404-6-1T1:24 stors database get stors list from stors table
+1404-6-1T1:24 stors database get stors list from stors table
+1404-6-1T1:25 factors_counter get counts of factors in table
+1404-6-1T1:25 stors database get stors list from stors table
+1404-6-1T1:25 stors database get stors list from stors table
+1404-6-1T1:27 factors_counter get counts of factors in table
+1404-6-1T1:27 stors database get stors list from stors table
+1404-6-1T1:27 stors database get stors list from stors table
+1404-6-1T1:29 factors_counter get counts of factors in table
+1404-6-1T1:29 stors database get stors list from stors table
+1404-6-1T1:29 stors database get stors list from stors table
+1404-6-1T1:30 factors_counter get counts of factors in table
+1404-6-1T1:30 factors_counter get counts of factors in table
+1404-6-1T1:31 factors_counter get counts of factors in table
+1404-6-1T1:31 clients database get clients list from clients table
+1404-6-1T1:31 clients database get clients list from clients table
+1404-6-1T1:36 factors_counter get counts of factors in table
+1404-6-1T1:37 factors_counter get counts of factors in table
+1404-6-1T1:37 stors database get stors list from stors table
+1404-6-1T1:37 stors database get stors list from stors table
+1404-6-1T1:37 stors database get stors list from stors table
+1404-6-1T1:37 stors database get stors list from stors table
+1404-6-1T1:37 clients database get clients list from clients table
+1404-6-1T1:37 clients database get clients list from clients table
+1404-6-1T1:39 factors_counter get counts of factors in table
+1404-6-1T1:39 stors database get stors list from stors table
+1404-6-1T1:39 stors database get stors list from stors table
+1404-6-1T1:39 stors database get stors list from stors table
+1404-6-1T1:39 stors database get stors list from stors table
+1404-6-1T1:39 stors database get stors list from stors table
+1404-6-1T1:39 stors database get stors list from stors table
+1404-6-1T1:39 stors database get stors list from stors table
+1404-6-1T1:39 factors_counter get counts of factors in table
+1404-6-1T1:39 stors database get stors list from stors table
+1404-6-1T1:39 stors database get stors list from stors table
+1404-6-1T1:39 stors database get stors list from stors table
+1404-6-1T1:39 stors database get stors list from stors table
+1404-6-1T1:39 stors database get stors list from stors table
+1404-6-1T1:39 stors database get stors list from stors table
+1404-6-1T1:39 stors database get stors list from stors table
+1404-6-1T1:39 stors database get stors list from stors table
+1404-6-1T1:39 stors database get stors list from stors table
+1404-6-1T1:39 clients database get clients list from clients table
+1404-6-1T1:39 clients database get clients list from clients table
+1404-6-1T1:39 clients_count get clients count from clients table
+1404-6-1T1:39 clients database get clients list from clients table
+1404-6-1T1:39 insert_client_to_database insert new client to clients table
+1404-6-1T1:39 clients database get clients list from clients table
+1404-6-1T1:39 insert_client_to_database insert new client to clients table
+1404-6-1T1:39 clients database get clients list from clients table
+1404-6-1T1:39 insert_client_to_database insert new client to clients table
+1404-6-1T1:39 clients database get clients list from clients table
+1404-6-1T1:39 factors_counter get counts of factors in table
+1404-6-1T1:39 stors database get stors list from stors table
+1404-6-1T1:39 stors database get stors list from stors table
+1404-6-1T1:39 clients database get clients list from clients table
+1404-6-1T1:39 clients database get clients list from clients table
+1404-6-1T1:39 clients database get clients list from clients table
+1404-6-1T1:39 clients database get clients list from clients table
+1404-6-1T1:39 clients database get clients list from clients table
+1404-6-1T1:39 clients database get clients list from clients table
+1404-6-1T1:39 clients database get clients list from clients table
+1404-6-1T1:39 clients database get clients list from clients table
+1404-6-1T1:39 clients database get clients list from clients table
+1404-6-1T1:39 clients database get clients list from clients table
+1404-6-1T1:39 clients database get clients list from clients table
+1404-6-1T1:39 clients database get clients list from clients table
+1404-6-1T1:39 clients database get clients list from clients table
+1404-6-1T1:39 clients database get clients list from clients table
+1404-6-1T1:39 clients database get clients list from clients table
+1404-6-1T1:39 clients database get clients list from clients table
+1404-6-1T1:39 clients database get clients list from clients table
+1404-6-1T1:39 clients database get clients list from clients table
+1404-6-1T1:39 clients database get clients list from clients table
+1404-6-1T1:39 clients database get clients list from clients table
+1404-6-1T1:39 clients database get clients list from clients table
+1404-6-1T1:39 clients database get clients list from clients table
+1404-6-1T1:39 clients database get clients list from clients table
+1404-6-1T1:39 clients database get clients list from clients table
+1404-6-1T1:41 factors_counter get counts of factors in table
+1404-6-1T1:41 clients database get clients list from clients table
+1404-6-1T1:41 clients database get clients list from clients table
+1404-6-1T1:41 clients database get clients list from clients table
+1404-6-1T1:41 clients database get clients list from clients table
+1404-6-1T1:41 clients database get clients list from clients table
+1404-6-1T1:41 factors_counter get counts of factors in table
+1404-6-1T1:42 factors_counter get counts of factors in table
+1404-6-1T1:42 clients database get clients list from clients table
+1404-6-1T1:42 clients database get clients list from clients table
+1404-6-1T1:42 clients database get clients list from clients table
+1404-6-1T1:42 clients database get clients list from clients table
+1404-6-1T1:42 clients database get clients list from clients table
+1404-6-1T1:42 clients database get clients list from clients table
+1404-6-1T1:42 clients database get clients list from clients table
+1404-6-1T1:42 clients database get clients list from clients table
+1404-6-1T1:42 clients database get clients list from clients table
+1404-6-1T1:42 clients database get clients list from clients table
+1404-6-1T1:42 clients database get clients list from clients table
+1404-6-1T1:42 clients database get clients list from clients table
+1404-6-1T1:42 clients database get clients list from clients table
+1404-6-1T1:42 clients database get clients list from clients table
+1404-6-1T1:42 clients database get clients list from clients table
+1404-6-1T1:42 clients database get clients list from clients table
+1404-6-1T1:42 clients database get clients list from clients table
+1404-6-1T1:42 clients database get clients list from clients table
+1404-6-1T1:42 clients database get clients list from clients table
+1404-6-1T1:42 clients database get clients list from clients table
+1404-6-1T1:42 clients database get clients list from clients table
+1404-6-1T1:42 clients database get clients list from clients table
+1404-6-1T1:42 clients database get clients list from clients table
+1404-6-1T1:42 clients database get clients list from clients table

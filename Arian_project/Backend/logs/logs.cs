@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.IO;
 using System.Reflection;
+using System.Windows.Forms;
 namespace ghest.Backend.Logs
 {
     internal class log
@@ -95,7 +96,6 @@ namespace ghest.Backend.Logs
         {
             if (!Directory.Exists(Dir))
             {
-
                 Directory.CreateDirectory(Dir);
             }
             if (!File.Exists(TodayLog))
@@ -112,9 +112,17 @@ namespace ghest.Backend.Logs
 
         public void record_log(string Message, string TypeOfMessage)
         {
-            var Sw = File.AppendText(TodayLog);
-            Sw.WriteLine(TimeStamp + " " + TypeOfMessage + " " + Message);
-            Sw.Close();
+            try
+            {
+                var Sw = File.AppendText(TodayLog);
+                Sw.WriteLine(TimeStamp + " " + TypeOfMessage + " " + Message);
+                Sw.Close();
+
+            }
+            catch(Exception _)
+            {
+                check_log_files();
+            }
         }
 
     }

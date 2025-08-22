@@ -23,75 +23,243 @@ namespace Arian_project.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("14")]
         public int List_Font_Size {
             get {
                 return ((int)(this["List_Font_Size"]));
             }
+            set {
+                this["List_Font_Size"] = value;
+            }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("14")]
         public int Font_Size {
             get {
                 return ((int)(this["Font_Size"]));
             }
+            set {
+                this["Font_Size"] = value;
+            }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool List_Font_Bold {
             get {
                 return ((bool)(this["List_Font_Bold"]));
             }
+            set {
+                this["List_Font_Bold"] = value;
+            }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool Font_Bold {
             get {
                 return ((bool)(this["Font_Bold"]));
             }
+            set {
+                this["Font_Bold"] = value;
+            }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool Theme_Dark_Light {
             get {
                 return ((bool)(this["Theme_Dark_Light"]));
             }
+            set {
+                this["Theme_Dark_Light"] = value;
+            }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Arial")]
         public string Font_Name {
             get {
                 return ((string)(this["Font_Name"]));
             }
+            set {
+                this["Font_Name"] = value;
+            }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("SlateGray")]
         public global::System.Drawing.Color Background_Colour {
             get {
                 return ((global::System.Drawing.Color)(this["Background_Colour"]));
             }
+            set {
+                this["Background_Colour"] = value;
+            }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("DodgerBlue")]
         public global::System.Drawing.Color Button_Colour {
             get {
                 return ((global::System.Drawing.Color)(this["Button_Colour"]));
+            }
+            set {
+                this["Button_Colour"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("19, 19, 19")]
+        public global::System.Drawing.Color Theme_Main_Color {
+            get {
+                return ((global::System.Drawing.Color)(this["Theme_Main_Color"]));
+            }
+            set {
+                this["Theme_Main_Color"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("DodgerBlue")]
+        public global::System.Drawing.Color Theme_Secondary_Color {
+            get {
+                return ((global::System.Drawing.Color)(this["Theme_Secondary_Color"]));
+            }
+            set {
+                this["Theme_Secondary_Color"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("DodgerBlue")]
+        public global::System.Drawing.Color Theme_Accent_Color {
+            get {
+                return ((global::System.Drawing.Color)(this["Theme_Accent_Color"]));
+            }
+            set {
+                this["Theme_Accent_Color"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Theme_Mode {
+            get {
+                return ((bool)(this["Theme_Mode"]));
+            }
+            set {
+                this["Theme_Mode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 192, 192")]
+        public global::System.Drawing.Color Theme_Bt_Color {
+            get {
+                return ((global::System.Drawing.Color)(this["Theme_Bt_Color"]));
+            }
+            set {
+                this["Theme_Bt_Color"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Segoe UI")]
+        public string Theme_Font {
+            get {
+                return ((string)(this["Theme_Font"]));
+            }
+            set {
+                this["Theme_Font"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Microsoft Sans Serif, 8.25pt")]
+        public global::System.Drawing.Font Theme_Bt_Font {
+            get {
+                return ((global::System.Drawing.Font)(this["Theme_Bt_Font"]));
+            }
+            set {
+                this["Theme_Bt_Font"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Theme_Bt_Font_Bold {
+            get {
+                return ((bool)(this["Theme_Bt_Font_Bold"]));
+            }
+            set {
+                this["Theme_Bt_Font_Bold"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Theme_Bt_Font_Size {
+            get {
+                return ((int)(this["Theme_Bt_Font_Size"]));
+            }
+            set {
+                this["Theme_Bt_Font_Size"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Segoe UI, 8.25pt")]
+        public global::System.Drawing.Font Theme_Lb_Font {
+            get {
+                return ((global::System.Drawing.Font)(this["Theme_Lb_Font"]));
+            }
+            set {
+                this["Theme_Lb_Font"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Theme_Lb_Font_Bold {
+            get {
+                return ((bool)(this["Theme_Lb_Font_Bold"]));
+            }
+            set {
+                this["Theme_Lb_Font_Bold"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Theme_Lb_Font_Size {
+            get {
+                return ((int)(this["Theme_Lb_Font_Size"]));
+            }
+            set {
+                this["Theme_Lb_Font_Size"] = value;
             }
         }
     }

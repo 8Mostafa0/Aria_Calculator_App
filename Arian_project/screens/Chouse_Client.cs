@@ -1,5 +1,6 @@
 ﻿using Arian_project.backend;
 using Arian_project.Backend.styles;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
@@ -46,22 +47,33 @@ namespace Arian_project.screens
 
             }
         }
-
-        private void Chouse_Client_Load_1(object sender, System.EventArgs e)
+        private void Load_Clients()
         {
+
             Clients_List.Rows.Clear();
             new Style().Clients_List_Style(Clients_List);
             Clients_Lits_Set = clients_db.Clients_list();
+        }
+        private void Chouse_Client_Load_1(object sender, System.EventArgs e)
+        {
+            Load_Clients();
             fill_clients_type_cb();
             clear_data();
 
         }
         private void clear_data()
         {
-            name_tb.Text = "";
-            phone_tb.Text = "";
-            home_phone_tb.Text = "";
-            client_type_cb.SelectedIndex = 0;
+            try
+            {
+                name_tb.Text = "";
+                phone_tb.Text = "";
+                home_phone_tb.Text = "";
+                client_type_cb.SelectedIndex = 0;
+            }catch(Exception _)
+            {
+
+                Load_Clients();
+            }
         }
         private void SelectRowFillFields(int id)
         {
@@ -88,43 +100,84 @@ namespace Arian_project.screens
 
         private void name_tb_TextChanged(object sender, System.EventArgs e)
         {
-            string name = name_tb.Text;
-            string sql_query = "";
-            if (name != "")
+            try
             {
-                sql_query = $"SELECT * FROM clients WHERE user_name LIKE '%{name}%'";
+
+                string name = name_tb.Text;
+                string sql_query = "";
+                if (name != "")
+                {
+                    sql_query = $"SELECT * FROM clients WHERE user_name LIKE '%{name}%'";
+                }
+                DataTable users = clients_db.Clients_list(sql_query);
+                Clients_List.Rows.Clear();
+                Clients_Lits_Set = users;
             }
-            DataTable users = clients_db.Clients_list(sql_query);
-            Clients_List.Rows.Clear();
-            Clients_Lits_Set = users;
+            catch (Exception _)
+            {
+                Load_Clients();
+            }
         }
 
         private void phone_tb_TextChanged(object sender, System.EventArgs e)
         {
-
-            string name = phone_tb.Text;
-            string sql_query = "";
-            if (name != "")
+            try
             {
-                sql_query = $"SELECT * FROM clients WHERE phone_number LIKE '%{name}%'";
+                string name = phone_tb.Text;
+                string sql_query = "";
+                if (name != "")
+                {
+                    sql_query = $"SELECT * FROM clients WHERE phone_number LIKE '%{name}%'";
+                }
+                DataTable users = clients_db.Clients_list(sql_query);
+                Clients_List.Rows.Clear();
+                Clients_Lits_Set = users;
+
+            }catch(Exception _)
+            {
+                Load_Clients();
             }
-            DataTable users = clients_db.Clients_list(sql_query);
-            Clients_List.Rows.Clear();
-            Clients_Lits_Set = users;
         }
 
         private void home_phone_tb_TextChanged(object sender, System.EventArgs e)
         {
-
-            string name = home_phone_tb.Text;
-            string sql_query = "";
-            if (name != "")
+            try
             {
-                sql_query = $"SELECT * FROM clients WHERE home_number LIKE '%{name}%'";
+                string name = home_phone_tb.Text;
+                string sql_query = "";
+                if (name != "")
+                {
+                    sql_query = $"SELECT * FROM clients WHERE home_number LIKE '%{name}%'";
+                }
+                DataTable users = clients_db.Clients_list(sql_query);
+                Clients_List.Rows.Clear();
+                Clients_Lits_Set = users;
+
+            }catch(Exception _)
+            {
+                Load_Clients();
             }
-            DataTable users = clients_db.Clients_list(sql_query);
-            Clients_List.Rows.Clear();
-            Clients_Lits_Set = users;
+        }
+
+        private void client_type_cb_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string name = client_type_cb.Text;
+                string sql_query = "";
+                if (name != "")
+                {
+                    sql_query = $"SELECT * FROM clients WHERE client_type LIKE '%{name}%'";
+                }
+                DataTable users = clients_db.Clients_list(sql_query);
+                Clients_List.Rows.Clear();
+                Clients_Lits_Set = users;
+                
+            }catch (Exception _)
+            {
+                Load_Clients();
+
+            }
         }
     }
 }

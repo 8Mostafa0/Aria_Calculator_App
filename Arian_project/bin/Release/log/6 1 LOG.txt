@@ -1,0 +1,22 @@
+1404-6-1T1:4 factors_counter SQL QUERY => SELECT COUNT(*) from factors
+1404-6-1T1:4 factors_counter code = CantOpen (14), message = System.Data.SQLite.SQLiteException (0x87AF03F3): unable to open database file
+   at System.Data.SQLite.SQLite3.Open(String strFilename, String vfsName, SQLiteConnectionFlags connectionFlags, SQLiteOpenFlagsEnum openFlags, Int32 maxPoolSize, Boolean usePool)
+   at System.Data.SQLite.SQLiteConnection.Open()
+   at Arian_project.backend.Database_data.run_one_item_data_query(String sql_query, String message_type, String logger_message_type) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\Database.cs:line 167
+1404-6-1T1:7 factors_counter get counts of factors in table
+1404-6-1T1:7 factors_counter SQL QUERY => SELECT COUNT(*) from factors
+1404-6-1T1:7 factors_counter code = CantOpen (14), message = System.Data.SQLite.SQLiteException (0x87AF03F3): unable to open database file
+   at System.Data.SQLite.SQLite3.Open(String strFilename, String vfsName, SQLiteConnectionFlags connectionFlags, SQLiteOpenFlagsEnum openFlags, Int32 maxPoolSize, Boolean usePool)
+   at System.Data.SQLite.SQLiteConnection.Open()
+   at Arian_project.backend.Database_data.run_one_item_data_query(String sql_query, String message_type, String logger_message_type) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\Database.cs:line 167
+1404-6-1T1:7 list_stores SQL QUERY => code = CantOpen (14), message = System.Data.SQLite.SQLiteException (0x87AF03F3): unable to open database file
+   at System.Data.SQLite.SQLite3.Open(String strFilename, String vfsName, SQLiteConnectionFlags connectionFlags, SQLiteOpenFlagsEnum openFlags, Int32 maxPoolSize, Boolean usePool)
+   at System.Data.SQLite.SQLiteConnection.Open()
+   at Arian_project.Backend.stores_database.list_stores() in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\stores_database.cs:line 108
+1404-6-1T1:7 list_stores get storte_ids list from tabble
+1404-6-1T1:7 stors database get stors list from stors table
+1404-6-1T1:7 stors database SQL QUERY => SELECT * FROM stors
+1404-6-1T1:7 stors database code = CantOpen (14), message = System.Data.SQLite.SQLiteException (0x87AF03F3): unable to open database file
+   at System.Data.SQLite.SQLite3.Open(String strFilename, String vfsName, SQLiteConnectionFlags connectionFlags, SQLiteOpenFlagsEnum openFlags, Int32 maxPoolSize, Boolean usePool)
+   at System.Data.SQLite.SQLiteConnection.Open()
+   at Arian_project.Backend.stores_database.stores_list(String sql_query) in D:\CODES\Aria_Calculator_App\Arian_project\Backend\Database\stores_database.cs:line 29

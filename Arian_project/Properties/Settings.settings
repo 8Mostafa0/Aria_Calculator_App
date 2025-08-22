@@ -2,29 +2,65 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Arian_project.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="List_Font_Size" Type="System.Int32" Scope="Application">
+    <Setting Name="List_Font_Size" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">14</Value>
     </Setting>
-    <Setting Name="Font_Size" Type="System.Int32" Scope="Application">
+    <Setting Name="Font_Size" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">14</Value>
     </Setting>
-    <Setting Name="List_Font_Bold" Type="System.Boolean" Scope="Application">
+    <Setting Name="List_Font_Bold" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="Font_Bold" Type="System.Boolean" Scope="Application">
+    <Setting Name="Font_Bold" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="Theme_Dark_Light" Type="System.Boolean" Scope="Application">
+    <Setting Name="Theme_Dark_Light" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="Font_Name" Type="System.String" Scope="Application">
+    <Setting Name="Font_Name" Type="System.String" Scope="User">
       <Value Profile="(Default)">Arial</Value>
     </Setting>
-    <Setting Name="Background_Colour" Type="System.Drawing.Color" Scope="Application">
+    <Setting Name="Background_Colour" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">SlateGray</Value>
     </Setting>
-    <Setting Name="Button_Colour" Type="System.Drawing.Color" Scope="Application">
+    <Setting Name="Button_Colour" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">DodgerBlue</Value>
+    </Setting>
+    <Setting Name="Theme_Main_Color" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">19, 19, 19</Value>
+    </Setting>
+    <Setting Name="Theme_Secondary_Color" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">DodgerBlue</Value>
+    </Setting>
+    <Setting Name="Theme_Accent_Color" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">DodgerBlue</Value>
+    </Setting>
+    <Setting Name="Theme_Mode" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="Theme_Bt_Color" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">0, 192, 192</Value>
+    </Setting>
+    <Setting Name="Theme_Font" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Segoe UI</Value>
+    </Setting>
+    <Setting Name="Theme_Bt_Font" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">Microsoft Sans Serif, 8.25pt</Value>
+    </Setting>
+    <Setting Name="Theme_Bt_Font_Bold" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="Theme_Bt_Font_Size" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="Theme_Lb_Font" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">Segoe UI, 8.25pt</Value>
+    </Setting>
+    <Setting Name="Theme_Lb_Font_Bold" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="Theme_Lb_Font_Size" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
   </Settings>
 </SettingsFile>

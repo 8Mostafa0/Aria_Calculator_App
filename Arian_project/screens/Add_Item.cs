@@ -4,6 +4,7 @@ using Arian_project.Backend;
 using System.Collections.Generic;
 using Arian_project.Backend.styles;
 using ghest.Backend.Logs;
+using System.Data;
 
 namespace Arian_project.screens
 {
@@ -95,16 +96,40 @@ namespace Arian_project.screens
             selected_id = 0;
             items_list.ClearSelection();
         }
+
+        DataTable set_items_list
+        {
+            set
+            {
+
+                List<DataGridViewRow> rows = new List<DataGridViewRow>();
+                for (int i = 0; i <= value.Rows.Count - 1; i++)
+                {
+                    var d = value.Rows[i];
+                    DataGridViewRow row = new DataGridViewRow();
+                    row.CreateCells(items_list);
+                    row.Cells[0].Value = d[0];
+                    row.Cells[1].Value = d[1];
+                    row.Cells[2].Value = d[2];
+                    row.Cells[3].Value = d[3];
+                    row.Cells[4].Value = d[4];
+                    row.Cells[5].Value = d[5];
+                    row.Cells[6].Value = d[6];
+                    row.Cells[7].Value = d[7];
+                    rows.Add(row);
+                }
+                items_list.Rows.AddRange(rows.ToArray());
+                items_list.ClearSelection();
+
+            }
+        }
+
         private void Load_Items_To_List()
         {
             items_list.Rows.Clear();
 
-            List<Store> items = new stores_database().stores_list();
-            selected_id = 0;
-            foreach (var item in items)
-            {
-                items_list.Rows.Add(item.id, item.store_id, item.item_name, item.buy_price, item.cell_price, item.count, item.buy_date, item.cell_date, item.service_item);
-            }
+            DataTable items = new stores_database().stores_list();
+            set_items_list = items;
             items_list.ClearSelection();
         }
         private void edit_item_bt_Click(object sender, EventArgs e)

@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Data.SQLite;
-using System;
-using Arian_project.backend;
+﻿using Arian_project.backend;
 using ghest.Backend.Logs;
+using System;
+
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SQLite;
 
 namespace Arian_project.Backend
 {
@@ -11,7 +13,7 @@ namespace Arian_project.Backend
         private log logger = new log();
 
         Database_data database = new Database_data();
-        public List<Store> stores_list(string sql_query = "")
+        public DataTable stores_list(string sql_query = "")
         {
             string logger_message_type = "stors database";
             logger.record_log("get stors list from stors table", logger_message_type);
@@ -19,7 +21,7 @@ namespace Arian_project.Backend
             {
                 sql_query = "SELECT * FROM stors";
             }
-            var stors = new List<Store>();
+            DataTable stors = new DataTable();
             try
             {
                 using (var connection = database.connection_to_db())
@@ -27,25 +29,11 @@ namespace Arian_project.Backend
                     connection.Open();
                     using (var command = new SQLiteCommand(sql_query, connection))
                     {
-                        var reader = command.ExecuteReader();
-                        if (reader.HasRows)
+                        using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(command))
                         {
-                            while (reader.Read())
-                            {
-                                stors.Add(new Store(
-                                    reader.GetInt32(0),
-                                    reader.GetInt32(1),
-                                    reader.GetString(2),
-                                    reader.GetInt32(3),
-                                    reader.GetInt32(4),
-                                    reader.GetInt32(5),
-                                    reader.GetString(6),
-                                    reader.GetString(7),
-                                    reader.GetString(8)));
-                            }
+                            adapter.Fill(stors);
                         }
                     }
-
                     connection.Close();
                 }
 
@@ -93,6 +81,7 @@ namespace Arian_project.Backend
             }
             return result;
         }
+
         public bool delete_stor_from_database(int id)
         {
             string logger_message_type = "delete_stor_from_database";
@@ -104,6 +93,42 @@ namespace Arian_project.Backend
                 result = database.run_sql_query(sql_query, message_type, logger_message_type);
             }
             return result;
+        }
+        public List<string> list_stores()
+        {
+            string logger_message_type = "list_stores";
+            string message_type = "get storte_ids list from tabble";
+            List<string> store_ids = new List<string>();
+            string sql_query = "SELECT DISTINCT store_id FROM stors";
+            DataSet dataSet = new DataSet();
+            try
+            {
+                using (var connection = new Database_data().connection_to_db())
+                {
+                    connection.Open();
+                    using (SQLiteCommand command = new SQLiteCommand(sql_query, connection))
+                    {
+                        using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(command))
+                        {
+                            adapter.Fill(dataSet);
+                        }
+                    }
+                    connection.Close();
+                }
+                if (dataSet.Tables.Count > 0)
+                {
+                    foreach (DataRow row in dataSet.Tables[0].Rows)
+                    {
+                        store_ids.Add(row["store_id"].ToString());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.record_log("SQL QUERY => " + ex, logger_message_type);
+                logger.record_log(message_type, logger_message_type);
+            }
+            return store_ids;
         }
     }
 }
