@@ -40,7 +40,8 @@ namespace Arian_project.Backend
                                     reader.GetInt32(2),
                                     reader.GetInt32(3),
                                     reader.GetInt32(4),
-                                    reader.GetInt32(5)
+                                    reader.GetInt32(5),
+                                    reader.GetInt32(6)
                                     ));
                             }
                         }
@@ -76,7 +77,7 @@ namespace Arian_project.Backend
             bool result = false;
             if (sub_factor.id != 0)
             {
-                string sql_query = $"INSERT INTO sub_factors(id,factor_id,item_id,buy_price,cell_price,profit)VALUES('{sub_factor.id}','{sub_factor.factor_id}','{sub_factor.item_id}','{sub_factor.buy_price}','{sub_factor.cell_price}','{sub_factor.profit}')";
+                string sql_query = $"INSERT INTO sub_factors(id,factor_id,item_id,buy_price,cell_price,profit,count)VALUES('{sub_factor.id}','{sub_factor.factor_id}','{sub_factor.item_id}','{sub_factor.buy_price}','{sub_factor.cell_price}','{sub_factor.profit}','{sub_factor.count}')";
                 result = database.run_sql_query(sql_query, message_type, logger_message_type);
             }
             return result;
@@ -88,7 +89,7 @@ namespace Arian_project.Backend
             bool result = false;
             if (sub_factor.id != 0)
             {
-                string sql_query = $"UPDATE sub_factors SET factor_id='{sub_factor.factor_id }',item_id='{sub_factor.item_id}',buy_price='{sub_factor.buy_price}',cell_price='{sub_factor.cell_price}',profit='{sub_factor.profit}' WHERE id='{sub_factor.id}'";
+                string sql_query = $"UPDATE sub_factors SET factor_id='{sub_factor.factor_id }',item_id='{sub_factor.item_id}',buy_price='{sub_factor.buy_price}',cell_price='{sub_factor.cell_price}',profit='{sub_factor.profit}',count='{sub_factor.count}' WHERE id='{sub_factor.id}'";
                 result = database.run_sql_query(sql_query, message_type, logger_message_type);
             }
             return result;

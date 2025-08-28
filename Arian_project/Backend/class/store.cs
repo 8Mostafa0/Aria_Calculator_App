@@ -6,14 +6,14 @@ namespace Arian_project
         public int id {  get; set; }
         public int store_id { get; set; }
         public string item_name { get; set; }
-        public int buy_price { get; set; }
-        public int cell_price {  get; set; }
+        public decimal buy_price { get; set; }
+        public decimal cell_price {  get; set; }
         public int count { get; set; }
         public string buy_date {  get; set; }
         public string cell_date { get; set; }
         public string service_item {  get; set; }
 
-        public Store(int id, int store_id, string item_name, int buy_price, int cell_price, int count, string buy_date, string cell_date, string service_item)
+        public Store(int id, int store_id, string item_name, decimal buy_price, decimal cell_price, int count, string buy_date, string cell_date, string service_item)
         {
             this.id = id;
             this.store_id = store_id;

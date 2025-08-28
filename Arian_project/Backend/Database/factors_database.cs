@@ -37,10 +37,11 @@ namespace Arian_project.Backend
                             {
                                 factors.Add(new Factor(reader.GetInt32(0),
                                     reader.GetInt32(1),
-                                    reader.GetInt32(2),
-                                    reader.GetInt32(3),
+                                    reader.GetDecimal(2),
+                                    reader.GetDecimal(3),
                                     reader.GetString(4),
-                                    reader.GetString(5)));
+                                    reader.GetString(5),
+                                    reader.GetString(6)));
                             }
                         }
                     }
@@ -77,7 +78,7 @@ namespace Arian_project.Backend
             bool result = false;
             if (factor.id != 0)
             {
-                string sql_query = $"INSERT INTO factors(id,client_id,full_price,profit,factor_date,client_group)VALUES('{factor.id}','{factor.client_id}','{factor.full_price}','{factor.profit}','{factor.factor_date}','{factor.client_group}')";
+                string sql_query = $"INSERT INTO factors(id,client_id,full_price,profit,factor_date,client_group,factor_status)VALUES('{factor.id}','{factor.client_id}','{factor.full_price}','{factor.profit}','{factor.factor_date}','{factor.client_group}','{factor.factor_status}')";
                 result = database.run_sql_query(sql_query, message_type, logger_message_type);
             }
             return result;
@@ -88,7 +89,7 @@ namespace Arian_project.Backend
             string message_type = "edite factor in factors table";
             bool result = false;
             if (factor.id != 0) {
-                string sql_query = $"UPDATE factors SET client_id='{factor.client_id}',full_price='{factor.full_price}',profit='{factor.profit}',factor_date='{factor.factor_date}',client_group='{factor.client_group}' WHERE id='{factor.id}'";
+                string sql_query = $"UPDATE factors SET client_id='{factor.client_id}',full_price='{factor.full_price}',profit='{factor.profit}',factor_date='{factor.factor_date}',client_group='{factor.client_group}',factor_status='{factor.factor_status}' WHERE id='{factor.id}'";
                 result = database.run_sql_query(sql_query, message_type, logger_message_type);
             }
             return result;

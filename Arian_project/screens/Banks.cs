@@ -60,7 +60,13 @@ namespace Arian_project.screens
             name_tb.Text = "";
             balance_tb.Text = "";
             bank_type_cb_items();
-            bank_type_cb.SelectedIndex = 0;
+            try
+            {
+                bank_type_cb.SelectedIndex = 0;
+            }
+            catch {
+                bank_type_cb.Text = "";
+            }
         }
         private void save_bt_Click(object sender, EventArgs e)
         {

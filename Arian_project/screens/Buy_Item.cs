@@ -1,19 +1,42 @@
-﻿using Arian_project.Backend;
+﻿using Arian_project.backend;
+using Arian_project.Backend;
 using Arian_project.Backend.styles;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Arian_project.screens
 {
     public partial class Buy_Item : Form
     {
-        public Buy_Item()
+        public bool Buy_Screen { get; set; }
+        public Client client {  get; set; }
+
+        factors_database factors_db = new factors_database();
+        stores_database stors_db = new stores_database();
+        Database_data db = new Database_data();
+        sub_factors_database sub_factor_db = new sub_factors_database();
+        transactions_database transaction_db = new transactions_database();
+        Style style = new Style();
+        public int factor_id { get; set; }
+
+        public int sub_factors_id = 1;
+
+        public string today_string { get; set; }
+        private decimal payments_full_price { get; set; }
+        private decimal items_full_profit { get; set; }
+        private decimal items_full_price { get; set; }
+
+        public Buy_Item(bool buy)
         {
             InitializeComponent();
+            this.items_full_price = 0;
+            this.items_full_profit = 0;
+            this.payments_full_price = 0;
+            this.Buy_Screen = buy;
             this.WindowState = FormWindowState.Maximized;
+            list_items.KeyDown += list_items_KeyDown; 
             Load_Screen();
         }
         private void Load_Screen()
@@ -26,13 +49,13 @@ namespace Arian_project.screens
         {
             iran_date date = new iran_date();
             int[] today_date = date.Today();
-            string string_date = today_date[0].ToString() + "/" + today_date[1].ToString() + "/" + today_date[2].ToString();
-            Date_lb.Text = string_date;
+            this.today_string = today_date[0].ToString() + "/" + today_date[1].ToString() + "/" + today_date[2].ToString();
+            Date_lb.Text = this.today_string;
         }
         private void Set_Factor_id()
         {
-            factors_database db = new factors_database();
-            Factor_id_lb.Text = (db.factors_counter() + 1).ToString();
+            this.factor_id = factors_db.factors_counter() + 1;
+            Factor_id_lb.Text = this.factor_id.ToString();
         }
         private void textBox2_Click(object sender, System.EventArgs e)
         {
@@ -41,7 +64,8 @@ namespace Arian_project.screens
                 try
                 {
                     Client user = screen.ReturnClient;
-                    if (user != null) { 
+                    if (user != null) {
+                        client = user;
                         Client_Name_tb.Text = user.user_name;
                         Client_phone_tb.Text = user.phone_number;
                     }
@@ -54,15 +78,32 @@ namespace Arian_project.screens
 
         private void Set_Style()
         {
-            new Style().Store_Items_List(list_items);
+            style.Payments_list_style(payments_llist);
+            style.Store_Items_List(list_items);
+            Theme_style theme = new Theme_style();
+            Font app_font = theme.app_font();
+            Color bt_color = theme.Theme_Bt_Color;
+            Color bg_color = theme.Theme_Mode?theme.Dark_Theme_Main_Color: theme.Light_Theme_Main_Color;
+            
+            label1.Font = app_font;
+            label2.Font = app_font;
+            label3.Font = app_font;
+            label4.Font = app_font;
+            Date_lb.Font = app_font;
+            Factor_id_lb.Font = app_font;
+
+            Client_Name_tb.Font = app_font;
+            Client_phone_tb.Font= app_font;
+
+            this.BackColor = bg_color;
         }
         private bool item_exist_in_list(int item_id) {
             if(list_items.Rows.Count > 1)
             {
                 foreach (DataGridViewRow i in list_items.Rows) { 
-                    if(i.Cells[0].Value != null)
+                    if(i.Cells[10].Value != null)
                     {
-                        if(int.Parse(i.Cells[0].Value.ToString()) == item_id)
+                        if(int.Parse(i.Cells[10].Value.ToString()) == item_id)
                         {
                             return true;
                         }
@@ -75,11 +116,11 @@ namespace Arian_project.screens
         {
             if (!item_exist_in_list(item.id))
             {
-
+                int id = list_items.Rows.Count ;
                 List<DataGridViewRow> rows = new List<DataGridViewRow>();
                 DataGridViewRow row = new DataGridViewRow();
                 row.CreateCells(list_items);
-                row.Cells[0].Value = item.id;
+                row.Cells[0].Value = id;
                 row.Cells[1].Value = item.store_id;
                 row.Cells[2].Value = item.item_name;
                 row.Cells[3].Value = item.buy_price;
@@ -89,6 +130,7 @@ namespace Arian_project.screens
                 row.Cells[7].Value = item.cell_date;
                 row.Cells[8].Value = item.service_item;
                 row.Cells[9].Value = "0";
+                row.Cells[10].Value = item.id;
                 rows.Add(row);
                 list_items.Rows.AddRange(rows.ToArray());
                 list_items.ClearSelection();
@@ -100,7 +142,7 @@ namespace Arian_project.screens
         }
         private void list_items_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 0) {
+            if (e.ColumnIndex == 2) {
                 using (Chouse_Item screen = new Chouse_Item()) { 
                     screen.ShowDialog();
                     Store item = screen.selected_item;
@@ -119,13 +161,497 @@ namespace Arian_project.screens
                 {
                     try
                     {
+                        int item_id = int.Parse(list_items.Rows[e.RowIndex].Cells[10].Value.ToString());
                         int price = int.Parse(list_items.Rows[e.RowIndex].Cells[4].Value.ToString());
                         int count = int.Parse(list_items.Rows[e.RowIndex].Cells[5].Value.ToString());
-
-                        int full_price = price * count;
-                        list_items.Rows[e.RowIndex].Cells[9].Value = full_price;
+                        int store_count = stors_db.get_item_by_id(item_id).count;
+                        if(store_count < count)
+                        {
+                            MessageBox.Show("تعداد وارد شده از موجودی انبار کمتر است", "موجودی انبار");
+                        }
+                        else
+                        {
+                            int full_price = price * count;
+                            list_items.Rows[e.RowIndex].Cells[9].Value = full_price;
+                        }
                     }
                     catch { }
+                }
+            }
+        }
+        private void get_full_factor_price_and_profit()
+        {
+            try
+            {
+                items_full_price = 0M;
+                items_full_profit = 0M;
+
+                foreach (DataGridViewRow row in list_items.Rows)
+                {
+                    if (!row.IsNewRow) 
+                    {
+                        if (row.Cells[3].Value != null && row.Cells[4].Value != null &&
+                            row.Cells[5].Value != null && row.Cells[9].Value != null)
+                        {
+                            decimal buy_price;
+                            decimal cell_price;
+                            int item_count;
+                            decimal full_price;
+
+                            if (!decimal.TryParse(row.Cells[3].Value.ToString(), out buy_price) ||
+                                !decimal.TryParse(row.Cells[4].Value.ToString(), out cell_price) ||
+                                !int.TryParse(row.Cells[5].Value.ToString(), out item_count) ||
+                                !decimal.TryParse(row.Cells[9].Value.ToString(), out full_price))
+                            {
+                                continue; 
+                            }
+
+                            decimal item_profit = (cell_price - buy_price) * item_count;
+                            items_full_profit += item_profit;
+                            items_full_price += full_price;
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"خطا در محاسبه قیمت و سود: {e.Message}", "خطا");
+            }
+        }
+        private List<Store> get_items_list()
+        {
+            List<Store> items = new List<Store>();
+            this.items_full_price =0;
+            this.items_full_profit = 0 ;
+            foreach (DataGridViewRow row in list_items.Rows)
+            {
+                if (!row.IsNewRow) 
+                {
+                    if (row.Cells[0].Value != null && row.Cells[1].Value != null &&
+                        row.Cells[2].Value != null && row.Cells[3].Value != null &&
+                        row.Cells[4].Value != null && row.Cells[5].Value != null &&
+                        row.Cells[6].Value != null && row.Cells[7].Value != null &&
+                        row.Cells[8].Value != null && row.Cells[9].Value != null)
+                    {
+                        try
+                        {
+                            int id;
+                            int store_id;
+                            int buy_price;
+                            int cell_price;
+                            int count;
+                            decimal full_price;
+
+                            if (!int.TryParse(row.Cells[0].Value.ToString(), out id) ||
+                                !int.TryParse(row.Cells[1].Value.ToString(), out store_id) ||
+                                !int.TryParse(row.Cells[3].Value.ToString(), out buy_price) ||
+                                !int.TryParse(row.Cells[4].Value.ToString(), out cell_price) ||
+                                !int.TryParse(row.Cells[5].Value.ToString(), out count)||
+                                !decimal.TryParse(row.Cells[9].Value.ToString(), out full_price))
+                            {
+                                continue; 
+                            }
+
+                            Store item = new Store(
+                                id,
+                                store_id,
+                                row.Cells[2].Value.ToString(),
+                                buy_price,
+                                cell_price,
+                                count,
+                                row.Cells[6].Value?.ToString() ?? string.Empty,
+                                row.Cells[7].Value?.ToString() ?? string.Empty,
+                                row.Cells[8].Value?.ToString() ?? string.Empty
+                            );
+                            items.Add(item);
+                            this.items_full_profit += ((cell_price - buy_price) * count);
+                            this.items_full_price += full_price;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"خطا در پردازش ردیف {row.Index + 1}: {ex.Message}", "خطا");
+                            continue; 
+                        }
+                    }
+                }
+            }
+            return items;
+        }
+        private List<Transaction> get_transactions_list()
+        {
+            this.payments_full_price = 0M;
+            List<Transaction> transactions = new List<Transaction>();
+
+            if (this.client == null)
+            {
+                MessageBox.Show("مشتری انتخاب نشده است!", "خطا");
+                return transactions; 
+            }
+
+            foreach (DataGridViewRow row in payments_llist.Rows)
+            {
+                if (!row.IsNewRow) 
+                {
+                    if (row.Cells[0].Value != null && row.Cells[1].Value != null &&
+                        row.Cells[2].Value != null && row.Cells[3].Value != null &&
+                        row.Cells[4].Value != null && row.Cells[5].Value != null)
+                    {
+                        try
+                        {
+                            int id;
+                            decimal price;
+
+                            if (!int.TryParse(row.Cells[0].Value.ToString(), out id) ||
+                                !decimal.TryParse(row.Cells[3].Value.ToString(), out price))
+                            {
+                                continue; 
+                            }
+
+                            Transaction transaction = new Transaction(
+                                id,
+                                row.Cells[2].Value.ToString(),
+                                row.Cells[1].Value.ToString(), 
+                                int.Parse(row.Cells[5].Value.ToString()),
+                                price,
+                                this.client.id,
+                                row.Cells[4].Value.ToString(),
+                                int.Parse(row.Cells[5].Value.ToString())
+                            );
+                            transactions.Add(transaction);
+                            this.payments_full_price += transaction.price;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"خطا در پردازش ردیف {row.Index + 1}: {ex.Message}", "خطا");
+                            continue; 
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("null data", "data");
+                    }
+                }
+            }
+            return transactions;
+        }
+        private Factor create_factor()
+        {
+            get_full_factor_price_and_profit();
+
+            Factor factor = new Factor(
+                this.factor_id,
+                this.client.id,
+                this.items_full_price,
+                this.items_full_profit,
+                this.today_string,
+                this.client.client_type,
+                "unpayed"
+                );
+            factor.items = get_items_list();
+            factor.transactions = get_transactions_list();
+            return factor;
+        }
+        private void glassButton1_Click(object sender, EventArgs e)
+        {
+            string Message_type = "ثبت فاکتور";
+            bool payed = false;
+
+            if(client == null)
+            {
+                MessageBox.Show("لطفا مشتری را انتخاب کنید",Message_type);
+            } else if (list_items.Rows.Count == 0) {
+                MessageBox.Show("لطفا ایتمی را انتخاب کنید", Message_type);
+            }else if (payments_llist.Rows.Count == 0) {
+
+                var res =  MessageBox.Show("فاکتور به لیست پرداخت نشده ها اضافه شود؟", "اخطار",MessageBoxButtons.YesNo);
+                if (res == DialogResult.Yes) {
+                    payed = false;
+                }
+                else
+                {
+                    return;
+                }
+            }
+            Factor factor = create_factor();
+            if (!payed)
+            {
+                factor.factor_status = "unpayed";
+            }
+            if(this.payments_full_price > this.items_full_price)
+            {
+                DialogResult res =  MessageBox.Show("مبلغ پرداخت شده از مبلغ فاکتور کمتر است \n فاکتور پرداخت نشده باقی بماند؟", Message_type,MessageBoxButtons.YesNo);
+                if(res == DialogResult.Yes)
+                {
+                    payed = false;
+                }
+                else
+                {
+                    return;
+                }
+
+            }
+            else if(this.payments_full_price > this.items_full_price)
+            {
+                DialogResult res =  MessageBox.Show("مبلغ پرداخت شده از مبلغ فاکتور بیشتر است !\nفاکتور ذخیره شود؟", Message_type);
+                if(res == DialogResult.Yes)
+                {
+                    factor.factor_status = "payed";
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else
+            {
+                factor.factor_status = "payed";
+            }
+            bool result = save_factor_data(factor);
+            if (result)
+            {
+                MessageBox.Show("فاکتور با موفقیت ثبت شد", Message_type);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("خطا در ثبت فاکتور", Message_type);
+            }
+        }
+
+        private bool save_transactions(Factor factor)
+        {
+            bool result = false;
+            foreach (Transaction trans in factor.transactions)
+            {
+                result = transaction_db.insert_transaction_to_database(trans);
+                if (!result)
+                {
+                    MessageBox.Show("مشکلی در ثبت رسید ها بوحود امده است","ثبت رسید ها");
+                    return result;
+                }
+            }
+            return result;
+        }
+        private bool save_store_changes(Factor factor)
+        {
+            bool result = false;
+            foreach(Store sub in factor.items)
+            {
+                string query = $"UPDATE stors SET count = count + {sub.count} WHERE id = {sub.id}";
+                result = db.run_sql_query(query,"update items in store",$"change items count base on the factor {factor.id}");
+                if (!result)
+                {
+                    MessageBox.Show("مشکلی در ثبت تغییرات انبار بوجود امده است", "ثبت تغییرات انبار");
+                    return result;
+                }
+            }
+            return result;
+        }
+        private bool save_sub_factors(Factor factor)
+        {
+            bool result = false;
+            foreach (Store sub in factor.items)
+            {
+                int id = sub_factor_db.sub_factors_counter() + 1;
+                Sub_factor sub_factor = new Sub_factor(
+                    id,
+                    sub_factors_id,
+                    sub.id,
+                    sub.buy_price,
+                    sub.cell_price,
+                    (sub.cell_price - sub.buy_price),
+                    sub.count
+                    );
+                result = sub_factor_db.insert_sub_factor_to_database(sub_factor);
+                if (!result)
+                {
+                    return result;
+                }
+            }
+            return result;
+        }
+        private bool save_factor_data(Factor factor) {
+
+            bool result = false;
+            result = factors_db.insert_factor_to_database(factor);
+            if (result)
+            {
+                result = save_transactions(factor);
+                if (!result) {
+                    MessageBox.Show("در هنگام ثبت تراکنش مشکلی بوجود امده است", "ثبت تراکنش");
+                    return result;
+                }
+                result = save_store_changes(factor);
+                if (!result)
+                {
+                    MessageBox.Show("در هنگام ثبت ایتم مشکلی بوجود امده است", "ثبت ایتم");
+                    return result;
+                }
+                result = save_sub_factors(factor);
+                if (!result)
+                {
+                    MessageBox.Show("درهنگام ثبت ایتم های فاکتور مشکلی بوجود امده است", "ثبت ایتم ها");
+                    return result;
+                }
+                result = add_transactions_to_banks(factor);
+                if (!result)
+                {
+                    MessageBox.Show("درهنگام تسویه مبالغ حساب فاکتور به حساب مشکلی بوجود امده است", "تسویه حساب");
+                    return result;
+                }
+            }
+            else
+            {
+                MessageBox.Show("خطا در ثبت فاکتور", "ثبت فاکتور");
+            }
+
+            return result;
+
+        }
+
+        Transaction Add_Transaction
+        {
+            set
+            {
+                List<DataGridViewRow> rows = new List<DataGridViewRow>();
+                DataGridViewRow row = new DataGridViewRow();
+                row.CreateCells(payments_llist);
+                row.Cells[0].Value = value.id;
+                row.Cells[1].Value = value.transaction_type;
+                row.Cells[2].Value = value.bank;
+                row.Cells[3].Value = value.price;
+                row.Cells[4].Value = value.transaction_date;
+                row.Cells[5].Value = value.bank_id;
+                row.Cells[6].Value = value.client_id;
+                row.Cells[7].Value = factor_id;
+
+                rows.Add(row);
+                payments_llist.Rows.AddRange(rows.ToArray());
+                payments_llist.ClearSelection();
+            }
+        }
+
+        private bool add_transactions_to_banks(Factor factor)
+        {
+            bool result = false;
+            foreach(Transaction trans in factor.transactions)
+            {
+                string message_type = "add_transactions_to_banks";
+                string logger_message_type = "add full price of items to banks";
+                string sql_query = $"UPDATE banks SET balance = balance + {trans.price} WHERE id = {trans.bank_id}";
+                result = new Database_data().run_sql_query(sql_query, message_type, logger_message_type);
+                if (!result) {
+                    MessageBox.Show("هنگام تغییر موجودی حساب مشکلی بوجود امده است", "موجودی حساب");
+                }
+            }
+            return result;
+        }
+        private void glassButton2_Click(object sender, EventArgs e)
+        {
+            if (client == null) {
+                MessageBox.Show("لطفا ابتدا مشتری را انتخاب کنید","مشتری");
+            }
+            else
+            {
+                using (Payment_methods screen = new Payment_methods(this.client, this.sub_factors_id,new Transaction(0, "0", "0", 0, 0, 0, "0",factor_id)))
+                {
+                    screen.ShowDialog();
+                    if (screen.method != null && screen.method.id != 0)
+                    {
+                        Add_Transaction = screen.method;
+                        this.sub_factors_id = payments_llist.Rows.Count+1;
+                    }
+                }
+            }
+        }
+
+        private void fix_list_ids()
+        {
+            for (int i = 0; i < list_items.Rows.Count; i++)
+            {
+                if (!list_items.Rows[i].IsNewRow)
+                {
+                    list_items.Rows[i].Cells["id"].Value = i + 1; 
+                }
+            }
+        }
+
+        private void glassButton3_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in list_items.SelectedRows)
+            {
+                if(row.Cells[0].Value != null)
+                {
+                    list_items.Rows.RemoveAt(row.Index);
+                }
+            }
+            if (list_items.IsCurrentCellInEditMode)
+            {
+                list_items.ClearSelection();
+                list_items.Refresh();
+            }
+            fix_list_ids();
+        }
+        private void list_items_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                if (list_items.IsCurrentCellInEditMode)
+                {
+                    list_items.EndEdit();
+                }
+
+                if (list_items.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("لطفاً حداقل یک ردیف انتخاب کنید!", "هشدار");
+                    return;
+                }
+
+                if (MessageBox.Show("آیا مطمئن هستید که می‌خواهید ردیف‌های انتخاب‌شده را حذف کنید؟", "تأیید حذف", MessageBoxButtons.YesNo) == DialogResult.No)
+                    return;
+
+                foreach (DataGridViewRow row in list_items.SelectedRows)
+                {
+                    if (!row.IsNewRow && row.Cells[0].Value != null)
+                    {
+                        list_items.Rows.RemoveAt(row.Index);
+                    }
+                }
+
+                fix_list_ids();
+
+                get_full_factor_price_and_profit();
+
+
+                list_items.Refresh();
+            }
+        }
+
+        private void payments_llist_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = e.RowIndex;
+            DataGridViewCellCollection row = payments_llist.Rows[id].Cells; ;
+            Transaction transaction = new Transaction(
+                int.Parse(row[0].Value.ToString()),
+                row[1].Value.ToString(),
+                row[2].Value.ToString(),
+                int.Parse(row[5].Value.ToString()),
+                decimal.Parse(row[3].Value.ToString()),
+                int.Parse(row[6].Value.ToString()),
+                row[4].Value.ToString(),
+                factor_id
+                );
+            using(Payment_methods screen = new Payment_methods(this.client, this.sub_factors_id, transaction))
+            {
+                screen.ShowDialog();
+                if(screen.method != null && screen.method != transaction)
+                {
+                    transaction = screen.method;
+                    payments_llist.Rows[id].Cells[1].Value = transaction.transaction_type;
+                    payments_llist.Rows[id].Cells[2].Value = transaction.bank;
+                    payments_llist.Rows[id].Cells[3].Value = transaction.price;
+                    payments_llist.Rows[id].Cells[4].Value = transaction.transaction_date;
+                    payments_llist.Rows[id].Cells[5].Value = transaction.bank_id;
                 }
             }
         }

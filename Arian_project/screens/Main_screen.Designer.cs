@@ -251,6 +251,7 @@ namespace Arian_project.screens
             this.stores_screen_bt.Size = new System.Drawing.Size(206, 28);
             this.stores_screen_bt.TabIndex = 5;
             this.stores_screen_bt.Text = "انبار";
+            this.stores_screen_bt.Click += new System.EventHandler(this.stores_screen_bt_Click);
             // 
             // banks_screen_bt
             // 
@@ -267,6 +268,7 @@ namespace Arian_project.screens
             this.banks_screen_bt.Size = new System.Drawing.Size(206, 28);
             this.banks_screen_bt.TabIndex = 4;
             this.banks_screen_bt.Text = "حساب ها";
+            this.banks_screen_bt.Click += new System.EventHandler(this.banks_screen_bt_Click);
             // 
             // card_readers_screen_bt
             // 
@@ -283,6 +285,7 @@ namespace Arian_project.screens
             this.card_readers_screen_bt.Size = new System.Drawing.Size(206, 28);
             this.card_readers_screen_bt.TabIndex = 3;
             this.card_readers_screen_bt.Text = "کارتخوان ها";
+            this.card_readers_screen_bt.Click += new System.EventHandler(this.card_readers_screen_bt_Click);
             // 
             // widgets_panel
             // 

@@ -1,0 +1,103 @@
+1404-6-6T9:10 factors_counter get counts of factors in table
+1404-6-6T9:10 clients database get clients list from clients table
+1404-6-6T9:10 clients database get clients list from clients table
+1404-6-6T9:10 clients_count get clients count from clients table
+1404-6-6T9:10 clients database get clients list from clients table
+1404-6-6T9:10 insert_client_to_database insert new client to clients table
+1404-6-6T9:10 clients database get clients list from clients table
+1404-6-6T9:10 banks database get banks list from banks table
+1404-6-6T9:10 banks_count get banks count from banks table
+1404-6-6T9:10 insert_bank_to_database insert new bak to banks table
+1404-6-6T9:10 banks database get banks list from banks table
+1404-6-6T9:10 banks_count get banks count from banks table
+1404-6-6T9:10 card_readers_count get card readers count from card_reader table
+1404-6-6T9:10 get_last_card_reader_id get last card reader id from card_readers table
+1404-6-6T9:10 card_readers_list get card readers list from card_reader table
+1404-6-6T9:10 card_readers_count get card readers count from card_reader table
+1404-6-6T9:10 insert_card_reader_to_database insert card reader to card_readers table
+1404-6-6T9:10 card_readers_count get card readers count from card_reader table
+1404-6-6T9:10 get_last_card_reader_id get last card reader id from card_readers table
+1404-6-6T9:10 card_readers_list get card readers list from card_reader table
+1404-6-6T9:10 card_readers_count get card readers count from card_reader table
+1404-6-6T9:10 factors_counter get counts of factors in table
+1404-6-6T9:10 clients database get clients list from clients table
+1404-6-6T9:10 clients database get clients list from clients table
+1404-6-6T9:10 clients database get clients list from clients table
+1404-6-6T9:10 clients database get clients list from clients table
+1404-6-6T9:10 clients database get clients list from clients table
+1404-6-6T9:10 card_readers_list_string get card readers list from card_reader table as string 
+1404-6-6T9:10 card_readers_count get card readers count from card_reader table
+1404-6-6T9:11 factors_counter get counts of factors in table
+1404-6-6T9:11 clients database get clients list from clients table
+1404-6-6T9:11 clients database get clients list from clients table
+1404-6-6T9:11 clients database get clients list from clients table
+1404-6-6T9:11 clients database get clients list from clients table
+1404-6-6T9:11 clients database get clients list from clients table
+1404-6-6T9:11 card_readers_list_string get card readers list from card_reader table as string 
+1404-6-6T9:11 card_readers_count get card readers count from card_reader table
+1404-6-6T9:11 card_readers_list_string get card readers list from card_reader table as string 
+1404-6-6T9:11 card_readers_count get card readers count from card_reader table
+1404-6-6T9:11 card_readers_list_string get card readers list from card_reader table as string 
+1404-6-6T9:11 card_readers_count get card readers count from card_reader table
+1404-6-6T9:11 card_readers_list_string get card readers list from card_reader table as string 
+1404-6-6T9:11 card_readers_count get card readers count from card_reader table
+1404-6-6T9:11 card_readers_list_string get card readers list from card_reader table as string 
+1404-6-6T9:11 card_readers_count get card readers count from card_reader table
+1404-6-6T9:13 factors_counter get counts of factors in table
+1404-6-6T9:13 clients database get clients list from clients table
+1404-6-6T9:13 clients database get clients list from clients table
+1404-6-6T9:13 clients database get clients list from clients table
+1404-6-6T9:13 clients database get clients list from clients table
+1404-6-6T9:13 clients database get clients list from clients table
+1404-6-6T9:13 card_readers_list_string get card readers list from card_reader table as string 
+1404-6-6T9:13 card_readers_count get card readers count from card_reader table
+1404-6-6T9:13 card_readers_list_string get card readers list from card_reader table as string 
+1404-6-6T9:13 card_readers_count get card readers count from card_reader table
+1404-6-6T9:14 factors_counter get counts of factors in table
+1404-6-6T9:14 clients database get clients list from clients table
+1404-6-6T9:14 clients database get clients list from clients table
+1404-6-6T9:14 clients database get clients list from clients table
+1404-6-6T9:14 clients database get clients list from clients table
+1404-6-6T9:14 clients database get clients list from clients table
+1404-6-6T9:14 card_readers_list_string get card readers list from card_reader table as string 
+1404-6-6T9:14 card_readers_count get card readers count from card_reader table
+1404-6-6T9:14 card_readers_list_string get card readers list from card_reader table as string 
+1404-6-6T9:14 card_readers_count get card readers count from card_reader table
+1404-6-6T9:14 card_readers_list_string get card readers list from card_reader table as string 
+1404-6-6T9:14 card_readers_count get card readers count from card_reader table
+1404-6-6T9:14 card_readers_list_string get card readers list from card_reader table as string 
+1404-6-6T9:14 card_readers_count get card readers count from card_reader table
+1404-6-6T9:15 factors_counter get counts of factors in table
+1404-6-6T9:15 clients database get clients list from clients table
+1404-6-6T9:15 clients database get clients list from clients table
+1404-6-6T9:15 clients database get clients list from clients table
+1404-6-6T9:15 clients database get clients list from clients table
+1404-6-6T9:15 clients database get clients list from clients table
+1404-6-6T9:15 card_readers_list_string get card readers list from card_reader table as string 
+1404-6-6T9:15 card_readers_count get card readers count from card_reader table
+1404-6-6T9:15 card_readers_list_string get card readers list from card_reader table as string 
+1404-6-6T9:15 card_readers_count get card readers count from card_reader table
+1404-6-6T9:15 card_readers_list_string get card readers list from card_reader table as string 
+1404-6-6T9:15 card_readers_count get card readers count from card_reader table
+1404-6-6T9:15 card_readers_list_string get card readers list from card_reader table as string 
+1404-6-6T9:15 card_readers_count get card readers count from card_reader table
+1404-6-6T9:15 card_readers_list_string get card readers list from card_reader table as string 
+1404-6-6T9:15 card_readers_count get card readers count from card_reader table
+1404-6-6T9:20 factors_counter get counts of factors in table
+1404-6-6T9:20 clients database get clients list from clients table
+1404-6-6T9:20 clients database get clients list from clients table
+1404-6-6T9:20 clients database get clients list from clients table
+1404-6-6T9:20 clients database get clients list from clients table
+1404-6-6T9:20 clients database get clients list from clients table
+1404-6-6T9:20 card_readers_list_string get card readers list from card_reader table as string 
+1404-6-6T9:20 card_readers_count get card readers count from card_reader table
+1404-6-6T9:20 card_readers_list_string get card readers list from card_reader table as string 
+1404-6-6T9:20 card_readers_count get card readers count from card_reader table
+1404-6-6T9:20 card_readers_list_string get card readers list from card_reader table as string 
+1404-6-6T9:20 card_readers_count get card readers count from card_reader table
+1404-6-6T9:20 card_readers_list_string get card readers list from card_reader table as string 
+1404-6-6T9:20 card_readers_count get card readers count from card_reader table
+1404-6-6T9:20 card_readers_list_string get card readers list from card_reader table as string 
+1404-6-6T9:20 card_readers_count get card readers count from card_reader table
+1404-6-6T9:20 card_readers_list_string get card readers list from card_reader table as string 
+1404-6-6T9:20 card_readers_count get card readers count from card_reader table

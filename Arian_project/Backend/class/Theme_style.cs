@@ -9,7 +9,8 @@ namespace Arian_project.Backend
         public int FontSize { get; set; }
         public bool List_Font_Bold { get; set; }
         public bool Font_Bold { get; set; }
-        public Color Theme_Main_Color { get; set; }
+        public Color Light_Theme_Main_Color { get; set; }
+        public Color Dark_Theme_Main_Color { get; set; }
         public Color Theme_Secondary_Color { get; set; }
         public Color Theme_Accent_Color { get; set; }
         public bool Theme_Mode { get; set; }
@@ -31,7 +32,8 @@ namespace Arian_project.Backend
             this.FontSize = Props.Font_Size;
             this.List_Font_Bold= Props.List_Font_Bold;
             this.Font_Bold = Props.Font_Bold;
-            this.Theme_Main_Color = Props.Theme_Main_Color;
+            this.Dark_Theme_Main_Color = Props.Dark_Theme_Main_Color;
+            this.Light_Theme_Main_Color = Props.Light_Theme_Main_Color;
             this.Theme_Secondary_Color = Props.Theme_Secondary_Color;
             this.Theme_Accent_Color = Props.Theme_Accent_Color;
             this.Theme_Mode = Props.Theme_Mode;
@@ -45,11 +47,6 @@ namespace Arian_project.Backend
             this.Theme_Lb_Font_Size = Props.Theme_Lb_Font_Size;
         }
 
-        public void Change_Thme_Mode()
-        {
-            this.Theme_Mode = !this.Theme_Mode;
-            this.Save_Changes();
-        }
 
         public void Change_Thme_Font(string font_name) { 
             this.Theme_Font = font_name;
@@ -72,7 +69,8 @@ namespace Arian_project.Backend
             Props.Font_Size = this.FontSize ;
             Props.List_Font_Bold = this.List_Font_Bold;
             Props.Font_Bold = this.Font_Bold ;
-            Props.Theme_Main_Color = this.Theme_Main_Color;
+            Props.Dark_Theme_Main_Color = this.Dark_Theme_Main_Color;
+            Props.Light_Theme_Main_Color = this.Light_Theme_Main_Color;
             Props.Theme_Secondary_Color = this.Theme_Secondary_Color;
             Props.Theme_Accent_Color = this.Theme_Accent_Color;
             Props.Theme_Mode = this.Theme_Mode;

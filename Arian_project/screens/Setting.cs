@@ -28,8 +28,57 @@ namespace Arian_project.screens
         {
 
             Font app_font = theme.app_font();
+            Color main_color = theme.Theme_Mode ? theme.Light_Theme_Main_Color:theme.Dark_Theme_Main_Color ;
 
-            this.BackColor = theme.Theme_Main_Color;
+            this.BackColor = theme.Theme_Mode ? theme.Dark_Theme_Main_Color : theme.Light_Theme_Main_Color;
+
+            Theme_Font_lb.ForeColor = main_color;
+            Theme_Font_Size_lb.ForeColor= main_color;
+            Theme_Font_Bold_lb.ForeColor = main_color;
+
+            List_Font_Size_lb.ForeColor = main_color;
+            List_Font_Bold_lb.ForeColor = main_color;
+
+            Theme_Bt_Color_lb.ForeColor = main_color;
+            Theme_Bt_Font_lb.ForeColor = main_color;
+            Theme_Bt_Font_Bold_lb.ForeColor = main_color;
+            Theme_Bt_Font_Size_lb.ForeColor = main_color;
+
+            Theme_Lb_Font_lb.ForeColor = main_color;
+            Theme_Lb_Font_Bold_lb.ForeColor = main_color;
+            Theme_Lb_Font_Size_lb.ForeColor = main_color;
+
+            Theme_Main_Color_lb.ForeColor = main_color;
+            Theme_Secondary_Color_lb.ForeColor = main_color;
+            Theme_Accent_Color_lb.ForeColor = main_color;
+            Theme_Mode_lb.ForeColor = main_color;
+            Light_Theme_Main_Color_lb.ForeColor = main_color;
+
+
+            Theme_Font_lb.ForeColor = main_color;
+            Theme_Font_Size_lb.ForeColor = main_color;
+            Theme_Font_Bold_lb.ForeColor = main_color;
+
+            List_Font_Size_lb.ForeColor = main_color;
+            List_Font_Bold_lb.ForeColor = main_color;
+
+            Theme_Bt_Color_lb.ForeColor = main_color;
+            Theme_Bt_Font_lb.ForeColor = main_color;
+            Theme_Bt_Font_Bold_lb.ForeColor = main_color;
+            Theme_Bt_Font_Size_lb.ForeColor = main_color;
+
+            Theme_Lb_Font_lb.ForeColor = main_color;
+            Theme_Lb_Font_Bold_lb.ForeColor = main_color;
+            Theme_Lb_Font_Size_lb.ForeColor = main_color;
+
+            Theme_Main_Color_lb.ForeColor = main_color;
+            Theme_Secondary_Color_lb.ForeColor = main_color;
+            Theme_Accent_Color_lb.ForeColor = main_color;
+            Theme_Mode_lb.ForeColor = main_color;
+            Light_Theme_Main_Color_lb.ForeColor = main_color;
+
+
+
 
 
 
@@ -53,7 +102,30 @@ namespace Arian_project.screens
             Theme_Secondary_Color_lb.Font = app_font;
             Theme_Accent_Color_lb.Font = app_font;
             Theme_Mode_lb.Font = app_font;
+            Light_Theme_Main_Color_lb.Font = app_font;
 
+
+            Theme_Font_lb.Font = app_font;
+            Theme_Font_Size_lb.Font = app_font;
+            Theme_Font_Bold_lb.Font = app_font;
+
+            List_Font_Size_lb.Font = app_font;
+            List_Font_Bold_lb.Font = app_font;
+
+            Theme_Bt_Color_lb.Font = app_font;
+            Theme_Bt_Font_lb.Font = app_font;
+            Theme_Bt_Font_Bold_lb.Font = app_font;
+            Theme_Bt_Font_Size_lb.Font = app_font;
+
+            Theme_Lb_Font_lb.Font = app_font;
+            Theme_Lb_Font_Bold_lb.Font = app_font;
+            Theme_Lb_Font_Size_lb.Font = app_font;
+
+            Theme_Main_Color_lb.Font = app_font;
+            Theme_Secondary_Color_lb.Font = app_font;
+            Theme_Accent_Color_lb.Font = app_font;
+            Theme_Mode_lb.Font = app_font;
+            Light_Theme_Main_Color_lb.Font = app_font;
 
             exit_bt.BackColor = theme.Theme_Bt_Color;
             save_bt.BackColor = theme.Theme_Bt_Color;
@@ -78,7 +150,8 @@ namespace Arian_project.screens
             Theme_Lb_Font_Bold_cb.Checked= theme.Theme_Lb_Font_Bold;
             Theme_Lb_Font_Size_tb.Text = theme.Theme_Lb_Font_Size.ToString();
 
-            Theme_Main_Color_pn.BackColor = theme.Theme_Main_Color;
+            Light_Theme_Main_Color_pn.BackColor = theme.Light_Theme_Main_Color;
+            Dark_Theme_Main_Color_pn.BackColor = theme.Dark_Theme_Main_Color;
             Theme_Secondary_Color_pn.BackColor = theme.Theme_Secondary_Color;
             Theme_Accent_Color_pn.BackColor = theme.Theme_Accent_Color;
             Theme_Mode_cb.Checked = theme.Theme_Mode;
@@ -113,9 +186,9 @@ namespace Arian_project.screens
 
         private void Theme_Main_Color_pn_Click(object sender, EventArgs e)
         {
-            Color Target = Get_Color(theme.Theme_Main_Color);
-            Theme_Main_Color_pn.BackColor = Target;
-            theme.Theme_Main_Color = Target;
+            Color Target = Get_Color(theme.Dark_Theme_Main_Color);
+            Dark_Theme_Main_Color_pn.BackColor = Target;
+            theme.Dark_Theme_Main_Color = Target;
             Set_Style_From();
         }
 
@@ -145,6 +218,28 @@ namespace Arian_project.screens
         {
             theme.Save_Changes();
             this.Close();
+        }
+
+        private void Theme_Mode_cb_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Theme_Mode_cb.Checked)
+            {
+                theme.Theme_Mode = true;
+            }
+            else
+            {
+                theme.Theme_Mode = false;
+            }
+        }
+
+
+        private void Light_Theme_Main_Color_pn_MouseClick(object sender, MouseEventArgs e)
+        {
+
+            Color Target = Get_Color(theme.Light_Theme_Main_Color);
+            Light_Theme_Main_Color_pn.BackColor = Target;
+            theme.Light_Theme_Main_Color = Target;
+            Set_Style_From();
         }
     }
 }

@@ -122,12 +122,12 @@ namespace Arian_project.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("19, 19, 19")]
-        public global::System.Drawing.Color Theme_Main_Color {
+        public global::System.Drawing.Color Dark_Theme_Main_Color {
             get {
-                return ((global::System.Drawing.Color)(this["Theme_Main_Color"]));
+                return ((global::System.Drawing.Color)(this["Dark_Theme_Main_Color"]));
             }
             set {
-                this["Theme_Main_Color"] = value;
+                this["Dark_Theme_Main_Color"] = value;
             }
         }
         
@@ -260,6 +260,18 @@ namespace Arian_project.Properties {
             }
             set {
                 this["Theme_Lb_Font_Size"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("240, 250, 240")]
+        public global::System.Drawing.Color Light_Theme_Main_Color {
+            get {
+                return ((global::System.Drawing.Color)(this["Light_Theme_Main_Color"]));
+            }
+            set {
+                this["Light_Theme_Main_Color"] = value;
             }
         }
     }

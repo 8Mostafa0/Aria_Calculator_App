@@ -159,6 +159,18 @@
     <Compile Include="screens\Main_screen.Designer.cs">
       <DependentUpon>Main_screen.cs</DependentUpon>
     </Compile>
+    <Compile Include="screens\Payment_methods.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="screens\Payment_methods.Designer.cs">
+      <DependentUpon>Payment_methods.cs</DependentUpon>
+    </Compile>
+    <Compile Include="screens\Services.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="screens\Services.Designer.cs">
+      <DependentUpon>Services.cs</DependentUpon>
+    </Compile>
     <Compile Include="screens\Setting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +210,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="screens\Main_screen.resx">
       <DependentUpon>Main_screen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="screens\Payment_methods.resx">
+      <DependentUpon>Payment_methods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="screens\Services.resx">
+      <DependentUpon>Services.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="screens\Setting.resx">
       <DependentUpon>Setting.cs</DependentUpon>

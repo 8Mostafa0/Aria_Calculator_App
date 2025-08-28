@@ -8,9 +8,9 @@
 
         public string service_name { get; set; }
 
-        public int cell_price {  get; set; }
+        public decimal cell_price {  get; set; }
 
-        public Service(int id, int item_id, string service_name, int cell_price)
+        public Service(int id, int item_id, string service_name, decimal cell_price)
         {
             this.id = id;
             this.item_id = item_id;

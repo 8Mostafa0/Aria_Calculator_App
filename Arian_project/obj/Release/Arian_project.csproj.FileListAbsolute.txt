@@ -21,10 +21,11 @@ D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.screens.Cho
 D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.screens.Chouse_Item.resources
 D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.screens.Clients_Detailes.resources
 D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.screens.Main_screen.resources
+D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.screens.Payment_methods.resources
+D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.screens.Services.resources
 D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.screens.Setting.resources
 D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.csproj.GenerateResource.cache
 D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.csproj.CoreCompileInputs.cache
 D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_pr.877C999B.Up2Date
 D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.exe
 D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.pdb
-D:\CODES\Aria_Calculator_App\Arian_project\obj\Release\Arian_project.exe.config

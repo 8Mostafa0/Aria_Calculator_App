@@ -65,19 +65,19 @@ namespace Arian_project.backend
 
                     string clients_database_sql = "CREATE TABLE 'clients'('id' INT PRIMERY KEY NOT NULL ,user_name TEXT NOT NULL,phone_number TEXT,home_number TEXT,company TEXT,email TEXT,client_type TEXT,client_group TEXT)";
 
-                    string stores_database_sql = "CREATE TABLE stors(id INT PRIMERY KEY NOT NULL ,store_id INT NOT NULL,item_name TEXT NOT NULL,buy_price INT NOT NULL,cell_price INT NOT NULL,count INT NOT NULL,buy_date TEXT NOT NULL,cell_date TEXT NOT NULL,service_item BOOLIAN NOT NULL)";
+                    string stores_database_sql = "CREATE TABLE stors(id INT PRIMERY KEY NOT NULL ,store_id INT NOT NULL,item_name TEXT NOT NULL,buy_price TEXT NOT NULL,cell_price TEXT NOT NULL,count TEXT NOT NULL,buy_date TEXT NOT NULL,cell_date TEXT NOT NULL,service_item BOOLIAN NOT NULL)";
 
-                    string services_database_sql = "CREATE TABLE services(id INT PRIMERY KEY NOT NULL ,item_id INT NOT NULL,service_name TEXT NOT NULL,cell_price INT NOT NULL)";
+                    string services_database_sql = "CREATE TABLE services(id INT PRIMERY KEY NOT NULL ,item_id INT NOT NULL,service_name TEXT NOT NULL,cell_price TEXT NOT NULL)";
 
-                    string transactions_database_sql = "CREATE TABLE transactions(id INT PRIMERY KEY NOT NULL ,transaction_type TEXT NOT NULL,bank TEXT NOT NULL,price INT NOT NULL,client_id INT NOT NULL,transaction_date  TEXT NOT NULL,transaction_status TEXT NOT NULL)";
+                    string transactions_database_sql = "CREATE TABLE transactions(id INT PRIMERY KEY NOT NULL ,transaction_type TEXT NOT NULL,bank TEXT NOT NULL,bank_id INT NOT NULL,price TEXT NOT NULL,client_id INT NOT NULL,transaction_date  TEXT NOT NULL,factor_id INT NOT NULL)";
 
                     string sms_database_sql = "CREATE TABLE smss(id INT PRIMERY KEY NOT NULL ,client_id INT NOT NULL,phone_number TEXT NOT NULL,sms_status TEXT NOT NULL,sms_date  TEXT NOT NULL)";
 
-                    string factors_database_sql = "CREATE TABLE factors(id INT PRIMERY KEY NOT NULL,client_id int not null,full_price INT NOT NULL,profit INT NOT NULL,factor_date TEXT NOT NULL,client_group TEXT NOT NULL)";
+                    string factors_database_sql = "CREATE TABLE factors(id INT PRIMERY KEY NOT NULL,client_id int not null,full_price TEXT NOT NULL,profit TEXT NOT NULL,factor_date TEXT NOT NULL,client_group TEXT NOT NULL,factor_status TEXT NOT NULL)";
 
-                    string sub_factors_database_sql = "CREATE TABLE sub_factors(id INT PRIMERY KEY NOT NULL ,factor_id INT NOT NULL,item_id INT NOT NULL,buy_price INT NOT NULL,cell_price INT NOT NULL,profit INT NOT NULL)";
+                    string sub_factors_database_sql = "CREATE TABLE sub_factors(id INT PRIMERY KEY NOT NULL ,factor_id INT NOT NULL,item_id INT NOT NULL,buy_price TEXT NOT NULL,cell_price TEXT NOT NULL,profit TEXT NOT NULL,count INT NOT NULL)";
 
-                    string banks_database_sql = "CREATE TABLE banks(id INT PRIMARY KEY NOT NULL,name TEXT NOT NULL,bank_type TEXT NOT NULL,balance INT NOT NULL)";
+                    string banks_database_sql = "CREATE TABLE banks(id INT PRIMARY KEY NOT NULL,name TEXT NOT NULL,bank_type TEXT NOT NULL,balance TEXT NOT NULL)";
 
                     string card_readers_database_sql = "CREATE TABLE card_readers(id INT PRIMARY KEY NOT NULL,bank_id INT NOT NULL,name TEXT NOT NULL)";
 
@@ -183,10 +183,15 @@ namespace Arian_project.backend
                 logger.record_log(message_type, logger_message_type);
                 var connection = connection_to_db();
                 connection.Open();
-
+                int counts = 0;
                 var command = new SQLiteCommand(sql_query, connection);
 
-                int counts=Convert.ToInt32( command.ExecuteScalar());
+                object count = command.ExecuteScalar(); 
+
+                if (count != null && count.ToString() != "")
+                {
+                    counts = Convert.ToInt32(count.ToString());
+                }
                 connection.Close();
                 return counts;
             }   

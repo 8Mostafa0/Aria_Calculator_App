@@ -23,7 +23,7 @@ namespace Arian_project.screens
         private void Set_From_Style()
         {
             Theme_style theme = new Theme_style();
-            this.BackColor = theme.Theme_Main_Color;
+            this.BackColor = theme.Theme_Mode ? theme.Dark_Theme_Main_Color : theme.Light_Theme_Main_Color;
             widgets_panel.BackColor = theme.Theme_Secondary_Color;
             
             Color bt_color =theme.Theme_Bt_Color;
@@ -56,7 +56,7 @@ namespace Arian_project.screens
 
         private void buy_screen_bt_Click(object sender, EventArgs e)
         {
-            Buy_Item buyScreen = new Buy_Item();
+            Buy_Item buyScreen = new Buy_Item(true);
             buyScreen.ShowDialog();
             //this.Hide();
         }
@@ -71,7 +71,7 @@ namespace Arian_project.screens
         private void cell_screen_Bt_Click(object sender, EventArgs e)
         {
 
-            Buy_Item buyScreen = new Buy_Item();
+            Buy_Item buyScreen = new Buy_Item(false);
             buyScreen.ShowDialog();
         }
 
@@ -83,6 +83,25 @@ namespace Arian_project.screens
         private void clients_screen_bt_Click(object sender, EventArgs e)
         {
             Clients_Detailes screen = new Clients_Detailes();
+            screen.ShowDialog();
+        }
+
+        private void banks_screen_bt_Click(object sender, EventArgs e)
+        {
+            Banks banks_screen = new Banks();
+            banks_screen.ShowDialog();
+        }
+
+        private void card_readers_screen_bt_Click(object sender, EventArgs e)
+        {
+            Card_Readers screen = new Card_Readers();
+            screen.ShowDialog();
+        }
+
+        private void stores_screen_bt_Click(object sender, EventArgs e)
+        {
+
+            Add_Item screen = new Add_Item();
             screen.ShowDialog();
         }
     }

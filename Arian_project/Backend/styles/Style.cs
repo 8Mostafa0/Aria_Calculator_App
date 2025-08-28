@@ -41,6 +41,7 @@ namespace Arian_project.Backend.styles
             List.RightToLeft = RightToLeft.Yes;
             List.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             List.AlternatingRowsDefaultCellStyle.BackColor = Color.Gray;
+            List.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             //List.AllowUserToAddRows = false;
 
 
@@ -96,6 +97,11 @@ namespace Arian_project.Backend.styles
             List.Columns.Add("full_price", "قیمت کل");
             List.Columns[9].DataPropertyName = "full_price";
             List.Columns[9].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            List.Columns.Add("item_id", "ش ایتم");
+            List.Columns[10].DataPropertyName = "item_id";
+            List.Columns[10].Visible = false;
+            List.Columns[10].SortMode = DataGridViewColumnSortMode.NotSortable;
 
 
         }
@@ -157,7 +163,6 @@ namespace Arian_project.Backend.styles
             List.Columns.Add("service_item", "ایتم خدماتی");
             List.Columns[8].DataPropertyName = "service_item";
             List.Columns[8].SortMode = DataGridViewColumnSortMode.NotSortable;
-
         }
 
         public void Clients_List_Style(DataGridView List)
@@ -211,11 +216,62 @@ namespace Arian_project.Backend.styles
 
         }
 
+        public void Payments_list_style(DataGridView List)
+        {
+
+            Font List_Font = Get_List_Font();
+            Font App_Font = Get_Font();
+
+            List.ColumnHeadersDefaultCellStyle.Font = App_Font;
+            List.Font = List_Font;
+            List.EditMode = DataGridViewEditMode.EditProgrammatically;
+            List.RightToLeft = RightToLeft.Yes;
+            List.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            List.AlternatingRowsDefaultCellStyle.BackColor = Color.Gray;
+            List.AllowUserToAddRows = false;
+
+            List.Columns.Clear();
+
+            List.Columns.Add("id", "ش");
+            List.Columns[0].DataPropertyName = "id";
+            List.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+
+            List.Columns.Add("bank_name", "نام بانک");
+            List.Columns[1].DataPropertyName = "bank_name";
+            List.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            List.Columns.Add("payment_type", "نحوه پرداخت");
+            List.Columns[2].DataPropertyName = "payment_type";
+            List.Columns[2].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            List.Columns.Add("price", "مبلغ");
+            List.Columns[3].DataPropertyName = "price";
+            List.Columns[3].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            List.Columns.Add("payment_date", "تاریخ");
+            List.Columns[4].DataPropertyName = "payment_date";
+            List.Columns[4].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            List.Columns.Add("bank_id", "ایدی بانک");
+            List.Columns[5].DataPropertyName = "bank_id";
+            List.Columns[5].SortMode = DataGridViewColumnSortMode.NotSortable;
+            List.Columns[5].Visible= false;
+
+            List.Columns.Add("client_id", "ایدی کاربر");
+            List.Columns[6].DataPropertyName = "client_id";
+            List.Columns[6].SortMode = DataGridViewColumnSortMode.NotSortable;
+            List.Columns[6].Visible = false;
+
+            List.Columns.Add("factor_id", "ایدی فاکتور");
+            List.Columns[7].DataPropertyName = "factor_id";
+            List.Columns[7].SortMode = DataGridViewColumnSortMode.NotSortable;
+            List.Columns[7].Visible = false;
+        }
         public void Banks_List_Style(DataGridView List)
         {
             Font List_Font = Get_List_Font();
             Font App_Font = Get_Font();
-
 
             List.ColumnHeadersDefaultCellStyle.Font = App_Font;
             List.Font = List_Font;

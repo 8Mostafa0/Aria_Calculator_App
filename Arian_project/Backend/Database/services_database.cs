@@ -3,6 +3,7 @@ using ghest.Backend.Logs;
 using System.Collections.Generic;
 using System;
 using System.Data.SQLite;
+using System.Data;
 
 namespace Arian_project.Backend
 {
@@ -104,6 +105,40 @@ namespace Arian_project.Backend
                 result = database.run_sql_query(sql_query, message_type, logger_message_type);
             }
             return result;
+        }
+
+        public DataTable get_items_not_in_services(string sql_query = "")
+        {
+            string logger_message_type = "get_items_not_in_services";
+            string message_type = "Get All items from stores table when not added on services table";
+
+            if (sql_query == "")
+            {
+                sql_query = "SELECT stores.* FROM stores LEFT JOIN services ON stores.item_id = services.item_id WHERE services.item_id IS NULL;";
+            }
+
+            DataTable dataTable = new DataTable();
+            try
+            {
+                using (var connection = database.connection_to_db())
+                {
+                    connection.Open();
+                    using (var command = new SQLiteCommand(sql_query, connection))
+                    {
+                        using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(command))
+                        {
+                            adapter.Fill(dataTable);
+                        }
+                    }
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.record_log("SQL QUERY => " + sql_query, logger_message_type);
+                logger.record_log(ex.ToString(), message_type);
+            }
+            return dataTable;
         }
     }
 }

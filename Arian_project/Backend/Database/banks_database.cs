@@ -150,7 +150,7 @@ namespace Arian_project.Backend.Database
                                     adapter.GetInt32(0),
                                     adapter.GetString(1),
                                     adapter.GetString(2),
-                                    adapter.GetInt32(3)
+                                    adapter.GetDecimal(3)
                                     );
                             }
                         }
@@ -188,7 +188,7 @@ namespace Arian_project.Backend.Database
                                     adapter.GetInt32(0),
                                     adapter.GetString(1),
                                     adapter.GetString(2),
-                                    adapter.GetInt32(3)
+                                    adapter.GetDecimal(3)
                                     );
                             }
                         }
@@ -203,7 +203,43 @@ namespace Arian_project.Backend.Database
             }
             return bank_data;
         }
-        public List<string> get_bank_name()
+        public Bank get_bank_by_name(string name)
+        {
+            string logger_message_type = "get_bank_name";
+            string message_type = "get bank names from banks tabble";
+            Bank bank = new Bank(0, "0", "0", 0);
+            try
+            {
+                using (var connection = new Database_data().connection_to_db())
+                {
+                    connection.Open();
+                    using (SQLiteCommand command = new SQLiteCommand($"SELECT * FROM banks WHERE name='{name}'", connection))
+                    {
+                        var reader = command.ExecuteReader();
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                bank = new Bank(
+                                    reader.GetInt32(0),
+                                    reader.GetString(1),
+                                    reader.GetString(2),
+                                    reader.GetInt32(3)
+                                    );
+                            }
+                        }
+                    }
+                    connection.Close();
+                }
+            }catch(Exception ex)
+            {
+
+                logger.record_log("SQL QUERY => " + ex, logger_message_type);
+                logger.record_log(message_type, logger_message_type);
+            }
+            return bank;
+        }
+        public List<string> get_banks_name()
         {
             string logger_message_type = "get_bank_name";
             string message_type = "get bank names from banks tabble";

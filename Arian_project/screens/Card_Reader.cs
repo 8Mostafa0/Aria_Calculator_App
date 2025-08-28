@@ -20,7 +20,7 @@ namespace Arian_project.screens
         int select_id = 0;
         private void load_items_to_list()
         {
-            select_id = card_reader_db.get_last_card_reader_id() + 1;
+            this.select_id = card_reader_db.get_last_card_reader_id() + 1;
             clear_data();
             Card_Reader_List_Set = card_reader_db.card_readers_list();
             set_bank_id_cb();
@@ -51,7 +51,7 @@ namespace Arian_project.screens
 
         private void set_bank_id_cb()
         {
-            List<string> data = bank_db.get_bank_name();
+            List<string> data = bank_db.get_banks_name();
             bank_id_cb.DataSource = data;
         }
 
@@ -88,11 +88,15 @@ namespace Arian_project.screens
             if (validate_data())
             {
                 string message_type = "ذخیره کارتخوان";
-                int id = card_reader_db.get_last_card_reader_id();
                 string name = name_tb.Text;
                 string bank_name = bank_id_cb.Text;
-                int bank_id = Convert.ToInt32(bank_db.get_bank_data_by_name(bank_name).id);
-                Card_Reader card_reader = new Card_Reader(id, name, bank_id);
+                Bank bank = bank_db.get_bank_data_by_name(bank_name);
+                if(bank.id == 0)
+                {
+                    bank = bank_db.get_bank_by_name(bank_name);
+                }
+                int bank_id = Convert.ToInt32(bank.id);
+                Card_Reader card_reader = new Card_Reader(this.select_id, name, bank_id);
                 bool res = card_reader_db.insert_card_reader_to_database(card_reader);
                 if (res)
                 {

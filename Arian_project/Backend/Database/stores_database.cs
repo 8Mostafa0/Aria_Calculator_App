@@ -56,6 +56,42 @@ namespace Arian_project.Backend
             result = database.run_one_item_data_query(sql_query, message_type, logger_message_type);
             return result;
         }
+        public Store get_item_by_id(int id)
+        {
+            string logger_message_type = "get_item_by_id";
+            string message_type = "get stor by id from stors table";
+            Store store = null;
+            try
+            {
+
+            if (id != 0)
+            {
+                string sql_query = $"SELECT * FROM stors WHERE id='{id}'";
+                DataTable dataTable = stores_list(sql_query);
+                if (dataTable.Rows.Count > 0)
+                {
+                    DataRow row = dataTable.Rows[0];
+                    store = new Store(
+                        int.Parse(row["id"].ToString()),
+                        int.Parse(row["store_id"].ToString()),
+                        row["item_name"].ToString(),
+                        decimal.Parse(row["buy_price"].ToString()),
+                        decimal.Parse(row["cell_price"].ToString()),
+                        int.Parse(row["count"].ToString()),
+                        row["buy_date"].ToString(),
+                        row["cell_date"].ToString(),
+                        row["service_item"].ToString()
+                    );
+                }
+            }
+            }catch(Exception ex)
+            {
+                logger.record_log("SQL QUERY => " + ex, logger_message_type);
+                logger.record_log(message_type, logger_message_type);
+            }
+            return store;
+        }
+
         public bool insert_service_to_database(Store store)
         {
             store.id = stores_counter() + 1;

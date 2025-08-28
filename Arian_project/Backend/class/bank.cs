@@ -6,9 +6,9 @@ namespace Arian_project
         public int id {  get; set; }
         public string name { get; set; }
         public string bank_type { get; set; }
-        public int balance{ get; set; }
+        public decimal balance { get; set; }
 
-        public Bank(int id,string name,string bank_type, int balance)
+        public Bank(int id,string name,string bank_type, decimal balance)
         {
             this.id = id;
             this.name = name;
