@@ -357,7 +357,8 @@ namespace Arian_project.screens
                                 price,
                                 this.client.id,
                                 row.Cells[4].Value.ToString(),
-                                factor_id
+                                factor_id,
+                                false
                             );
                             transactions.Add(transaction);
                             this.payments_full_price += transaction.price;
@@ -414,7 +415,7 @@ namespace Arian_project.screens
                     new Button(){Text="پرداخت قسطی"},
                     new Button(){Text="پرداخت نشده"}
                 };
-                using (PMessageBox screen = new PMessageBox("فاکتور به لیست پرداخت نشده ها اضافه شود یا قسطی پرداخت شود؟", "فاکتور پرداخت نشده", buttons))
+                using (PMessageBox screen = new PMessageBox("فاکتور پرداخت نشده", "فاکتور به لیست پرداخت نشده ها اضافه شود یا قسطی پرداخت شود؟", buttons))
                 {
                     screen.ShowDialog();
                     if (screen.DialogResult == DialogResult.OK)
@@ -682,7 +683,7 @@ namespace Arian_project.screens
             }
             else
             {
-                using (Payment_methods screen = new Payment_methods(this.client, this.sub_factors_id,new Transaction(0, "0", "0", 0, 0, 0, "0",factor_id)))
+                using (Payment_methods screen = new Payment_methods(this.client, this.sub_factors_id,new Transaction(0, "0", "0", 0, 0, 0, "0",factor_id,false)))
                 {
                     screen.ShowDialog();
                     if (screen.method != null && screen.method.id != 0)
@@ -766,7 +767,8 @@ namespace Arian_project.screens
                 decimal.Parse(row[3].Value.ToString()),
                 int.Parse(row[6].Value.ToString()),
                 row[4].Value.ToString(),
-                factor_id
+                factor_id,
+                false
                 );
             using(Payment_methods screen = new Payment_methods(this.client, this.sub_factors_id, transaction))
             {

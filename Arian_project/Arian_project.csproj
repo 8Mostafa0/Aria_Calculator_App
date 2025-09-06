@@ -89,8 +89,12 @@
     <Compile Include="Backend\class\bank.cs" />
     <Compile Include="Backend\class\card_reader.cs" />
     <Compile Include="Backend\class\client.cs" />
+    <Compile Include="Backend\class\Client_InstallMent.cs" />
     <Compile Include="Backend\class\factor.cs" />
+    <Compile Include="Backend\class\installment_calculator.cs" />
+    <Compile Include="Backend\class\Installment_transaction.cs" />
     <Compile Include="Backend\class\iran_date.cs" />
+    <Compile Include="Backend\class\penalty_calculator.cs" />
     <Compile Include="Backend\class\service.cs" />
     <Compile Include="Backend\class\sms.cs" />
     <Compile Include="Backend\class\store.cs" />

@@ -69,7 +69,7 @@ namespace Arian_project.backend
 
                     string services_database_sql = "CREATE TABLE services(id INT PRIMERY KEY NOT NULL ,item_id INT NOT NULL,service_name TEXT NOT NULL,cell_price TEXT NOT NULL)";
 
-                    string transactions_database_sql = "CREATE TABLE transactions(id INT PRIMERY KEY NOT NULL ,transaction_type TEXT NOT NULL,bank TEXT NOT NULL,bank_id INT NOT NULL,price TEXT NOT NULL,client_id INT NOT NULL,transaction_date  TEXT NOT NULL,factor_id INT NOT NULL)";
+                    string transactions_database_sql = "CREATE TABLE transactions(id INT PRIMERY KEY NOT NULL ,transaction_type TEXT NOT NULL,bank TEXT NOT NULL,bank_id INT NOT NULL,price TEXT NOT NULL,client_id INT NOT NULL,transaction_date  TEXT NOT NULL,factor_id INT NOT NULL,installment_factor TEXT NOT NULL)";
 
                     string sms_database_sql = "CREATE TABLE smss(id INT PRIMERY KEY NOT NULL ,client_id INT NOT NULL,phone_number TEXT NOT NULL,sms_status TEXT NOT NULL,sms_date  TEXT NOT NULL)";
 

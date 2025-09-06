@@ -77,21 +77,24 @@ namespace Arian_project.screens
         }
         private void SelectRowFillFields(int id)
         {
-            var row = Clients_List.Rows[id];
-            name_tb.Text = row.Cells[1].Value.ToString();
-            phone_tb.Text = row.Cells[2].Value.ToString();
-            home_phone_tb.Text = row.Cells[3].Value.ToString();
-            this.ReturnClient = new Client(
-                id = int.Parse(row.Cells[0].Value.ToString()),
-                row.Cells[1].Value.ToString(),
-                row.Cells[2].Value.ToString(),
-                row.Cells[3].Value.ToString(),
-                row.Cells[4].Value.ToString(),
-                row.Cells[5].Value.ToString(),
-                row.Cells[6].Value.ToString(),
-                row.Cells[7].Value.ToString()
-            );
-            this.Close();
+            try { 
+                var row = Clients_List.Rows[id];
+                name_tb.Text = row.Cells[1].Value.ToString();
+                phone_tb.Text = row.Cells[2].Value.ToString();
+                home_phone_tb.Text = row.Cells[3].Value.ToString();
+                this.ReturnClient = new Client(
+                    id = int.Parse(row.Cells[0].Value.ToString()),
+                    row.Cells[1].Value.ToString(),
+                    row.Cells[2].Value.ToString(),
+                    row.Cells[3].Value.ToString(),
+                    row.Cells[4].Value.ToString(),
+                    row.Cells[5].Value.ToString(),
+                    row.Cells[6].Value.ToString(),
+                    row.Cells[7].Value.ToString()
+                );
+                this.Close();
+            }
+            catch { }
         }
         private void Clients_List_CellClick(object sender, DataGridViewCellEventArgs e)
         {

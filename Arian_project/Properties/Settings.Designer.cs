@@ -274,5 +274,65 @@ namespace Arian_project.Properties {
                 this["Light_Theme_Main_Color"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public int Installment_percent {
+            get {
+                return ((int)(this["Installment_percent"]));
+            }
+            set {
+                this["Installment_percent"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ماهیانه")]
+        public string installment_method {
+            get {
+                return ((string)(this["installment_method"]));
+            }
+            set {
+                this["installment_method"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ثابت")]
+        public string penalty_method {
+            get {
+                return ((string)(this["penalty_method"]));
+            }
+            set {
+                this["penalty_method"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public string penalty_percent {
+            get {
+                return ((string)(this["penalty_percent"]));
+            }
+            set {
+                this["penalty_percent"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("300")]
+        public string penalty_price {
+            get {
+                return ((string)(this["penalty_price"]));
+            }
+            set {
+                this["penalty_price"] = value;
+            }
+        }
     }
 }

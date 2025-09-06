@@ -65,5 +65,20 @@
     <Setting Name="Light_Theme_Main_Color" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">240, 250, 240</Value>
     </Setting>
+    <Setting Name="Installment_percent" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
+    <Setting Name="installment_method" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ماهیانه</Value>
+    </Setting>
+    <Setting Name="penalty_method" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ثابت</Value>
+    </Setting>
+    <Setting Name="penalty_percent" Type="System.String" Scope="User">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
+    <Setting Name="penalty_price" Type="System.String" Scope="User">
+      <Value Profile="(Default)">300</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -42,7 +42,8 @@ namespace Arian_project.Backend
                                     reader.GetDecimal(4),
                                     reader.GetInt32(5),
                                     reader.GetString(6),
-                                    reader.GetInt32(7)
+                                    reader.GetInt32(7),
+                                    reader.GetBoolean(8)
                                     ));
                             }
                         }
@@ -78,7 +79,7 @@ namespace Arian_project.Backend
             bool result = false;
             if (transaction.id != 0)
             {
-                string sql_query = $"INSERT INTO transactions(id,transaction_type,bank,bank_id,price,client_id,transaction_date,factor_id)VALUES('{transaction.id}','{transaction.transaction_type}','{transaction.bank}','{transaction.bank_id}','{transaction.price}','{transaction.client_id}','{transaction.transaction_date}','{transaction.factor_id}')";
+                string sql_query = $"INSERT INTO transactions(id,transaction_type,bank,bank_id,price,client_id,transaction_date,factor_id,installment_factor)VALUES('{transaction.id}','{transaction.transaction_type}','{transaction.bank}','{transaction.bank_id}','{transaction.price}','{transaction.client_id}','{transaction.transaction_date}','{transaction.factor_id}','{transaction.installment_factor}')";
                 result = database.run_sql_query(sql_query, message_type, logger_message_type);
             }
             return result;
@@ -90,7 +91,7 @@ namespace Arian_project.Backend
             bool result = false;
             if (transaction.id != 0)
             {
-                string sql_query = $"UPDATE transactions SET transaction_type='{transaction.transaction_type}',bank='{transaction.bank}',price='{transaction.price}',client_id='{transaction.client_id}',transaction_date='{transaction.transaction_date}',factor_id='{transaction.factor_id}' WHERE id='{transaction.id}'";
+                string sql_query = $"UPDATE transactions SET transaction_type='{transaction.transaction_type}',bank='{transaction.bank}',price='{transaction.price}',client_id='{transaction.client_id}',transaction_date='{transaction.transaction_date}',factor_id='{transaction.factor_id}',installment_factor='{transaction.installment_factor}' WHERE id='{transaction.id}'";
                 result = database.run_sql_query(sql_query, message_type, logger_message_type);
             }
             return result;

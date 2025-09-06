@@ -118,7 +118,7 @@ namespace Arian_project.screens
 
                             }
                         }
-                        this.method = new Transaction(this.id,method,bank_name,bank_id,price,client.id, this.today_string,this.method.factor_id);
+                        this.method = new Transaction(this.id,method,bank_name,bank_id,price,client.id, this.today_string,this.method.factor_id, false);
                         this.Close();
                     }
                     else

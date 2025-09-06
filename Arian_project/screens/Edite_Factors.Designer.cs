@@ -41,13 +41,13 @@
             this.Factor_id_lb = new System.Windows.Forms.Label();
             this.Client_phone_tb = new System.Windows.Forms.TextBox();
             this.Client_Name_tb = new System.Windows.Forms.TextBox();
+            this.glassButton3 = new GlassButton();
             this.Date_lb = new Atf.UI.DateTimeSelector();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.list_items = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.payments_llist = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.glassButton3 = new GlassButton();
             this.glassButton2 = new GlassButton();
             this.glassButton1 = new GlassButton();
             this.tableLayoutPanel1.SuspendLayout();
@@ -247,6 +247,22 @@
             this.Client_Name_tb.TabIndex = 7;
             this.Client_Name_tb.Click += new System.EventHandler(this.textBox2_Click);
             // 
+            // glassButton3
+            // 
+            this.glassButton3.BackAlpha = 120;
+            this.glassButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.glassButton3.CornerRadius = 20;
+            this.glassButton3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.glassButton3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.glassButton3.ForeColor = System.Drawing.Color.Black;
+            this.glassButton3.Location = new System.Drawing.Point(407, 130);
+            this.glassButton3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.glassButton3.Name = "glassButton3";
+            this.glassButton3.Size = new System.Drawing.Size(98, 32);
+            this.glassButton3.TabIndex = 8;
+            this.glassButton3.Text = "حذف ایتم";
+            this.glassButton3.Click += new System.EventHandler(this.glassButton3_Click);
+            // 
             // Date_lb
             // 
             this.Date_lb.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -347,22 +363,6 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(819, 22);
             this.tableLayoutPanel3.TabIndex = 4;
-            // 
-            // glassButton3
-            // 
-            this.glassButton3.BackAlpha = 120;
-            this.glassButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.glassButton3.CornerRadius = 20;
-            this.glassButton3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.glassButton3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.glassButton3.ForeColor = System.Drawing.Color.Black;
-            this.glassButton3.Location = new System.Drawing.Point(407, 130);
-            this.glassButton3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.glassButton3.Name = "glassButton3";
-            this.glassButton3.Size = new System.Drawing.Size(98, 32);
-            this.glassButton3.TabIndex = 8;
-            this.glassButton3.Text = "حذف ایتم";
-            this.glassButton3.Click += new System.EventHandler(this.glassButton3_Click);
             // 
             // glassButton2
             // 
