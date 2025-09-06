@@ -71,7 +71,7 @@ namespace Arian_project.screens
             string cell_date = cell_date_tb.Text;
             string service_item = service_item_cb.Checked?"بله":"خیر";
             Store store = new Store(0, store_id, item_name, buy_price, cell_price, count, buy_date, cell_date, service_item);
-            bool result = new stores_database().insert_service_to_database(store);
+            bool result = new stores_database().insert_item_to_database(store);
             if (result)
             {
                 MessageBox.Show("آیتم با موفقیت ثبت شد", "افزودن آیتم");
@@ -152,7 +152,7 @@ namespace Arian_project.screens
             string cell_date = cell_date_tb.Text;
             string service_item = service_item_cb.Checked ? "بله" : "خیر";
             Store store = new Store(selected_id, store_id, item_name, buy_price, cell_price, count, buy_date, cell_date, service_item);
-            bool result = new stores_database().edite_stor_in_datebase(store);
+            bool result = new stores_database().edite_item_in_datebase(store);
             if (result)
             {
                 MessageBox.Show("آیتم با موفقیت ویرایش شد", "ویرایش آیتم");
@@ -174,7 +174,7 @@ namespace Arian_project.screens
             DialogResult dr = MessageBox.Show("آیا مطمئن هستید؟", "حذف آیتم", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
             {
-                bool result = new stores_database().delete_stor_from_database(selected_id);
+                bool result = new stores_database().delete_item_from_database(selected_id);
                 if (result)
                 {
                     MessageBox.Show("آیتم با موفقیت حذف شد", "حذف آیتم");

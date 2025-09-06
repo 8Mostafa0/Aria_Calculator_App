@@ -100,12 +100,23 @@ namespace Arian_project.screens
                         }
                         else
                         {
-                            method = payment_methods_cb.SelectedValue.ToString();
-                            string p_bank = banks_cb.SelectedValue.ToString();
-                            Card_Reader card_reader = new card_reader_database().get_card_reader_by_name(p_bank);
-                            Bank bank = new banks_database().get_bank_data_by_id(card_reader.bank_id);
-                            bank_name = bank.name;
-                            bank_id = bank.id;
+                            if(payment_methods_cb.SelectedIndex == 0)
+                            {
+                                method = payment_methods_cb.SelectedValue.ToString();
+                                string p_bank = banks_cb.SelectedValue.ToString();
+                                Card_Reader card_reader = new card_reader_database().get_card_reader_by_name(p_bank);
+                                Bank bank = new banks_database().get_bank_data_by_id(card_reader.bank_id);
+                                bank_name = bank.name;
+                                bank_id = bank.id;
+                            } else if(payment_methods_cb.SelectedIndex == 1)
+                            {
+                                method = payment_methods_cb.SelectedValue.ToString();
+                                string p_bank = banks_cb.SelectedValue.ToString();
+                                Bank bank = banks_db.get_bank_by_name(p_bank);
+                                bank_name = bank.name;
+                                bank_id = bank.id;
+
+                            }
                         }
                         this.method = new Transaction(this.id,method,bank_name,bank_id,price,client.id, this.today_string,this.method.factor_id);
                         this.Close();

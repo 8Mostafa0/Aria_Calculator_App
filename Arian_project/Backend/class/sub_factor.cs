@@ -10,7 +10,7 @@ namespace Arian_project
         public decimal cell_price { get; set; }
         public decimal profit {  get; set; }
         public int count { get; set; }
-    
+
         public Sub_factor(int id, int factor_id, int item_id, decimal buy_price, decimal cell_price, decimal profit, int count)
         {
             this.id = id;
@@ -21,5 +21,19 @@ namespace Arian_project
             this.profit = profit;
             this.count = count;
         }
+        public static Sub_factor Get_Sub_Factor_from_store(int id, int factor_id, decimal profit, Store item)
+        {
+            Sub_factor sub_f = new Sub_factor(
+                id,
+                factor_id,
+                item.id,
+                item.buy_price,
+                item.cell_price,
+                profit,
+                item.count
+                );
+            return sub_f;
+        }
+
     }
 }

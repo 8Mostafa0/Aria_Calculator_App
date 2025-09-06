@@ -119,7 +119,7 @@ namespace ghest.Backend.Logs
                 Sw.Close();
 
             }
-            catch(Exception _)
+            catch
             {
                 check_log_files();
             }

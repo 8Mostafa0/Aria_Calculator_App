@@ -39,10 +39,10 @@ namespace Arian_project.Backend
                                     reader.GetString(1),
                                     reader.GetString(2),
                                     reader.GetInt32(3),
-                                    reader.GetInt32(4),
+                                    reader.GetDecimal(4),
                                     reader.GetInt32(5),
                                     reader.GetString(6),
-                                    reader.GetInt32(6)
+                                    reader.GetInt32(7)
                                     ));
                             }
                         }
@@ -106,6 +106,11 @@ namespace Arian_project.Backend
                 result = database.run_sql_query(sql_query, message_type, logger_message_type);
             }
             return result;
+        }
+
+        public List<Transaction> get_transactions_of_factor(int factor_id)
+        {
+            return transactions_list($"SELECT * FROM transactions WHERE factor_id ='{factor_id}'");
         }
     }
 }

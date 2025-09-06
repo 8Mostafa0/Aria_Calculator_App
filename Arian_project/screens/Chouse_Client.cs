@@ -69,7 +69,7 @@ namespace Arian_project.screens
                 phone_tb.Text = "";
                 home_phone_tb.Text = "";
                 client_type_cb.SelectedIndex = 0;
-            }catch(Exception _)
+            }catch
             {
 
                 Load_Clients();
@@ -113,7 +113,7 @@ namespace Arian_project.screens
                 Clients_List.Rows.Clear();
                 Clients_Lits_Set = users;
             }
-            catch (Exception _)
+            catch 
             {
                 Load_Clients();
             }
@@ -133,7 +133,7 @@ namespace Arian_project.screens
                 Clients_List.Rows.Clear();
                 Clients_Lits_Set = users;
 
-            }catch(Exception _)
+            }catch
             {
                 Load_Clients();
             }
@@ -153,7 +153,7 @@ namespace Arian_project.screens
                 Clients_List.Rows.Clear();
                 Clients_Lits_Set = users;
 
-            }catch(Exception _)
+            }catch
             {
                 Load_Clients();
             }
@@ -173,7 +173,7 @@ namespace Arian_project.screens
                 Clients_List.Rows.Clear();
                 Clients_Lits_Set = users;
                 
-            }catch (Exception _)
+            }catch 
             {
                 Load_Clients();
 

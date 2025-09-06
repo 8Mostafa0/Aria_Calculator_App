@@ -207,7 +207,8 @@ namespace Arian_project.Backend.Database
         {
             string logger_message_type = "get_bank_name";
             string message_type = "get bank names from banks tabble";
-            Bank bank = new Bank(0, "0", "0", 0);
+            Bank bank = null;
+            ;
             try
             {
                 using (var connection = new Database_data().connection_to_db())
@@ -224,7 +225,7 @@ namespace Arian_project.Backend.Database
                                     reader.GetInt32(0),
                                     reader.GetString(1),
                                     reader.GetString(2),
-                                    reader.GetInt32(3)
+                                    reader.GetDecimal(3)
                                     );
                             }
                         }

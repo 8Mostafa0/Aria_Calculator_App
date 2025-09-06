@@ -38,9 +38,9 @@ namespace Arian_project.Backend
                                     reader.GetInt32(0),
                                     reader.GetInt32(1),
                                     reader.GetInt32(2),
-                                    reader.GetInt32(3),
-                                    reader.GetInt32(4),
-                                    reader.GetInt32(5),
+                                    reader.GetDecimal(3),
+                                    reader.GetDecimal(4),
+                                    reader.GetDecimal(5),
                                     reader.GetInt32(6)
                                     ));
                             }
@@ -105,6 +105,10 @@ namespace Arian_project.Backend
                 result = database.run_sql_query(sql_query, message_type, logger_message_type);
             }
             return result;
+        }
+        public List<Sub_factor> get_sub_factor_of_factor(int factor_id)
+        {
+            return sub_factors_list($"SELECT * FROM sub_factors WHERE factor_id ='{factor_id}'");
         }
     }
 }

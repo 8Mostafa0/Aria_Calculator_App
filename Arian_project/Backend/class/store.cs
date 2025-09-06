@@ -1,4 +1,6 @@
 ﻿
+using Arian_project.Backend;
+
 namespace Arian_project
 {
     public class Store
@@ -12,6 +14,7 @@ namespace Arian_project
         public string buy_date {  get; set; }
         public string cell_date { get; set; }
         public string service_item {  get; set; }
+        public stores_database store_db = new stores_database();
 
         public Store(int id, int store_id, string item_name, decimal buy_price, decimal cell_price, int count, string buy_date, string cell_date, string service_item)
         {
@@ -24,6 +27,14 @@ namespace Arian_project
             this.buy_date = buy_date;
             this.cell_date = cell_date;
             this.service_item = service_item;
+        }
+
+        public static Store Get_Store_From_Sub_Factor(Sub_factor item) {
+            Store st = new stores_database().get_item_by_id(item.item_id);
+            st.cell_price = item.cell_price;
+            st.buy_price = item.buy_price;
+            st.count = item.count;
+            return st;
         }
     }
 }

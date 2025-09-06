@@ -1,7 +1,6 @@
 ﻿using Arian_project.backend;
 using Arian_project.Backend;
 using Arian_project.Backend.styles;
-using ghest.Backend.Logs;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -9,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Arian_project.screens
 {
-    public partial class Buy_Item : Form
+    public partial class Edite_Factors : Form
     {
         public bool Buy_Screen { get; set; }
         public Client client {  get; set; }
@@ -19,6 +18,7 @@ namespace Arian_project.screens
         Database_data db = new Database_data();
         sub_factors_database sub_factor_db = new sub_factors_database();
         transactions_database transaction_db = new transactions_database();
+        clients_database clients_db = new clients_database();
         Style style = new Style();
         public int factor_id { get; set; }
 
@@ -29,34 +29,70 @@ namespace Arian_project.screens
         private decimal items_full_profit { get; set; }
         private decimal items_full_price { get; set; }
 
-        public Buy_Item(bool buy)
+        private List<Transaction> old_factor_transactions = new List<Transaction>();
+        private List<Store> old_factor_items = new List<Store>();
+        private List<Sub_factor> old_factor_sub_factors = new List<Sub_factor>();
+        private Factor factor {  get; set; }
+        public Edite_Factors(Factor factor)
         {
             InitializeComponent();
             this.items_full_price = 0;
             this.items_full_profit = 0;
             this.payments_full_price = 0;
-            this.Buy_Screen = buy;
+            this.Buy_Screen = factor.factor_type == "خرید"?true:false;
             this.WindowState = FormWindowState.Maximized;
             list_items.KeyDown += list_items_KeyDown;
-            this.Text = buy?"خرید":"فروش";
+            this.Text = factor.factor_type;
+            this.factor = factor;
             Load_Screen();
+        }
+
+        private void load_all_items_of_factor()
+        {
+            List<Sub_factor> items =  sub_factor_db.get_sub_factor_of_factor(this.factor.id);
+            foreach(Sub_factor item in items)
+            {
+                Store st = Store.Get_Store_From_Sub_Factor(item);
+                this.old_factor_sub_factors.Add(item);
+                this.old_factor_items.Add(st);
+                add_item_to_list(st);
+            }
+        }
+
+        private void load_all_transactions()
+        {
+            List<Transaction> items = transaction_db.get_transactions_of_factor(this.factor.id);
+            foreach(Transaction item in items)
+            {
+                this.old_factor_transactions.Add(item);
+                Add_Transaction = item;
+            }
+        }
+        private void set_client_of_factor() {
+            Client user = clients_db.Get_Client_by_id(this.factor.client_id);
+            if (user != null) { 
+                this.client = user;
+                Client_Name_tb.Text = user.user_name;
+                Client_phone_tb.Text = user.phone_number;
+            }
         }
         private void Load_Screen()
         {
             Set_Style();
             Set_Factor_id();
             set_date();
+            load_all_items_of_factor();
+            load_all_transactions();
+            set_client_of_factor();
         }
         private void set_date()
         {
-            iran_date date = new iran_date();
-            int[] today_date = date.Today();
-            this.today_string = today_date[0].ToString() + "/" + today_date[1].ToString() + "/" + today_date[2].ToString();
-            Date_lb.Text = this.today_string;
+            Date_lb.Text = this.factor.factor_date;
+            this.today_string = this.factor.factor_date;
         }
         private void Set_Factor_id()
         {
-            this.factor_id = factors_db.factors_counter() + 1;
+            this.factor_id = this.factor.id;
             Factor_id_lb.Text = this.factor_id.ToString();
         }
         private void textBox2_Click(object sender, System.EventArgs e)
@@ -126,12 +162,12 @@ namespace Arian_project.screens
                 row.Cells[1].Value = item.store_id;
                 row.Cells[2].Value = item.item_name;
                 row.Cells[3].Value = item.buy_price;
-                row.Cells[4].Value = "0";
-                row.Cells[5].Value = "0";
+                row.Cells[4].Value = item.cell_price;
+                row.Cells[5].Value = item.count;
                 row.Cells[6].Value = item.buy_date;
                 row.Cells[7].Value = item.cell_date;
                 row.Cells[8].Value = item.service_item;
-                row.Cells[9].Value = "0";
+                row.Cells[9].Value = this.factor.factor_type=="خرید"?(item.count * item.buy_price): (item.count * item.cell_price);
                 row.Cells[10].Value = item.id;
                 rows.Add(row);
                 list_items.Rows.AddRange(rows.ToArray());
@@ -141,6 +177,8 @@ namespace Arian_project.screens
             {
                 MessageBox.Show("این ایتم در لیست موجود است", "ایتم انتخاب شده");
             }
+
+            count_full_factor_price();
         }
         private void list_items_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -161,7 +199,7 @@ namespace Arian_project.screens
             {
                 foreach(DataGridViewRow i in list_items.Rows)
                 {
-                    if (i.Cells[3].Value != null && i.Cells[5].Value != null && i.Cells[3].Value.ToString() != "" && i.Cells[5].Value .ToString() != "")
+                    if (i.Cells[3].Value != null && i.Cells[5].Value != null && i.Cells[3].Value.ToString() != "" && i.Cells[5].Value.ToString() != "")
                     {
                         decimal price = decimal.Parse(i.Cells[3].Value.ToString());
                         int count = int.Parse(i.Cells[5].Value.ToString());
@@ -172,6 +210,7 @@ namespace Arian_project.screens
             }
             else
             {
+
                 foreach (DataGridViewRow i in list_items.Rows)
                 {
 
@@ -221,10 +260,8 @@ namespace Arian_project.screens
                             item_id = 0;
                         }
 
-                        if(item_id == 0)
+                        if (item_id == 0)
                         {
-                            //item_id = stors_db.get_last_item_id() + 1;
-                            //list_items.Rows[e.RowIndex].Cells[10].Value = item_id;
                             list_items.Rows[e.RowIndex].Cells[1].Value = stors_db.get_last_item_store_id();
                             list_items.Rows[e.RowIndex].Cells[6].Value = today_string;
                             list_items.Rows[e.RowIndex].Cells[7].Value = "";
@@ -232,11 +269,11 @@ namespace Arian_project.screens
                         }
                         else
                         {
-                            if (this.Buy_Screen == false)
+                            if (this.factor.factor_type == "فروش")
                             {
                                 int store_count = stors_db.get_item_by_id(item_id).count;
-
-                                if (store_count < count)
+                        
+                                if(store_count < count)
                                 {
                                     MessageBox.Show("تعداد وارد شده از موجودی انبار کمتر است", "موجودی انبار");
                                     return;
@@ -259,18 +296,20 @@ namespace Arian_project.screens
                 if (row.Cells[1].Value != null &&
                     row.Cells[2].Value != null && row.Cells[3].Value != null &&
                     row.Cells[4].Value != null && row.Cells[5].Value != null &&
-                    row.Cells[6].Value != null && row.Cells[7].Value != null &&
-                    row.Cells[8].Value != null && row.Cells[9].Value != null)
+                    row.Cells[9].Value != null)
                 {
                     try
                     {
+                        int id = 0;
                         int store_id;
+                        string item_name;
                         int buy_price;
                         int cell_price;
                         int count;
                         decimal full_price;
 
                         if (!int.TryParse(row.Cells[1].Value.ToString(), out store_id) ||
+                            row.Cells[2].Value.ToString() == "" ||
                             !int.TryParse(row.Cells[3].Value.ToString(), out buy_price) ||
                             !int.TryParse(row.Cells[4].Value.ToString(), out cell_price) ||
                             !int.TryParse(row.Cells[5].Value.ToString(), out count)||
@@ -278,27 +317,43 @@ namespace Arian_project.screens
                         {
                             continue; 
                         }
-                        int id = 0;
-                        string item_name = row.Cells[2].Value.ToString();
-                        if (stors_db.item_exist_in_store(item_name))
+                        if(row.Cells[10].Value == null)
                         {
-                            id = stors_db.get_item_by_name(item_name).id;
+                            item_name = row.Cells[2].Value.ToString();
+                            Store item_ = stors_db.get_item_by_name(item_name);
+                            if(item_ == null)
+                            {
+                                if (this.factor.factor_type == "خرید")
+                                {
+                                    id = stors_db.get_last_item_id();
+                                }
+                            }
+                            else
+                            {
+                                id = item_.id;
+                            }
                         }
                         else
                         {
-                            id = stors_db.get_last_item_id();
+                            if (!int.TryParse(row.Cells[10].Value.ToString(), out id))
+                            {
+                                if (this.factor.factor_type == "فروش")
+                                {
+                                    MessageBox.Show("لطفا ایتم ها را انتخاب کنید و به صورت دستی وارد نکنید", "ایتم ها");
+                                }
+                            }
                         }
-                            Store item = new Store(
-                                id,
-                                store_id,
-                                item_name,
-                                buy_price,
-                                cell_price,
-                                count,
-                                row.Cells[6].Value?.ToString() ?? today_string,
-                                row.Cells[7].Value?.ToString() ?? string.Empty,
-                                row.Cells[8].Value?.ToString() ?? "خیر"
-                            );
+                        Store item = new Store(
+                            id,
+                            store_id,
+                            row.Cells[2].Value.ToString(),
+                            buy_price,
+                            cell_price,
+                            count,
+                            row.Cells[6].Value?.ToString() ?? today_string,
+                            row.Cells[7].Value?.ToString() ?? string.Empty,
+                            row.Cells[8].Value?.ToString() ?? "خیر"
+                        );
                         items.Add(item);
                         if (this.Buy_Screen)
                         {
@@ -307,7 +362,7 @@ namespace Arian_project.screens
                         else
                         {
                             this.items_full_profit += ((cell_price - buy_price) * count);
-                            this.items_full_price += full_price;
+                            this.items_full_price += (cell_price * count);
                         }
                     }
                     catch (Exception ex)
@@ -357,7 +412,7 @@ namespace Arian_project.screens
                                 price,
                                 this.client.id,
                                 row.Cells[4].Value.ToString(),
-                                factor_id
+                                this.factor.id
                             );
                             transactions.Add(transaction);
                             this.payments_full_price += transaction.price;
@@ -377,7 +432,7 @@ namespace Arian_project.screens
             this.items_full_price = 0;
             this.items_full_profit = 0;
             List<Store> items = get_items_list();
-            List<Transaction > transactions = get_transactions_list();
+            List<Transaction> transactions = get_transactions_list();
             Factor factor = new Factor(
                 this.factor_id,
                 this.client.id,
@@ -390,38 +445,108 @@ namespace Arian_project.screens
                 "پرداخت نشده"
                 );
             factor.items = items;
-            factor.transactions = transactions;
+            factor.transactions = transactions; 
             return factor;
         }
+
+        private void revert_bank_changes() {
+            string message_type = "revert_bank_changes";
+            string logger_message_type = "revert bank changes transaction of old factor in bank table";
+            if (this.factor.factor_type == "خرید")
+            {
+                foreach(Transaction item in this.old_factor_transactions)
+                {
+                    string sql_query = $"UPDATE banks SET balance = balance + {item.price} WHERE id = {item.bank_id}";
+                    db.run_sql_query(sql_query, message_type, logger_message_type);
+                }
+            }else if (this.factor.factor_type == "فروش")
+            {
+
+                foreach (Transaction item in this.old_factor_transactions)
+                {
+                    string sql_query = $"UPDATE banks SET balance = balance - {item.price} WHERE id = {item.bank_id}";
+                    db.run_sql_query(sql_query, message_type, logger_message_type);
+                }
+            }
+        }
+        private void revert_store_items() {
+            string message_type = "revert_store_items";
+            string logger_message_type = "revert store cahnges of factor in store table";
+            if(this.factor.factor_type == "خرید")
+            {
+                foreach(Store item in this.old_factor_items)
+                {
+                    string sql_query = $"UPDATE stors SET count = count - {item.count} WHERE id = {item.id}";
+                    db.run_sql_query(sql_query,message_type,logger_message_type);
+                }
+            }else if(this.factor.factor_type == "فروش")
+            {
+                foreach (Store item in this.old_factor_items)
+                {
+                    string sql_query = $"UPDATE stors SET count = count + {item.count} WHERE id = {item.id}";
+                    db.run_sql_query(sql_query, message_type, logger_message_type);
+                }
+            }
+        }
+
+        private void revert_sub_factors(){ 
+            foreach(Sub_factor item in this.old_factor_sub_factors)
+            {
+                sub_factor_db.delete_sub_factor_from_database(item.id);
+            } 
+        }
+        private void revert_transactions() { 
+            foreach(Transaction item in old_factor_transactions)
+            {
+                transaction_db.delete_transaction_from_database(item.id);
+            }
+        }
+        private void reverst_factor_changes(){ 
+            revert_store_items();
+            revert_bank_changes();
+            revert_sub_factors();
+            revert_transactions();
+        }
+
         private void glassButton1_Click(object sender, EventArgs e)
         {
+            reverst_factor_changes();
             string Message_type = "ثبت فاکتور";
+            bool payed = false;
+
             if(client == null)
             {
                 MessageBox.Show("لطفا مشتری را انتخاب کنید",Message_type);
-                return;
             } else if (list_items.Rows.Count == 0) {
                 MessageBox.Show("لطفا ایتمی را انتخاب کنید", Message_type);
-                return;
-            }
+            }else if (payments_llist.Rows.Count == 0) {
 
+                var res =  MessageBox.Show("فاکتور به لیست پرداخت نشده ها اضافه شود؟", "اخطار",MessageBoxButtons.YesNo);
+                if (res == DialogResult.Yes) {
+                    payed = false;
+                }
+                else
+                {
+                    return;
+                }
+            }
             Factor factor = create_factor();
-            factor.factor_status = "پرداخت شده";
+            if (!payed)
+            {
+                factor.factor_status = "پرداخت نشده";
+            }
             if(this.payments_full_price < this.items_full_price)
             {
-                Button[] buttons =
+                DialogResult res =  MessageBox.Show("مبلغ پرداخت شده از مبلغ فاکتور کمتر است \n فاکتور پرداخت نشده باقی بماند؟", Message_type,MessageBoxButtons.YesNo);
+                if(res == DialogResult.Yes)
                 {
-                    new Button(){Text="پرداخت قسطی"},
-                    new Button(){Text="پرداخت نشده"}
-                };
-                using (PMessageBox screen = new PMessageBox("فاکتور به لیست پرداخت نشده ها اضافه شود یا قسطی پرداخت شود؟", "فاکتور پرداخت نشده", buttons))
-                {
-                    screen.ShowDialog();
-                    if (screen.DialogResult == DialogResult.OK)
-                    {
-                        factor.factor_status = screen.result.Text;
-                    }
+                    payed = false;
                 }
+                else
+                {
+                    return;
+                }
+
             }
             else if(this.payments_full_price > this.items_full_price)
             {
@@ -439,25 +564,15 @@ namespace Arian_project.screens
             {
                 factor.factor_status = "پرداخت شده";
             }
-            if(factor.factor_status == "پرداخت قسطی") {
-                using(Installment_Payment screen = new Installment_Payment(factor))
-                {
-                    screen.ShowDialog();
-                }
+            bool result = save_factor_data(factor);
+            if (result)
+            {
+                MessageBox.Show("فاکتور با موفقیت ثبت شد", Message_type);
+                this.Close();
             }
             else
             {
-                bool result = save_factor_data(factor);
-                if (result)
-                {
-                    MessageBox.Show("فاکتور با موفقیت ثبت شد", Message_type);
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("خطا در ثبت فاکتور", Message_type);
-                    reverst_factor_changes(factor);
-                }
+                MessageBox.Show("خطا در ثبت فاکتور", Message_type);
             }
         }
 
@@ -480,116 +595,56 @@ namespace Arian_project.screens
             bool result = false;
             foreach(Store sub in factor.items)
             {
-                try {
-                    if (stors_db.item_exist_in_store(sub.item_name))
-                    {
-                        if (!this.Buy_Screen) { 
-                            Store item = stors_db.get_item_by_id(sub.id);
-                            if(item.count < sub.count)
-                            {
-                                DialogResult res =  MessageBox.Show("موجودی ایتم در انبار کمتر از مقدار وارد شده است مقدار صفر ثبت شود؟", "موجودی ایتم",MessageBoxButtons.YesNo);
-                                if (res == DialogResult.Yes) {
-                                    sub.count = item.count;
-                                }
+                if (stors_db.item_exist_in_store(sub.item_name))
+                {
+                    if (!this.Buy_Screen) { 
+                        Store item = stors_db.get_item_by_id(sub.id);
+                        if(item.count < sub.count)
+                        {
+                            DialogResult res =  MessageBox.Show("موجودی ایتم در انبار کمتر از مقدار وارد شده است مقدار صفر ثبت شود؟", "موجودی ایتم",MessageBoxButtons.YesNo);
+                            if (res == DialogResult.Yes) {
+                                sub.count = item.count;
                             }
                         }
-                        string operation = this.Buy_Screen ? "+" : "-";
-                        string query = $"UPDATE stors SET count = count {operation} {sub.count} WHERE id = {sub.id}";
-                        result = db.run_sql_query(query,"update items in store",$"change items count base on the factor {factor.id}");
+                    }
+                    string operation = this.Buy_Screen ? "+" : "-";
+                    string query = $"UPDATE stors SET count = count {operation} {sub.count} WHERE id = {sub.id}";
+                    result = db.run_sql_query(query,"update items in store",$"change items count based on the factor {factor.id}");
+                    if (!result)
+                    {
+                        MessageBox.Show("مشکلی در ثبت تغییرات انبار بوجود امده است", "ثبت تغییرات انبار");
                         return result;
                     }
-                    else if(this.Buy_Screen)
+                }
+                else
+                {
+                    int stor_id = stors_db.get_last_item_store_id();
+                    Store store = new Store(0, stor_id,sub.item_name, sub.buy_price, sub.cell_price, sub.count, sub.buy_date, sub.cell_date, sub.service_item);
+                    result = stors_db.insert_item_to_database(store);
+                    if (!result)
                     {
-                        int stor_id = stors_db.get_last_item_store_id();
-                        Store store = new Store(sub.id, stor_id,sub.item_name, sub.buy_price, sub.cell_price, sub.count, sub.buy_date, sub.cell_date, sub.service_item);
-                        result = stors_db.insert_item_to_database(store);
-                        if (!result)
-                        {
-                            MessageBox.Show("مشکلی در ثبت تغییرات انبار بوجود امده است", "ثبت تغییرات انبار");
-                            return result;
-                        }
+                        MessageBox.Show("مشکلی در ثبت تغییرات انبار بوجود امده است", "ثبت تغییرات انبار");
+                        return result;
                     }
-                }catch(Exception ex) {
-                    MessageBox.Show(ex.ToString(), "erro");
                 }
             }
             return result;
         }
-        private void revert_bank_changes(Factor factor)
-        {
-            string message_type = "revert_bank_changes";
-            string logger_message_type = "revert bank changes transaction of old factor in bank table";
-            if (factor.factor_type == "خرید")
-            {
-                foreach (Transaction item in factor.transactions)
-                {
-                    string sql_query = $"UPDATE banks SET balance = balance + {item.price} WHERE id = {item.bank_id}";
-                    db.run_sql_query(sql_query, message_type, logger_message_type);
-                }
-            }
-            else if (factor.factor_type == "فروش")
-            {
-
-                foreach (Transaction item in factor.transactions)
-                {
-                    string sql_query = $"UPDATE banks SET balance = balance - {item.price} WHERE id = {item.bank_id}";
-                    db.run_sql_query(sql_query, message_type, logger_message_type);
-                }
-            }
-        }
-        private void revert_store_items(Factor factor)
-        {
-            string message_type = "revert_store_items";
-            string logger_message_type = "revert store cahnges of factor in store table";
-            if (factor.factor_type == "خرید")
-            {
-                foreach (Store item in factor.items)
-                {
-                    string sql_query = $"UPDATE stors SET count = count - {item.count} WHERE id = {item.id}";
-                    db.run_sql_query(sql_query, message_type, logger_message_type);
-                }
-            }
-            else if (factor.factor_type == "فروش")
-            {
-                foreach (Store item in factor.items)
-                {
-                    string sql_query = $"UPDATE stors SET count = count + {item.count} WHERE id = {item.id}";
-                    db.run_sql_query(sql_query, message_type, logger_message_type);
-                }
-            }
-        }
-
-        private void revert_sub_factors(Factor factor)
-        {
-            List<Sub_factor> items = sub_factor_db.get_sub_factor_of_factor(factor.id);
-            foreach (Sub_factor sub in items)
-            {
-                sub_factor_db.delete_sub_factor_from_database(sub.id);
-            }
-        }
-        private void revert_transactions(Factor factor)
-        {
-            foreach (Transaction item in factor.transactions)
-            {
-                transaction_db.delete_transaction_from_database(item.id);
-            }
-        }
-        private void reverst_factor_changes(Factor factor)
-        {
-            revert_store_items(factor);
-            revert_bank_changes(factor);
-            revert_sub_factors(factor);
-            revert_transactions(factor);
-            factors_db.delete_factor_from_database(factor.id);
-        }
-
         private bool save_sub_factors(Factor factor)
         {
             bool result = false;
             foreach (Store sub in factor.items)
             {
                 int id = sub_factor_db.sub_factors_counter() + 1;
-                Sub_factor sub_factor = Sub_factor.Get_Sub_Factor_from_store(id, factor.id, (sub.cell_price - sub.buy_price), sub);
+                Sub_factor sub_factor = new Sub_factor(
+                    id,
+                    this.factor.id,
+                    sub.id,
+                    sub.buy_price,
+                    sub.cell_price,
+                    this.Buy_Screen?0: ((sub.cell_price - sub.buy_price)*sub.count),
+                    sub.count
+                    );
                 result = sub_factor_db.insert_sub_factor_to_database(sub_factor);
                 if (!result)
                 {
@@ -601,36 +656,43 @@ namespace Arian_project.screens
         private bool save_factor_data(Factor factor) {
 
             bool result = false;
-            result = factors_db.insert_factor_to_database(factor);
-            if (result)
+            try
             {
-                result = save_transactions(factor);
-                if (!result) {
-                    MessageBox.Show("در هنگام ثبت تراکنش مشکلی بوجود امده است", "ثبت تراکنش");
-                    return result;
-                }
-                result = save_store_changes(factor);
-                if (!result)
+
+                result = factors_db.edite_factor_in_datebase(factor);
+                if (result)
                 {
-                    MessageBox.Show("در هنگام ثبت ایتم مشکلی بوجود امده است", "ثبت ایتم");
-                    return result;
+                    result = save_transactions(factor);
+                    if (!result) {
+                        MessageBox.Show("در هنگام ثبت تراکنش مشکلی بوجود امده است", "ثبت تراکنش");
+                        return result;
+                    }
+                    result = save_store_changes(factor);
+                    if (!result)
+                    {
+                        MessageBox.Show("در هنگام ثبت ایتم مشکلی بوجود امده است", "ثبت ایتم");
+                        return result;
+                    }
+                    result = save_sub_factors(factor);
+                    if (!result)
+                    {
+                        MessageBox.Show("درهنگام ثبت ایتم های فاکتور مشکلی بوجود امده است", "ثبت ایتم ها");
+                        return result;
+                    }
+                    result = add_transactions_to_banks(factor);
+                    if (!result)
+                    {
+                        MessageBox.Show("درهنگام تسویه مبالغ حساب فاکتور به حساب مشکلی بوجود امده است", "تسویه حساب");
+                        return result;
+                    }
                 }
-                result = save_sub_factors(factor);
-                if (!result)
+                else
                 {
-                    MessageBox.Show("درهنگام ثبت ایتم های فاکتور مشکلی بوجود امده است", "ثبت ایتم ها");
-                    return result;
+                    MessageBox.Show("خطا در ثبت فاکتور", "ثبت فاکتور");
                 }
-                result = add_transactions_to_banks(factor);
-                if (!result)
-                {
-                    MessageBox.Show("درهنگام تسویه مبالغ حساب فاکتور به حساب مشکلی بوجود امده است", "تسویه حساب");
-                    return result;
-                }
-            }
-            else
+            }catch(Exception ex)
             {
-                MessageBox.Show("خطا در ثبت فاکتور", "ثبت فاکتور");
+                MessageBox.Show(ex.ToString(), "خطایی رخ داده است");
             }
 
             return result;

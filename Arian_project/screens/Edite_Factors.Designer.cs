@@ -1,6 +1,6 @@
 ﻿namespace Arian_project.screens
 {
-    partial class Buy_Item
+    partial class Edite_Factors
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Buy_Item));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Edite_Factors));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
@@ -41,13 +41,13 @@
             this.Factor_id_lb = new System.Windows.Forms.Label();
             this.Client_phone_tb = new System.Windows.Forms.TextBox();
             this.Client_Name_tb = new System.Windows.Forms.TextBox();
-            this.glassButton3 = new GlassButton();
             this.Date_lb = new Atf.UI.DateTimeSelector();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.list_items = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.payments_llist = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.glassButton3 = new GlassButton();
             this.glassButton2 = new GlassButton();
             this.glassButton1 = new GlassButton();
             this.tableLayoutPanel1.SuspendLayout();
@@ -122,10 +122,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Location = new System.Drawing.Point(382, 0);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(32, 19);
+            this.label5.Size = new System.Drawing.Size(46, 19);
             this.label5.TabIndex = 0;
             this.label5.Text = "قیمت کل :";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -133,10 +134,11 @@
             // full_price_lb
             // 
             this.full_price_lb.AutoSize = true;
+            this.full_price_lb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.full_price_lb.Location = new System.Drawing.Point(328, 0);
             this.full_price_lb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.full_price_lb.Name = "full_price_lb";
-            this.full_price_lb.Size = new System.Drawing.Size(14, 16);
+            this.full_price_lb.Size = new System.Drawing.Size(46, 19);
             this.full_price_lb.TabIndex = 1;
             this.full_price_lb.Text = "0";
             this.full_price_lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -245,24 +247,9 @@
             this.Client_Name_tb.TabIndex = 7;
             this.Client_Name_tb.Click += new System.EventHandler(this.textBox2_Click);
             // 
-            // glassButton3
-            // 
-            this.glassButton3.BackAlpha = 120;
-            this.glassButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.glassButton3.CornerRadius = 20;
-            this.glassButton3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.glassButton3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.glassButton3.ForeColor = System.Drawing.Color.Black;
-            this.glassButton3.Location = new System.Drawing.Point(407, 130);
-            this.glassButton3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.glassButton3.Name = "glassButton3";
-            this.glassButton3.Size = new System.Drawing.Size(98, 32);
-            this.glassButton3.TabIndex = 8;
-            this.glassButton3.Text = "حذف ایتم";
-            this.glassButton3.Click += new System.EventHandler(this.glassButton3_Click);
-            // 
             // Date_lb
             // 
+            this.Date_lb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Date_lb.Location = new System.Drawing.Point(104, 35);
             this.Date_lb.Name = "Date_lb";
             this.Date_lb.Size = new System.Drawing.Size(95, 23);
@@ -361,6 +348,22 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(819, 22);
             this.tableLayoutPanel3.TabIndex = 4;
             // 
+            // glassButton3
+            // 
+            this.glassButton3.BackAlpha = 120;
+            this.glassButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.glassButton3.CornerRadius = 20;
+            this.glassButton3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.glassButton3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.glassButton3.ForeColor = System.Drawing.Color.Black;
+            this.glassButton3.Location = new System.Drawing.Point(407, 130);
+            this.glassButton3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.glassButton3.Name = "glassButton3";
+            this.glassButton3.Size = new System.Drawing.Size(98, 32);
+            this.glassButton3.TabIndex = 8;
+            this.glassButton3.Text = "حذف ایتم";
+            this.glassButton3.Click += new System.EventHandler(this.glassButton3_Click);
+            // 
             // glassButton2
             // 
             this.glassButton2.BackAlpha = 120;
@@ -393,7 +396,7 @@
             this.glassButton1.Text = "ثبت";
             this.glassButton1.Click += new System.EventHandler(this.glassButton1_Click);
             // 
-            // Buy_Item
+            // Edite_Factors
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -401,7 +404,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "Buy_Item";
+            this.Name = "Edite_Factors";
             this.Text = "فروش";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);

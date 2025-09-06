@@ -1,9 +1,10 @@
 ﻿
-using System.Collections.Generic;
-using System;
-using System.Data.SQLite;
 using Arian_project.backend;
 using ghest.Backend.Logs;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SQLite;
 
 namespace Arian_project.Backend
 {
@@ -14,7 +15,38 @@ namespace Arian_project.Backend
 
         Database_data database = new Database_data();
 
-        public List<Factor> factors_list(string sql_query = "")
+        public DataTable Factors_list(string sql_query = "")
+        {
+            string logger_message_type = "factors database";
+            logger.record_log("get factors list from factors table", logger_message_type);
+            if (string.IsNullOrEmpty(sql_query))
+            {
+                sql_query = "SELECT * FROM factors";
+            }
+            DataTable dataTable = new DataTable();
+            try
+            {
+                using (var connection = database.connection_to_db())
+                {
+                    connection.Open();
+                    using (var command = new SQLiteCommand(sql_query, connection))
+                    {
+                        using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(command))
+                        {
+                            adapter.Fill(dataTable);
+                        }
+                    }
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.record_log("SQL QUERY => " + sql_query, logger_message_type);
+                logger.record_log(ex.ToString(), logger_message_type);
+            }
+            return dataTable;
+        }
+        public List<Factor> factors_array(string sql_query = "")
         {
             string logger_message_type = "factors database";
             logger.record_log("get factors list from factorss table", logger_message_type);
@@ -37,11 +69,13 @@ namespace Arian_project.Backend
                             {
                                 factors.Add(new Factor(reader.GetInt32(0),
                                     reader.GetInt32(1),
-                                    reader.GetDecimal(2),
+                                    reader.GetString(2),
                                     reader.GetDecimal(3),
-                                    reader.GetString(4),
-                                    reader.GetString(5),
-                                    reader.GetString(6)));
+                                    reader.GetDecimal(4),
+                                    reader.GetDecimal(5),
+                                    reader.GetString(7),
+                                    reader.GetString(8),
+                                    reader.GetString(9)));
                             }
                         }
                     }
@@ -72,13 +106,12 @@ namespace Arian_project.Backend
 
         public bool insert_factor_to_database(Factor factor)
         {
-            factor.id = factors_counter()+1;
             string logger_message_type = "insert_factor_to_database";
             string message_type = "insert new factor to table";
             bool result = false;
             if (factor.id != 0)
             {
-                string sql_query = $"INSERT INTO factors(id,client_id,full_price,profit,factor_date,client_group,factor_status)VALUES('{factor.id}','{factor.client_id}','{factor.full_price}','{factor.profit}','{factor.factor_date}','{factor.client_group}','{factor.factor_status}')";
+                string sql_query = $"INSERT INTO factors(id,client_id,factor_type,full_price,profit,payed_price,factor_date,client_group,factor_status)VALUES('{factor.id}','{factor.client_id}','{factor.factor_type}','{factor.full_price}','{factor.profit}','{factor.payed_price}','{factor.factor_date}','{factor.client_group}','{factor.factor_status}')";
                 result = database.run_sql_query(sql_query, message_type, logger_message_type);
             }
             return result;
@@ -89,7 +122,7 @@ namespace Arian_project.Backend
             string message_type = "edite factor in factors table";
             bool result = false;
             if (factor.id != 0) {
-                string sql_query = $"UPDATE factors SET client_id='{factor.client_id}',full_price='{factor.full_price}',profit='{factor.profit}',factor_date='{factor.factor_date}',client_group='{factor.client_group}',factor_status='{factor.factor_status}' WHERE id='{factor.id}'";
+                string sql_query = $"UPDATE factors SET client_id='{factor.client_id}',factor_type='{factor.factor_type}',full_price='{factor.full_price}',profit='{factor.profit}',payed_price='{factor.payed_price}',factor_date='{factor.factor_date}',client_group='{factor.client_group}',factor_status='{factor.factor_status}' WHERE id='{factor.id}'";
                 result = database.run_sql_query(sql_query, message_type, logger_message_type);
             }
             return result;

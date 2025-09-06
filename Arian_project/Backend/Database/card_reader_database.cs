@@ -56,7 +56,7 @@ namespace Arian_project.Backend
             }
             catch (Exception ex)
             {
-                logger.record_log("SQL QUERY => " + sql_query, logger_message_type);
+                logger.record_log("SQL QUERY => " + sql_query, message_type);
                 logger.record_log(ex.ToString(), logger_message_type);
             }
             return card_r;

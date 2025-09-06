@@ -104,5 +104,17 @@ namespace Arian_project.screens
             Add_Item screen = new Add_Item();
             screen.ShowDialog();
         }
+
+        private void services_screen_bt_Click(object sender, EventArgs e)
+        {
+            Services screen = new Services();
+            screen.ShowDialog();
+        }
+
+        private void factors_screen_bt_Click(object sender, EventArgs e)
+        {
+            Factors_screen screen = new Factors_screen();
+            screen.ShowDialog();
+        }
     }
 }

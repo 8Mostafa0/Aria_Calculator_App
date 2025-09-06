@@ -118,6 +118,49 @@ namespace Arian_project.backend
             }
             return bank_types;
         }
+        public Client Get_Client_by_id(int id)
+        {
+            string message_type = "Get_Client_by_id";
+            string logger_message_type = "get client by id from clients table";
+            string sql_query = $"SELECT * FROM clients WHERE id='{id}'";
+            Client user = null;
+            try
+            {
+                using (SQLiteConnection connection = new Database_data().connection_to_db())
+                {
+                    connection.Open();
+                    using (SQLiteCommand command = new SQLiteCommand(sql_query, connection))
+                    {
+                        var reader = command.ExecuteReader();
+                        
+                            if (reader.HasRows)
+                            {
+                            while (reader.Read()) { 
+                                user = new Client(
+                                        reader.GetInt32(0),
+                                        reader.GetString(1),
+                                        reader.GetString(2),
+                                        reader.GetString(3),
+                                        reader.GetString(4),
+                                        reader.GetString(5),
+                                        reader.GetString(6),
+                                        reader.GetString(7)
+                                    );
+                            }
+                            }
+                        
+                        connection.Close();
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.record_log("SQL QUERY => " + ex, logger_message_type);
+                logger.record_log(message_type, logger_message_type);
+            }
+            return user;
+        }
         
     }
 }

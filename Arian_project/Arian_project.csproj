@@ -52,6 +52,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DateTimeSelector">
+      <HintPath>C:\Users\Mosix\Downloads\Compressed\DateTimeSelector-v1.1.2-bin\DateTimeSelector.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -70,6 +73,7 @@
     <Reference Include="System.Data.SQLite.Linq, Version=1.0.119.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <HintPath>packages\System.Data.SQLite.Linq.1.0.119.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
     </Reference>
+    <Reference Include="System.Design" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -123,6 +127,12 @@
     <Compile Include="screens\Banks.Designer.cs">
       <DependentUpon>Banks.cs</DependentUpon>
     </Compile>
+    <Compile Include="screens\Edite_Factors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="screens\Edite_Factors.Designer.cs">
+      <DependentUpon>Edite_Factors.cs</DependentUpon>
+    </Compile>
     <Compile Include="screens\Buy_Item.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +163,18 @@
     <Compile Include="screens\Client_Detiales.Designer.cs">
       <DependentUpon>Client_Detiales.cs</DependentUpon>
     </Compile>
+    <Compile Include="screens\Factors_screen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="screens\Factors_screen.Designer.cs">
+      <DependentUpon>Factors_screen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="screens\Installment_Payment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="screens\Installment_Payment.Designer.cs">
+      <DependentUpon>Installment_Payment.cs</DependentUpon>
+    </Compile>
     <Compile Include="screens\Main_screen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +186,12 @@
     </Compile>
     <Compile Include="screens\Payment_methods.Designer.cs">
       <DependentUpon>Payment_methods.cs</DependentUpon>
+    </Compile>
+    <Compile Include="screens\PMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="screens\PMessageBox.Designer.cs">
+      <DependentUpon>PMessageBox.cs</DependentUpon>
     </Compile>
     <Compile Include="screens\Services.cs">
       <SubType>Form</SubType>
@@ -193,6 +221,9 @@
     <EmbeddedResource Include="screens\Banks.resx">
       <DependentUpon>Banks.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="screens\Edite_Factors.resx">
+      <DependentUpon>Edite_Factors.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="screens\Buy_Item.resx">
       <DependentUpon>Buy_Item.cs</DependentUpon>
     </EmbeddedResource>
@@ -208,11 +239,20 @@
     <EmbeddedResource Include="screens\Client_Detiales.resx">
       <DependentUpon>Client_Detiales.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="screens\Factors_screen.resx">
+      <DependentUpon>Factors_screen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="screens\Installment_Payment.resx">
+      <DependentUpon>Installment_Payment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="screens\Main_screen.resx">
       <DependentUpon>Main_screen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="screens\Payment_methods.resx">
       <DependentUpon>Payment_methods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="screens\PMessageBox.resx">
+      <DependentUpon>PMessageBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="screens\Services.resx">
       <DependentUpon>Services.cs</DependentUpon>
