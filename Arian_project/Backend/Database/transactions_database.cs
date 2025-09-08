@@ -3,11 +3,10 @@ using ghest.Backend.Logs;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System;
-using System.Windows.Forms;
 
 namespace Arian_project.Backend
 {
-    public class transactions_database
+    public class Transactions_database
     {
 
         private log logger = new log();

@@ -13,12 +13,12 @@ namespace Arian_project.screens
         public bool Buy_Screen { get; set; }
         public Client client {  get; set; }
 
-        factors_database factors_db = new factors_database();
-        stores_database stors_db = new stores_database();
+        Factors_database factors_db = new Factors_database();
+        Stores_database stors_db = new Stores_database();
         Database_data db = new Database_data();
         sub_factors_database sub_factor_db = new sub_factors_database();
-        transactions_database transaction_db = new transactions_database();
-        clients_database clients_db = new clients_database();
+        Transactions_database transaction_db = new Transactions_database();
+        Clients_database clients_db = new Clients_database();
         Style style = new Style();
         public int factor_id { get; set; }
 

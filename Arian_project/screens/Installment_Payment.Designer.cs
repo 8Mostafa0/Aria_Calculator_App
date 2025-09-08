@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Installment_Payment));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.penalty_text = new System.Windows.Forms.Label();
             this.factor_left_over_price_lb = new System.Windows.Forms.Label();
             this.ful_price_lb = new System.Windows.Forms.Label();
             this.factor_full_price_lb = new System.Windows.Forms.Label();
@@ -56,16 +57,15 @@
             this.label13 = new System.Windows.Forms.Label();
             this.factor_id_lb = new System.Windows.Forms.Label();
             this.installment_first_pay_date_lb = new Atf.UI.DateTimeSelector();
+            this.penalty_type_cb = new System.Windows.Forms.ComboBox();
+            this.penalty_value_tb = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.month_count_lb = new System.Windows.Forms.TextBox();
             this.installment_payments_date = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.glassButton1 = new GlassButton();
             this.glassButton2 = new GlassButton();
             this.glassButton3 = new GlassButton();
-            this.penalty_type_cb = new System.Windows.Forms.ComboBox();
-            this.penalty_value_tb = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.penalty_text = new System.Windows.Forms.Label();
-            this.month_count_lb = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.installment_payments_date)).BeginInit();
@@ -140,6 +140,17 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(951, 220);
             this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // penalty_text
+            // 
+            this.penalty_text.AutoSize = true;
+            this.penalty_text.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.penalty_text.Location = new System.Drawing.Point(161, 72);
+            this.penalty_text.Name = "penalty_text";
+            this.penalty_text.Size = new System.Drawing.Size(152, 36);
+            this.penalty_text.TabIndex = 41;
+            this.penalty_text.Text = "مبلغ جریمه";
+            this.penalty_text.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // factor_left_over_price_lb
             // 
@@ -414,6 +425,44 @@
             this.installment_first_pay_date_lb.TabIndex = 37;
             this.installment_first_pay_date_lb.UsePersianFormat = true;
             // 
+            // penalty_type_cb
+            // 
+            this.penalty_type_cb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.penalty_type_cb.FormattingEnabled = true;
+            this.penalty_type_cb.Location = new System.Drawing.Point(3, 39);
+            this.penalty_type_cb.Name = "penalty_type_cb";
+            this.penalty_type_cb.Size = new System.Drawing.Size(152, 24);
+            this.penalty_type_cb.TabIndex = 38;
+            this.penalty_type_cb.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // penalty_value_tb
+            // 
+            this.penalty_value_tb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.penalty_value_tb.Location = new System.Drawing.Point(3, 75);
+            this.penalty_value_tb.Name = "penalty_value_tb";
+            this.penalty_value_tb.Size = new System.Drawing.Size(152, 22);
+            this.penalty_value_tb.TabIndex = 39;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label14.Location = new System.Drawing.Point(161, 36);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(152, 36);
+            this.label14.TabIndex = 40;
+            this.label14.Text = "نوع جریمه دیرکرد";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // month_count_lb
+            // 
+            this.month_count_lb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.month_count_lb.Location = new System.Drawing.Point(3, 3);
+            this.month_count_lb.Name = "month_count_lb";
+            this.month_count_lb.Size = new System.Drawing.Size(152, 22);
+            this.month_count_lb.TabIndex = 43;
+            this.month_count_lb.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
             // installment_payments_date
             // 
             this.installment_payments_date.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -493,55 +542,6 @@
             this.glassButton3.Size = new System.Drawing.Size(45, 27);
             this.glassButton3.TabIndex = 2;
             this.glassButton3.Text = "بازگشت";
-            // 
-            // penalty_type_cb
-            // 
-            this.penalty_type_cb.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.penalty_type_cb.FormattingEnabled = true;
-            this.penalty_type_cb.Location = new System.Drawing.Point(3, 39);
-            this.penalty_type_cb.Name = "penalty_type_cb";
-            this.penalty_type_cb.Size = new System.Drawing.Size(152, 24);
-            this.penalty_type_cb.TabIndex = 38;
-            this.penalty_type_cb.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // penalty_value_tb
-            // 
-            this.penalty_value_tb.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.penalty_value_tb.Location = new System.Drawing.Point(3, 75);
-            this.penalty_value_tb.Name = "penalty_value_tb";
-            this.penalty_value_tb.Size = new System.Drawing.Size(152, 22);
-            this.penalty_value_tb.TabIndex = 39;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label14.Location = new System.Drawing.Point(161, 36);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(152, 36);
-            this.label14.TabIndex = 40;
-            this.label14.Text = "نوع جریمه دیرکرد";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // penalty_text
-            // 
-            this.penalty_text.AutoSize = true;
-            this.penalty_text.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.penalty_text.Location = new System.Drawing.Point(161, 72);
-            this.penalty_text.Name = "penalty_text";
-            this.penalty_text.Size = new System.Drawing.Size(152, 36);
-            this.penalty_text.TabIndex = 41;
-            this.penalty_text.Text = "مبلغ جریمه";
-            this.penalty_text.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // month_count_lb
-            // 
-            this.month_count_lb.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.month_count_lb.Location = new System.Drawing.Point(3, 3);
-            this.month_count_lb.Name = "month_count_lb";
-            this.month_count_lb.Size = new System.Drawing.Size(152, 22);
-            this.month_count_lb.TabIndex = 43;
-            this.month_count_lb.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // Installment_Payment
             // 

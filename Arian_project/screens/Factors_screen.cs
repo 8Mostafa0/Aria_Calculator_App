@@ -9,7 +9,7 @@ namespace Arian_project.screens
     public partial class Factors_screen : Form
     {
 
-        public factors_database factor_db = new factors_database();
+        public Factors_database factor_db = new Factors_database();
         public Factors_screen()
         {
             InitializeComponent();

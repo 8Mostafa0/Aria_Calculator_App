@@ -12,11 +12,11 @@ namespace Arian_project.screens
     public partial class Installment_Payment : Form
     {
         private Factor factor {  get; set; }
-        private clients_database clients_db = new clients_database();
-        installment_calculator calculator = new installment_calculator();
-        penalty_calculator penaty_cl = new penalty_calculator();
+        private Clients_database clients_db = new Clients_database();
+        Installment_calculator calculator = new Installment_calculator();
+        Penalty_calculator penaty_cl = new Penalty_calculator();
         private string today_string {  get; set; }
-        iran_date date = new iran_date();
+        Iran_date date = new Iran_date();
         public Installment_Payment(Factor factor)
         {
             InitializeComponent();
@@ -133,7 +133,7 @@ namespace Arian_project.screens
                     {
                         months = int.Parse(month_count_lb.Text);
                     }
-                    catch (Exception ex) {
+                    catch {
                         MessageBox.Show("لطفا تعداد ماه را عددی وارد کنید", "تعداد ماه");
                         months = 1;
                     }

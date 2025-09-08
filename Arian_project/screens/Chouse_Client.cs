@@ -13,7 +13,7 @@ namespace Arian_project.screens
         {
             InitializeComponent();
         }
-        clients_database clients_db = new clients_database();
+        Clients_database clients_db = new Clients_database();
         public Client ReturnClient { get; private set; }
         private void fill_clients_type_cb()
         {

@@ -4,7 +4,6 @@ using System.IO;
 using System.Reflection;
 using ghest.Backend.Logs;
 using System.Data.SQLite;
-using System.Windows.Forms;
 namespace Arian_project.backend
 {
     public class Database_data
@@ -16,6 +15,7 @@ namespace Arian_project.backend
         public readonly static string database_file = database_path + "\\database.db";
         public static string database { get { return $"DataSource={database_file}"; } set { } }
 
+        private log logger = new log();
         public void check_directorys()
         {
             List<string> directorys = new List<string>
@@ -33,8 +33,6 @@ namespace Arian_project.backend
             check_databases();
 
         }
-
-        private log logger = new log();
         public SQLiteConnection connection_to_db()
         {
             var database = Database_data.database;
@@ -45,7 +43,6 @@ namespace Arian_project.backend
         {
             string logger_message_type = "check_databases";
             
-            log logger = new log();
             
             try
             {
@@ -53,11 +50,11 @@ namespace Arian_project.backend
                 if (!Directory.Exists(database_path))
                 {
                     Directory.CreateDirectory(database_path);
-                    logger.record_log("creating database file and tables", logger_message_type);
                 }
                 if(!File.Exists(database_file))
                 {
 
+                    logger.record_log("creating database file and tables", logger_message_type);
             
                     var file_connection = File.Create(database_file);
 
@@ -81,6 +78,10 @@ namespace Arian_project.backend
 
                     string card_readers_database_sql = "CREATE TABLE card_readers(id INT PRIMARY KEY NOT NULL,bank_id INT NOT NULL,name TEXT NOT NULL)";
 
+                    string client_installments_database_sql = "CREATE TABLE client_installments(id INT PRIMARY KEY NOT NULL,client_id INT NOT NULL,factor_id INT NOT NULL,installment_price  TEXT NOT NULL,first_installment TEXT NOT NULL,one_installment_price TEXT NOT NULL,installment_count TEXT NOT NULL,installment_payed_count TEXT NOT NULL,end_installment TEXT NOT NULL,sms_days TEXT NOT NULL)";
+
+                    string installment_transaction_database_sql = "CREATE TABLE installment_transactions(id INT PRIMARY KEY NOT NULL,date TEXT NOT NULL,price TEXT NOT NULL,payed_price TEXT NOT NULL,penalty_type TEXT NOT NULL,penalty_price_per_day TEXT NOT NULL,penalty TEXT NOT NULL,status TEXT NOT NULL,installment_number TEXT NOT NULL,installment_id TEXT NOT NULL)";
+                    
                     using (var database_connection = connection_to_db())
                     {
                         database_connection.Open();
@@ -123,6 +124,14 @@ namespace Arian_project.backend
                             command.ExecuteNonQuery();
                         }
                         using (var command = new SQLiteCommand(card_readers_database_sql, database_connection))
+                        {
+                            command.ExecuteNonQuery();
+                        }
+                        using (var command = new SQLiteCommand(client_installments_database_sql, database_connection))
+                        {
+                            command.ExecuteNonQuery();
+                        }
+                        using (var command = new SQLiteCommand(installment_transaction_database_sql, database_connection))
                         {
                             command.ExecuteNonQuery();
                         }

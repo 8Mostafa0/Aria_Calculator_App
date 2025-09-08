@@ -16,7 +16,7 @@ namespace Arian_project.screens
             load_data_to_list();
         }
         log logger = new log();
-        banks_database bank_db = new banks_database();
+        Banks_database bank_db = new Banks_database();
         int select_id = 0;
         string logger_message_type = "مدیریت حساب";
         public DataTable Banks_List_Set
@@ -50,7 +50,7 @@ namespace Arian_project.screens
 
             new Style().Banks_List_Style(banks_list);
             banks_list.Rows.Clear();
-            DataTable banks = new banks_database().Banks_list();
+            DataTable banks = new Banks_database().Banks_list();
             Banks_List_Set = banks;
             select_id = bank_db.banks_count() + 1;
 

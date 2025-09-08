@@ -6,7 +6,7 @@ using System.Data.SQLite;
 
 namespace Arian_project.Backend
 {
-    public class smss_database
+    public class Smss_database
     {
 
         private log logger = new log();

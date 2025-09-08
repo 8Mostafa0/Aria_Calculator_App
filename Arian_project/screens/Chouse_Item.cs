@@ -13,7 +13,7 @@ namespace Arian_project.screens
         public Store selected_item { get; set; }
         Theme_style theme = new Theme_style();
         Style style = new Style();
-        stores_database db = new stores_database();
+        Stores_database db = new Stores_database();
         public Chouse_Item()
         {
             InitializeComponent();

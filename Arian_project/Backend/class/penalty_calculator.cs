@@ -4,7 +4,7 @@ using System;
 
 namespace Arian_project.Backend
 {
-    public class penalty_calculator
+    public class Penalty_calculator
     {
         
         private Arian_project.Properties.Settings props = Properties.Settings.Default;

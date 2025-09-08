@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Arian_project.Backend.Database
 {
-    internal class banks_database
+    internal class Banks_database
     {
         private log logger = new log();
         Database_data database = new Database_data();

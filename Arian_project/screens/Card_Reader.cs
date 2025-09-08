@@ -15,8 +15,8 @@ namespace Arian_project.screens
             InitializeComponent();
             load_items_to_list();
         }
-        card_reader_database card_reader_db = new card_reader_database();
-        banks_database bank_db = new banks_database();
+        Card_reader_database card_reader_db = new Card_reader_database();
+        Banks_database bank_db = new Banks_database();
         int select_id = 0;
         private void load_items_to_list()
         {

@@ -9,7 +9,7 @@ namespace Arian_project.screens
     public partial class Services : Form
     {
 
-        services_database db = new services_database();
+        Services_database db = new Services_database();
         Style style = new Style();
         public Services()
         {

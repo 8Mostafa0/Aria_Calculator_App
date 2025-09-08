@@ -13,14 +13,14 @@ namespace Arian_project.screens
         public Transaction method { get; set; } 
         public Client client { get; set; }
 
-        public transactions_database db = new transactions_database();
+        public Transactions_database db = new Transactions_database();
 
         public int method_index = 0;
         public string today_string { get; set; }
 
-        private card_reader_database card_reader_db = new card_reader_database();
+        private Card_reader_database card_reader_db = new Card_reader_database();
 
-        private banks_database banks_db = new banks_database();
+        private Banks_database banks_db = new Banks_database();
 
         private int id = 1;
         public Payment_methods(Client user, int id,Transaction transaction)
@@ -46,7 +46,7 @@ namespace Arian_project.screens
 
         public void set_date()
         {
-            iran_date calender = new iran_date();
+            Iran_date calender = new Iran_date();
             int[] today =  calender.Today();
             this.today_string = today[0].ToString() + "/" + today[1].ToString() + "/" + today[2].ToString();
             date_lb.Text = this.today_string;
@@ -104,8 +104,8 @@ namespace Arian_project.screens
                             {
                                 method = payment_methods_cb.SelectedValue.ToString();
                                 string p_bank = banks_cb.SelectedValue.ToString();
-                                Card_Reader card_reader = new card_reader_database().get_card_reader_by_name(p_bank);
-                                Bank bank = new banks_database().get_bank_data_by_id(card_reader.bank_id);
+                                Card_Reader card_reader = new Card_reader_database().get_card_reader_by_name(p_bank);
+                                Bank bank = new Banks_database().get_bank_data_by_id(card_reader.bank_id);
                                 bank_name = bank.name;
                                 bank_id = bank.id;
                             } else if(payment_methods_cb.SelectedIndex == 1)

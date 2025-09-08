@@ -3,6 +3,7 @@ using Arian_project.backend;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using ghest.Backend.Logs;
 
 namespace Arian_project.screens
 {
@@ -11,6 +12,7 @@ namespace Arian_project.screens
         public Main_screen()
         {
             InitializeComponent();
+            new log().init_logs();
             new Database_data().check_directorys();
             this.WindowState = FormWindowState.Maximized;
         }

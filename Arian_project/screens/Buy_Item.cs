@@ -14,11 +14,11 @@ namespace Arian_project.screens
         public bool Buy_Screen { get; set; }
         public Client client {  get; set; }
 
-        factors_database factors_db = new factors_database();
-        stores_database stors_db = new stores_database();
+        Factors_database factors_db = new Factors_database();
+        Stores_database stors_db = new Stores_database();
         Database_data db = new Database_data();
         sub_factors_database sub_factor_db = new sub_factors_database();
-        transactions_database transaction_db = new transactions_database();
+        Transactions_database transaction_db = new Transactions_database();
         Style style = new Style();
         public int factor_id { get; set; }
 
@@ -49,7 +49,7 @@ namespace Arian_project.screens
         }
         private void set_date()
         {
-            iran_date date = new iran_date();
+            Iran_date date = new Iran_date();
             int[] today_date = date.Today();
             this.today_string = today_date[0].ToString() + "/" + today_date[1].ToString() + "/" + today_date[2].ToString();
             Date_lb.Text = this.today_string;

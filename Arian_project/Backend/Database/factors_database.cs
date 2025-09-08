@@ -8,7 +8,7 @@ using System.Data.SQLite;
 
 namespace Arian_project.Backend
 {
-    public class factors_database
+    public class Factors_database
     {
 
         private log logger = new log();

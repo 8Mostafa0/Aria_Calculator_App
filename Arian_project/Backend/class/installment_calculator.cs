@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace Arian_project.Backend
 {
-    public class installment_calculator
+    public class Installment_calculator
     {
         private Arian_project.Properties.Settings props = Properties.Settings.Default;
         public string installment_type()

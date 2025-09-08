@@ -19,7 +19,7 @@ namespace Arian_project.screens
             Clients_List.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
-        int id = new clients_database().clients_count() + 1;
+        int id = new Clients_database().clients_count() + 1;
         public DataTable CLients_List_Set
         {
             set
@@ -57,7 +57,7 @@ namespace Arian_project.screens
             string client_type = client_type_tb.Text;
             string client_group = client_group_tb.Text;
             Client user = new Client(id, user_name, phone_number, home_phone, company, email, client_type, client_group);
-            bool result = new clients_database().insert_client_to_database(user);
+            bool result = new Clients_database().insert_client_to_database(user);
             if (result)
             {
                 MessageBox.Show("کاربر با موفقیت ثبت شد", "افزودن کاربر");
@@ -96,7 +96,7 @@ namespace Arian_project.screens
             string client_type = client_type_tb.Text;
             string client_group = client_group_tb.Text;
             Client user = new Client(selected_id, user_name, phone_number, home_phone, company, email, client_type, client_group);
-            bool result = new clients_database().edite_client_in_database(user);
+            bool result = new Clients_database().edite_client_in_database(user);
             if (result)
             {
                 MessageBox.Show("کاربر با موفقیت ویرایش شد", "ویرایش کاربر");
@@ -118,7 +118,7 @@ namespace Arian_project.screens
             DialogResult dr = MessageBox.Show("آیا مطمئن هستید؟", "حذف کاربر", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
             {
-                bool result = new clients_database().delete_client_from_database(selected_id);
+                bool result = new Clients_database().delete_client_from_database(selected_id);
                 if (result)
                 {
                     MessageBox.Show("کاربر با موفقیت حذف شد", "حذف کاربر");
@@ -133,7 +133,7 @@ namespace Arian_project.screens
         }
         private void Load_Clients_To_List()
         {
-            var users = new clients_database().Clients_list();
+            var users = new Clients_database().Clients_list();
             CLients_List_Set = users;
         }
         private void Clients_Detailes_Load(object sender, System.EventArgs e)

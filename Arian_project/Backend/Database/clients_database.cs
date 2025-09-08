@@ -5,7 +5,7 @@ using System.Data;
 using System.Data.SQLite;
 namespace Arian_project.backend
 {
-    public class clients_database
+    public class Clients_database
     {
         private log logger = new log();
         Database_data database = new Database_data();

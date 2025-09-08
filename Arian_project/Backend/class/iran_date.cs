@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Windows.Forms;
 
-public class iran_date
+public class Iran_date
 {
     static PersianCalendar pc = new PersianCalendar();
     static DateTime today = DateTime.Now;

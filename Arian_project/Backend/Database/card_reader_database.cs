@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Arian_project.Backend
 {
-    internal class card_reader_database
+    internal class Card_reader_database
     {
         private log logger = new log();
         Database_data database = new Database_data();
@@ -79,7 +79,7 @@ namespace Arian_project.Backend
         public List<Card_Reader> card_readers_list_array(string sql_query = "")
         {
             string logger_message_type = "card_readers_list_string";
-            string message_type = "get card readers list from card_reader table as string ";
+            string message_type = "get card readers list from card_reader table";
             logger.record_log(message_type, logger_message_type);
             if (sql_query == "")
             {

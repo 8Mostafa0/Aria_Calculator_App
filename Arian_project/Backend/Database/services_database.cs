@@ -7,7 +7,7 @@ using System.Data;
 
 namespace Arian_project.Backend
 {
-    public class services_database
+    public class Services_database
     {
 
         private log logger = new log();
