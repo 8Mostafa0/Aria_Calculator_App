@@ -72,7 +72,6 @@ namespace Arian_project.Backend
         }
         public bool insert_transaction_to_database(Transaction transaction)
         {
-            transaction.id = transactions_counter() + 1;
             string logger_message_type = "insert_transaction_to_database";
             string message_type = "insert new transaction to transactions table";
             bool result = false;

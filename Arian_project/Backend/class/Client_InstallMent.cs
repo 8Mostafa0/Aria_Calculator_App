@@ -13,7 +13,7 @@ namespace Arian_project.Backend {
         public bool end_instllment { get; set; }
         public int next_reminder { get; set; }
         public int sms_days { get; set; }
-        public Client_Installment(int id,int client_id,int factor_id,decimal installment_price,string first_installment,decimal one_installment_price,int installment_count,int installment_payed_count,bool end_installment,int next_reminder,int sms_days)
+        public Client_Installment(int id,int client_id,int factor_id,decimal installment_price,string first_installment,decimal one_installment_price,int installment_count,int installment_payed_count = 0,bool end_installment=false,int next_reminder=0,int sms_days=0)
         {
             this.id = id;
             this.client_id = client_id;

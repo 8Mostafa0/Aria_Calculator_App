@@ -99,14 +99,14 @@ namespace Arian_project.Backend.Database
             }
             return client_intallments;
         }
-        public bool insert_client_installment_to_database(Client_Installment isntallment)
+        public bool insert_client_installment_to_database(Client_Installment installment)
         {
             string logger_message_type = "insert_client_installment_to_database";
             string message_type = "insert new client installmet into client_isntallments table";
             bool result = false;
-            if (isntallment.id != 0)
+            if (installment.id != 0)
             {
-                string sql_query = $"INSERT INTO client_installments(id,client_id,factor_id,installment_price,first_installment,one_installment_price,installment_count,installment_payed_count,end_installment,sms_days)VALUES(id,client_'{isntallment.id}','{isntallment.factor_id}','{isntallment.installment_price}','{isntallment.first_installment}','{isntallment.one_installment_price}','{isntallment.installment_count}','{isntallment.installment_payed_count}','{isntallment.end_instllment}','{isntallment.sms_days}')";
+                string sql_query = $"INSERT INTO client_installments(id,client_id,factor_id,installment_price,first_installment,one_installment_price,installment_count,installment_payed_count,end_installment,sms_days)VALUES('{installment.id}','{installment.client_id}','{installment.factor_id}','{installment.installment_price}','{installment.first_installment}','{installment.one_installment_price}','{installment.installment_count}','{installment.installment_payed_count}','{installment.end_instllment}','{installment.sms_days}')";
                 result = database.run_sql_query(sql_query, message_type, logger_message_type);
             }
             return result;
@@ -140,12 +140,12 @@ namespace Arian_project.Backend.Database
             string logger_message_type = "get_client_installment_count";
             string message_type = "get count client installment from client_installments table";
             int result = 0;
-            string sql_query = $"SELECT COUNT(*) from client_intallments";
+            string sql_query = $"SELECT COUNT(*) from client_installments";
             result = database.run_one_item_data_query(sql_query, message_type, logger_message_type);
             return result;
         }
 
-        public int get_last_client_installment_id(string sql_query) {
+        public int get_last_client_installment_id(string sql_query="") {
 
             int last_card_reader_id =0;
             string logger_message_type = "get_last_card_reader_id";

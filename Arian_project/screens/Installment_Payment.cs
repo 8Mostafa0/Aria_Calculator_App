@@ -1,6 +1,8 @@
 ﻿using Arian_project.backend;
 using Arian_project.Backend;
+using Arian_project.Backend.Database;
 using Arian_project.Backend.styles;
+using ghest.Backend.Logs;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,8 +17,11 @@ namespace Arian_project.screens
         private Clients_database clients_db = new Clients_database();
         Installment_calculator calculator = new Installment_calculator();
         Penalty_calculator penaty_cl = new Penalty_calculator();
+        Client_installment_database c_installment_db = new Client_installment_database();
+        Installment_transaction_database i_transactions_db = new Installment_transaction_database(); 
         private string today_string {  get; set; }
         Iran_date date = new Iran_date();
+        log log = new log();
         public Installment_Payment(Factor factor)
         {
             InitializeComponent();
@@ -129,7 +134,7 @@ namespace Arian_project.screens
                 if (!string.IsNullOrEmpty(month_count_lb.Text))
                 {
                     int months = 1;
-                    try
+                    try 
                     {
                         months = int.Parse(month_count_lb.Text);
                     }
@@ -139,13 +144,12 @@ namespace Arian_project.screens
                     }
                     if(months > 0)
                     {
-
-                        decimal factor_left_over_price = Math.Round(this.factor.full_price - this.factor.payed_price);
-                        decimal ont_month_price = Math.Round(calculator.installment_method(factor_left_over_price, 1));
-                        decimal installment_full_price = Math.Round((ont_month_price * months)+factor_left_over_price);
-                        decimal installment_full_profit = Math.Round(ont_month_price * months);
+                        decimal factor_left_over_price = Math.Round(this.factor.full_price - this.factor.payed_price,2);
+                        decimal ont_month_price = Math.Round(calculator.installment_method(factor_left_over_price, months),2);
+                        decimal installment_full_price = Math.Round((ont_month_price * months)+factor_left_over_price, 2);
+                        decimal installment_full_profit = Math.Round(ont_month_price * months, 2);
                         string penalty_type = penalty_type_cb.Text;
-                        decimal penalty_per_day = Math.Round(penaty_cl.penalty_per_day(ont_month_price, penalty_type));
+                        decimal penalty_per_day = Math.Round(penaty_cl.penalty_per_day(ont_month_price, penalty_type), 2);
                         string first_isntallment_date = installment_first_pay_date_lb.GetText("yyyy/MM/dd");
                         string penalty_method = penalty_type ;
 
@@ -204,6 +208,123 @@ namespace Arian_project.screens
         {
 
             calculate_installment();
+        }
+        private bool save_client_intallment(int installment_id) {
+            bool result = false;
+            try
+            {
+
+                decimal installment_price = decimal.Parse(ful_price_lb.Text);
+                string first_installment_date = installment_first_pay_date_lb.Text;
+                decimal one_installment_price = decimal.Parse(installment_price_lb.Text);
+                int months = int.Parse(month_count_lb.Text);
+                Client_Installment c_installment = new Client_Installment(
+                    installment_id,
+                    this.factor.client_id,
+                    this.factor.id,
+                    installment_price,
+                    first_installment_date,
+                     one_installment_price,
+                     months
+                    );
+                result = c_installment_db.insert_client_installment_to_database(c_installment);
+
+            }
+            catch(Exception ex){
+                log.record_log("save_client_intallment", "save client installment=>"+ex.ToString());
+            }
+            return result;
+            
+        }
+        private bool save_installment_transactions(int installment_id) {
+            bool result = false;
+            try
+            {
+                List<Installment_transaction> transactions = new List<Installment_transaction>();
+                decimal one_installment_price = decimal.Parse(installment_price_lb.Text);
+                int months = int.Parse(month_count_lb.Text);
+                string first_installment_date = installment_first_pay_date_lb.Text;
+                string penalty_type = penalty_type_cb.Text;
+                int penaltyt_value = int.Parse(penalty_value_tb.Text);
+                for (int i =1;i<= months; i++)
+                {
+                    int id = i_transactions_db.get_last_installment_transaction_id();
+                    int[] isntallment_date = date.next_months(i-1, first_installment_date);
+                    string date_string = isntallment_date[0] + "/" + isntallment_date[1] + "/" + isntallment_date[2];
+                    Installment_transaction transaction = new Installment_transaction(
+                        id,
+                        date_string,
+                        one_installment_price,
+                        0,
+                        penalty_type,
+                        penaltyt_value,
+                        0,
+                        "پرداخت نشده",
+                        i,
+                        installment_id
+                        );
+                    transactions.Add(transaction);
+                    result = i_transactions_db.insert_installment_transaction_to_database( transaction );
+                }
+
+            }catch(Exception ex)
+            {
+                log.record_log("save_installment_transactions", "save installment transactions => " + ex.ToString());
+            }
+            return result;
+            
+
+        }
+        private void revert_changes(int id) {
+            try
+            {
+                string transactions_sql = $"SELECT * FROM installment_trransactions WHERE installment_id='{id}'";
+                List<Installment_transaction> transactions = i_transactions_db.get_installment_transactions_list(transactions_sql);
+                Client_Installment client_Installment = c_installment_db.get_installment_by_id(id);
+                if (transactions.Count > 0) { 
+                    foreach (var i in transactions) {
+                        i_transactions_db.delete_installment_transaction_from_database(i.id);
+                    }
+                }
+                if (client_Installment != null) { 
+                    c_installment_db.delete_client_installment_from_database(id);
+                }
+            }
+            catch { }
+        }
+        private void glassButton1_Click(object sender, EventArgs e)
+        {
+            if(month_count_lb.Text != "")
+            {
+                int id = c_installment_db.get_last_client_installment_id();
+                bool result = false;
+                result = save_client_intallment(id);
+                if(!result){
+                    MessageBox.Show("مشکلی در ذخیره فاکتور اقساط بوحود امده است", "فاکتور اقساط");
+                }
+                else
+                {
+                    result = save_installment_transactions(id);
+                    if (!result)
+                    {
+                        MessageBox.Show("مشکلی در ذخیره رسید های اقساط بوجود امده است", "رسید اقساط");
+                    }
+                    else
+                    {
+                        MessageBox.Show("اقساط با موفقیت ثبت شد", "اقساط");
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                }
+                if (!result)
+                {
+                    revert_changes(id);
+                }
+            }
+            else
+            {
+                MessageBox.Show("لطفا تعداد ماه را وارد کنید","تعداد ماه");
+            }
         }
     }
 }

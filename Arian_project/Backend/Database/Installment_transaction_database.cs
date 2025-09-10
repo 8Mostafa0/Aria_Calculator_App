@@ -115,7 +115,7 @@ namespace Arian_project.Backend.Database
             int installment_transactions_id = 0;
             string logger_message_type = "get_last_installment_transactions_id";
             string message_type = "get installment transactions count from installment_transactions table";
-            string sql_query = "SELECT MAX(id) installment_transactions";
+            string sql_query = "SELECT MAX(id) FROM installment_transactions";
             installment_transactions_id = new Database_data().get_one_data_query(sql_query, message_type, logger_message_type);
             installment_transactions_id+=1;
             return installment_transactions_id;

@@ -17,11 +17,20 @@ public class Iran_date
         date[2] = persianDay;
         return date;
     }
-    public int[] next_months(int month) {
-        DateTime newdate = today.AddMonths(month);
-        int persianYear = pc.GetYear(newdate);
-        int persianMonth = pc.GetMonth(newdate);
-        int persianDay = pc.GetDayOfMonth(newdate);
+    public int[] next_months(int month,string from_date="") {
+        DateTime start;
+        if(from_date != "")
+        {
+            start = DateTime.Parse(from_date);
+            start.AddMonths(month);
+        }
+        else
+        {
+            start = today;
+        }
+        int persianYear = pc.GetYear(start);
+        int persianMonth = pc.GetMonth(start);
+        int persianDay = pc.GetDayOfMonth(start);
         int[] date = new int[3];
         date[0] = persianYear;
         date[1] = persianMonth;

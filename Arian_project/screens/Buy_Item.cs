@@ -444,21 +444,26 @@ namespace Arian_project.screens
                 using(Installment_Payment screen = new Installment_Payment(factor))
                 {
                     screen.ShowDialog();
+                    if(screen.DialogResult == DialogResult.OK)
+                    {
+                        factor.factor_status = "اقساطی پرداخت نشده";
+                    }
+                    else
+                    {
+                        return;
+                    }
                 }
+            }
+            bool result = save_factor_data(factor);
+            if (result)
+            {
+                MessageBox.Show("فاکتور با موفقیت ثبت شد", Message_type);
+                this.Close();
             }
             else
             {
-                bool result = save_factor_data(factor);
-                if (result)
-                {
-                    MessageBox.Show("فاکتور با موفقیت ثبت شد", Message_type);
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("خطا در ثبت فاکتور", Message_type);
-                    reverst_factor_changes(factor);
-                }
+                MessageBox.Show("خطا در ثبت فاکتور", Message_type);
+                reverst_factor_changes(factor);
             }
         }
 
@@ -605,10 +610,19 @@ namespace Arian_project.screens
             result = factors_db.insert_factor_to_database(factor);
             if (result)
             {
-                result = save_transactions(factor);
-                if (!result) {
-                    MessageBox.Show("در هنگام ثبت تراکنش مشکلی بوجود امده است", "ثبت تراکنش");
-                    return result;
+                if(factor.transactions.Count > 0)
+                {
+                    result = save_transactions(factor);
+                    if (!result) {
+                        MessageBox.Show("در هنگام ثبت تراکنش مشکلی بوجود امده است", "ثبت تراکنش");
+                        return result;
+                    }
+                    result = add_transactions_to_banks(factor);
+                    if (!result)
+                    {
+                        MessageBox.Show("درهنگام تسویه مبالغ حساب فاکتور به حساب مشکلی بوجود امده است", "تسویه حساب");
+                        return result;
+                    }
                 }
                 result = save_store_changes(factor);
                 if (!result)
@@ -620,12 +634,6 @@ namespace Arian_project.screens
                 if (!result)
                 {
                     MessageBox.Show("درهنگام ثبت ایتم های فاکتور مشکلی بوجود امده است", "ثبت ایتم ها");
-                    return result;
-                }
-                result = add_transactions_to_banks(factor);
-                if (!result)
-                {
-                    MessageBox.Show("درهنگام تسویه مبالغ حساب فاکتور به حساب مشکلی بوجود امده است", "تسویه حساب");
                     return result;
                 }
             }

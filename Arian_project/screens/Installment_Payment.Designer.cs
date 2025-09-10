@@ -75,7 +75,7 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 834F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 957F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.installment_payments_date, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 2);
@@ -516,6 +516,7 @@
             this.glassButton1.Size = new System.Drawing.Size(45, 27);
             this.glassButton1.TabIndex = 0;
             this.glassButton1.Text = "ثبت";
+            this.glassButton1.Click += new System.EventHandler(this.glassButton1_Click);
             // 
             // glassButton2
             // 

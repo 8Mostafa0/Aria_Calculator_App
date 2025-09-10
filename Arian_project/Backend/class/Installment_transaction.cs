@@ -15,7 +15,7 @@ namespace Arian_project.Backend
         public int installment_number { get; set; }
         public  int installment_id { get; set; }
         
-        public Installment_transaction(int id, string date, decimal price, decimal payed_price, string penalty_type, decimal penalty_price_per_day, decimal penalty, string status, int installment_number, int installment_id)
+        public Installment_transaction(int id, string date, decimal price, decimal payed_price, string penalty_type, decimal penalty_price_per_day , decimal penalty, string status, int installment_number, int installment_id)
         {
             this.id = id;
             this.date = date;
