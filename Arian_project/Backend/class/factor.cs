@@ -7,6 +7,7 @@ namespace Arian_project
     {
         public int id {  get; set; }
         public int client_id { get; set; }
+        public string client_name { get; set; }
         public string factor_type { get; set; }
         public decimal full_price { get; set; }
         public decimal profit { get; set; }
@@ -18,9 +19,10 @@ namespace Arian_project
 
         public string factor_status { get; set; }
 
-        public Factor(int id,int client_id,string factor_type, decimal full_price, decimal profit,decimal payed_price, string factor_date,string client_group,string factor_status)
+        public Factor(int id,int client_id,string client_name,string factor_type, decimal full_price, decimal profit,decimal payed_price, string factor_date,string client_group,string factor_status)
         {
             this.id = id;
+            this.client_name = client_name;
             this.client_id = client_id;
             this.factor_type = factor_type;
             this.full_price = full_price;

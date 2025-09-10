@@ -70,7 +70,7 @@ namespace Arian_project.backend
 
                     string sms_database_sql = "CREATE TABLE smss(id INT PRIMERY KEY NOT NULL ,client_id INT NOT NULL,phone_number TEXT NOT NULL,sms_status TEXT NOT NULL,sms_date  TEXT NOT NULL)";
 
-                    string factors_database_sql = "CREATE TABLE factors(id INT PRIMERY KEY NOT NULL,client_id int not null,factor_type TEXT NOT NULL,full_price TEXT NOT NULL,profit TEXT NOT NULL,payed_price TEXT NOT NULL,factor_date TEXT NOT NULL,client_group TEXT NOT NULL,factor_status TEXT NOT NULL)";
+                    string factors_database_sql = "CREATE TABLE factors(id INT PRIMERY KEY NOT NULL,client_id int not null,client_name TEXT not null,factor_type TEXT NOT NULL,full_price TEXT NOT NULL,profit TEXT NOT NULL,payed_price TEXT NOT NULL,factor_date TEXT NOT NULL,client_group TEXT NOT NULL,factor_status TEXT NOT NULL)";
 
                     string sub_factors_database_sql = "CREATE TABLE sub_factors(id INT PRIMERY KEY NOT NULL ,factor_id INT NOT NULL,item_id INT NOT NULL,buy_price TEXT NOT NULL,cell_price TEXT NOT NULL,profit TEXT NOT NULL,count INT NOT NULL)";
 
@@ -78,7 +78,7 @@ namespace Arian_project.backend
 
                     string card_readers_database_sql = "CREATE TABLE card_readers(id INT PRIMARY KEY NOT NULL,bank_id INT NOT NULL,name TEXT NOT NULL)";
 
-                    string client_installments_database_sql = "CREATE TABLE client_installments(id INT PRIMARY KEY NOT NULL,client_id INT NOT NULL,factor_id INT NOT NULL,installment_price  TEXT NOT NULL,first_installment TEXT NOT NULL,one_installment_price TEXT NOT NULL,installment_count TEXT NOT NULL,installment_payed_count TEXT NOT NULL,end_installment TEXT NOT NULL,sms_days TEXT NOT NULL)";
+                    string client_installments_database_sql = "CREATE TABLE client_installments(id INT PRIMARY KEY NOT NULL,client_id INT NOT NULL,client_name TEXT NOT NULL,factor_id INT NOT NULL,installment_price  TEXT NOT NULL,first_installment TEXT NOT NULL,one_installment_price TEXT NOT NULL,installment_count TEXT NOT NULL,installment_payed_count TEXT NOT NULL,end_installment TEXT NOT NULL,sms_days TEXT NOT NULL)";
 
                     string installment_transaction_database_sql = "CREATE TABLE installment_transactions(id INT PRIMARY KEY NOT NULL,date TEXT NOT NULL,price TEXT NOT NULL,payed_price TEXT NOT NULL,penalty_type TEXT NOT NULL,penalty_price_per_day TEXT NOT NULL,penalty TEXT NOT NULL,status TEXT NOT NULL,installment_number TEXT NOT NULL,installment_id TEXT NOT NULL)";
                     

@@ -175,6 +175,12 @@
     <Compile Include="screens\Factors_screen.Designer.cs">
       <DependentUpon>Factors_screen.cs</DependentUpon>
     </Compile>
+    <Compile Include="screens\Installments_Screen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="screens\Installments_Screen.Designer.cs">
+      <DependentUpon>Installments_Screen.cs</DependentUpon>
+    </Compile>
     <Compile Include="screens\Installment_Payment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -247,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="screens\Factors_screen.resx">
       <DependentUpon>Factors_screen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="screens\Installments_Screen.resx">
+      <DependentUpon>Installments_Screen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="screens\Installment_Payment.resx">
       <DependentUpon>Installment_Payment.cs</DependentUpon>

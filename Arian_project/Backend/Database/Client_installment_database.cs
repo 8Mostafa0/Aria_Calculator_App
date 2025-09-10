@@ -72,15 +72,16 @@ namespace Arian_project.Backend.Database
                                 new Client_Installment(
                                         reader.GetInt32(0),
                                         reader.GetInt32(1),
-                                        reader.GetInt32(2),
-                                        reader.GetDecimal(3),
-                                        reader.GetString(4),
-                                        reader.GetDecimal(5),
+                                        reader.GetString(2),
+                                        reader.GetInt32(3),
+                                        reader.GetDecimal(4),
+                                        reader.GetString(5),
+                                        reader.GetDecimal(6),
                                         reader.GetInt32(7),
                                         reader.GetInt32(8),
                                         reader.GetBoolean(9),
                                         reader.GetInt32(10),
-                                        reader.GetInt32(10)
+                                        reader.GetInt32(11)
                                         )
                                     );
                             }
@@ -106,7 +107,7 @@ namespace Arian_project.Backend.Database
             bool result = false;
             if (installment.id != 0)
             {
-                string sql_query = $"INSERT INTO client_installments(id,client_id,factor_id,installment_price,first_installment,one_installment_price,installment_count,installment_payed_count,end_installment,sms_days)VALUES('{installment.id}','{installment.client_id}','{installment.factor_id}','{installment.installment_price}','{installment.first_installment}','{installment.one_installment_price}','{installment.installment_count}','{installment.installment_payed_count}','{installment.end_instllment}','{installment.sms_days}')";
+                string sql_query = $"INSERT INTO client_installments(id,client_id,client_name,factor_id,installment_price,first_installment,one_installment_price,installment_count,installment_payed_count,end_installment,sms_days)VALUES('{installment.id}','{installment.client_id}','{installment.client_name}','{installment.factor_id}','{installment.installment_price}','{installment.first_installment}','{installment.one_installment_price}','{installment.installment_count}','{installment.installment_payed_count}','{installment.end_instllment}','{installment.sms_days}')";
                 result = database.run_sql_query(sql_query, message_type, logger_message_type);
             }
             return result;
@@ -118,7 +119,7 @@ namespace Arian_project.Backend.Database
             bool result = false;
             if (installment.id != 0)
             {
-                string sql_query = $"UPDATE client_installments SET client_id='{installment.client_id}',factor_id='{installment.factor_id}',installment_price='{installment.installment_price}',first_installment='{installment.first_installment}',one_installment_price='{installment.one_installment_price}',installment_count='{installment.installment_count}',installment_payed_count='{installment.installment_payed_count}',end_installment='{installment.end_instllment}',sms_days='{installment.sms_days} WHERE id='{installment.id}'";
+                string sql_query = $"UPDATE client_installments SET client_id='{installment.client_id}',client_name='{installment.client_name}',factor_id='{installment.factor_id}',installment_price='{installment.installment_price}',first_installment='{installment.first_installment}',one_installment_price='{installment.one_installment_price}',installment_count='{installment.installment_count}',installment_payed_count='{installment.installment_payed_count}',end_installment='{installment.end_instllment}',sms_days='{installment.sms_days} WHERE id='{installment.id}'";
                 result = database.run_sql_query(sql_query, message_type, logger_message_type);
             }
             return result;
@@ -181,15 +182,16 @@ namespace Arian_project.Backend.Database
                                 installment = new Client_Installment(
                                         adapter.GetInt32(0),
                                         adapter.GetInt32(1),
-                                        adapter.GetInt32(2),
-                                        adapter.GetDecimal(3),
-                                        adapter.GetString(4),
-                                        adapter.GetDecimal(5),
+                                        adapter.GetString(2),
+                                        adapter.GetInt32(3),
+                                        adapter.GetDecimal(4),
+                                        adapter.GetString(5),
+                                        adapter.GetDecimal(6),
                                         adapter.GetInt32(7),
                                         adapter.GetInt32(8),
                                         adapter.GetBoolean(9),
                                         adapter.GetInt32(10),
-                                        adapter.GetInt32(10)
+                                        adapter.GetInt32(11)
                                     );
                             }
                         }

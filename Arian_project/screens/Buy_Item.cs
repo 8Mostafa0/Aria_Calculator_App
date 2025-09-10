@@ -446,7 +446,7 @@ namespace Arian_project.screens
                     screen.ShowDialog();
                     if(screen.DialogResult == DialogResult.OK)
                     {
-                        factor.factor_status = "اقساطی پرداخت نشده";
+                        factor.factor_status = "اقساطی اتمام نشده";
                     }
                     else
                     {
