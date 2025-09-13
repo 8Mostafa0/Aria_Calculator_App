@@ -382,6 +382,7 @@ namespace Arian_project.screens
             Factor factor = new Factor(
                 this.factor_id,
                 this.client.id,
+                this.client.user_name,
                 this.Buy_Screen?"خرید":"فروش",
                 this.items_full_price,
                 this.items_full_profit,
@@ -691,7 +692,7 @@ namespace Arian_project.screens
             }
             else
             {
-                using (Payment_methods screen = new Payment_methods(this.client, this.sub_factors_id,new Transaction(0, "0", "0", 0, 0, 0, "0",factor_id,false)))
+                using (Payment_methods screen = new Payment_methods(this.client.id, this.sub_factors_id,new Transaction(0, "0", "0", 0, 0, 0, "0",factor_id,false)))
                 {
                     screen.ShowDialog();
                     if (screen.method != null && screen.method.id != 0)
@@ -778,7 +779,7 @@ namespace Arian_project.screens
                 factor_id,
                 false
                 );
-            using(Payment_methods screen = new Payment_methods(this.client, this.sub_factors_id, transaction))
+            using(Payment_methods screen = new Payment_methods(this.client.id, this.sub_factors_id, transaction))
             {
                 screen.ShowDialog();
                 if(screen.method != null && screen.method != transaction)

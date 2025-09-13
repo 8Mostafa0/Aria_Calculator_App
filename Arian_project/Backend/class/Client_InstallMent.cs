@@ -14,7 +14,8 @@ namespace Arian_project.Backend {
         public bool end_instllment { get; set; }
         public int next_reminder { get; set; }
         public int sms_days { get; set; }
-        public Client_Installment(int id,int client_id,string client_name, int factor_id,decimal installment_price,string first_installment,decimal one_installment_price,int installment_count,int installment_payed_count = 0,bool end_installment=false,int next_reminder=0,int sms_days=0)
+        public string status { get; set; }
+        public Client_Installment(int id,int client_id,string client_name, int factor_id,decimal installment_price,string first_installment,decimal one_installment_price,int installment_count,int installment_payed_count = 0,bool end_installment=false,int next_reminder=0,int sms_days=0,string status="بدون بدهی")
         {
             this.id = id;
             this.client_id = client_id;
@@ -28,6 +29,12 @@ namespace Arian_project.Backend {
             this.end_instllment = end_installment;
             this.next_reminder = next_reminder;
             this.sms_days = sms_days;
+            this.status = status;
+        }
+
+        public static Client_Installment Create_empty()
+        {
+            return new Client_Installment(0, 0, "", 0, 0, "", 0, 0, 0, false, 0, 0, "");
         }
 
 

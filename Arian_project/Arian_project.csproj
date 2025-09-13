@@ -92,6 +92,7 @@
     <Compile Include="Backend\class\Client_installment.cs" />
     <Compile Include="Backend\class\Factor.cs" />
     <Compile Include="Backend\class\Installment_calculator.cs" />
+    <Compile Include="Backend\class\Installment_Manager.cs" />
     <Compile Include="Backend\class\Installment_transaction.cs" />
     <Compile Include="Backend\class\Iran_date.cs" />
     <Compile Include="Backend\class\Penalty_calculator.cs" />
@@ -181,6 +182,12 @@
     <Compile Include="screens\Installments_Screen.Designer.cs">
       <DependentUpon>Installments_Screen.cs</DependentUpon>
     </Compile>
+    <Compile Include="screens\Installment_Detailes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="screens\Installment_Detailes.Designer.cs">
+      <DependentUpon>Installment_Detailes.cs</DependentUpon>
+    </Compile>
     <Compile Include="screens\Installment_Payment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -256,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="screens\Installments_Screen.resx">
       <DependentUpon>Installments_Screen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="screens\Installment_Detailes.resx">
+      <DependentUpon>Installment_Detailes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="screens\Installment_Payment.resx">
       <DependentUpon>Installment_Payment.cs</DependentUpon>

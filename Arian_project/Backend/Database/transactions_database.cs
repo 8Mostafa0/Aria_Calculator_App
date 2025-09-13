@@ -107,6 +107,10 @@ namespace Arian_project.Backend
             return result;
         }
 
+        public List<Transaction> get_installment_transactions(string sql_query) { 
+            return transactions_list(sql_query);
+        }
+
         public List<Transaction> get_transactions_of_factor(int factor_id)
         {
             return transactions_list($"SELECT * FROM transactions WHERE factor_id ='{factor_id}'");

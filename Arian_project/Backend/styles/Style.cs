@@ -354,33 +354,37 @@ namespace Arian_project.Backend.styles
             List.Columns[1].DataPropertyName = "client_id";
             List.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
 
-            List.Columns.Add("factor_type", "نوع");
-            List.Columns[2].DataPropertyName = "factor_type";
+            List.Columns.Add("client_name", "نام مشتری");
+            List.Columns[2].DataPropertyName = "client_name";
             List.Columns[2].SortMode = DataGridViewColumnSortMode.NotSortable;
 
-            List.Columns.Add("full_price", "قیمت کل");
-            List.Columns[3].DataPropertyName = "full_price";
+            List.Columns.Add("factor_type", "نوع");
+            List.Columns[3].DataPropertyName = "factor_type";
             List.Columns[3].SortMode = DataGridViewColumnSortMode.NotSortable;
 
-            List.Columns.Add("profit", "سود");
-            List.Columns[4].DataPropertyName = "profit";
+            List.Columns.Add("full_price", "قیمت کل");
+            List.Columns[4].DataPropertyName = "full_price";
             List.Columns[4].SortMode = DataGridViewColumnSortMode.NotSortable;
 
-            List.Columns.Add("payed_price", "مبلغ پرداخت شده");
-            List.Columns[5].DataPropertyName = "payed_price";
+            List.Columns.Add("profit", "سود");
+            List.Columns[5].DataPropertyName = "profit";
             List.Columns[5].SortMode = DataGridViewColumnSortMode.NotSortable;
 
-            List.Columns.Add("factor_date", "تاریخ");
-            List.Columns[6].DataPropertyName = "factor_date";
+            List.Columns.Add("payed_price", "مبلغ پرداخت شده");
+            List.Columns[6].DataPropertyName = "payed_price";
             List.Columns[6].SortMode = DataGridViewColumnSortMode.NotSortable;
 
-            List.Columns.Add("client_group", "گروه مشتری");
-            List.Columns[7].DataPropertyName = "client_group";
+            List.Columns.Add("factor_date", "تاریخ");
+            List.Columns[7].DataPropertyName = "factor_date";
             List.Columns[7].SortMode = DataGridViewColumnSortMode.NotSortable;
 
-            List.Columns.Add("factor_status", "وضعیت");
-            List.Columns[8].DataPropertyName = "factor_status";
+            List.Columns.Add("client_group", "گروه مشتری");
+            List.Columns[8].DataPropertyName = "client_group";
             List.Columns[8].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            List.Columns.Add("factor_status", "وضعیت");
+            List.Columns[9].DataPropertyName = "factor_status";
+            List.Columns[9].SortMode = DataGridViewColumnSortMode.NotSortable;
 
         }
         
@@ -443,5 +447,78 @@ namespace Arian_project.Backend.styles
             List.Columns[9].Visible = false;
         }
 
+        public void Installments_list_style(DataGridView List)
+        {
+            Font List_Font = Get_List_Font();
+            Font App_Font = Get_Font();
+
+            List.ColumnHeadersDefaultCellStyle.Font = App_Font;
+            List.Font = List_Font;
+            List.EditMode = DataGridViewEditMode.EditProgrammatically;
+            List.RightToLeft = RightToLeft.Yes;
+            List.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            List.AlternatingRowsDefaultCellStyle.BackColor = Color.Gray;
+            List.AllowUserToAddRows = false;
+
+            List.Columns.Clear();
+
+            List.Columns.Add("id", "ش");
+            List.Columns[0].DataPropertyName = "id";
+            List.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            List.Columns.Add("client_id", "ایدی مشتری");
+            List.Columns[1].DataPropertyName = "id";
+            List.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
+            List.Columns[1].Visible = false;
+
+            List.Columns.Add("client_name", "نام مشتری");
+            List.Columns[2].DataPropertyName = "client_name";
+            List.Columns[2].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            List.Columns.Add("factor_id", "شماره فاکتور");
+            List.Columns[3].DataPropertyName = "factor_id";
+            List.Columns[3].SortMode = DataGridViewColumnSortMode.NotSortable;
+            List.Columns[3].Visible = false;
+
+            List.Columns.Add("installment_price", "مبلغ کل اقساط");
+            List.Columns[4].DataPropertyName = "installment_price";
+            List.Columns[4].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            List.Columns.Add("first_installment", "شروع اقساط");
+            List.Columns[5].DataPropertyName = "first_installment";
+            List.Columns[5].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            List.Columns.Add("one_installment_price", "مبلغ هر قسط");
+            List.Columns[6].DataPropertyName = "one_installment_price";
+            List.Columns[6].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            List.Columns.Add("installment_count", "تعداد قسط");
+            List.Columns[7].DataPropertyName = "installment_count";
+            List.Columns[7].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            List.Columns.Add("installment_payed_count", "تعداد پرداختی");
+            List.Columns[8].DataPropertyName = "installment_payed_count";
+            List.Columns[8].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            List.Columns.Add("end_installment", "اتمام شده");
+            List.Columns[9].DataPropertyName = "end_installment";
+            List.Columns[9].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            List.Columns.Add("next_reminder", "روز یاداوری");
+            List.Columns[10].DataPropertyName = "next_reminder";
+            List.Columns[10].SortMode = DataGridViewColumnSortMode.NotSortable;
+            List.Columns[10].Visible = false;
+
+            List.Columns.Add("sms_days", "روز پیام");
+            List.Columns[11].DataPropertyName = "sms_days";
+            List.Columns[11].SortMode = DataGridViewColumnSortMode.NotSortable;
+            List.Columns[11].Visible = false;
+
+            List.Columns.Add("status", "وضعیت");
+            List.Columns[12].DataPropertyName = "status";
+            List.Columns[12].SortMode = DataGridViewColumnSortMode.NotSortable;
+            List.Columns[12].Visible = false;
+
+        }
     }
 }

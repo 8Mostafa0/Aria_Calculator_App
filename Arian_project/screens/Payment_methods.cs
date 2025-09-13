@@ -11,7 +11,7 @@ namespace Arian_project.screens
     {
 
         public Transaction method { get; set; } 
-        public Client client { get; set; }
+        public int client_id { get; set; }
 
         public Transactions_database db = new Transactions_database();
 
@@ -23,10 +23,10 @@ namespace Arian_project.screens
         private Banks_database banks_db = new Banks_database();
 
         private int id = 1;
-        public Payment_methods(Client user, int id,Transaction transaction)
+        public Payment_methods(int client_id, int id,Transaction transaction)
         {
             InitializeComponent();
-            this.client = user;
+            this.client_id = client_id;
             this.id = id;
             this.method = transaction;
         }
@@ -118,7 +118,8 @@ namespace Arian_project.screens
 
                             }
                         }
-                        this.method = new Transaction(this.id,method,bank_name,bank_id,price,client.id, this.today_string,this.method.factor_id, false);
+                        this.method = new Transaction(this.id,method,bank_name,bank_id,price,client_id, this.today_string,this.method.factor_id, false);
+                        this.DialogResult = DialogResult.OK;
                         this.Close();
                     }
                     else

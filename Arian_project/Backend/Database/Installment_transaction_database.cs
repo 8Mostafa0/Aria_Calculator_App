@@ -2,6 +2,7 @@
 using ghest.Backend.Logs;
 using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace Arian_project.Backend.Database
 {
@@ -43,8 +44,8 @@ namespace Arian_project.Backend.Database
                                         adapter.GetDecimal(5),
                                         adapter.GetDecimal(6),
                                         adapter.GetString(7),
-                                        adapter.GetInt32(8),
-                                        adapter.GetInt32(9)
+                                        int.Parse(adapter.GetString(8)),
+                                        int.Parse(adapter.GetString(9))
                                         );
                                     data.Add(item);
                                 }

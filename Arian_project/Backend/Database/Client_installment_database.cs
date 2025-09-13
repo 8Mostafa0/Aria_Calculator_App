@@ -13,12 +13,12 @@ namespace Arian_project.Backend.Database
         private log logger = new log();
         Database_data database = new Database_data();
 
-        public DataTable get_installment_datatable(string sql_query) {
-            string logger_message_type = "get_installment_datatable";
-            logger.record_log("get client installment from client_installment list", logger_message_type);
+        public DataTable get_client_installment_datatable(string sql_query="") {
+            string logger_message_type = "get_client_installment_datatable";
+            logger.record_log("get client installment from client_installment list into datatable", logger_message_type);
             if (sql_query == "")
             {
-                sql_query = "SELECT * FROM client_isntallment";
+                sql_query = "SELECT * FROM client_installments";
             }
             DataTable dataTable = new DataTable();
             try
@@ -45,7 +45,7 @@ namespace Arian_project.Backend.Database
 
         }
 
-        public List<Client_Installment> get_client_installment_list(string sql_query)
+        public List<Client_Installment> get_client_installment_list(string sql_query="")
         {
 
 
@@ -81,7 +81,8 @@ namespace Arian_project.Backend.Database
                                         reader.GetInt32(8),
                                         reader.GetBoolean(9),
                                         reader.GetInt32(10),
-                                        reader.GetInt32(11)
+                                        reader.GetInt32(11),
+                                        reader.GetString(12)
                                         )
                                     );
                             }
@@ -107,7 +108,7 @@ namespace Arian_project.Backend.Database
             bool result = false;
             if (installment.id != 0)
             {
-                string sql_query = $"INSERT INTO client_installments(id,client_id,client_name,factor_id,installment_price,first_installment,one_installment_price,installment_count,installment_payed_count,end_installment,sms_days)VALUES('{installment.id}','{installment.client_id}','{installment.client_name}','{installment.factor_id}','{installment.installment_price}','{installment.first_installment}','{installment.one_installment_price}','{installment.installment_count}','{installment.installment_payed_count}','{installment.end_instllment}','{installment.sms_days}')";
+                string sql_query = $"INSERT INTO client_installments(id,client_id,client_name,factor_id,installment_price,first_installment,one_installment_price,installment_count,installment_payed_count,end_installment,next_reminder,sms_days,status)VALUES('{installment.id}','{installment.client_id}','{installment.client_name}','{installment.factor_id}','{installment.installment_price}','{installment.first_installment}','{installment.one_installment_price}','{installment.installment_count}','{installment.installment_payed_count}','{installment.end_instllment}','{installment.next_reminder}','{installment.sms_days}','{installment.status}')";
                 result = database.run_sql_query(sql_query, message_type, logger_message_type);
             }
             return result;
@@ -119,7 +120,7 @@ namespace Arian_project.Backend.Database
             bool result = false;
             if (installment.id != 0)
             {
-                string sql_query = $"UPDATE client_installments SET client_id='{installment.client_id}',client_name='{installment.client_name}',factor_id='{installment.factor_id}',installment_price='{installment.installment_price}',first_installment='{installment.first_installment}',one_installment_price='{installment.one_installment_price}',installment_count='{installment.installment_count}',installment_payed_count='{installment.installment_payed_count}',end_installment='{installment.end_instllment}',sms_days='{installment.sms_days} WHERE id='{installment.id}'";
+                string sql_query = $"UPDATE client_installments SET client_id='{installment.client_id}',client_name='{installment.client_name}',factor_id='{installment.factor_id}',installment_price='{installment.installment_price}',first_installment='{installment.first_installment}',one_installment_price='{installment.one_installment_price}',installment_count='{installment.installment_count}',installment_payed_count='{installment.installment_payed_count}',end_installment='{installment.end_instllment}',sms_days='{installment.sms_days},status='{installment.status}' WHERE id='{installment.id}'";
                 result = database.run_sql_query(sql_query, message_type, logger_message_type);
             }
             return result;
@@ -165,7 +166,7 @@ namespace Arian_project.Backend.Database
         public Client_Installment get_installment_by_id(int id) {
             string logger_message_type = "get_installment_by_id";
             string message_type = "get client isntallment from client_installments tabble";
-            Client_Installment installment= new Client_Installment(0,0,0,0,"",0,0,0,true,0,0);
+            Client_Installment installment= new Client_Installment(0,0,"",0,0,"",0,0,0,true,0,0);
             string sql_query = $"SELECT * FROM client_installments WHERE id='{id}'";
             DataTable dataSet = new DataTable();
             try
@@ -191,7 +192,8 @@ namespace Arian_project.Backend.Database
                                         adapter.GetInt32(8),
                                         adapter.GetBoolean(9),
                                         adapter.GetInt32(10),
-                                        adapter.GetInt32(11)
+                                        adapter.GetInt32(11),
+                                        adapter.GetString(12)
                                     );
                             }
                         }

@@ -113,7 +113,7 @@ namespace Arian_project.Backend
             bool result = false;
             if (factor.id != 0)
             {
-                string sql_query = $"INSERT INTO factors(id,client_id,client_name,factor_type,full_price,profit,payed_price,factor_date,client_group,factor_status)VALUES('{factor.id}','{factor.client_id}''{factor.client_name}',,'{factor.factor_type}','{factor.full_price}','{factor.profit}','{factor.payed_price}','{factor.factor_date}','{factor.client_group}','{factor.factor_status}')";
+                string sql_query = $"INSERT INTO factors(id,client_id,client_name,factor_type,full_price,profit,payed_price,factor_date,client_group,factor_status)VALUES('{factor.id}','{factor.client_id}','{factor.client_name}','{factor.factor_type}','{factor.full_price}','{factor.profit}','{factor.payed_price}','{factor.factor_date}','{factor.client_group}','{factor.factor_status}')";
                 result = database.run_sql_query(sql_query, message_type, logger_message_type);
             }
             return result;

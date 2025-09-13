@@ -37,6 +37,7 @@ namespace Arian_project.screens
                     row.Cells[6].Value = d[6];
                     row.Cells[7].Value = d[7];
                     row.Cells[8].Value = d[8];
+                    row.Cells[9].Value = d[9];
                     rows.Add(row);
                 }
                 factor_list.Rows.AddRange(rows.ToArray());
@@ -54,7 +55,7 @@ namespace Arian_project.screens
 
         private void Get_factors_list_base_on_pay_status(string status)
         {
-            string sql_query = $"SELECT * FROM factors WHERE factor_status='{status}'";
+            string sql_query = $"SELECT * FROM factors WHERE factor_status='{status}' OR factor_status LIKE '%{status}%'";
             Set_factor_list = factor_db.Factors_list(sql_query);
         }
         private void glassButton2_Click(object sender, System.EventArgs e)
@@ -75,13 +76,13 @@ namespace Arian_project.screens
         private void glassButton4_Click(object sender, System.EventArgs e)
         {
 
-            Get_factors_list_base_on_pay_status("پرداخت اقساطی اتمام نشده");
+            Get_factors_list_base_on_pay_status("اقساطی");
         }
 
         private void glassButton5_Click(object sender, System.EventArgs e)
         {
             
-            Get_factors_list_base_on_pay_status("پرداخت اقساطی اتمام شده");
+            Get_factors_list_base_on_pay_status("اقساطی اتمام نشده");
         }
 
         private void all_factors_bt_Click(object sender, System.EventArgs e)
@@ -97,14 +98,15 @@ namespace Arian_project.screens
 
                 int id = int.Parse(row[0].Value.ToString());
                 int client_id = int.Parse(row[1].Value.ToString());
-                string factor_type = row[2].Value.ToString();
-                decimal full_price =decimal.Parse(row[3].Value.ToString());
-                decimal profit = decimal.Parse(row[4].Value.ToString());
-                decimal payed_price = decimal.Parse(row[5].Value.ToString());
-                string factor_date = row[6].Value.ToString();
-                string client_group = row[7].Value.ToString();
-                string factor_status = row[8].Value.ToString();
-                Factor factor =  new Factor(id,client_id,factor_type,full_price,profit,payed_price,factor_date,client_group,factor_status);
+                string client_user_name = row[2].Value.ToString();
+                string factor_type = row[3].Value.ToString();
+                decimal full_price =decimal.Parse(row[4].Value.ToString());
+                decimal profit = decimal.Parse(row[5].Value.ToString());
+                decimal payed_price = decimal.Parse(row[6].Value.ToString());
+                string factor_date = row[7].Value.ToString();
+                string client_group = row[8].Value.ToString();
+                string factor_status = row[9].Value.ToString();
+                Factor factor =  new Factor(id,client_id,client_user_name,factor_type,full_price,profit,payed_price,factor_date,client_group,factor_status);
                 using(Edite_Factors screen = new Edite_Factors(factor))
                 {
                     screen.ShowDialog();
@@ -112,6 +114,11 @@ namespace Arian_project.screens
                 }
 
             }
+        }
+
+        private void glassButton1_Click(object sender, System.EventArgs e)
+        {
+
         }
     }
 }

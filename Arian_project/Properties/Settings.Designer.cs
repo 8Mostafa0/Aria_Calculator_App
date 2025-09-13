@@ -334,5 +334,17 @@ namespace Arian_project.Properties {
                 this["penalty_price"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string last_open_app_date {
+            get {
+                return ((string)(this["last_open_app_date"]));
+            }
+            set {
+                this["last_open_app_date"] = value;
+            }
+        }
     }
 }

@@ -34,4 +34,6 @@ D:\CODES\Aria_Calculator_App\Arian_project\obj\Debug\Arian_project.screens.Edite
 D:\CODES\Aria_Calculator_App\Arian_project\bin\Debug\DateTimeSelector.dll
 D:\CODES\Aria_Calculator_App\Arian_project\obj\Debug\Arian_project.screens.Installment_Payment.resources
 D:\CODES\Aria_Calculator_App\Arian_project\obj\Debug\Arian_project.screens.PMessageBox.resources
+D:\CODES\Aria_Calculator_App\Arian_project\obj\Debug\Arian_project.screens.Installments_Screen.resources
+D:\CODES\Aria_Calculator_App\Arian_project\obj\Debug\Arian_project.screens.Installment_Detailes.resources
 D:\CODES\Aria_Calculator_App\Arian_project\obj\Debug\Arian_project.exe.config

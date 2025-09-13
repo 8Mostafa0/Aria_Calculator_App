@@ -14,6 +14,7 @@ namespace Arian_project.screens
             InitializeComponent();
             new log().init_logs();
             new Database_data().check_directorys();
+            new Installment_Manager().check_day_status();
             this.WindowState = FormWindowState.Maximized;
         }
 
@@ -116,6 +117,12 @@ namespace Arian_project.screens
         private void factors_screen_bt_Click(object sender, EventArgs e)
         {
             Factors_screen screen = new Factors_screen();
+            screen.ShowDialog();
+        }
+
+        private void instalments_screen_bt_Click(object sender, EventArgs e)
+        {
+            Installments_Screen screen = new Installments_Screen();
             screen.ShowDialog();
         }
     }

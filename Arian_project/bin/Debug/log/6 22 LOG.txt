@@ -1,0 +1,12 @@
+1404-6-22T18:23 get_client_installment_datatable get client installment from client_installment list into datatable
+1404-6-22T18:23 get_client_installment_datatable get client installment from client_installment list into datatable
+1404-6-22T18:23 get_client_installment_datatable get client installment from client_installment list into datatable
+1404-6-22T18:23 get_installment_transactions_list get installment transactions list from installment_transactions table
+1404-6-22T18:23 get_installment_transactions_count get installment transactions count from installment_transactions table
+1404-6-22T18:23 transactions database get transactions list from transactions table
+1404-6-22T18:23 card_readers_list_string get card readers list from card_reader table
+1404-6-22T18:23 card_readers_count get card readers count from card_reader table
+1404-6-22T18:23 card_readers_list_string get card readers list from card_reader table
+1404-6-22T18:23 card_readers_count get card readers count from card_reader table
+1404-6-22T18:23 card_readers_list_string get card readers list from card_reader table
+1404-6-22T18:23 card_readers_count get card readers count from card_reader table

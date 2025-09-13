@@ -221,6 +221,7 @@ namespace Arian_project.screens
                 Client_Installment c_installment = new Client_Installment(
                     installment_id,
                     this.factor.client_id,
+                    this.factor.client_name,
                     this.factor.id,
                     installment_price,
                     first_installment_date,

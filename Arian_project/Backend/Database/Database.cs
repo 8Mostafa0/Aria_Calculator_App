@@ -78,7 +78,7 @@ namespace Arian_project.backend
 
                     string card_readers_database_sql = "CREATE TABLE card_readers(id INT PRIMARY KEY NOT NULL,bank_id INT NOT NULL,name TEXT NOT NULL)";
 
-                    string client_installments_database_sql = "CREATE TABLE client_installments(id INT PRIMARY KEY NOT NULL,client_id INT NOT NULL,client_name TEXT NOT NULL,factor_id INT NOT NULL,installment_price  TEXT NOT NULL,first_installment TEXT NOT NULL,one_installment_price TEXT NOT NULL,installment_count TEXT NOT NULL,installment_payed_count TEXT NOT NULL,end_installment TEXT NOT NULL,sms_days TEXT NOT NULL)";
+                    string client_installments_database_sql = "CREATE TABLE client_installments(id INT PRIMARY KEY NOT NULL,client_id INT NOT NULL,client_name TEXT NOT NULL,factor_id INT NOT NULL,installment_price  TEXT NOT NULL,first_installment TEXT NOT NULL,one_installment_price TEXT NOT NULL,installment_count TEXT NOT NULL,installment_payed_count TEXT NOT NULL,end_installment TEXT NOT NULL,next_reminder TEXT NOT NULL,sms_days TEXT NOT NULL,status TEXT NOT NULL)";
 
                     string installment_transaction_database_sql = "CREATE TABLE installment_transactions(id INT PRIMARY KEY NOT NULL,date TEXT NOT NULL,price TEXT NOT NULL,payed_price TEXT NOT NULL,penalty_type TEXT NOT NULL,penalty_price_per_day TEXT NOT NULL,penalty TEXT NOT NULL,status TEXT NOT NULL,installment_number TEXT NOT NULL,installment_id TEXT NOT NULL)";
                     

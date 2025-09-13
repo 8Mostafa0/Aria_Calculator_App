@@ -25,5 +25,10 @@ namespace Arian_project
             this.factor_id = factor_id;
             this.installment_factor = installment_factor;
         }
+
+        public static Transaction empty()
+        {
+            return new Transaction(0, "", "", 0, 0, 0, "", 0, false);
+        }
     }
 }
