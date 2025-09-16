@@ -3,6 +3,8 @@ using Arian_project.Backend;
 using Arian_project.Backend.Database;
 using Arian_project.Backend.styles;
 using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
 using System.Transactions;
 using System.Windows.Forms;
 
@@ -13,7 +15,8 @@ namespace Arian_project.screens
         Client_Installment installment {  get; set; }
         Transactions_database transactions_db = new Transactions_database();
         Installment_transaction_database i_transactions_db = new Installment_transaction_database(); 
-
+        List<Transaction> old_transactions = new List<Transaction>();
+        List<Installment_transaction> old_installments = new List<Installment_transaction>();
         public Installment_Detailes(Client_Installment installment)
         {
             InitializeComponent();
@@ -49,12 +52,14 @@ namespace Arian_project.screens
             List<Transaction> transactions1 = transactions_db.get_installment_transactions(sql_query);
             foreach (Transaction trans in transactions1) {
                 Add_Transaction = trans;
+                old_transactions.Add(trans);
             }
             
         }
         private void Load_Installment_transactions(int installment_id) {
             string sql_query = $"SELECT * FROM installment_transactions WHERE installment_id='{installment_id}'";
             List<Installment_transaction> transactions = i_transactions_db.get_installment_transactions_list(sql_query);
+            old_installments = transactions;
             Set_Installments_List = transactions;
         }
 
@@ -125,6 +130,152 @@ namespace Arian_project.screens
                     Add_Transaction = screen.method;
                 }
             }
+        }
+        private List<Installment_transaction> get_installment_transactions() { 
+            List<Installment_transaction> installments = new List<Installment_transaction>();
+            foreach(DataGridViewRow row in installment_list.Rows)
+            {
+                DataGridViewCellCollection data = row.Cells;
+                Installment_transaction item = new Installment_transaction(
+                        int.Parse(data[0].Value.ToString()),
+                        data[1].Value.ToString(),
+                        decimal.Parse(data[2].Value.ToString()),
+                        decimal.Parse(data[3].Value.ToString()),
+                        data[4].Value.ToString(),
+                        decimal.Parse(data[5].Value.ToString()),
+                        decimal.Parse(data[6].Value.ToString()),
+                        data[7].Value.ToString(),
+                        int.Parse(data[8].Value.ToString()),
+                        int.Parse(data[8].Value.ToString())
+                    );
+                installments.Add(item);
+            }
+            return installments;
+        
+        }
+
+        private List<Transaction> get_payments()
+        {
+            List<Transaction> transactions = new List<Transaction>();
+            foreach (DataGridViewRow row in payments_list.Rows)
+            {
+                DataGridViewCellCollection data = row.Cells;
+                Transaction transaction = new Transaction(
+                        int.Parse(data[0].ToString()),
+                        data[1].Value.ToString(),
+                        data[2].Value.ToString(),
+                        int.Parse(data[3].ToString()),
+                        decimal.Parse(data[4].ToString()),
+                        int.Parse(data[5].ToString()),
+                        data[6].ToString(),
+                        int.Parse(data[0].Value.ToString()),
+                        bool.Parse(data[0].Value.ToString())
+                    );
+               transactions.Add(transaction);
+            }
+            return transactions;
+        }
+        private decimal calculate_payments(List<Transaction> transactions)
+        {
+            decimal total = 0;
+            foreach (Transaction transaction in transactions)
+            {
+                total += transaction.price;
+            }
+            return total;
+        }
+
+        private List<Installment_transaction> calculate_installment_payed_counts(List<Installment_transaction> installment,decimal total_payed) {
+            int count = 0;
+            for(int i = 0; i < installment.Count; i++) {
+                decimal installment_price = installment[i].price + installment[i].penalty;
+                if (total_payed - installment_price >= 0) {
+                    installment[i].payed_price = installment_price;
+                    installment[i].status = "پرداخت شده";
+                    count++;
+                    total_payed -= installment_price;
+                }
+                else
+                {
+                    installment[i].payed_price = installment_price - total_payed;
+                    installment[i].status = "نیمه پرداخت";
+                    total_payed -= installment_price;
+                }
+            }
+            return installment;
+        }
+        private bool save_transactions(List<Transaction> transactions) {
+            bool result = false;
+            for(int i = 0;i<transactions.Count;i++)
+            {
+                if(transactions[i] != old_transactions[i])
+                {
+                    if (transactions_db.check_transactions_exist(transactions[i].id))
+                    {
+                        result = transactions_db.edite_transaction_in_datebase(transactions[i]);
+                    }
+                    else
+                    {
+                        result = transactions_db.insert_transaction_to_database(transactions[i]);
+                    }
+                    if (!result)
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    result = true;
+                }
+            }
+            return result;
+        }
+        private bool save_installment_changes(List<Transaction> transactions, List<Installment_transaction> installments)
+        {
+            bool result = false;
+            if (save_transactions(transactions))
+            {
+                for(int i = 0;i<installments.Count;i++)
+                {
+                    if (installments[i] != old_installments[i])
+                    {
+                        if (i_transactions_db.check_installment_transactions_exist(installments[i].id))
+                        {
+                            result = i_transactions_db.edite_installment_transaction_to_database(installments[i]);
+                        }
+                        if (!result)
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        result = true;
+                    }
+                }
+                if (!result)
+                {
+                    MessageBox.Show("مشکلی هنگام ثبت اقساط بوجود امده است", "ثبت اقساط");
+                }
+            }
+            else
+            {
+                MessageBox.Show("مشکلی در ثبت تراکنش ها بوحود امده است", "ثبت تراکنش ها");
+            }
+            return result;
+        }
+        private void glassButton1_Click(object sender, System.EventArgs e)
+        {
+            List<Transaction> transactions = get_payments();
+            List<Installment_transaction> installments = get_installment_transactions();
+            decimal total_payment = calculate_payments(transactions);
+            installments = calculate_installment_payed_counts(installments,total_payment);
+            bool rseult = save_installment_changes(transactions, installments);
+            if (rseult)
+            {
+                MessageBox.Show("اقساط با موفقیت ثبت شدند", "ثبت اقساط");
+            }
+            
         }
     }
 }

@@ -115,5 +115,15 @@ namespace Arian_project.Backend
         {
             return transactions_list($"SELECT * FROM transactions WHERE factor_id ='{factor_id}'");
         }
+        public bool check_transactions_exist(int id,string sql_query="") {
+            string message_type = "check_transactions_exist";
+            string logger_message_type = " check transaction exist in transactions table";
+            if(sql_query == "")
+            {
+                sql_query = $"SELECT COUNT(*) FROM transactions WHERE id='{id}'";
+            }
+            return database.get_one_data_query(sql_query, message_type, logger_message_type) == 1;
+
+        }
     }
 }

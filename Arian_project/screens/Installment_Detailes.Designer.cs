@@ -538,6 +538,7 @@
             this.glassButton1.Size = new System.Drawing.Size(97, 28);
             this.glassButton1.TabIndex = 0;
             this.glassButton1.Text = "ثبت";
+            this.glassButton1.Click += new System.EventHandler(this.glassButton1_Click);
             // 
             // glassButton3
             // 
