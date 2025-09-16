@@ -120,7 +120,7 @@ namespace Arian_project.Backend.Database
             bool result = false;
             if (installment.id != 0)
             {
-                string sql_query = $"UPDATE client_installments SET client_id='{installment.client_id}',client_name='{installment.client_name}',factor_id='{installment.factor_id}',installment_price='{installment.installment_price}',first_installment='{installment.first_installment}',one_installment_price='{installment.one_installment_price}',installment_count='{installment.installment_count}',installment_payed_count='{installment.installment_payed_count}',end_installment='{installment.end_instllment}',sms_days='{installment.sms_days},status='{installment.status}' WHERE id='{installment.id}'";
+                string sql_query = $"UPDATE client_installments SET client_id='{installment.client_id}',client_name='{installment.client_name}',factor_id='{installment.factor_id}',installment_price='{installment.installment_price}',first_installment='{installment.first_installment}',one_installment_price='{installment.one_installment_price}',installment_count='{installment.installment_count}',installment_payed_count='{installment.installment_payed_count}',end_installment='{installment.end_instllment}',sms_days='{installment.sms_days}',status='{installment.status}' WHERE id='{installment.id}'";
                 result = database.run_sql_query(sql_query, message_type, logger_message_type);
             }
             return result;

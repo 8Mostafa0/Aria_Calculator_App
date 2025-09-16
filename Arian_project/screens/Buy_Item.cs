@@ -20,6 +20,7 @@ namespace Arian_project.screens
         sub_factors_database sub_factor_db = new sub_factors_database();
         Transactions_database transaction_db = new Transactions_database();
         Style style = new Style();
+        int payment_counter = 1;
         public int factor_id { get; set; }
 
         public int sub_factors_id = 1;
@@ -334,29 +335,39 @@ namespace Arian_project.screens
             {
                 if (!row.IsNewRow) 
                 {
-                    if (row.Cells[0].Value != null && row.Cells[1].Value != null &&
-                        row.Cells[2].Value != null && row.Cells[3].Value != null &&
-                        row.Cells[4].Value != null && row.Cells[5].Value != null)
+                    if (row.Cells[1].Value != null && row.Cells[2].Value != null &&
+                        row.Cells[3].Value != null && row.Cells[4].Value != null &&
+                        row.Cells[5].Value != null && row.Cells[6].Value != null)
                     {
                         try
                         {
                             int id;
                             decimal price;
-
-                            if (!int.TryParse(row.Cells[0].Value.ToString(), out id) ||
-                                !decimal.TryParse(row.Cells[3].Value.ToString(), out price))
+                            if (this.Buy_Screen)
                             {
-                                continue; 
+                                id = transaction_db.get_last_transaction_id();
+                                if(!decimal.TryParse(row.Cells[4].Value.ToString(), out price))
+                                {
+                                    continue;
+                                }
+                            }
+                            else
+                            {
+                                if (!int.TryParse(row.Cells[1].Value.ToString(), out id) ||
+                                    !decimal.TryParse(row.Cells[4].Value.ToString(), out price))
+                                {
+                                    continue;
+                                }
                             }
 
                             Transaction transaction = new Transaction(
                                 id,
-                                row.Cells[2].Value.ToString(),
-                                row.Cells[1].Value.ToString(), 
-                                int.Parse(row.Cells[5].Value.ToString()),
+                                row.Cells[3].Value.ToString(),
+                                row.Cells[2].Value.ToString(), 
+                                int.Parse(row.Cells[6].Value.ToString()),
                                 price,
                                 this.client.id,
-                                row.Cells[4].Value.ToString(),
+                                row.Cells[5].Value.ToString(),
                                 factor_id,
                                 false
                             );
@@ -654,15 +665,16 @@ namespace Arian_project.screens
                 List<DataGridViewRow> rows = new List<DataGridViewRow>();
                 DataGridViewRow row = new DataGridViewRow();
                 row.CreateCells(payments_llist);
-                row.Cells[0].Value = value.id;
-                row.Cells[1].Value = value.transaction_type;
-                row.Cells[2].Value = value.bank;
-                row.Cells[3].Value = value.price;
-                row.Cells[4].Value = value.transaction_date;
-                row.Cells[5].Value = value.bank_id;
-                row.Cells[6].Value = value.client_id;
-                row.Cells[7].Value = factor_id;
-
+                row.Cells[0].Value = payment_counter;
+                row.Cells[1].Value = value.id;
+                row.Cells[2].Value = value.transaction_type;
+                row.Cells[3].Value = value.bank;
+                row.Cells[4].Value = value.price;
+                row.Cells[5].Value = value.transaction_date;
+                row.Cells[6].Value = value.bank_id;
+                row.Cells[7].Value = value.client_id;
+                row.Cells[8].Value = factor_id;
+                payment_counter++;
                 rows.Add(row);
                 payments_llist.Rows.AddRange(rows.ToArray());
                 payments_llist.ClearSelection();

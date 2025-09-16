@@ -173,6 +173,7 @@ namespace Arian_project.screens
         {
             Client_Installment installment = Get_Selected_installment();
             new Installment_Detailes(installment).ShowDialog();
+            Load_Data();
         }
 
         private void Reminder_bt_Click(object sender, System.EventArgs e)

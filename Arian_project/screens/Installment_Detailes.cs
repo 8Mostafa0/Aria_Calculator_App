@@ -2,10 +2,8 @@
 using Arian_project.Backend;
 using Arian_project.Backend.Database;
 using Arian_project.Backend.styles;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Transactions;
 using System.Windows.Forms;
 
 namespace Arian_project.screens
@@ -15,8 +13,11 @@ namespace Arian_project.screens
         Client_Installment installment {  get; set; }
         Transactions_database transactions_db = new Transactions_database();
         Installment_transaction_database i_transactions_db = new Installment_transaction_database(); 
+        Client_installment_database c_installments_db = new Client_installment_database();
         List<Transaction> old_transactions = new List<Transaction>();
         List<Installment_transaction> old_installments = new List<Installment_transaction>();
+        private int payment_counter = 1;
+
         public Installment_Detailes(Client_Installment installment)
         {
             InitializeComponent();
@@ -70,15 +71,17 @@ namespace Arian_project.screens
                 List<DataGridViewRow> rows = new List<DataGridViewRow>();
                 DataGridViewRow row = new DataGridViewRow();
                 row.CreateCells(payments_list);
-                row.Cells[0].Value = value.id;
-                row.Cells[1].Value = value.transaction_type;
-                row.Cells[2].Value = value.bank;
-                row.Cells[3].Value = value.price;
-                row.Cells[4].Value = value.transaction_date;
-                row.Cells[5].Value = value.bank_id;
+                row.Cells[0].Value = payment_counter;
+                row.Cells[1].Value = value.id;
+                row.Cells[2].Value = value.transaction_type;
+                row.Cells[3].Value = value.bank;
+                row.Cells[4].Value = value.bank_id;
+                row.Cells[5].Value = value.price;
                 row.Cells[6].Value = value.client_id;
-                row.Cells[7].Value = installment.factor_id;
-
+                row.Cells[7].Value = value.transaction_date;
+                row.Cells[8].Value = installment.factor_id;
+                row.Cells[9].Value = value.installment_factor;
+                payment_counter++;
                 rows.Add(row);
                 payments_list.Rows.AddRange(rows.ToArray());
                 payments_list.ClearSelection();
@@ -122,7 +125,7 @@ namespace Arian_project.screens
 
         private void glassButton2_Click(object sender, System.EventArgs e)
         {
-            int id = payments_list.Rows.Count + 1;
+            int id = transactions_db.get_last_transaction_id();
             using (Payment_methods screen = new Payment_methods(installment.client_id, id, Transaction.empty()))
             {
                 screen.ShowDialog();
@@ -161,15 +164,15 @@ namespace Arian_project.screens
             {
                 DataGridViewCellCollection data = row.Cells;
                 Transaction transaction = new Transaction(
-                        int.Parse(data[0].ToString()),
-                        data[1].Value.ToString(),
+                        int.Parse(data[1].Value.ToString()),
                         data[2].Value.ToString(),
-                        int.Parse(data[3].ToString()),
-                        decimal.Parse(data[4].ToString()),
-                        int.Parse(data[5].ToString()),
-                        data[6].ToString(),
-                        int.Parse(data[0].Value.ToString()),
-                        bool.Parse(data[0].Value.ToString())
+                        data[3].Value.ToString(),
+                        int.Parse(data[4].Value.ToString()),
+                        decimal.Parse(data[5].Value.ToString()),
+                        int.Parse(data[6].Value.ToString()),
+                        data[7].Value.ToString(),
+                        int.Parse(data[8].Value.ToString()),
+                        true
                     );
                transactions.Add(transaction);
             }
@@ -185,72 +188,107 @@ namespace Arian_project.screens
             return total;
         }
 
-        private List<Installment_transaction> calculate_installment_payed_counts(List<Installment_transaction> installment,decimal total_payed) {
+        private int calculate_installment_payed_counts(List<Installment_transaction> installment,decimal total_payed) {
             int count = 0;
             for(int i = 0; i < installment.Count; i++) {
                 decimal installment_price = installment[i].price + installment[i].penalty;
-                if (total_payed - installment_price >= 0) {
-                    installment[i].payed_price = installment_price;
-                    installment[i].status = "پرداخت شده";
-                    count++;
-                    total_payed -= installment_price;
-                }
-                else
+                if(total_payed > 0)
                 {
-                    installment[i].payed_price = installment_price - total_payed;
-                    installment[i].status = "نیمه پرداخت";
-                    total_payed -= installment_price;
-                }
-            }
-            return installment;
-        }
-        private bool save_transactions(List<Transaction> transactions) {
-            bool result = false;
-            for(int i = 0;i<transactions.Count;i++)
-            {
-                if(transactions[i] != old_transactions[i])
-                {
-                    if (transactions_db.check_transactions_exist(transactions[i].id))
-                    {
-                        result = transactions_db.edite_transaction_in_datebase(transactions[i]);
+                    if (total_payed - installment_price >= 0) {
+                        installment[i].payed_price = installment_price;
+                        installment[i].status = "پرداخت شده";
+                        count++;
+                        total_payed -= installment_price;
                     }
                     else
                     {
-                        result = transactions_db.insert_transaction_to_database(transactions[i]);
-                    }
-                    if (!result)
-                    {
-                        return false;
+                        installment[i].payed_price = total_payed;
+                        installment[i].status = "نیمه پرداخت";
+                        total_payed = 0;
+                        break;
                     }
                 }
                 else
                 {
-                    result = true;
+                    break;
                 }
             }
-            return result;
+            return count;
+        }
+        private bool save_transactions(List<Transaction> transactions) {
+            bool result = false;
+            if(transactions.Count > 0)
+            {
+                for(int i = 0;i<transactions.Count;i++)
+                {
+                        if(old_transactions.Count > i)
+                        {
+                            if (transactions[i] != old_transactions[i])
+                            {
+                                if (transactions_db.check_transactions_exist(transactions[i].id))
+                                {
+                                    result = transactions_db.edite_transaction_in_datebase(transactions[i]);
+                                }
+                                else
+                                {
+                                    result = transactions_db.insert_transaction_to_database(transactions[i]);
+                                }
+                                if (!result)
+                                {
+                                    return false;
+                                }
+                            }
+                            else
+                            {
+                                result = true;
+                            }
+                        }
+                        else
+                        {
+                            result = transactions_db.insert_transaction_to_database(transactions[i]);
+                            if (!result)
+                            {
+                                return false;
+                            }
+                        }
+                }
+            }
+            else
+            {
+                return true;
+            }
+                return result;
         }
         private bool save_installment_changes(List<Transaction> transactions, List<Installment_transaction> installments)
         {
+
             bool result = false;
             if (save_transactions(transactions))
             {
                 for(int i = 0;i<installments.Count;i++)
                 {
-                    if (installments[i] != old_installments[i])
+                    try
                     {
-                        if (i_transactions_db.check_installment_transactions_exist(installments[i].id))
+                        if(old_installments.Count > i)
                         {
-                            result = i_transactions_db.edite_installment_transaction_to_database(installments[i]);
+                            if (installments[i] != old_installments[i])
+                            {
+                                if (i_transactions_db.check_installment_transactions_exist(installments[i].id))
+                                {
+                                    result = i_transactions_db.edite_installment_transaction_to_database(installments[i]);
+                                }
+                                if (!result)
+                                {
+                                    return false;
+                                }
+                            }
+                            else
+                            {
+                                result = true;
+                            }
                         }
-                        if (!result)
-                        {
-                            return false;
-                        }
-                    }
-                    else
+                    }catch(Exception)
                     {
-                        result = true;
                     }
                 }
                 if (!result)
@@ -269,11 +307,25 @@ namespace Arian_project.screens
             List<Transaction> transactions = get_payments();
             List<Installment_transaction> installments = get_installment_transactions();
             decimal total_payment = calculate_payments(transactions);
-            installments = calculate_installment_payed_counts(installments,total_payment);
-            bool rseult = save_installment_changes(transactions, installments);
-            if (rseult)
+            int payed_count = calculate_installment_payed_counts(installments,total_payment);
+            this.installment.installment_payed_count = payed_count;
+            bool result = save_installment_changes(transactions, installments);
+            if (result)
             {
-                MessageBox.Show("اقساط با موفقیت ثبت شدند", "ثبت اقساط");
+                result = c_installments_db.update_client_installment_to_database(this.installment);
+                if (result)
+                {
+                    MessageBox.Show("اقساط با موفقیت ثبت شدند", "ثبت اقساط");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("هنگام ویرایش قسط مشکلی بوجود امده است", "ثبت اقساط");
+                }
+            }
+            else
+            {
+                MessageBox.Show("مشکلی در ثبت اقساط بوجود امده است", "ثبت اقساط");
             }
             
         }

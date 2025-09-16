@@ -232,42 +232,52 @@ namespace Arian_project.Backend.styles
 
             List.Columns.Clear();
 
-            List.Columns.Add("id", "ش");
-            List.Columns[0].DataPropertyName = "id";
+            List.Columns.Add("number", "ش");
+            List.Columns[0].DataPropertyName = "number";
             List.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
 
-
-            List.Columns.Add("payment_type", "نحوه پرداخت");
-            List.Columns[1].DataPropertyName = "payment_type";
+            List.Columns.Add("id", "ش");
+            List.Columns[1].DataPropertyName = "id";
             List.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
+            List.Columns[1].Visible = false;
 
-            List.Columns.Add("bank_name", "نام بانک");
-            List.Columns[2].DataPropertyName = "bank_name";
+            List.Columns.Add("transaction_type", "نحوه پرداخت");
+            List.Columns[2].DataPropertyName = "transaction_type";
             List.Columns[2].SortMode = DataGridViewColumnSortMode.NotSortable;
 
-
-            List.Columns.Add("price", "مبلغ");
-            List.Columns[3].DataPropertyName = "price";
+            List.Columns.Add("bank", "نام بانک");
+            List.Columns[3].DataPropertyName = "bank";
             List.Columns[3].SortMode = DataGridViewColumnSortMode.NotSortable;
 
-            List.Columns.Add("payment_date", "تاریخ");
-            List.Columns[4].DataPropertyName = "payment_date";
-            List.Columns[4].SortMode = DataGridViewColumnSortMode.NotSortable;
 
             List.Columns.Add("bank_id", "ایدی بانک");
-            List.Columns[5].DataPropertyName = "bank_id";
-            List.Columns[5].SortMode = DataGridViewColumnSortMode.NotSortable;
-            List.Columns[5].Visible= false;
+            List.Columns[4].DataPropertyName = "bank_id";
+            List.Columns[4].SortMode = DataGridViewColumnSortMode.NotSortable;
+            List.Columns[4].Visible = false;
 
-            List.Columns.Add("client_id", "ایدی کاربر");
+            List.Columns.Add("price", "مبلغ");
+            List.Columns[5].DataPropertyName = "price";
+            List.Columns[5].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            List.Columns.Add("client_id", "شماره مشتری");
             List.Columns[6].DataPropertyName = "client_id";
             List.Columns[6].SortMode = DataGridViewColumnSortMode.NotSortable;
-            List.Columns[6].Visible = false;
+            List.Columns[6].Visible= false;
 
-            List.Columns.Add("factor_id", "ایدی فاکتور");
-            List.Columns[7].DataPropertyName = "factor_id";
+            List.Columns.Add("transaction_date", "تاریخ پرداخت");
+            List.Columns[7].DataPropertyName = "transaction_date";
             List.Columns[7].SortMode = DataGridViewColumnSortMode.NotSortable;
             List.Columns[7].Visible = false;
+
+            List.Columns.Add("factor_id", "ایدی فاکتور");
+            List.Columns[8].DataPropertyName = "factor_id";
+            List.Columns[8].SortMode = DataGridViewColumnSortMode.NotSortable;
+            List.Columns[8].Visible = false;
+
+            List.Columns.Add("installment_factor", "فاکتور اقساط");
+            List.Columns[9].DataPropertyName = "installment_factor";
+            List.Columns[9].SortMode = DataGridViewColumnSortMode.NotSortable;
+            List.Columns[9].Visible = false;
         }
         public void Banks_List_Style(DataGridView List)
         {

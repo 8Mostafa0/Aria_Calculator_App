@@ -21,7 +21,8 @@ public class Iran_date
         DateTime start;
         if(from_date != "")
         {
-            start = DateTime.Parse(from_date);
+            int[] data = Array.ConvertAll(from_date.Split('/'),Convert.ToInt32);
+            start = new DateTime(data[0], data[1], data[2],pc);
             start.AddMonths(month);
         }
         else

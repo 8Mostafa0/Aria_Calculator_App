@@ -33,15 +33,15 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.Name_tb = new System.Windows.Forms.TextBox();
             this.Id_tb = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.Search_refrech_bt = new GlassButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Installment_list_type_cb = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.Installments_List = new System.Windows.Forms.DataGridView();
-            this.Search_refrech_bt = new GlassButton();
             this.Details_bt = new GlassButton();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.Reminder_bt = new GlassButton();
+            this.Installments_List = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Installments_List)).BeginInit();
@@ -127,14 +127,21 @@
             this.Id_tb.Size = new System.Drawing.Size(116, 22);
             this.Id_tb.TabIndex = 0;
             // 
-            // textBox3
+            // Search_refrech_bt
             // 
-            this.tableLayoutPanel2.SetColumnSpan(this.textBox3, 2);
-            this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox3.Location = new System.Drawing.Point(3, 531);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(116, 22);
-            this.textBox3.TabIndex = 7;
+            this.Search_refrech_bt.BackAlpha = 120;
+            this.Search_refrech_bt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tableLayoutPanel2.SetColumnSpan(this.Search_refrech_bt, 2);
+            this.Search_refrech_bt.CornerRadius = 20;
+            this.Search_refrech_bt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Search_refrech_bt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.Search_refrech_bt.ForeColor = System.Drawing.Color.Black;
+            this.Search_refrech_bt.Location = new System.Drawing.Point(3, 102);
+            this.Search_refrech_bt.Name = "Search_refrech_bt";
+            this.Search_refrech_bt.Size = new System.Drawing.Size(116, 27);
+            this.Search_refrech_bt.TabIndex = 2;
+            this.Search_refrech_bt.Text = "ریست";
+            this.Search_refrech_bt.Click += new System.EventHandler(this.Search_refrech_bt_Click);
             // 
             // label1
             // 
@@ -183,34 +190,6 @@
             this.label3.Text = "لیست اقساط";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Installments_List
-            // 
-            this.Installments_List.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Installments_List.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Installments_List.Location = new System.Drawing.Point(3, 3);
-            this.Installments_List.Name = "Installments_List";
-            this.Installments_List.RowHeadersWidth = 51;
-            this.Installments_List.RowTemplate.Height = 24;
-            this.Installments_List.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Installments_List.Size = new System.Drawing.Size(997, 672);
-            this.Installments_List.TabIndex = 1;
-            // 
-            // Search_refrech_bt
-            // 
-            this.Search_refrech_bt.BackAlpha = 120;
-            this.Search_refrech_bt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.tableLayoutPanel2.SetColumnSpan(this.Search_refrech_bt, 2);
-            this.Search_refrech_bt.CornerRadius = 20;
-            this.Search_refrech_bt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Search_refrech_bt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.Search_refrech_bt.ForeColor = System.Drawing.Color.Black;
-            this.Search_refrech_bt.Location = new System.Drawing.Point(3, 102);
-            this.Search_refrech_bt.Name = "Search_refrech_bt";
-            this.Search_refrech_bt.Size = new System.Drawing.Size(116, 27);
-            this.Search_refrech_bt.TabIndex = 2;
-            this.Search_refrech_bt.Text = "ریست";
-            this.Search_refrech_bt.Click += new System.EventHandler(this.Search_refrech_bt_Click);
-            // 
             // Details_bt
             // 
             this.Details_bt.BackAlpha = 120;
@@ -227,6 +206,15 @@
             this.Details_bt.Text = "جزئیات";
             this.Details_bt.Click += new System.EventHandler(this.Details_bt_Click);
             // 
+            // textBox3
+            // 
+            this.tableLayoutPanel2.SetColumnSpan(this.textBox3, 2);
+            this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox3.Location = new System.Drawing.Point(3, 531);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(116, 22);
+            this.textBox3.TabIndex = 7;
+            // 
             // Reminder_bt
             // 
             this.Reminder_bt.BackAlpha = 120;
@@ -242,6 +230,18 @@
             this.Reminder_bt.TabIndex = 5;
             this.Reminder_bt.Text = "یاداوری";
             this.Reminder_bt.Click += new System.EventHandler(this.Reminder_bt_Click);
+            // 
+            // Installments_List
+            // 
+            this.Installments_List.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Installments_List.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Installments_List.Location = new System.Drawing.Point(3, 3);
+            this.Installments_List.Name = "Installments_List";
+            this.Installments_List.RowHeadersWidth = 51;
+            this.Installments_List.RowTemplate.Height = 24;
+            this.Installments_List.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Installments_List.Size = new System.Drawing.Size(997, 672);
+            this.Installments_List.TabIndex = 1;
             // 
             // Installments_Screen
             // 

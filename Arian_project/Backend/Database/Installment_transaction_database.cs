@@ -121,14 +121,12 @@ namespace Arian_project.Backend.Database
             installment_transactions_id+=1;
             return installment_transactions_id;
         }
-        public bool check_installment_transactions_exist(int id,string sql_query="")
+        public bool check_installment_transactions_exist(int id)
         {
             string message_type = "check_installment_transactions_exist";
             string logger_message_type = "check installment transaction exist in installment_transactions table";
-            sql_query = sql_query == $"SELECT COUNT(*) FROM installment_transactions WHERE id='{id}'" ? $"":sql_query;
-
-            return database.run_one_item_data_query(sql_query, message_type, logger_message_type) == 1;            
-            return result;
+            string sql_query =  $"SELECT COUNT(*) FROM installment_transactions WHERE id='{id}'";
+            return database.run_one_item_data_query(sql_query, message_type, logger_message_type) > 0;            
 
 
         }

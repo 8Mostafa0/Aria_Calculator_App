@@ -35,12 +35,8 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label63 = new System.Windows.Forms.Label();
             this.one_installment_price_lb = new System.Windows.Forms.Label();
-            this.label61 = new System.Windows.Forms.Label();
-            this.label60 = new System.Windows.Forms.Label();
             this.label54 = new System.Windows.Forms.Label();
             this.first_installment_date_lb = new System.Windows.Forms.Label();
-            this.label52 = new System.Windows.Forms.Label();
-            this.label51 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
             this.full_installment_price_lb = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
@@ -133,12 +129,8 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.333333F));
             this.tableLayoutPanel2.Controls.Add(this.label63, 8, 6);
             this.tableLayoutPanel2.Controls.Add(this.one_installment_price_lb, 7, 6);
-            this.tableLayoutPanel2.Controls.Add(this.label61, 6, 6);
-            this.tableLayoutPanel2.Controls.Add(this.label60, 5, 6);
             this.tableLayoutPanel2.Controls.Add(this.label54, 8, 5);
             this.tableLayoutPanel2.Controls.Add(this.first_installment_date_lb, 7, 5);
-            this.tableLayoutPanel2.Controls.Add(this.label52, 6, 5);
-            this.tableLayoutPanel2.Controls.Add(this.label51, 5, 5);
             this.tableLayoutPanel2.Controls.Add(this.label45, 8, 4);
             this.tableLayoutPanel2.Controls.Add(this.full_installment_price_lb, 7, 4);
             this.tableLayoutPanel2.Controls.Add(this.label43, 6, 4);
@@ -196,28 +188,6 @@
             this.one_installment_price_lb.Text = "0";
             this.one_installment_price_lb.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label61.Location = new System.Drawing.Point(897, 192);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(143, 32);
-            this.label61.TabIndex = 60;
-            this.label61.Text = "label61";
-            this.label61.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label60.Location = new System.Drawing.Point(748, 192);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(143, 32);
-            this.label60.TabIndex = 59;
-            this.label60.Text = "0";
-            this.label60.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // label54
             // 
             this.label54.AutoSize = true;
@@ -239,28 +209,6 @@
             this.first_installment_date_lb.TabIndex = 52;
             this.first_installment_date_lb.Text = "0";
             this.first_installment_date_lb.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label52.Location = new System.Drawing.Point(897, 160);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(143, 32);
-            this.label52.TabIndex = 51;
-            this.label52.Text = "label52";
-            this.label52.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label51.Location = new System.Drawing.Point(748, 160);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(143, 32);
-            this.label51.TabIndex = 50;
-            this.label51.Text = "0";
-            this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label45
             // 
@@ -611,12 +559,8 @@
         private GlassButton glassButton3;
         private System.Windows.Forms.Label label63;
         private System.Windows.Forms.Label one_installment_price_lb;
-        private System.Windows.Forms.Label label61;
-        private System.Windows.Forms.Label label60;
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.Label first_installment_date_lb;
-        private System.Windows.Forms.Label label52;
-        private System.Windows.Forms.Label label51;
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.Label full_installment_price_lb;
         private System.Windows.Forms.Label label43;

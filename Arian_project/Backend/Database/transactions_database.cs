@@ -3,6 +3,7 @@ using ghest.Backend.Logs;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System;
+using System.Windows.Forms;
 
 namespace Arian_project.Backend
 {
@@ -42,7 +43,7 @@ namespace Arian_project.Backend
                                     reader.GetInt32(5),
                                     reader.GetString(6),
                                     reader.GetInt32(7),
-                                    reader.GetBoolean(8)
+                                    Convert.ToBoolean(reader.GetString(8))
                                     ));
                             }
                         }
@@ -122,8 +123,15 @@ namespace Arian_project.Backend
             {
                 sql_query = $"SELECT COUNT(*) FROM transactions WHERE id='{id}'";
             }
-            return database.get_one_data_query(sql_query, message_type, logger_message_type) == 1;
+            return database.get_one_data_query(sql_query, message_type, logger_message_type) > 0;
 
+        }
+        public int get_last_transaction_id()
+        {
+            string message_type = "get_last_transaction_id";
+            string logger_message_type = "get last transaction id from transactions table";
+            string sql_query = $"SELECT MAX(id) FROM transactions";
+            return database.run_one_item_data_query(sql_query,message_type,logger_message_type)+1;
         }
     }
 }
