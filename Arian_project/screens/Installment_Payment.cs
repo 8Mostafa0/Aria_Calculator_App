@@ -5,8 +5,6 @@ using Arian_project.Backend.styles;
 using ghest.Backend.Logs;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 namespace Arian_project.screens
@@ -63,7 +61,6 @@ namespace Arian_project.screens
             add_penalty_types();
             load_penalty_values();
             month_count_lb.Text = "1";
-
         }
 
         private void load_penalty_values()
@@ -206,7 +203,6 @@ namespace Arian_project.screens
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
             calculate_installment();
         }
         private bool save_client_intallment(int installment_id) {

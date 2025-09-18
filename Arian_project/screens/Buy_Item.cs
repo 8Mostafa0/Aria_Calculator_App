@@ -657,7 +657,11 @@ namespace Arian_project.screens
             return result;
 
         }
-
+        private void delete_transaction(int id)
+        {
+            payments_llist.Rows.RemoveAt(id);
+            payments_llist.Refresh();
+        }
         Transaction Add_Transaction
         {
             set
@@ -707,10 +711,12 @@ namespace Arian_project.screens
                 using (Payment_methods screen = new Payment_methods(this.client.id, this.sub_factors_id,new Transaction(0, "0", "0", 0, 0, 0, "0",factor_id,false)))
                 {
                     screen.ShowDialog();
-                    if (screen.method != null && screen.method.id != 0)
-                    {
-                        Add_Transaction = screen.method;
-                        this.sub_factors_id = payments_llist.Rows.Count+1;
+                    if (screen.DialogResult == DialogResult.OK) { 
+                        if (screen.method != null && screen.method.id != 0)
+                        {
+                            Add_Transaction = screen.method;
+                            this.sub_factors_id = payments_llist.Rows.Count+1;
+                        }
                     }
                 }
             }
@@ -779,29 +785,34 @@ namespace Arian_project.screens
         private void payments_llist_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int id = e.RowIndex;
-            DataGridViewCellCollection row = payments_llist.Rows[id].Cells; ;
+            DataGridViewCellCollection row = payments_llist.Rows[id].Cells;
             Transaction transaction = new Transaction(
-                int.Parse(row[0].Value.ToString()),
-                row[1].Value.ToString(),
+                int.Parse(row[1].Value.ToString()),
                 row[2].Value.ToString(),
-                int.Parse(row[5].Value.ToString()),
-                decimal.Parse(row[3].Value.ToString()),
+                row[3].Value.ToString(),
                 int.Parse(row[6].Value.ToString()),
-                row[4].Value.ToString(),
+                decimal.Parse(row[4].Value.ToString()),
+                int.Parse(row[7].Value.ToString()),
+                row[5].Value.ToString(),
                 factor_id,
                 false
                 );
             using(Payment_methods screen = new Payment_methods(this.client.id, this.sub_factors_id, transaction))
             {
                 screen.ShowDialog();
-                if(screen.method != null && screen.method != transaction)
+                if (screen.DialogResult == DialogResult.OK) { 
+                    if(screen.method != null && screen.method != transaction)
+                    {
+                        transaction = screen.method;
+                        payments_llist.Rows[id].Cells[2].Value = transaction.transaction_type;
+                        payments_llist.Rows[id].Cells[3].Value = transaction.bank;
+                        payments_llist.Rows[id].Cells[4].Value = transaction.price;
+                        payments_llist.Rows[id].Cells[5].Value = transaction.transaction_date;
+                        payments_llist.Rows[id].Cells[6].Value = transaction.bank_id;
+                    }
+                }else if(screen.DialogResult == DialogResult.Abort)
                 {
-                    transaction = screen.method;
-                    payments_llist.Rows[id].Cells[1].Value = transaction.transaction_type;
-                    payments_llist.Rows[id].Cells[2].Value = transaction.bank;
-                    payments_llist.Rows[id].Cells[3].Value = transaction.price;
-                    payments_llist.Rows[id].Cells[4].Value = transaction.transaction_date;
-                    payments_llist.Rows[id].Cells[5].Value = transaction.bank_id;
+                    delete_transaction(id);
                 }
             }
         }

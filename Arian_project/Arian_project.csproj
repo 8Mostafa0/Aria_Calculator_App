@@ -90,6 +90,7 @@
     <Compile Include="Backend\class\Card_reader.cs" />
     <Compile Include="Backend\class\Client.cs" />
     <Compile Include="Backend\class\Client_installment.cs" />
+    <Compile Include="Backend\class\Debt.cs" />
     <Compile Include="Backend\class\Factor.cs" />
     <Compile Include="Backend\class\Installment_calculator.cs" />
     <Compile Include="Backend\class\Installment_Manager.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="Backend\Database\Clients_database.cs" />
     <Compile Include="Backend\Database\Client_installment_database.cs" />
     <Compile Include="Backend\Database\Database.cs" />
+    <Compile Include="Backend\Database\Debt_database.cs" />
     <Compile Include="Backend\Database\Factors_database.cs" />
     <Compile Include="Backend\Database\Installment_transaction_database.cs" />
     <Compile Include="Backend\Database\Services_database.cs" />
@@ -133,6 +135,18 @@
     </Compile>
     <Compile Include="screens\Banks.Designer.cs">
       <DependentUpon>Banks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="screens\Debts_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="screens\Debts_Details.Designer.cs">
+      <DependentUpon>Debts_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="screens\Debts_screen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="screens\Debts_screen.Designer.cs">
+      <DependentUpon>Debts_screen.cs</DependentUpon>
     </Compile>
     <Compile Include="screens\Edite_Factors.cs">
       <SubType>Form</SubType>
@@ -239,6 +253,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="screens\Banks.resx">
       <DependentUpon>Banks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="screens\Debts_Details.resx">
+      <DependentUpon>Debts_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="screens\Debts_screen.resx">
+      <DependentUpon>Debts_screen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="screens\Edite_Factors.resx">
       <DependentUpon>Edite_Factors.cs</DependentUpon>

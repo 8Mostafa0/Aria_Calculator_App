@@ -21,9 +21,13 @@ public class Iran_date
         DateTime start;
         if(from_date != "")
         {
-            int[] data = Array.ConvertAll(from_date.Split('/'),Convert.ToInt32);
-            start = new DateTime(data[0], data[1], data[2],pc);
-            start.AddMonths(month);
+            try {
+                int[] data = Array.ConvertAll(from_date.Split('/'),Convert.ToInt32);
+                start = new DateTime(data[0], data[1], data[2],pc);
+                start = start.AddMonths(month);
+            }catch(Exception e) {
+                start = today;
+            }
         }
         else
         {
@@ -38,6 +42,7 @@ public class Iran_date
         date[2] = persianDay;
         return date;
     }
+
 
     public int[] next_month_of(int months,string date)
     {

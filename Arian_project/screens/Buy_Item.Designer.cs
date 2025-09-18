@@ -293,6 +293,7 @@
             this.list_items.Name = "list_items";
             this.list_items.RowHeadersWidth = 51;
             this.list_items.RowTemplate.Height = 24;
+            this.list_items.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.list_items.Size = new System.Drawing.Size(504, 264);
             this.list_items.TabIndex = 3;
             this.list_items.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.list_items_CellClick);
@@ -320,6 +321,7 @@
             this.payments_llist.Margin = new System.Windows.Forms.Padding(4);
             this.payments_llist.Name = "payments_llist";
             this.payments_llist.RowHeadersWidth = 51;
+            this.payments_llist.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.payments_llist.Size = new System.Drawing.Size(297, 264);
             this.payments_llist.TabIndex = 0;
             this.payments_llist.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.payments_llist_CellClick);

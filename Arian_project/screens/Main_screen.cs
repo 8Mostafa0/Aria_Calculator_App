@@ -125,5 +125,11 @@ namespace Arian_project.screens
             Installments_Screen screen = new Installments_Screen();
             screen.ShowDialog();
         }
+
+        private void debs_screen_bt_Click(object sender, EventArgs e)
+        {
+            Debts_screen screen = new Debts_screen();
+            screen.ShowDialog();
+        }
     }
 }

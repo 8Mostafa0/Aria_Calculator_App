@@ -109,7 +109,7 @@ namespace Arian_project.Backend
         public bool insert_factor_to_database(Factor factor)
         {
             string logger_message_type = "insert_factor_to_database";
-            string message_type = "insert new factor to table";
+            string message_type = "insert new factor to factors table";
             bool result = false;
             if (factor.id != 0)
             {

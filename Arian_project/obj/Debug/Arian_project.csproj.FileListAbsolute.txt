@@ -36,4 +36,6 @@ D:\CODES\Aria_Calculator_App\Arian_project\obj\Debug\Arian_project.screens.Insta
 D:\CODES\Aria_Calculator_App\Arian_project\obj\Debug\Arian_project.screens.PMessageBox.resources
 D:\CODES\Aria_Calculator_App\Arian_project\obj\Debug\Arian_project.screens.Installments_Screen.resources
 D:\CODES\Aria_Calculator_App\Arian_project\obj\Debug\Arian_project.screens.Installment_Detailes.resources
+D:\CODES\Aria_Calculator_App\Arian_project\obj\Debug\Arian_project.screens.Debts_screen.resources
+D:\CODES\Aria_Calculator_App\Arian_project\obj\Debug\Arian_project.screens.Debts_Details.resources
 D:\CODES\Aria_Calculator_App\Arian_project\obj\Debug\Arian_project.exe.config

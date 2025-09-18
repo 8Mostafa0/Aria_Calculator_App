@@ -158,5 +158,12 @@ namespace Arian_project.screens
             }
             banks_cb.DataSource = banks_list;
         }
+
+        private void delete_bt_Click(object sender, EventArgs e)
+        {
+
+            this.DialogResult = DialogResult.Abort;
+            this.Close();
+        }
     }
 }

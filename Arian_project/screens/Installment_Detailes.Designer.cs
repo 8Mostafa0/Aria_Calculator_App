@@ -58,11 +58,11 @@
             this.installment_count_lb = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.installment_list = new System.Windows.Forms.DataGridView();
             this.glassButton2 = new GlassButton();
             this.glassButton1 = new GlassButton();
             this.glassButton3 = new GlassButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.installment_list = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.payments_list)).BeginInit();
@@ -111,8 +111,10 @@
             this.payments_list.Name = "payments_list";
             this.payments_list.RowHeadersWidth = 51;
             this.payments_list.RowTemplate.Height = 24;
+            this.payments_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.payments_list.Size = new System.Drawing.Size(374, 451);
             this.payments_list.TabIndex = 0;
+            this.payments_list.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.payments_list_CellContentClick);
             // 
             // tableLayoutPanel2
             // 
@@ -458,6 +460,29 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(1346, 34);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.installment_list);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(389, 233);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.groupBox1.Size = new System.Drawing.Size(960, 472);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "لیست اقساط";
+            // 
+            // installment_list
+            // 
+            this.installment_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.installment_list.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.installment_list.Location = new System.Drawing.Point(3, 18);
+            this.installment_list.Name = "installment_list";
+            this.installment_list.RowHeadersWidth = 51;
+            this.installment_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.installment_list.Size = new System.Drawing.Size(954, 451);
+            this.installment_list.TabIndex = 1;
+            // 
             // glassButton2
             // 
             this.glassButton2.BackAlpha = 120;
@@ -501,28 +526,6 @@
             this.glassButton3.Size = new System.Drawing.Size(104, 28);
             this.glassButton3.TabIndex = 2;
             this.glassButton3.Text = "چاپ";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.installment_list);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(389, 233);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox1.Size = new System.Drawing.Size(960, 472);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "لیست اقساط";
-            // 
-            // installment_list
-            // 
-            this.installment_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.installment_list.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.installment_list.Location = new System.Drawing.Point(3, 18);
-            this.installment_list.Name = "installment_list";
-            this.installment_list.RowHeadersWidth = 51;
-            this.installment_list.Size = new System.Drawing.Size(954, 451);
-            this.installment_list.TabIndex = 1;
             // 
             // Installment_Detailes
             // 

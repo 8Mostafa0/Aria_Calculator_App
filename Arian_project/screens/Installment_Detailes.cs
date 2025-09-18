@@ -1,4 +1,5 @@
 ﻿
+using Arian_project.backend;
 using Arian_project.Backend;
 using Arian_project.Backend.Database;
 using Arian_project.Backend.styles;
@@ -16,6 +17,7 @@ namespace Arian_project.screens
         Client_installment_database c_installments_db = new Client_installment_database();
         List<Transaction> old_transactions = new List<Transaction>();
         List<Installment_transaction> old_installments = new List<Installment_transaction>();
+        Clients_database client_db = new Clients_database();
         private int payment_counter = 1;
 
         public Installment_Detailes(Client_Installment installment)
@@ -205,12 +207,12 @@ namespace Arian_project.screens
                         installment[i].payed_price = total_payed;
                         installment[i].status = "نیمه پرداخت";
                         total_payed = 0;
-                        break;
                     }
                 }
                 else
                 {
-                    break;
+
+                    installment[i].status = "پرداخت نشده";
                 }
             }
             return count;
@@ -328,6 +330,48 @@ namespace Arian_project.screens
                 MessageBox.Show("مشکلی در ثبت اقساط بوجود امده است", "ثبت اقساط");
             }
             
+        }
+
+        private void delete_transaction(int id)
+        {
+            payments_list.Rows.RemoveAt(id);
+            payments_list.Refresh();
+        }
+        private void payments_list_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = e.RowIndex;
+            DataGridViewCellCollection row = payments_list.Rows[id].Cells;
+            Transaction transaction = new Transaction(
+                int.Parse(row[1].Value.ToString()),
+                row[2].Value.ToString(),
+                row[3].Value.ToString(),
+                int.Parse(row[4].Value.ToString()),
+                decimal.Parse(row[5].Value.ToString()),
+                int.Parse(row[6].Value.ToString()),
+                row[7].Value.ToString(),
+                this.installment.factor_id,
+                true
+                );
+            using (Payment_methods screen = new Payment_methods(this.installment.client_id, transaction.id,transaction)) {
+                screen.ShowDialog();
+                if (screen.DialogResult == DialogResult.OK) {
+                    if (screen.method != null && screen.method != transaction)
+                    {
+                        transaction = screen.method;
+                        payments_list.Rows[id].Cells[2].Value = transaction.transaction_type;
+                        payments_list.Rows[id].Cells[3].Value = transaction.bank;
+                        payments_list.Rows[id].Cells[4].Value = transaction.bank_id;
+                        payments_list.Rows[id].Cells[5].Value = transaction.price;
+                        payments_list.Rows[id].Cells[7].Value = transaction.transaction_date;
+                    }
+
+                }
+                else if(screen.DialogResult == DialogResult.Abort)
+                {
+                    delete_transaction(id);
+                }
+            
+            }
         }
     }
 }

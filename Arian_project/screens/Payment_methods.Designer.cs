@@ -39,7 +39,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.price_tb = new System.Windows.Forms.TextBox();
             this.date_lb = new System.Windows.Forms.Label();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.delete_bt = new GlassButton();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -51,10 +54,10 @@
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.payment_methods_cb, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.banks_cb, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.glassButton1, 0, 11);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.price_tb, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.date_lb, 0, 7);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 11);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -136,13 +139,13 @@
             this.glassButton1.BackAlpha = 120;
             this.glassButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.glassButton1.CornerRadius = 20;
-            this.glassButton1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.glassButton1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.glassButton1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.glassButton1.ForeColor = System.Drawing.Color.Black;
-            this.glassButton1.Location = new System.Drawing.Point(3, 387);
+            this.glassButton1.Location = new System.Drawing.Point(3, 2);
             this.glassButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.glassButton1.Name = "glassButton1";
-            this.glassButton1.Size = new System.Drawing.Size(120, 38);
+            this.glassButton1.Size = new System.Drawing.Size(157, 32);
             this.glassButton1.TabIndex = 5;
             this.glassButton1.Text = "ثبت";
             this.glassButton1.Click += new System.EventHandler(this.glassButton1_Click);
@@ -179,6 +182,36 @@
             this.date_lb.Text = "label5";
             this.date_lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.glassButton1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.delete_bt, 1, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 388);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(327, 36);
+            this.tableLayoutPanel2.TabIndex = 12;
+            // 
+            // delete_bt
+            // 
+            this.delete_bt.BackAlpha = 120;
+            this.delete_bt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.delete_bt.CornerRadius = 20;
+            this.delete_bt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.delete_bt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.delete_bt.ForeColor = System.Drawing.Color.Black;
+            this.delete_bt.Location = new System.Drawing.Point(166, 3);
+            this.delete_bt.Name = "delete_bt";
+            this.delete_bt.Size = new System.Drawing.Size(158, 30);
+            this.delete_bt.TabIndex = 6;
+            this.delete_bt.Text = "حذف تراکنش";
+            this.delete_bt.Click += new System.EventHandler(this.delete_bt_Click);
+            // 
             // Payment_methods
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -192,6 +225,7 @@
             this.Load += new System.EventHandler(this.Payment_methods_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -208,5 +242,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox price_tb;
         private System.Windows.Forms.Label date_lb;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private GlassButton delete_bt;
     }
 }
