@@ -165,6 +165,44 @@ namespace Arian_project.Backend.styles
             List.Columns[8].SortMode = DataGridViewColumnSortMode.NotSortable;
         }
 
+        public void Services_List_Style(DataGridView List)
+        {
+
+            Font List_Font = Get_List_Font();
+            Font App_Font = Get_Font();
+
+            List.ColumnHeadersDefaultCellStyle.Font = App_Font;
+            List.Font = List_Font;
+            List.EditMode = DataGridViewEditMode.EditProgrammatically;
+            List.RightToLeft = RightToLeft.Yes;
+            List.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            List.AlternatingRowsDefaultCellStyle.BackColor = Color.Gray;
+            List.AllowUserToAddRows = false;
+
+            List.Columns.Clear();
+
+            List.Columns.Add("number", "ش");
+            List.Columns[0].DataPropertyName = "number";
+            List.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            List.Columns.Add("id", "ش");
+            List.Columns[1].DataPropertyName = "id";
+            List.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
+            List.Columns[1].Visible = false;
+
+            List.Columns.Add("item_id", "ش");
+            List.Columns[2].DataPropertyName = "item_id";
+            List.Columns[2].SortMode = DataGridViewColumnSortMode.NotSortable;
+            List.Columns[2].Visible = false;
+
+            List.Columns.Add("service_name", "نام سرویس");
+            List.Columns[3].DataPropertyName = "service_name";
+            List.Columns[3].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            List.Columns.Add("cell_price", "قیمت فروش");
+            List.Columns[4].DataPropertyName = "cell_price";
+            List.Columns[4].SortMode = DataGridViewColumnSortMode.NotSortable;
+        }
         public void Clients_List_Style(DataGridView List)
         {
             Font List_Font = Get_List_Font();

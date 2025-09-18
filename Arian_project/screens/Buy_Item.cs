@@ -298,7 +298,7 @@ namespace Arian_project.screens
                                 count,
                                 row.Cells[6].Value?.ToString() ?? today_string,
                                 row.Cells[7].Value?.ToString() ?? string.Empty,
-                                row.Cells[8].Value?.ToString() ?? "خیر"
+                                row.Cells[8].Value.ToString()
                             );
                         items.Add(item);
                         if (this.Buy_Screen)

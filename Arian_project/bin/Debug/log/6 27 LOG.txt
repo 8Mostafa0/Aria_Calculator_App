@@ -1,1 +1,22 @@
-1404-6-27T14:16 get_debts_datatable get debts list from debts table
+1404-6-27T19:17 get_services_datatable get services from services table
+1404-6-27T19:17 check store item exists in services table store_item_exist_in_services_database
+1404-6-27T19:17 get last service id from services table get_last_service_id
+1404-6-27T19:17 stors database get stors list from stors table
+1404-6-27T19:17 services_counter get counts of services in table
+1404-6-27T19:17 insert_service_to_database insert new service to table
+1404-6-27T19:17 get_services_datatable get services from services table
+1404-6-27T19:17 stors database get stors list from stors table
+1404-6-27T19:17 delete_service_from_database delete service from services table
+1404-6-27T19:17 get_services_datatable get services from services table
+1404-6-27T19:17 stors database get stors list from stors table
+1404-6-27T19:17 delete_service_from_database delete service from services table
+1404-6-27T19:17 get_services_datatable get services from services table
+1404-6-27T19:17 stors database get stors list from stors table
+1404-6-27T19:17 delete_service_from_database delete service from services table
+1404-6-27T19:17 get_services_datatable get services from services table
+1404-6-27T19:17 stors database get stors list from stors table
+1404-6-27T19:17 delete_service_from_database delete service from services table
+1404-6-27T19:17 get_services_datatable get services from services table
+1404-6-27T19:17 stors database get stors list from stors table
+1404-6-27T19:17 delete_service_from_database delete service from services table
+1404-6-27T19:17 get_services_datatable get services from services table

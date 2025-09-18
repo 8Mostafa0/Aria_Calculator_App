@@ -51,7 +51,8 @@ namespace Arian_project.screens
                 "برق",
                 "گاز",
                 "اینترنت",
-                "مالیات"
+                "مالیات",
+                "اجاره"
             };
             debt_types_cb.DataSource = debts;
         }

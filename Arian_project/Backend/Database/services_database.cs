@@ -56,6 +56,37 @@ namespace Arian_project.Backend
 
         }
 
+        public DataTable get_services_datatable(string sql_query = "")
+        {
+            string logger_message_type = "get_services_datatable";
+            logger.record_log("get services from services table", logger_message_type);
+            if (string.IsNullOrEmpty(sql_query))
+            {
+                sql_query = "SELECT * FROM services";
+            }
+            DataTable dataTable = new DataTable();
+            try
+            {
+                using (var connection = database.connection_to_db())
+                {
+                    connection.Open();
+                    using (var command = new SQLiteCommand(sql_query, connection))
+                    {
+                        using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(command))
+                        {
+                            adapter.Fill(dataTable);
+                        }
+                    }
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.record_log("SQL QUERY => " + sql_query, logger_message_type);
+                logger.record_log(ex.ToString(), logger_message_type);
+            }
+            return dataTable;
+        }
 
         public int services_counter()
         {
@@ -110,11 +141,11 @@ namespace Arian_project.Backend
         public DataTable get_items_not_in_services(string sql_query = "")
         {
             string logger_message_type = "get_items_not_in_services";
-            string message_type = "Get All items from stores table when not added on services table";
+            string message_type = "Get All items from stores table which not added on services table";
 
             if (sql_query == "")
             {
-                sql_query = "SELECT stores.* FROM stores LEFT JOIN services ON stores.item_id = services.item_id WHERE services.item_id IS NULL;";
+                sql_query = "SELECT * FROM stors LEFT JOIN services ON stors.id = services.item_id WHERE services.item_id IS NULL";
             }
 
             DataTable dataTable = new DataTable();
@@ -139,6 +170,66 @@ namespace Arian_project.Backend
                 logger.record_log(ex.ToString(), message_type);
             }
             return dataTable;
+        }
+
+        public int get_last_service_id()
+        {
+            int id = 0;
+            string message_type = "get_last_service_id";
+            string logger_message_type = "get last service id from services table";
+            string sql_query = $"SELECT MAX(id) FROM services";
+            id = database.get_one_data_query(sql_query, message_type, logger_message_type);
+            return id;
+        }
+
+        public bool store_item_exist_in_services_database(int item_id)
+        {
+            string message_type = "store_item_exist_in_services_database";
+            string logger_message_type = "check store item exists in services table";
+            string sql_query = $"SELECT COUNT(*) FROM services WHERE item_id='{item_id}'";
+            bool result = database.get_one_data_query(sql_query,message_type,logger_message_type) > 1;
+            return result;
+        }
+        public Service get_Service_by_id(int id)
+        {
+            string message_type = "get_Service_by_id";
+            string logger_message_type = "get service by id from services table";
+            string sql_query = $"SELECT * FROM services WHERE id='{id}'";
+            Service service = null;
+            try
+            {
+                using (SQLiteConnection connection = new Database_data().connection_to_db())
+                {
+                    connection.Open();
+                    using (SQLiteCommand command = new SQLiteCommand(sql_query, connection))
+                    {
+                        var reader = command.ExecuteReader();
+
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                service = new Service(
+                                        reader.GetInt32(0),
+                                        reader.GetInt32(1),
+                                        reader.GetString(2),
+                                        reader.GetDecimal(3)
+                                    );
+                            }
+                        }
+
+                        connection.Close();
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.record_log("SQL QUERY => " + ex, logger_message_type);
+                logger.record_log(message_type, logger_message_type);
+            }
+            return service;
+
         }
     }
 }
