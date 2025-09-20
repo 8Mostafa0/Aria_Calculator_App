@@ -18,11 +18,11 @@ namespace Arian_project.screens
         Card_reader_database card_reader_db = new Card_reader_database();
         Banks_database bank_db = new Banks_database();
         int select_id = 0;
-        private void load_items_to_list()
+        private void load_items_to_list(string sql ="")
         {
             this.select_id = card_reader_db.get_last_card_reader_id() + 1;
             clear_data();
-            Card_Reader_List_Set = card_reader_db.card_readers_list();
+            Card_Reader_List_Set = card_reader_db.card_readers_list(sql);
             set_bank_id_cb();
 
         }
@@ -146,8 +146,17 @@ namespace Arian_project.screens
 
         private void reset_bt_Click(object sender, EventArgs e)
         {
-            clear_data();
-            load_items_to_list();
+            if (name_tb.Text == "")
+            {
+                clear_data();
+                load_items_to_list();
+            }
+            else
+            {
+                clear_data();
+                string name = name_tb.Text;
+                load_items_to_list($"SELECT * FROM card_readers WHRE name LIKE '%{name}%' OR name='{name}'");
+            }
         }
 
         private void delete_bt_Click(object sender, EventArgs e)
@@ -170,6 +179,18 @@ namespace Arian_project.screens
             else
             {
                 MessageBox.Show("لطفا ابتدا موردی برای حذف انتخاب کنید",message_type);
+            }
+        }
+
+        private void name_tb_TextChanged(object sender, EventArgs e)
+        {
+            if(name_tb.Text == "")
+            {
+                reset_bt.Text = "ریست";
+            }
+            else
+            {
+                reset_bt.Text = "جستجو";
             }
         }
     }

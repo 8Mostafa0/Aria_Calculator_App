@@ -103,6 +103,7 @@
             this.name_tb.Name = "name_tb";
             this.name_tb.Size = new System.Drawing.Size(148, 22);
             this.name_tb.TabIndex = 0;
+            this.name_tb.TextChanged += new System.EventHandler(this.name_tb_TextChanged);
             // 
             // bank_id_cb
             // 
