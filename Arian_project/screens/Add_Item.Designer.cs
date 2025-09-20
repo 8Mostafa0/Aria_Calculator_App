@@ -98,7 +98,7 @@
             this.tableLayoutPanelMain.Controls.Add(this.rightPanel, 1, 0);
             this.tableLayoutPanelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelMain.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanelMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanelMain.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanelMain.Name = "tableLayoutPanelMain";
             this.tableLayoutPanelMain.RowCount = 1;
             this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -125,7 +125,7 @@
             this.dataGridViewCheckBoxColumn1});
             this.items_list.Dock = System.Windows.Forms.DockStyle.Fill;
             this.items_list.Location = new System.Drawing.Point(4, 4);
-            this.items_list.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.items_list.Margin = new System.Windows.Forms.Padding(4);
             this.items_list.MultiSelect = false;
             this.items_list.Name = "items_list";
             this.items_list.ReadOnly = true;
@@ -198,7 +198,7 @@
             this.rightPanel.Controls.Add(this.tableLayoutPanelButtons, 0, 1);
             this.rightPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rightPanel.Location = new System.Drawing.Point(664, 4);
-            this.rightPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rightPanel.Margin = new System.Windows.Forms.Padding(4);
             this.rightPanel.Name = "rightPanel";
             this.rightPanel.RowCount = 2;
             this.rightPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
@@ -229,7 +229,7 @@
             this.tableLayoutPanelFields.Controls.Add(this.label1, 1, 7);
             this.tableLayoutPanelFields.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelFields.Location = new System.Drawing.Point(4, 4);
-            this.tableLayoutPanelFields.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanelFields.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanelFields.Name = "tableLayoutPanelFields";
             this.tableLayoutPanelFields.RowCount = 8;
             this.tableLayoutPanelFields.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
@@ -247,7 +247,7 @@
             // 
             this.store_id_tb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.store_id_tb.Location = new System.Drawing.Point(4, 4);
-            this.store_id_tb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.store_id_tb.Margin = new System.Windows.Forms.Padding(4);
             this.store_id_tb.Name = "store_id_tb";
             this.store_id_tb.Size = new System.Drawing.Size(358, 22);
             this.store_id_tb.TabIndex = 0;
@@ -267,7 +267,7 @@
             // 
             this.item_name_tb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.item_name_tb.Location = new System.Drawing.Point(4, 76);
-            this.item_name_tb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.item_name_tb.Margin = new System.Windows.Forms.Padding(4);
             this.item_name_tb.Name = "item_name_tb";
             this.item_name_tb.Size = new System.Drawing.Size(358, 22);
             this.item_name_tb.TabIndex = 2;
@@ -288,7 +288,7 @@
             // 
             this.buy_price_tb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buy_price_tb.Location = new System.Drawing.Point(4, 148);
-            this.buy_price_tb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buy_price_tb.Margin = new System.Windows.Forms.Padding(4);
             this.buy_price_tb.Name = "buy_price_tb";
             this.buy_price_tb.Size = new System.Drawing.Size(358, 22);
             this.buy_price_tb.TabIndex = 4;
@@ -308,7 +308,7 @@
             // 
             this.cell_price_tb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cell_price_tb.Location = new System.Drawing.Point(4, 220);
-            this.cell_price_tb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cell_price_tb.Margin = new System.Windows.Forms.Padding(4);
             this.cell_price_tb.Name = "cell_price_tb";
             this.cell_price_tb.Size = new System.Drawing.Size(358, 22);
             this.cell_price_tb.TabIndex = 6;
@@ -328,7 +328,7 @@
             // 
             this.count_tb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.count_tb.Location = new System.Drawing.Point(4, 292);
-            this.count_tb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.count_tb.Margin = new System.Windows.Forms.Padding(4);
             this.count_tb.Name = "count_tb";
             this.count_tb.Size = new System.Drawing.Size(358, 22);
             this.count_tb.TabIndex = 8;
@@ -348,7 +348,7 @@
             // 
             this.buy_date_tb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buy_date_tb.Location = new System.Drawing.Point(4, 364);
-            this.buy_date_tb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buy_date_tb.Margin = new System.Windows.Forms.Padding(4);
             this.buy_date_tb.Name = "buy_date_tb";
             this.buy_date_tb.Size = new System.Drawing.Size(358, 22);
             this.buy_date_tb.TabIndex = 10;
@@ -368,7 +368,7 @@
             // 
             this.cell_date_tb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cell_date_tb.Location = new System.Drawing.Point(4, 436);
-            this.cell_date_tb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cell_date_tb.Margin = new System.Windows.Forms.Padding(4);
             this.cell_date_tb.Name = "cell_date_tb";
             this.cell_date_tb.Size = new System.Drawing.Size(358, 22);
             this.cell_date_tb.TabIndex = 12;
@@ -389,7 +389,7 @@
             this.service_item_cb.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.service_item_cb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.service_item_cb.Location = new System.Drawing.Point(4, 508);
-            this.service_item_cb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.service_item_cb.Margin = new System.Windows.Forms.Padding(4);
             this.service_item_cb.Name = "service_item_cb";
             this.service_item_cb.Size = new System.Drawing.Size(358, 64);
             this.service_item_cb.TabIndex = 14;
@@ -420,7 +420,7 @@
             this.tableLayoutPanelButtons.Controls.Add(this.Reset_bt, 0, 2);
             this.tableLayoutPanelButtons.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelButtons.Location = new System.Drawing.Point(4, 588);
-            this.tableLayoutPanelButtons.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanelButtons.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanelButtons.Name = "tableLayoutPanelButtons";
             this.tableLayoutPanelButtons.RowCount = 3;
             this.tableLayoutPanelButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
@@ -433,7 +433,7 @@
             // 
             this.edit_item_bt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.edit_item_bt.Location = new System.Drawing.Point(178, 50);
-            this.edit_item_bt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.edit_item_bt.Margin = new System.Windows.Forms.Padding(4);
             this.edit_item_bt.Name = "edit_item_bt";
             this.edit_item_bt.Size = new System.Drawing.Size(166, 38);
             this.edit_item_bt.TabIndex = 1;
@@ -444,7 +444,7 @@
             // 
             this.save_item_bt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.save_item_bt.Location = new System.Drawing.Point(4, 50);
-            this.save_item_bt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.save_item_bt.Margin = new System.Windows.Forms.Padding(4);
             this.save_item_bt.Name = "save_item_bt";
             this.save_item_bt.Size = new System.Drawing.Size(166, 38);
             this.save_item_bt.TabIndex = 0;
@@ -455,7 +455,7 @@
             // 
             this.delete_item_bt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.delete_item_bt.Location = new System.Drawing.Point(352, 50);
-            this.delete_item_bt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.delete_item_bt.Margin = new System.Windows.Forms.Padding(4);
             this.delete_item_bt.Name = "delete_item_bt";
             this.delete_item_bt.Size = new System.Drawing.Size(168, 38);
             this.delete_item_bt.TabIndex = 2;
@@ -466,7 +466,7 @@
             // 
             this.Reset_bt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Reset_bt.Location = new System.Drawing.Point(4, 96);
-            this.Reset_bt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Reset_bt.Margin = new System.Windows.Forms.Padding(4);
             this.Reset_bt.Name = "Reset_bt";
             this.Reset_bt.Size = new System.Drawing.Size(166, 38);
             this.Reset_bt.TabIndex = 3;
@@ -481,7 +481,7 @@
             this.ClientSize = new System.Drawing.Size(1200, 738);
             this.Controls.Add(this.tableLayoutPanelMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Add_Item";
             this.Text = "مدیریت ایتم ها";
             this.tableLayoutPanelMain.ResumeLayout(false);

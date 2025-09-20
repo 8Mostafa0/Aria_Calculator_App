@@ -225,7 +225,7 @@ namespace Arian_project.screens
             else
             {
                 string name = item_name_tb.Text;
-                Add_Item_Load($"SELECT * FROM stors WHERE item_name LIKE '%{name}%'");
+                Add_Item_Load($"SELECT * FROM stors WHERE item_name LIKE '%{name}%' OR item_name='{name}'");
             }
         }
 

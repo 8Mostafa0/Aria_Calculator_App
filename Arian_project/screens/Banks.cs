@@ -45,12 +45,11 @@ namespace Arian_project.screens
             List<string> data = bank_db.get_bank_types();
             bank_type_cb.DataSource = data;
         }
-        private void load_data_to_list()
+        private void load_data_to_list(string sql = "")
         {
-
             new Style().Banks_List_Style(banks_list);
             banks_list.Rows.Clear();
-            DataTable banks = new Banks_database().Banks_list();
+            DataTable banks = new Banks_database().Banks_list(sql);
             Banks_List_Set = banks;
             select_id = bank_db.banks_count() + 1;
 
@@ -119,8 +118,16 @@ namespace Arian_project.screens
         }
         private void reset_bt_Click(object sender, EventArgs e)
         {
-            load_data_to_list();
-            clear_data();
+            if(name_tb.Text == "")
+            {
+                load_data_to_list();
+                clear_data();
+            }
+            else
+            {
+                string name = name_tb.Text;
+                load_data_to_list($"SELECT * FROM banks WHERE name LIKE '%{name}%' OR name='{name}'");
+            }
         }
         private void SelectRowAndFillFields(int id)
         {
@@ -142,7 +149,6 @@ namespace Arian_project.screens
         {
             if (validate_data())
             {
-
                 string message_type = "ویرایش حساب";
                 int id = select_id;
                 string name = name_tb.Text;
@@ -170,20 +176,47 @@ namespace Arian_project.screens
             {
                 if(select_id > 0)
                 {
-                    string message_type = "حذف حساب";
-                    bool res = bank_db.delete_bank_from_database(select_id);
-                    if (res)
-                    {
+                    var yesbt = new Button();
+                    yesbt.Text = "بله";
+                    var bt2 = new Button();
+                    bt2.Text = "خیر";
+                    Button[] buttons = {
+                        yesbt,
+                        bt2
+                    };
+                    using (PMessageBox screen = new PMessageBox("حذف حساب", "ایا مطمنید میخواهید این حساب را حذف کنید", buttons)) { 
+                        screen.ShowDialog();
+                        if(screen.result == yesbt)
+                        {
+                            string message_type = "حذف حساب";
+                            bool res = bank_db.delete_bank_from_database(select_id);
+                            if (res)
+                            {
 
-                        MessageBox.Show("حذف حساب با موفقیت انجام شد", message_type);
-                        load_data_to_list();
-                        clear_data();
-                    }
-                    else
-                    {
-                        MessageBox.Show("هنگام حذف حساب مشکلی بوجود امده است",message_type);
+                                MessageBox.Show("حذف حساب با موفقیت انجام شد", message_type);
+                                load_data_to_list();
+                                clear_data();
+                            }
+                            else
+                            {
+                                MessageBox.Show("هنگام حذف حساب مشکلی بوجود امده است", message_type);
+                            }
+                        }
                     }
                 }
+            }
+        }
+
+        private void name_tb_TextChanged(object sender, EventArgs e)
+        {
+            if(name_tb.Text == "")
+            {
+                reset_bt.Text = "ریست";
+            }
+            else
+            {
+
+                reset_bt.Text = "جستجو";
             }
         }
     }

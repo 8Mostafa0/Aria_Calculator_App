@@ -1,7 +1,5 @@
-1404-6-29T20:32 stors database get stors list from stors table
-1404-6-29T20:32 stors database get stors list from stors table
-1404-6-29T20:32 stors database get stors list from stors table
-1404-6-29T20:32 stors database get stors list from stors table
-1404-6-29T20:32 stors database get stors list from stors table
-1404-6-29T20:32 stors database get stors list from stors table
-1404-6-29T20:32 stors database get stors list from stors table
+1404-6-29T20:43 banks database get banks list from banks table
+1404-6-29T20:43 banks_count get banks count from banks table
+1404-6-29T20:43 delete_bank_from_database delete bank from banks table
+1404-6-29T20:43 banks database get banks list from banks table
+1404-6-29T20:43 banks_count get banks count from banks table
