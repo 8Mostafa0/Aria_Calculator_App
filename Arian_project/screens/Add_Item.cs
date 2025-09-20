@@ -50,37 +50,52 @@ namespace Arian_project.screens
             }
         }
 
-        private void Add_Item_Load()
+        private void Add_Item_Load(string sql ="")
         {
-            clear_data();
+            if(sql == "")
+            {
+                clear_data();
+            }
             new Style().Stores_List_Style(items_list);
-            Load_Items_To_List();
+            Load_Items_To_List(sql);
+        }
+        private bool validate_inputs()
+        {
+            if (store_id_tb.Text == "" || buy_price_tb.Text == "" || cell_price_tb.Text == "" ||
+                count_tb.Text == "" || buy_date_tb.Text == "" || cell_date_tb.Text == "")
+            {
+                MessageBox.Show("لطفا تمام ورودی ها را پر کنید", "ورودی ها");
+                return false;
+            }
+            return true;
         }
         private void save_item_bt_Click(object sender, EventArgs e)
         {
-            int store_id = 0;
-            int.TryParse(store_id_tb.Text, out store_id);
-            string item_name = item_name_tb.Text;
-            int buy_price = 0;
-            int.TryParse(buy_price_tb.Text, out buy_price);
-            int cell_price = 0;
-            int.TryParse(cell_price_tb.Text, out cell_price);
-            int count = 0;
-            int.TryParse(count_tb.Text, out count);
-            string buy_date = buy_date_tb.Text;
-            string cell_date = cell_date_tb.Text;
-            string service_item = service_item_cb.Checked?"بله":"خیر";
-            Store store = new Store(0, store_id, item_name, buy_price, cell_price, count, buy_date, cell_date, service_item);
-            bool result = new Stores_database().insert_item_to_database(store);
-            if (result)
-            {
-                MessageBox.Show("آیتم با موفقیت ثبت شد", "افزودن آیتم");
-                clear_data();
-                Load_Items_To_List();
-            }
-            else
-            {
-                MessageBox.Show("هنگام ثبت آیتم مشکلی بوجود امده است", "افزودن آیتم");
+            if (validate_inputs()) { 
+                int store_id = 0;
+                int.TryParse(store_id_tb.Text, out store_id);
+                string item_name = item_name_tb.Text;
+                int buy_price = 0;
+                int.TryParse(buy_price_tb.Text, out buy_price);
+                int cell_price = 0;
+                int.TryParse(cell_price_tb.Text, out cell_price);
+                int count = 0;
+                int.TryParse(count_tb.Text, out count);
+                string buy_date = buy_date_tb.Text;
+                string cell_date = cell_date_tb.Text;
+                string service_item = service_item_cb.Checked?"بله":"خیر";
+                Store store = new Store(0, store_id, item_name, buy_price, cell_price, count, buy_date, cell_date, service_item);
+                bool result = new Stores_database().insert_item_to_database(store);
+                if (result)
+                {
+                    MessageBox.Show("آیتم با موفقیت ثبت شد", "افزودن آیتم");
+                    clear_data();
+                    Load_Items_To_List();
+                }
+                else
+                {
+                    MessageBox.Show("هنگام ثبت آیتم مشکلی بوجود امده است", "افزودن آیتم");
+                }
             }
         }
         private void clear_data()
@@ -124,44 +139,46 @@ namespace Arian_project.screens
             }
         }
 
-        private void Load_Items_To_List()
+        private void Load_Items_To_List(string sql="")
         {
             items_list.Rows.Clear();
-
-            DataTable items = new Stores_database().stores_list();
+            DataTable items = new Stores_database().stores_list(sql);
             set_items_list = items;
             items_list.ClearSelection();
         }
         private void edit_item_bt_Click(object sender, EventArgs e)
         {
-            if (selected_id == 0 || items_list.SelectedRows.Count == 0)
+            if (validate_inputs())
             {
-                MessageBox.Show("یک آیتم را انتخاب کنید", "ویرایش آیتم");
-                return;
-            }
-            int store_id = 0;
-            int.TryParse(store_id_tb.Text, out store_id);
-            string item_name = item_name_tb.Text;
-            int buy_price = 0;
-            int.TryParse(buy_price_tb.Text, out buy_price);
-            int cell_price = 0;
-            int.TryParse(cell_price_tb.Text, out cell_price);
-            int count = 0;
-            int.TryParse(count_tb.Text, out count);
-            string buy_date = buy_date_tb.Text;
-            string cell_date = cell_date_tb.Text;
-            string service_item = service_item_cb.Checked ? "بله" : "خیر";
-            Store store = new Store(selected_id, store_id, item_name, buy_price, cell_price, count, buy_date, cell_date, service_item);
-            bool result = new Stores_database().edite_item_in_datebase(store);
-            if (result)
-            {
-                MessageBox.Show("آیتم با موفقیت ویرایش شد", "ویرایش آیتم");
-                clear_data();
-                Load_Items_To_List();
-            }
-            else
-            {
-                MessageBox.Show("هنگام ویرایش آیتم مشکلی بوجود امده است", "ویرایش آیتم");
+                if (selected_id == 0 || items_list.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("یک آیتم را انتخاب کنید", "ویرایش آیتم");
+                    return;
+                }
+                int store_id = 0;
+                int.TryParse(store_id_tb.Text, out store_id);
+                string item_name = item_name_tb.Text;
+                int buy_price = 0;
+                int.TryParse(buy_price_tb.Text, out buy_price);
+                int cell_price = 0;
+                int.TryParse(cell_price_tb.Text, out cell_price);
+                int count = 0;
+                int.TryParse(count_tb.Text, out count);
+                string buy_date = buy_date_tb.Text;
+                string cell_date = cell_date_tb.Text;
+                string service_item = service_item_cb.Checked ? "بله" : "خیر";
+                Store store = new Store(selected_id, store_id, item_name, buy_price, cell_price, count, buy_date, cell_date, service_item);
+                bool result = new Stores_database().edite_item_in_datebase(store);
+                if (result)
+                {
+                    MessageBox.Show("آیتم با موفقیت ویرایش شد", "ویرایش آیتم");
+                    clear_data();
+                    Load_Items_To_List();
+                }
+                else
+                {
+                    MessageBox.Show("هنگام ویرایش آیتم مشکلی بوجود امده است", "ویرایش آیتم");
+                }
             }
         }
         private void delete_item_bt_Click(object sender, EventArgs e)
@@ -201,7 +218,27 @@ namespace Arian_project.screens
 
         private void Reset_bt_Click(object sender, EventArgs e)
         {
-            Add_Item_Load();
+            if(item_name_tb.Text == "")
+            {
+                Add_Item_Load();
+            }
+            else
+            {
+                string name = item_name_tb.Text;
+                Add_Item_Load($"SELECT * FROM stors WHERE item_name LIKE '%{name}%'");
+            }
+        }
+
+        private void item_name_tb_TextChanged(object sender, EventArgs e)
+        {
+            if(item_name_tb.Text == "")
+            {
+                Reset_bt.Text = "ریست";
+            }
+            else
+            {
+                Reset_bt.Text = "جستجو";
+            }
         }
     }
 }

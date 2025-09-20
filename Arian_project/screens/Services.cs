@@ -85,12 +85,12 @@ namespace Arian_project.screens
         private void set_style() {
             style.Stores_List_Style(service_items);
             style.Services_List_Style(services_list);
-            service_items.AllowUserToAddRows = true;
         }
         private Store get_selected_item()
         {
 
             int index = service_items.SelectedRows[0].Index;
+            
             DataGridViewCellCollection data = service_items.Rows[index].Cells;
             Store item = new Store(
                     int.Parse(data[0].Value.ToString()),

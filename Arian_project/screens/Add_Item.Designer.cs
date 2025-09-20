@@ -4,7 +4,6 @@
     {
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelMain;
-        private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.DataGridView items_list;
         private System.Windows.Forms.TableLayoutPanel rightPanel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelFields;
@@ -48,8 +47,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Add_Item));
             this.tableLayoutPanelMain = new System.Windows.Forms.TableLayoutPanel();
-            this.titleLabel = new System.Windows.Forms.Label();
             this.items_list = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -95,29 +94,17 @@
             this.tableLayoutPanelMain.ColumnCount = 2;
             this.tableLayoutPanelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55F));
             this.tableLayoutPanelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
-            this.tableLayoutPanelMain.Controls.Add(this.titleLabel, 0, 0);
-            this.tableLayoutPanelMain.Controls.Add(this.items_list, 0, 1);
-            this.tableLayoutPanelMain.Controls.Add(this.rightPanel, 1, 1);
+            this.tableLayoutPanelMain.Controls.Add(this.items_list, 0, 0);
+            this.tableLayoutPanelMain.Controls.Add(this.rightPanel, 1, 0);
             this.tableLayoutPanelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelMain.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanelMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanelMain.Name = "tableLayoutPanelMain";
-            this.tableLayoutPanelMain.RowCount = 2;
-            this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanelMain.RowCount = 1;
             this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelMain.Size = new System.Drawing.Size(900, 600);
+            this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelMain.Size = new System.Drawing.Size(1200, 738);
             this.tableLayoutPanelMain.TabIndex = 0;
-            // 
-            // titleLabel
-            // 
-            this.tableLayoutPanelMain.SetColumnSpan(this.titleLabel, 2);
-            this.titleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.titleLabel.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            this.titleLabel.Location = new System.Drawing.Point(3, 0);
-            this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(894, 50);
-            this.titleLabel.TabIndex = 0;
-            this.titleLabel.Text = "مدیریت ایتم ها";
-            this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // items_list
             // 
@@ -137,14 +124,15 @@
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewCheckBoxColumn1});
             this.items_list.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.items_list.Location = new System.Drawing.Point(3, 53);
+            this.items_list.Location = new System.Drawing.Point(4, 4);
+            this.items_list.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.items_list.MultiSelect = false;
             this.items_list.Name = "items_list";
             this.items_list.ReadOnly = true;
             this.items_list.RowHeadersVisible = false;
             this.items_list.RowHeadersWidth = 51;
             this.items_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.items_list.Size = new System.Drawing.Size(489, 544);
+            this.items_list.Size = new System.Drawing.Size(652, 730);
             this.items_list.TabIndex = 1;
             this.items_list.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.items_list_CellClick);
             // 
@@ -209,12 +197,13 @@
             this.rightPanel.Controls.Add(this.tableLayoutPanelFields, 0, 0);
             this.rightPanel.Controls.Add(this.tableLayoutPanelButtons, 0, 1);
             this.rightPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rightPanel.Location = new System.Drawing.Point(498, 53);
+            this.rightPanel.Location = new System.Drawing.Point(664, 4);
+            this.rightPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rightPanel.Name = "rightPanel";
             this.rightPanel.RowCount = 2;
             this.rightPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.rightPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.rightPanel.Size = new System.Drawing.Size(399, 544);
+            this.rightPanel.Size = new System.Drawing.Size(532, 730);
             this.rightPanel.TabIndex = 2;
             // 
             // tableLayoutPanelFields
@@ -239,7 +228,8 @@
             this.tableLayoutPanelFields.Controls.Add(this.service_item_cb, 0, 7);
             this.tableLayoutPanelFields.Controls.Add(this.label1, 1, 7);
             this.tableLayoutPanelFields.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelFields.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanelFields.Location = new System.Drawing.Point(4, 4);
+            this.tableLayoutPanelFields.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanelFields.Name = "tableLayoutPanelFields";
             this.tableLayoutPanelFields.RowCount = 8;
             this.tableLayoutPanelFields.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
@@ -250,23 +240,25 @@
             this.tableLayoutPanelFields.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanelFields.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanelFields.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanelFields.Size = new System.Drawing.Size(393, 429);
+            this.tableLayoutPanelFields.Size = new System.Drawing.Size(524, 576);
             this.tableLayoutPanelFields.TabIndex = 0;
             // 
             // store_id_tb
             // 
             this.store_id_tb.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.store_id_tb.Location = new System.Drawing.Point(3, 3);
+            this.store_id_tb.Location = new System.Drawing.Point(4, 4);
+            this.store_id_tb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.store_id_tb.Name = "store_id_tb";
-            this.store_id_tb.Size = new System.Drawing.Size(269, 20);
+            this.store_id_tb.Size = new System.Drawing.Size(358, 22);
             this.store_id_tb.TabIndex = 0;
             // 
             // label_store_id
             // 
             this.label_store_id.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_store_id.Location = new System.Drawing.Point(278, 0);
+            this.label_store_id.Location = new System.Drawing.Point(370, 0);
+            this.label_store_id.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_store_id.Name = "label_store_id";
-            this.label_store_id.Size = new System.Drawing.Size(112, 53);
+            this.label_store_id.Size = new System.Drawing.Size(150, 72);
             this.label_store_id.TabIndex = 1;
             this.label_store_id.Text = "شماره انبار";
             this.label_store_id.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -274,17 +266,20 @@
             // item_name_tb
             // 
             this.item_name_tb.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.item_name_tb.Location = new System.Drawing.Point(3, 56);
+            this.item_name_tb.Location = new System.Drawing.Point(4, 76);
+            this.item_name_tb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.item_name_tb.Name = "item_name_tb";
-            this.item_name_tb.Size = new System.Drawing.Size(269, 20);
+            this.item_name_tb.Size = new System.Drawing.Size(358, 22);
             this.item_name_tb.TabIndex = 2;
+            this.item_name_tb.TextChanged += new System.EventHandler(this.item_name_tb_TextChanged);
             // 
             // label_item_name
             // 
             this.label_item_name.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_item_name.Location = new System.Drawing.Point(278, 53);
+            this.label_item_name.Location = new System.Drawing.Point(370, 72);
+            this.label_item_name.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_item_name.Name = "label_item_name";
-            this.label_item_name.Size = new System.Drawing.Size(112, 53);
+            this.label_item_name.Size = new System.Drawing.Size(150, 72);
             this.label_item_name.TabIndex = 3;
             this.label_item_name.Text = "نام آیتم";
             this.label_item_name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -292,17 +287,19 @@
             // buy_price_tb
             // 
             this.buy_price_tb.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buy_price_tb.Location = new System.Drawing.Point(3, 109);
+            this.buy_price_tb.Location = new System.Drawing.Point(4, 148);
+            this.buy_price_tb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buy_price_tb.Name = "buy_price_tb";
-            this.buy_price_tb.Size = new System.Drawing.Size(269, 20);
+            this.buy_price_tb.Size = new System.Drawing.Size(358, 22);
             this.buy_price_tb.TabIndex = 4;
             // 
             // label_buy_price
             // 
             this.label_buy_price.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_buy_price.Location = new System.Drawing.Point(278, 106);
+            this.label_buy_price.Location = new System.Drawing.Point(370, 144);
+            this.label_buy_price.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_buy_price.Name = "label_buy_price";
-            this.label_buy_price.Size = new System.Drawing.Size(112, 53);
+            this.label_buy_price.Size = new System.Drawing.Size(150, 72);
             this.label_buy_price.TabIndex = 5;
             this.label_buy_price.Text = "قیمت خرید";
             this.label_buy_price.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -310,17 +307,19 @@
             // cell_price_tb
             // 
             this.cell_price_tb.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cell_price_tb.Location = new System.Drawing.Point(3, 162);
+            this.cell_price_tb.Location = new System.Drawing.Point(4, 220);
+            this.cell_price_tb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cell_price_tb.Name = "cell_price_tb";
-            this.cell_price_tb.Size = new System.Drawing.Size(269, 20);
+            this.cell_price_tb.Size = new System.Drawing.Size(358, 22);
             this.cell_price_tb.TabIndex = 6;
             // 
             // label_cell_price
             // 
             this.label_cell_price.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_cell_price.Location = new System.Drawing.Point(278, 159);
+            this.label_cell_price.Location = new System.Drawing.Point(370, 216);
+            this.label_cell_price.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_cell_price.Name = "label_cell_price";
-            this.label_cell_price.Size = new System.Drawing.Size(112, 53);
+            this.label_cell_price.Size = new System.Drawing.Size(150, 72);
             this.label_cell_price.TabIndex = 7;
             this.label_cell_price.Text = "قیمت فروش";
             this.label_cell_price.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -328,17 +327,19 @@
             // count_tb
             // 
             this.count_tb.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.count_tb.Location = new System.Drawing.Point(3, 215);
+            this.count_tb.Location = new System.Drawing.Point(4, 292);
+            this.count_tb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.count_tb.Name = "count_tb";
-            this.count_tb.Size = new System.Drawing.Size(269, 20);
+            this.count_tb.Size = new System.Drawing.Size(358, 22);
             this.count_tb.TabIndex = 8;
             // 
             // label_count
             // 
             this.label_count.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_count.Location = new System.Drawing.Point(278, 212);
+            this.label_count.Location = new System.Drawing.Point(370, 288);
+            this.label_count.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_count.Name = "label_count";
-            this.label_count.Size = new System.Drawing.Size(112, 53);
+            this.label_count.Size = new System.Drawing.Size(150, 72);
             this.label_count.TabIndex = 9;
             this.label_count.Text = "تعداد";
             this.label_count.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -346,17 +347,19 @@
             // buy_date_tb
             // 
             this.buy_date_tb.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buy_date_tb.Location = new System.Drawing.Point(3, 268);
+            this.buy_date_tb.Location = new System.Drawing.Point(4, 364);
+            this.buy_date_tb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buy_date_tb.Name = "buy_date_tb";
-            this.buy_date_tb.Size = new System.Drawing.Size(269, 20);
+            this.buy_date_tb.Size = new System.Drawing.Size(358, 22);
             this.buy_date_tb.TabIndex = 10;
             // 
             // label_buy_date
             // 
             this.label_buy_date.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_buy_date.Location = new System.Drawing.Point(278, 265);
+            this.label_buy_date.Location = new System.Drawing.Point(370, 360);
+            this.label_buy_date.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_buy_date.Name = "label_buy_date";
-            this.label_buy_date.Size = new System.Drawing.Size(112, 53);
+            this.label_buy_date.Size = new System.Drawing.Size(150, 72);
             this.label_buy_date.TabIndex = 11;
             this.label_buy_date.Text = "تاریخ خرید";
             this.label_buy_date.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -364,17 +367,19 @@
             // cell_date_tb
             // 
             this.cell_date_tb.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cell_date_tb.Location = new System.Drawing.Point(3, 321);
+            this.cell_date_tb.Location = new System.Drawing.Point(4, 436);
+            this.cell_date_tb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cell_date_tb.Name = "cell_date_tb";
-            this.cell_date_tb.Size = new System.Drawing.Size(269, 20);
+            this.cell_date_tb.Size = new System.Drawing.Size(358, 22);
             this.cell_date_tb.TabIndex = 12;
             // 
             // label_cell_date
             // 
             this.label_cell_date.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_cell_date.Location = new System.Drawing.Point(278, 318);
+            this.label_cell_date.Location = new System.Drawing.Point(370, 432);
+            this.label_cell_date.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_cell_date.Name = "label_cell_date";
-            this.label_cell_date.Size = new System.Drawing.Size(112, 53);
+            this.label_cell_date.Size = new System.Drawing.Size(150, 72);
             this.label_cell_date.TabIndex = 13;
             this.label_cell_date.Text = "تاریخ فروش";
             this.label_cell_date.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -383,9 +388,10 @@
             // 
             this.service_item_cb.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.service_item_cb.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.service_item_cb.Location = new System.Drawing.Point(3, 374);
+            this.service_item_cb.Location = new System.Drawing.Point(4, 508);
+            this.service_item_cb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.service_item_cb.Name = "service_item_cb";
-            this.service_item_cb.Size = new System.Drawing.Size(269, 52);
+            this.service_item_cb.Size = new System.Drawing.Size(358, 64);
             this.service_item_cb.TabIndex = 14;
             this.service_item_cb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -394,9 +400,10 @@
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label1.Location = new System.Drawing.Point(278, 371);
+            this.label1.Location = new System.Drawing.Point(370, 504);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 58);
+            this.label1.Size = new System.Drawing.Size(150, 72);
             this.label1.TabIndex = 15;
             this.label1.Text = "ایتم خدماتی";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -412,21 +419,23 @@
             this.tableLayoutPanelButtons.Controls.Add(this.delete_item_bt, 2, 1);
             this.tableLayoutPanelButtons.Controls.Add(this.Reset_bt, 0, 2);
             this.tableLayoutPanelButtons.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelButtons.Location = new System.Drawing.Point(3, 438);
+            this.tableLayoutPanelButtons.Location = new System.Drawing.Point(4, 588);
+            this.tableLayoutPanelButtons.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanelButtons.Name = "tableLayoutPanelButtons";
             this.tableLayoutPanelButtons.RowCount = 3;
             this.tableLayoutPanelButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanelButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanelButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanelButtons.Size = new System.Drawing.Size(393, 103);
+            this.tableLayoutPanelButtons.Size = new System.Drawing.Size(524, 138);
             this.tableLayoutPanelButtons.TabIndex = 1;
             // 
             // edit_item_bt
             // 
             this.edit_item_bt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.edit_item_bt.Location = new System.Drawing.Point(134, 37);
+            this.edit_item_bt.Location = new System.Drawing.Point(178, 50);
+            this.edit_item_bt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.edit_item_bt.Name = "edit_item_bt";
-            this.edit_item_bt.Size = new System.Drawing.Size(125, 28);
+            this.edit_item_bt.Size = new System.Drawing.Size(166, 38);
             this.edit_item_bt.TabIndex = 1;
             this.edit_item_bt.Text = "ویرایش";
             this.edit_item_bt.Click += new System.EventHandler(this.edit_item_bt_Click);
@@ -434,9 +443,10 @@
             // save_item_bt
             // 
             this.save_item_bt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.save_item_bt.Location = new System.Drawing.Point(3, 37);
+            this.save_item_bt.Location = new System.Drawing.Point(4, 50);
+            this.save_item_bt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.save_item_bt.Name = "save_item_bt";
-            this.save_item_bt.Size = new System.Drawing.Size(125, 28);
+            this.save_item_bt.Size = new System.Drawing.Size(166, 38);
             this.save_item_bt.TabIndex = 0;
             this.save_item_bt.Text = "ذخیره";
             this.save_item_bt.Click += new System.EventHandler(this.save_item_bt_Click);
@@ -444,9 +454,10 @@
             // delete_item_bt
             // 
             this.delete_item_bt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.delete_item_bt.Location = new System.Drawing.Point(265, 37);
+            this.delete_item_bt.Location = new System.Drawing.Point(352, 50);
+            this.delete_item_bt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.delete_item_bt.Name = "delete_item_bt";
-            this.delete_item_bt.Size = new System.Drawing.Size(125, 28);
+            this.delete_item_bt.Size = new System.Drawing.Size(168, 38);
             this.delete_item_bt.TabIndex = 2;
             this.delete_item_bt.Text = "حذف";
             this.delete_item_bt.Click += new System.EventHandler(this.delete_item_bt_Click);
@@ -454,9 +465,10 @@
             // Reset_bt
             // 
             this.Reset_bt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Reset_bt.Location = new System.Drawing.Point(3, 71);
+            this.Reset_bt.Location = new System.Drawing.Point(4, 96);
+            this.Reset_bt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Reset_bt.Name = "Reset_bt";
-            this.Reset_bt.Size = new System.Drawing.Size(125, 29);
+            this.Reset_bt.Size = new System.Drawing.Size(166, 38);
             this.Reset_bt.TabIndex = 3;
             this.Reset_bt.Text = "ریست";
             this.Reset_bt.UseVisualStyleBackColor = true;
@@ -464,10 +476,12 @@
             // 
             // Add_Item
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 600);
+            this.ClientSize = new System.Drawing.Size(1200, 738);
             this.Controls.Add(this.tableLayoutPanelMain);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Add_Item";
             this.Text = "مدیریت ایتم ها";
             this.tableLayoutPanelMain.ResumeLayout(false);

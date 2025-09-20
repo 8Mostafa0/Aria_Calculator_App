@@ -112,6 +112,7 @@
             // 
             // service_items
             // 
+            this.service_items.AllowUserToAddRows = false;
             this.service_items.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.service_items.Dock = System.Windows.Forms.DockStyle.Fill;
             this.service_items.Location = new System.Drawing.Point(4, 19);
@@ -287,10 +288,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView services_list;
-        private System.Windows.Forms.DataGridView service_items;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox item_name_tb;
         private GlassButton glassButton1;
         private GlassButton glassButton2;
+        public System.Windows.Forms.DataGridView service_items;
     }
 }
