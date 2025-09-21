@@ -172,8 +172,15 @@ namespace Arian_project.screens
         private void Details_bt_Click(object sender, System.EventArgs e)
         {
             Client_Installment installment = Get_Selected_installment();
-            new Installment_Detailes(installment).ShowDialog();
-            Load_Data();
+            if(installment.id != 0)
+            {
+                new Installment_Detailes(installment).ShowDialog();
+                Load_Data();
+            }
+            else
+            {
+                MessageBox.Show("لطفا ابتدا موردی را از لیست انتخاب کنید", "جزئیات حساب");
+            }
         }
 
         private void Reminder_bt_Click(object sender, System.EventArgs e)
@@ -181,17 +188,23 @@ namespace Arian_project.screens
             if(Reminder_bt.Text != "")
             {
                 Client_Installment installment = Get_Selected_installment();
-                int next_reminder = int.Parse(Reminder_bt.Text);
-                if (next_reminder > 0) { 
-                    installment.next_reminder = next_reminder;
-                    bool result = c_installment_db.update_client_installment_to_database(installment);
-                    if (result) {
-                        MessageBox.Show($"یاد اوری اقساط {installment.client_name} به {installment.next_reminder} روز بعد قرار داده شد", "یاداوری");
+                if(installment.id != 0){
+
+                    int next_reminder = int.Parse(Reminder_bt.Text);
+                    if (next_reminder > 0) { 
+                        installment.next_reminder = next_reminder;
+                        bool result = c_installment_db.update_client_installment_to_database(installment);
+                        if (result) {
+                            MessageBox.Show($"یاد اوری اقساط {installment.client_name} به {installment.next_reminder} روز بعد قرار داده شد", "یاداوری");
+                        }
+                        else
+                        {
+                            MessageBox.Show("", "یاداوری");
+                        }
                     }
-                    else
-                    {
-                        MessageBox.Show("", "یاداوری");
-                    }
+                }else
+                {
+                    MessageBox.Show("لطفا ابتدا موردی را از لیست انتخاب کنید", "یاداوری");
                 }
             }
             else

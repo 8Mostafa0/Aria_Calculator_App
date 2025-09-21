@@ -118,7 +118,7 @@ namespace Arian_project.screens
 
         private void glassButton1_Click(object sender, System.EventArgs e)
         {
-
+            Get_factors_list_base_on_pay_status("اقساطی اتمام شده");
         }
     }
 }

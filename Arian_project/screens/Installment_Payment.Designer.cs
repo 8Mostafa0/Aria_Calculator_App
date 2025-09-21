@@ -509,11 +509,12 @@
             this.glassButton1.BackAlpha = 120;
             this.glassButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.glassButton1.CornerRadius = 20;
+            this.glassButton1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.glassButton1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.glassButton1.ForeColor = System.Drawing.Color.Black;
             this.glassButton1.Location = new System.Drawing.Point(3, 3);
             this.glassButton1.Name = "glassButton1";
-            this.glassButton1.Size = new System.Drawing.Size(45, 27);
+            this.glassButton1.Size = new System.Drawing.Size(53, 27);
             this.glassButton1.TabIndex = 0;
             this.glassButton1.Text = "ثبت";
             this.glassButton1.Click += new System.EventHandler(this.glassButton1_Click);
@@ -536,11 +537,12 @@
             this.glassButton3.BackAlpha = 120;
             this.glassButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.glassButton3.CornerRadius = 20;
+            this.glassButton3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.glassButton3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.glassButton3.ForeColor = System.Drawing.Color.Black;
             this.glassButton3.Location = new System.Drawing.Point(62, 3);
             this.glassButton3.Name = "glassButton3";
-            this.glassButton3.Size = new System.Drawing.Size(45, 27);
+            this.glassButton3.Size = new System.Drawing.Size(53, 27);
             this.glassButton3.TabIndex = 2;
             this.glassButton3.Text = "بازگشت";
             // 

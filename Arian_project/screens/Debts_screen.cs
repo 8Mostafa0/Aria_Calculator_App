@@ -213,5 +213,10 @@ namespace Arian_project.screens
             }
             set_time();
         }
+
+        private void save_bt_Click(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }
