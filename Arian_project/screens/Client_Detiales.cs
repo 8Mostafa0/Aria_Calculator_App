@@ -2,7 +2,6 @@
 using Arian_project.Backend.styles;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Windows.Forms;
 
@@ -47,26 +46,47 @@ namespace Arian_project.screens
                 clear_data();
             }
         }
+        private bool validate_inputs()
+        {
+            if (
+            name_tb.Text == "" ||
+            phone_number_tb.Text == "" ||
+            home_phone_tb.Text == "" ||
+            company_tb.Text == "" ||
+            email_tb.Text == "" ||
+            client_type_tb.Text == "" ||
+            client_group_tb.Text == "")
+            {
+                return false;
+            }
+            return true;
+        }
         private void save_client_bt_Click(object sender, System.EventArgs e)
         {
-            string user_name = name_tb.Text;
-            string phone_number = phone_number_tb.Text;
-            string home_phone = home_phone_tb.Text;
-            string company = company_tb.Text;
-            string email = email_tb.Text;
-            string client_type = client_type_tb.Text;
-            string client_group = client_group_tb.Text;
-            Client user = new Client(id, user_name, phone_number, home_phone, company, email, client_type, client_group);
-            bool result = new Clients_database().insert_client_to_database(user);
-            if (result)
-            {
-                MessageBox.Show("کاربر با موفقیت ثبت شد", "افزودن کاربر");
-                clear_data();
-                Load_Clients_To_List();
+            if (validate_inputs()) { 
+                string user_name = name_tb.Text;
+                string phone_number = phone_number_tb.Text;
+                string home_phone = home_phone_tb.Text;
+                string company = company_tb.Text;
+                string email = email_tb.Text;
+                string client_type = client_type_tb.Text;
+                string client_group = client_group_tb.Text;
+                Client user = new Client(id, user_name, phone_number, home_phone, company, email, client_type, client_group);
+                bool result = new Clients_database().insert_client_to_database(user);
+                if (result)
+                {
+                    MessageBox.Show("کاربر با موفقیت ثبت شد", "افزودن کاربر");
+                    clear_data();
+                    Load_Clients_To_List();
+                }
+                else
+                {
+                    MessageBox.Show("هنگام ثبت کاربر مشکلی بوجود امده است", "افزودن کاربر");
+                }
             }
             else
             {
-                MessageBox.Show("هنگام ثبت کاربر مشکلی بوجود امده است", "افزودن کاربر");
+                MessageBox.Show("لطفا تمام موراد را وارد کنید", "ورودی ها");
             }
         }
         private void clear_data()
@@ -76,36 +96,39 @@ namespace Arian_project.screens
             home_phone_tb.Clear();
             company_tb.Clear();
             email_tb.Clear();
-            client_type_tb.Clear();
+            client_type_tb.SelectedIndex = 0;
             client_group_tb.Clear();
             selected_id = 0;
             Clients_List.ClearSelection();
         }
         private void edite_client_bt_Click(object sender, System.EventArgs e)
         {
-            if (selected_id == 0)
+            if (validate_inputs())
             {
-                MessageBox.Show("یک کاربر را انتخاب کنید", "ویرایش کاربر");
-                return;
-            }
-            string user_name = name_tb.Text;
-            string phone_number = phone_number_tb.Text;
-            string home_phone = home_phone_tb.Text;
-            string company = company_tb.Text;
-            string email = email_tb.Text;
-            string client_type = client_type_tb.Text;
-            string client_group = client_group_tb.Text;
-            Client user = new Client(selected_id, user_name, phone_number, home_phone, company, email, client_type, client_group);
-            bool result = new Clients_database().edite_client_in_database(user);
-            if (result)
-            {
-                MessageBox.Show("کاربر با موفقیت ویرایش شد", "ویرایش کاربر");
-                clear_data();
-                Load_Clients_To_List();
-            }
-            else
-            {
-                MessageBox.Show("هنگام ویرایش کاربر مشکلی بوجود امده است", "ویرایش کاربر");
+                if (selected_id == 0)
+                {
+                    MessageBox.Show("یک کاربر را انتخاب کنید", "ویرایش کاربر");
+                    return;
+                }
+                string user_name = name_tb.Text;
+                string phone_number = phone_number_tb.Text;
+                string home_phone = home_phone_tb.Text;
+                string company = company_tb.Text;
+                string email = email_tb.Text;
+                string client_type = client_type_tb.Text;
+                string client_group = client_group_tb.Text;
+                Client user = new Client(selected_id, user_name, phone_number, home_phone, company, email, client_type, client_group);
+                bool result = new Clients_database().edite_client_in_database(user);
+                if (result)
+                {
+                    MessageBox.Show("کاربر با موفقیت ویرایش شد", "ویرایش کاربر");
+                    clear_data();
+                    Load_Clients_To_List();
+                }
+                else
+                {
+                    MessageBox.Show("هنگام ویرایش کاربر مشکلی بوجود امده است", "ویرایش کاربر");
+                }
             }
         }
         private void delete_client_bt_Click(object sender, System.EventArgs e)
@@ -139,6 +162,7 @@ namespace Arian_project.screens
         private void Clients_Detailes_Load(object sender, System.EventArgs e)
         {
             Load_Clients_To_List();
+            client_type_tb.DataSource = new List<string> { "فروش", "خرید"};
         }
         private void Clients_List_SelectionChanged(object sender, EventArgs e)
         {

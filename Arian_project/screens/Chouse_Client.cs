@@ -18,6 +18,8 @@ namespace Arian_project.screens
         private void fill_clients_type_cb()
         {
             List<string> clients_types = clients_db.Get_Clients_Types();
+            clients_types.Add("خرید");
+            clients_types.Add("فروش");
             client_type_cb.DataSource = clients_types;
             
         }

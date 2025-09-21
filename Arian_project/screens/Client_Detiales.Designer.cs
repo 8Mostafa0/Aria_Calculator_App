@@ -34,7 +34,6 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.client_group_tb = new System.Windows.Forms.TextBox();
             this.email_tb = new System.Windows.Forms.TextBox();
-            this.client_type_tb = new System.Windows.Forms.TextBox();
             this.company_tb = new System.Windows.Forms.TextBox();
             this.home_phone_tb = new System.Windows.Forms.TextBox();
             this.phone_number_tb = new System.Windows.Forms.TextBox();
@@ -49,6 +48,7 @@
             this.delete_client_bt = new System.Windows.Forms.Button();
             this.edite_client_bt = new System.Windows.Forms.Button();
             this.save_client_bt = new System.Windows.Forms.Button();
+            this.client_type_tb = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Clients_List)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -63,7 +63,7 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -75,7 +75,7 @@
             this.Clients_List.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Clients_List.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Clients_List.Location = new System.Drawing.Point(4, 4);
-            this.Clients_List.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Clients_List.Margin = new System.Windows.Forms.Padding(4);
             this.Clients_List.Name = "Clients_List";
             this.Clients_List.RowHeadersWidth = 51;
             this.Clients_List.Size = new System.Drawing.Size(561, 712);
@@ -89,7 +89,6 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.Controls.Add(this.client_group_tb, 0, 7);
             this.tableLayoutPanel2.Controls.Add(this.email_tb, 0, 6);
-            this.tableLayoutPanel2.Controls.Add(this.client_type_tb, 0, 5);
             this.tableLayoutPanel2.Controls.Add(this.company_tb, 0, 4);
             this.tableLayoutPanel2.Controls.Add(this.home_phone_tb, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.phone_number_tb, 0, 2);
@@ -104,9 +103,10 @@
             this.tableLayoutPanel2.Controls.Add(this.delete_client_bt, 2, 12);
             this.tableLayoutPanel2.Controls.Add(this.edite_client_bt, 1, 12);
             this.tableLayoutPanel2.Controls.Add(this.save_client_bt, 0, 12);
+            this.tableLayoutPanel2.Controls.Add(this.client_type_tb, 0, 5);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(573, 4);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 13;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308F));
@@ -130,7 +130,7 @@
             this.tableLayoutPanel2.SetColumnSpan(this.client_group_tb, 2);
             this.client_group_tb.Dock = System.Windows.Forms.DockStyle.Top;
             this.client_group_tb.Location = new System.Drawing.Point(4, 382);
-            this.client_group_tb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.client_group_tb.Margin = new System.Windows.Forms.Padding(4);
             this.client_group_tb.Name = "client_group_tb";
             this.client_group_tb.Size = new System.Drawing.Size(138, 22);
             this.client_group_tb.TabIndex = 6;
@@ -140,27 +140,17 @@
             this.tableLayoutPanel2.SetColumnSpan(this.email_tb, 2);
             this.email_tb.Dock = System.Windows.Forms.DockStyle.Top;
             this.email_tb.Location = new System.Drawing.Point(4, 328);
-            this.email_tb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.email_tb.Margin = new System.Windows.Forms.Padding(4);
             this.email_tb.Name = "email_tb";
             this.email_tb.Size = new System.Drawing.Size(138, 22);
             this.email_tb.TabIndex = 5;
-            // 
-            // client_type_tb
-            // 
-            this.tableLayoutPanel2.SetColumnSpan(this.client_type_tb, 2);
-            this.client_type_tb.Dock = System.Windows.Forms.DockStyle.Top;
-            this.client_type_tb.Location = new System.Drawing.Point(4, 274);
-            this.client_type_tb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.client_type_tb.Name = "client_type_tb";
-            this.client_type_tb.Size = new System.Drawing.Size(138, 22);
-            this.client_type_tb.TabIndex = 4;
             // 
             // company_tb
             // 
             this.tableLayoutPanel2.SetColumnSpan(this.company_tb, 2);
             this.company_tb.Dock = System.Windows.Forms.DockStyle.Top;
             this.company_tb.Location = new System.Drawing.Point(4, 220);
-            this.company_tb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.company_tb.Margin = new System.Windows.Forms.Padding(4);
             this.company_tb.Name = "company_tb";
             this.company_tb.Size = new System.Drawing.Size(138, 22);
             this.company_tb.TabIndex = 3;
@@ -170,7 +160,7 @@
             this.tableLayoutPanel2.SetColumnSpan(this.home_phone_tb, 2);
             this.home_phone_tb.Dock = System.Windows.Forms.DockStyle.Top;
             this.home_phone_tb.Location = new System.Drawing.Point(4, 166);
-            this.home_phone_tb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.home_phone_tb.Margin = new System.Windows.Forms.Padding(4);
             this.home_phone_tb.Name = "home_phone_tb";
             this.home_phone_tb.Size = new System.Drawing.Size(138, 22);
             this.home_phone_tb.TabIndex = 2;
@@ -180,7 +170,7 @@
             this.tableLayoutPanel2.SetColumnSpan(this.phone_number_tb, 2);
             this.phone_number_tb.Dock = System.Windows.Forms.DockStyle.Top;
             this.phone_number_tb.Location = new System.Drawing.Point(4, 112);
-            this.phone_number_tb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.phone_number_tb.Margin = new System.Windows.Forms.Padding(4);
             this.phone_number_tb.Name = "phone_number_tb";
             this.phone_number_tb.Size = new System.Drawing.Size(138, 22);
             this.phone_number_tb.TabIndex = 1;
@@ -190,7 +180,7 @@
             this.tableLayoutPanel2.SetColumnSpan(this.name_tb, 2);
             this.name_tb.Dock = System.Windows.Forms.DockStyle.Top;
             this.name_tb.Location = new System.Drawing.Point(4, 58);
-            this.name_tb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.name_tb.Margin = new System.Windows.Forms.Padding(4);
             this.name_tb.Name = "name_tb";
             this.name_tb.Size = new System.Drawing.Size(138, 22);
             this.name_tb.TabIndex = 0;
@@ -283,7 +273,7 @@
             // 
             this.delete_client_bt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.delete_client_bt.Location = new System.Drawing.Point(150, 652);
-            this.delete_client_bt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.delete_client_bt.Margin = new System.Windows.Forms.Padding(4);
             this.delete_client_bt.Name = "delete_client_bt";
             this.delete_client_bt.Size = new System.Drawing.Size(66, 56);
             this.delete_client_bt.TabIndex = 9;
@@ -295,7 +285,7 @@
             // 
             this.edite_client_bt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.edite_client_bt.Location = new System.Drawing.Point(77, 652);
-            this.edite_client_bt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.edite_client_bt.Margin = new System.Windows.Forms.Padding(4);
             this.edite_client_bt.Name = "edite_client_bt";
             this.edite_client_bt.Size = new System.Drawing.Size(65, 56);
             this.edite_client_bt.TabIndex = 8;
@@ -307,13 +297,23 @@
             // 
             this.save_client_bt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.save_client_bt.Location = new System.Drawing.Point(4, 652);
-            this.save_client_bt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.save_client_bt.Margin = new System.Windows.Forms.Padding(4);
             this.save_client_bt.Name = "save_client_bt";
             this.save_client_bt.Size = new System.Drawing.Size(65, 56);
             this.save_client_bt.TabIndex = 7;
             this.save_client_bt.Text = "ثبت";
             this.save_client_bt.UseVisualStyleBackColor = true;
             this.save_client_bt.Click += new System.EventHandler(this.save_client_bt_Click);
+            // 
+            // client_type_tb
+            // 
+            this.tableLayoutPanel2.SetColumnSpan(this.client_type_tb, 2);
+            this.client_type_tb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.client_type_tb.FormattingEnabled = true;
+            this.client_type_tb.Location = new System.Drawing.Point(3, 273);
+            this.client_type_tb.Name = "client_type_tb";
+            this.client_type_tb.Size = new System.Drawing.Size(140, 24);
+            this.client_type_tb.TabIndex = 10;
             // 
             // Clients_Detailes
             // 
@@ -322,7 +322,7 @@
             this.ClientSize = new System.Drawing.Size(797, 720);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Clients_Detailes";
             this.Text = "کاربران";
             this.Load += new System.EventHandler(this.Clients_Detailes_Load);
@@ -348,7 +348,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox client_group_tb;
         private System.Windows.Forms.TextBox email_tb;
-        private System.Windows.Forms.TextBox client_type_tb;
         private System.Windows.Forms.TextBox company_tb;
         private System.Windows.Forms.TextBox home_phone_tb;
         private System.Windows.Forms.TextBox phone_number_tb;
@@ -356,5 +355,6 @@
         private System.Windows.Forms.Button delete_client_bt;
         private System.Windows.Forms.Button edite_client_bt;
         private System.Windows.Forms.Button save_client_bt;
+        private System.Windows.Forms.ComboBox client_type_tb;
     }
 }
