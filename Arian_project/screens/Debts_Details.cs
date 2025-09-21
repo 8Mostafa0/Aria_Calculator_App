@@ -89,33 +89,52 @@ namespace Arian_project.screens
             bank.balance -= prive;
             bank_db.edite_bank_in_database(bank);
         }
+        private bool validate_inputs()
+        {
+            if (
+                debt_types_cb.Text == "" ||
+                price_bt.Text == "" ||
+                date_lb.Text  == ""||
+                banks_cb.Text == ""
+                ) {
+                return false;
+            }
+            return true;
+        }
         private void save_bt_Click(object sender, System.EventArgs e)
         {
-            string name = banks_cb.Text;
-            if (this.edite_screen)
+            if (validate_inputs())
             {
-                revert_cost_from_bank();
-            }
-            this.return_debt = new Debt(
-                this.debt_id,
-                debt_types_cb.Text,
-                decimal.Parse(price_bt.Text),
-                date_lb.GetText("yyyy/MM/dd"),
-                desciption_tb.Text,
-                get_bank_id(name),
-                banks_cb.Text
-                );
-            this.DialogResult = DialogResult.OK;
-            if (this.edite_screen)
-            {
-                debt_db.update_debt_to_db(this.return_debt);
+                string name = banks_cb.Text;
+                if (this.edite_screen)
+                {
+                    revert_cost_from_bank();
+                }
+                this.return_debt = new Debt(
+                    this.debt_id,
+                    debt_types_cb.Text,
+                    decimal.Parse(price_bt.Text),
+                    date_lb.GetText("yyyy/MM/dd"),
+                    desciption_tb.Text,
+                    get_bank_id(name),
+                    banks_cb.Text
+                    );
+                this.DialogResult = DialogResult.OK;
+                if (this.edite_screen)
+                {
+                    debt_db.update_debt_to_db(this.return_debt);
+                }
+                else
+                {
+                    debt_db.insert_debt_to_db(this.return_debt);
+                }
+                take_cost_from_bank();
+                this.Close();
             }
             else
             {
-                debt_db.insert_debt_to_db(this.return_debt);
+                MessageBox.Show("لطفا تمامی موارد را وارد کنید", "ورودی ها");
             }
-            take_cost_from_bank();
-            this.Close();
 
         }
 
@@ -123,10 +142,21 @@ namespace Arian_project.screens
         {
             if (this.edite_screen)
             {
-                debt_db.delete_debt_to_db(debt_id);
+                Button yesbtn = new Button();
+                Button nbtn = new Button();
+                yesbtn.Text = "بله";
+                nbtn.Text = "خیر";
+                Button[] buttons = {yesbtn, nbtn};
+                using (PMessageBox screen = new PMessageBox("", "", buttons)) { 
+                    screen.ShowDialog();
+                    if(screen.result == yesbtn)
+                    {
+                        debt_db.delete_debt_to_db(debt_id);
+                        this.DialogResult = DialogResult.Cancel;
+                        this.Close ();
+                    }
+                }
             }
-            this.DialogResult = DialogResult.Cancel;
-            this.Close ();
         }
     }
 }
