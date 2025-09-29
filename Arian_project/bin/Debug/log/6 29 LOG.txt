@@ -1,3 +1,0 @@
-1404-6-29T21:9 factors_counter get counts of factors in table
-1404-6-29T21:9 clients database get clients list from clients table
-1404-6-29T21:9 clients database get clients list from clients table

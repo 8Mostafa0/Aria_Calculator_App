@@ -38,4 +38,7 @@ D:\CODES\Aria_Calculator_App\Arian_project\obj\Debug\Arian_project.screens.Insta
 D:\CODES\Aria_Calculator_App\Arian_project\obj\Debug\Arian_project.screens.Installment_Detailes.resources
 D:\CODES\Aria_Calculator_App\Arian_project\obj\Debug\Arian_project.screens.Debts_screen.resources
 D:\CODES\Aria_Calculator_App\Arian_project\obj\Debug\Arian_project.screens.Debts_Details.resources
+D:\CODES\Aria_Calculator_App\Arian_project\obj\Debug\Arian_project.screens.Create_Admin.resources
+D:\CODES\Aria_Calculator_App\Arian_project\obj\Debug\Arian_project.screens.Login_screen.resources
+D:\CODES\Aria_Calculator_App\Arian_project\obj\Debug\Arian_project.screens.User_Control_Screen.resources
 D:\CODES\Aria_Calculator_App\Arian_project\obj\Debug\Arian_project.exe.config

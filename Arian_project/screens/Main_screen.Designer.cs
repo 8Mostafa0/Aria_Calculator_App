@@ -32,6 +32,7 @@ namespace Arian_project.screens
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_screen));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.buttons_panel = new System.Windows.Forms.TableLayoutPanel();
+            this.glassButton1 = new GlassButton();
             this.factors_screen_bt = new GlassButton();
             this.clients_screen_bt = new GlassButton();
             this.services_screen_bt = new GlassButton();
@@ -69,6 +70,7 @@ namespace Arian_project.screens
             // 
             this.buttons_panel.ColumnCount = 1;
             this.buttons_panel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.buttons_panel.Controls.Add(this.glassButton1, 0, 10);
             this.buttons_panel.Controls.Add(this.factors_screen_bt, 0, 9);
             this.buttons_panel.Controls.Add(this.clients_screen_bt, 0, 3);
             this.buttons_panel.Controls.Add(this.services_screen_bt, 0, 2);
@@ -104,6 +106,23 @@ namespace Arian_project.screens
             this.buttons_panel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 0F));
             this.buttons_panel.Size = new System.Drawing.Size(214, 554);
             this.buttons_panel.TabIndex = 0;
+            // 
+            // glassButton1
+            // 
+            this.glassButton1.BackAlpha = 150;
+            this.glassButton1.BackColor = System.Drawing.Color.Transparent;
+            this.glassButton1.CornerRadius = 15;
+            this.glassButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.glassButton1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.glassButton1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.glassButton1.ForeColor = System.Drawing.Color.Black;
+            this.glassButton1.Location = new System.Drawing.Point(4, 364);
+            this.glassButton1.Margin = new System.Windows.Forms.Padding(4);
+            this.glassButton1.Name = "glassButton1";
+            this.glassButton1.Size = new System.Drawing.Size(206, 28);
+            this.glassButton1.TabIndex = 12;
+            this.glassButton1.Text = "حساب های کاربری";
+            this.glassButton1.Click += new System.EventHandler(this.glassButton1_Click);
             // 
             // factors_screen_bt
             // 
@@ -289,7 +308,7 @@ namespace Arian_project.screens
             this.banks_screen_bt.Name = "banks_screen_bt";
             this.banks_screen_bt.Size = new System.Drawing.Size(206, 28);
             this.banks_screen_bt.TabIndex = 4;
-            this.banks_screen_bt.Text = "حساب ها";
+            this.banks_screen_bt.Text = "بانک ها";
             this.banks_screen_bt.Click += new System.EventHandler(this.banks_screen_bt_Click);
             // 
             // card_readers_screen_bt
@@ -331,7 +350,9 @@ namespace Arian_project.screens
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Main_screen";
             this.Text = "لیتوکس";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_screen_FormClosed);
             this.Load += new System.EventHandler(this.Main_screen_Load);
+            this.Leave += new System.EventHandler(this.Main_screen_Leave);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.buttons_panel.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -355,5 +376,6 @@ namespace Arian_project.screens
         private GlassButton instalments_screen_bt;
         private GlassButton clients_screen_bt;
         private GlassButton factors_screen_bt;
+        private GlassButton glassButton1;
     }
 }

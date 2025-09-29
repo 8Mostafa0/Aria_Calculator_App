@@ -3,17 +3,16 @@ using ghest.Backend.Logs;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Common;
 using System.Data.SQLite;
-using System.Windows.Forms;
 
 namespace Arian_project.Backend.Database
 {
-    internal class Banks_database
+    public class Banks_database
     {
+        private Users_database userlog = new Users_database();
+        
         private log logger = new log();
         Database_data database = new Database_data();
-
 
         public int banks_count()
         {

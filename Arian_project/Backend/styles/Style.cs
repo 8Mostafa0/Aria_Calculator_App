@@ -616,5 +616,43 @@ namespace Arian_project.Backend.styles
             List.Columns[7].DataPropertyName = "bank_name";
             List.Columns[7].SortMode = DataGridViewColumnSortMode.NotSortable;
         }
+    
+        public void Users_List_Style(DataGridView List) {
+
+            Font List_Font = Get_List_Font();
+            Font App_Font = Get_Font();
+
+            List.ColumnHeadersDefaultCellStyle.Font = App_Font;
+            List.Font = List_Font;
+            List.EditMode = DataGridViewEditMode.EditProgrammatically;
+            List.RightToLeft = RightToLeft.Yes;
+            List.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            List.AlternatingRowsDefaultCellStyle.BackColor = Color.Gray;
+            List.AllowUserToAddRows = false;
+
+            List.Columns.Clear();
+
+            List.Columns.Add("number", "ش");
+            List.Columns[0].DataPropertyName = "number";
+            List.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            List.Columns.Add("id", "ش");
+            List.Columns[1].DataPropertyName = "id";
+            List.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
+            List.Columns[1].Visible = false;
+
+            List.Columns.Add("username", "نام کاربری");
+            List.Columns[2].DataPropertyName = "username";
+            List.Columns[2].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            List.Columns.Add("password", "رمز");
+            List.Columns[3].DataPropertyName = "password";
+            List.Columns[3].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            List.Columns.Add("access", "دسترسی ها");
+            List.Columns[4].DataPropertyName = "access";
+            List.Columns[4].SortMode = DataGridViewColumnSortMode.NotSortable;
+            List.Columns[4].Visible = false;
+        }
     }
 }

@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Arian_project.Backend;
+using Arian_project.Backend.Database;
+using ghest.Backend.Logs;
+using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.IO;
 using System.Reflection;
-using ghest.Backend.Logs;
-using System.Data.SQLite;
 namespace Arian_project.backend
 {
     public class Database_data
@@ -84,6 +86,10 @@ namespace Arian_project.backend
 
                     string debts_database_sql = "CREATE TABLE debts(id INT PRIMARY KEY NOT NULL,name TEXT NOT NULL,price TEXT NOT NULL,date TEXT NOT NULL,description TEXT NOT NULL,bank_id INT NOT NULL,bank_name TEXT NOT NULL)";
 
+                    string users_database_sql = "CREATE TABLE users(id INT PRIMARY KEY NOT NULL,username TEXT NOT NULL,password TEXT NOT NULL,access TEXT NOT NULL)";
+
+                    string users_access_log = "CREATE TABLE user_log(id INT PRIMARY KEY NOT NULL,username TEXT NOT NULL,part TEXT NOT NULL,job TEXT NOT NULL,date TEXT NOT NULL)";
+
                     using (var database_connection = connection_to_db())
                     {
                         database_connection.Open();
@@ -142,6 +148,14 @@ namespace Arian_project.backend
                         {
                             command.ExecuteNonQuery();
                         }
+                        using (var command = new SQLiteCommand(users_database_sql, database_connection))
+                        {
+                            command.ExecuteNonQuery();
+                        }
+                        using (var command = new SQLiteCommand(users_access_log, database_connection))
+                        {
+                            command.ExecuteNonQuery();
+                        }
                         database_connection.Close();
                     }
                 }
@@ -151,7 +165,6 @@ namespace Arian_project.backend
             }
         }
         public bool run_sql_query(string sql_query,string message_type,string logger_message_type) {
-
             logger.record_log(message_type, logger_message_type);
             bool result = false;
             try
@@ -163,6 +176,7 @@ namespace Arian_project.backend
                     result = command.ExecuteNonQuery() > 0;
                 }
                 connection.Close();
+                new Users_database().save_user_log(Properties.Settings.Default.username, message_type, logger_message_type);
             }
             catch (Exception ex)
             {
@@ -183,7 +197,9 @@ namespace Arian_project.backend
                 var command = new SQLiteCommand(sql_query, connection);
                 count = Convert.ToInt32(command.ExecuteScalar());
                 connection.Close();
-            }catch(Exception ex)
+                new Users_database().save_user_log(Properties.Settings.Default.username, message_type, logger_message_type);
+            }
+            catch(Exception ex)
             {
                 logger.record_log("SQL QUERY => " + sql_query, logger_message_type);
                 logger.record_log(ex.ToString(), logger_message_type);
@@ -208,6 +224,9 @@ namespace Arian_project.backend
                     counts = Convert.ToInt32(count.ToString());
                 }
                 connection.Close();
+                if(message_type != "") {
+                    new Users_database().save_user_log(Properties.Settings.Default.username, message_type, logger_message_type);
+                }
                 return counts;
             }   
             catch (Exception ex) {

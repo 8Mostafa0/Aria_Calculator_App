@@ -127,13 +127,21 @@ namespace Arian_project.screens
 
         private void glassButton2_Click(object sender, System.EventArgs e)
         {
-            int id = transactions_db.get_last_transaction_id();
-            using (Payment_methods screen = new Payment_methods(installment.client_id, id, Transaction.empty()))
+            Admin admin = new Users_database().Get_Admin();
+            if (admin.Ac_pay_installment())
             {
-                screen.ShowDialog();
-                if (screen.DialogResult == DialogResult.OK) {
-                    Add_Transaction = screen.method;
+                int id = transactions_db.get_last_transaction_id();
+                using (Payment_methods screen = new Payment_methods(installment.client_id, id, Transaction.empty()))
+                {
+                    screen.ShowDialog();
+                    if (screen.DialogResult == DialogResult.OK) {
+                        Add_Transaction = screen.method;
+                    }
                 }
+            }
+            else
+            {
+                MessageBox.Show("شما به پرداخت اقساط دسترسیی مجاز  ندارید", "دسترسی");
             }
         }
         private List<Installment_transaction> get_installment_transactions() { 
@@ -306,28 +314,37 @@ namespace Arian_project.screens
         }
         private void glassButton1_Click(object sender, System.EventArgs e)
         {
-            List<Transaction> transactions = get_payments();
-            List<Installment_transaction> installments = get_installment_transactions();
-            decimal total_payment = calculate_payments(transactions);
-            int payed_count = calculate_installment_payed_counts(installments,total_payment);
-            this.installment.installment_payed_count = payed_count;
-            bool result = save_installment_changes(transactions, installments);
-            if (result)
+
+            Admin admin = new Users_database().Get_Admin();
+            if (admin.Ac_pay_installment())
             {
-                result = c_installments_db.update_client_installment_to_database(this.installment);
+                List<Transaction> transactions = get_payments();
+                List<Installment_transaction> installments = get_installment_transactions();
+                decimal total_payment = calculate_payments(transactions);
+                int payed_count = calculate_installment_payed_counts(installments,total_payment);
+                this.installment.installment_payed_count = payed_count;
+                bool result = save_installment_changes(transactions, installments);
                 if (result)
                 {
-                    MessageBox.Show("اقساط با موفقیت ثبت شدند", "ثبت اقساط");
-                    this.Close();
+                    result = c_installments_db.update_client_installment_to_database(this.installment);
+                    if (result)
+                    {
+                        MessageBox.Show("اقساط با موفقیت ثبت شدند", "ثبت اقساط");
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("هنگام ویرایش قسط مشکلی بوجود امده است", "ثبت اقساط");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("هنگام ویرایش قسط مشکلی بوجود امده است", "ثبت اقساط");
+                    MessageBox.Show("مشکلی در ثبت اقساط بوجود امده است", "ثبت اقساط");
                 }
             }
             else
             {
-                MessageBox.Show("مشکلی در ثبت اقساط بوجود امده است", "ثبت اقساط");
+                MessageBox.Show("شما دسترسی به این قابلیت را ندارید", "دسترسی");
             }
             
         }

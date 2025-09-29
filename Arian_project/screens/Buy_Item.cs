@@ -30,7 +30,7 @@ namespace Arian_project.screens
         private decimal items_full_profit { get; set; }
         private decimal items_full_price { get; set; }
 
-        public Buy_Item(bool buy)
+        public Buy_Item( bool buy)
         {
             InitializeComponent();
             this.items_full_price = 0;

@@ -96,7 +96,11 @@ namespace Arian_project.screens
             home_phone_tb.Clear();
             company_tb.Clear();
             email_tb.Clear();
-            client_type_tb.SelectedIndex = 0;
+            try
+            {
+                client_type_tb.SelectedIndex = 0;
+            }
+            catch { }
             client_group_tb.Clear();
             selected_id = 0;
             Clients_List.ClearSelection();
