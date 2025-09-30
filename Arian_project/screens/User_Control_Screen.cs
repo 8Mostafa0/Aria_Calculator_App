@@ -49,6 +49,7 @@ namespace Arian_project.screens
             new Style().Users_List_Style(users_list);
             users_list.AllowUserToAddRows = false;
             users_list.Refresh();
+            new Form_Styles().Style(this);
         }
         private string get_access()
         {

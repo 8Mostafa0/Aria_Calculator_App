@@ -50,10 +50,10 @@
             this.cb_service = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.users_list = new System.Windows.Forms.DataGridView();
             this.save_bt = new GlassButton();
             this.back_bt = new GlassButton();
             this.delete_bt = new GlassButton();
+            this.users_list = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -361,19 +361,6 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(228, 22);
             this.tableLayoutPanel3.TabIndex = 21;
             // 
-            // users_list
-            // 
-            this.users_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.users_list.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.users_list.Location = new System.Drawing.Point(3, 3);
-            this.users_list.Name = "users_list";
-            this.users_list.RowHeadersWidth = 51;
-            this.users_list.RowTemplate.Height = 24;
-            this.users_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.users_list.Size = new System.Drawing.Size(554, 444);
-            this.users_list.TabIndex = 1;
-            this.users_list.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.users_list_CellClick);
-            // 
             // save_bt
             // 
             this.save_bt.BackAlpha = 120;
@@ -418,6 +405,19 @@
             this.delete_bt.TabIndex = 2;
             this.delete_bt.Text = "حذف";
             this.delete_bt.Click += new System.EventHandler(this.delete_bt_Click);
+            // 
+            // users_list
+            // 
+            this.users_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.users_list.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.users_list.Location = new System.Drawing.Point(3, 3);
+            this.users_list.Name = "users_list";
+            this.users_list.RowHeadersWidth = 51;
+            this.users_list.RowTemplate.Height = 24;
+            this.users_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.users_list.Size = new System.Drawing.Size(554, 444);
+            this.users_list.TabIndex = 1;
+            this.users_list.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.users_list_CellClick);
             // 
             // User_Control_Screen
             // 

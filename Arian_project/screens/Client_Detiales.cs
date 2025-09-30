@@ -165,6 +165,7 @@ namespace Arian_project.screens
         }
         private void Clients_Detailes_Load(object sender, System.EventArgs e)
         {
+            new Form_Styles().Style(this);
             Load_Clients_To_List();
             client_type_tb.DataSource = new List<string> { "فروش", "خرید"};
         }

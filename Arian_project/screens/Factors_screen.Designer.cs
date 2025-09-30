@@ -53,7 +53,7 @@
             this.tableLayoutPanel1.Controls.Add(this.factor_list, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -73,7 +73,7 @@
             this.tableLayoutPanel2.Controls.Add(this.all_factors_bt, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(857, 4);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 14;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142857F));
@@ -104,7 +104,7 @@
             this.edite_facctor_bt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.edite_facctor_bt.ForeColor = System.Drawing.Color.Black;
             this.edite_facctor_bt.Location = new System.Drawing.Point(4, 498);
-            this.edite_facctor_bt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.edite_facctor_bt.Margin = new System.Windows.Forms.Padding(4);
             this.edite_facctor_bt.Name = "edite_facctor_bt";
             this.edite_facctor_bt.Size = new System.Drawing.Size(198, 44);
             this.edite_facctor_bt.TabIndex = 6;
@@ -120,7 +120,7 @@
             this.glassButton1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.glassButton1.ForeColor = System.Drawing.Color.Black;
             this.glassButton1.Location = new System.Drawing.Point(4, 194);
-            this.glassButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.glassButton1.Margin = new System.Windows.Forms.Padding(4);
             this.glassButton1.Name = "glassButton1";
             this.glassButton1.Size = new System.Drawing.Size(198, 30);
             this.glassButton1.TabIndex = 5;
@@ -136,7 +136,7 @@
             this.glassButton5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.glassButton5.ForeColor = System.Drawing.Color.Black;
             this.glassButton5.Location = new System.Drawing.Point(4, 156);
-            this.glassButton5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.glassButton5.Margin = new System.Windows.Forms.Padding(4);
             this.glassButton5.Name = "glassButton5";
             this.glassButton5.Size = new System.Drawing.Size(198, 30);
             this.glassButton5.TabIndex = 4;
@@ -152,7 +152,7 @@
             this.glassButton4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.glassButton4.ForeColor = System.Drawing.Color.Black;
             this.glassButton4.Location = new System.Drawing.Point(4, 118);
-            this.glassButton4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.glassButton4.Margin = new System.Windows.Forms.Padding(4);
             this.glassButton4.Name = "glassButton4";
             this.glassButton4.Size = new System.Drawing.Size(198, 30);
             this.glassButton4.TabIndex = 3;
@@ -168,7 +168,7 @@
             this.glassButton3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.glassButton3.ForeColor = System.Drawing.Color.Black;
             this.glassButton3.Location = new System.Drawing.Point(4, 80);
-            this.glassButton3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.glassButton3.Margin = new System.Windows.Forms.Padding(4);
             this.glassButton3.Name = "glassButton3";
             this.glassButton3.Size = new System.Drawing.Size(198, 30);
             this.glassButton3.TabIndex = 2;
@@ -184,7 +184,7 @@
             this.glassButton2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.glassButton2.ForeColor = System.Drawing.Color.Black;
             this.glassButton2.Location = new System.Drawing.Point(4, 42);
-            this.glassButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.glassButton2.Margin = new System.Windows.Forms.Padding(4);
             this.glassButton2.Name = "glassButton2";
             this.glassButton2.Size = new System.Drawing.Size(198, 30);
             this.glassButton2.TabIndex = 1;
@@ -200,7 +200,7 @@
             this.all_factors_bt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.all_factors_bt.ForeColor = System.Drawing.Color.Black;
             this.all_factors_bt.Location = new System.Drawing.Point(4, 4);
-            this.all_factors_bt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.all_factors_bt.Margin = new System.Windows.Forms.Padding(4);
             this.all_factors_bt.Name = "all_factors_bt";
             this.all_factors_bt.Size = new System.Drawing.Size(198, 30);
             this.all_factors_bt.TabIndex = 0;
@@ -212,7 +212,7 @@
             this.factor_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.factor_list.Dock = System.Windows.Forms.DockStyle.Fill;
             this.factor_list.Location = new System.Drawing.Point(4, 4);
-            this.factor_list.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.factor_list.Margin = new System.Windows.Forms.Padding(4);
             this.factor_list.MultiSelect = false;
             this.factor_list.Name = "factor_list";
             this.factor_list.RowHeadersWidth = 51;
@@ -228,9 +228,9 @@
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Factors_screen";
-            this.Text = "Factors_screen";
+            this.Text = "فاکتور ها";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.factor_list)).EndInit();

@@ -1,5 +1,6 @@
 ﻿using Arian_project.Backend;
 using Arian_project.Backend.Database;
+using Arian_project.Backend.styles;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -35,7 +36,10 @@ namespace Arian_project.screens
             int bank_id = banks_cb.Items.IndexOf(debt.bank_name);
             banks_cb.SelectedIndex = bank_id;
         }
-        private void Set_Style() { }
+        private void Set_Style()
+        {
+            new Form_Styles().Style(this);
+        }
 
         private void load_data()
         {

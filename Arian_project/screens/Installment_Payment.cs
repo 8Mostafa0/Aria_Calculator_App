@@ -38,7 +38,10 @@ namespace Arian_project.screens
             int[] data = date.Today();
             this.today_string = data[0].ToString() +"/"+ data[1].ToString() + "/"+data[2].ToString();
         }
-        private void set_style() { }
+        private void set_style()
+        {
+            new Form_Styles().Style(this);
+        }
 
         private void load_data() {
             

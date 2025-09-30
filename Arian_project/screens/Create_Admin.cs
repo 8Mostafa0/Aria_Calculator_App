@@ -1,5 +1,6 @@
 ﻿using Arian_project.Backend;
 using Arian_project.Backend.Database;
+using Arian_project.Backend.styles;
 using System;
 
 using System.Windows.Forms;
@@ -13,6 +14,7 @@ namespace Arian_project.screens
         public Create_Admin()
         {
             InitializeComponent();
+            new Form_Styles().Style(this);
         }
 
         private void glassButton1_Click(object sender, EventArgs e)

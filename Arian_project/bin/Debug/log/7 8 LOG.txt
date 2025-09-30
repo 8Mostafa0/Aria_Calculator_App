@@ -1,0 +1,22 @@
+1404-7-8T11:7 get users count from users table get_users_count
+1404-7-8T11:7 admin => m with password => m try to login admin_login
+1404-7-8T11:7 factors_counter get counts of factors in table
+1404-7-8T11:7 factors_counter get counts of factors in table
+1404-7-8T11:7 get_services_datatable get services from services table
+1404-7-8T11:7 clients_count get clients count from clients table
+1404-7-8T11:7 clients database get clients list from clients table
+1404-7-8T11:7 card_readers_count get card readers count from card_reader table
+1404-7-8T11:7 get_last_card_reader_id get last card reader id from card_readers table
+1404-7-8T11:7 card_readers_list get card readers list from card_reader table
+1404-7-8T11:7 card_readers_count get card readers count from card_reader table
+1404-7-8T11:7 banks database get banks list from banks table
+1404-7-8T11:7 banks_count get banks count from banks table
+1404-7-8T11:7 stors database get stors list from stors table
+1404-7-8T11:7 stors database get stors list from stors table
+1404-7-8T11:7 get_client_installment_datatable get client installment from client_installment list into datatable
+1404-7-8T11:7 get_client_installment_datatable get client installment from client_installment list into datatable
+1404-7-8T11:7 get_client_installment_datatable get client installment from client_installment list into datatable
+1404-7-8T11:7 get_debts_datatable get debts list from debts table
+1404-7-8T11:7 factors database get factors list from factors table
+1404-7-8T11:7 get_users_datatable get userss datatable from users table
+1404-7-8T11:7 get last user id from users table get_last_admin_id

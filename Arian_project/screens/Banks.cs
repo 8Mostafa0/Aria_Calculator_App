@@ -14,6 +14,7 @@ namespace Arian_project.screens
         {
             InitializeComponent();
             load_data_to_list();
+            new Form_Styles().Style(this);
         }
         log logger = new log();
         Banks_database bank_db = new Banks_database();

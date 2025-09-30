@@ -17,6 +17,7 @@ namespace Arian_project.screens
         {
             InitializeComponent();
             Add_Item_Load();
+            new Form_Styles().Style(this);
         }
 
         private void SelectRowAndFillFields(int id)

@@ -56,7 +56,7 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -69,7 +69,7 @@
             this.banks_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.banks_list.Dock = System.Windows.Forms.DockStyle.Fill;
             this.banks_list.Location = new System.Drawing.Point(4, 4);
-            this.banks_list.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.banks_list.Margin = new System.Windows.Forms.Padding(4);
             this.banks_list.Name = "banks_list";
             this.banks_list.RowHeadersWidth = 51;
             this.banks_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -94,7 +94,7 @@
             this.tableLayoutPanel2.Controls.Add(this.reset_bt, 1, 12);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(523, 4);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 14;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142857F));
@@ -118,7 +118,7 @@
             // 
             this.balance_tb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.balance_tb.Location = new System.Drawing.Point(4, 70);
-            this.balance_tb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.balance_tb.Margin = new System.Windows.Forms.Padding(4);
             this.balance_tb.Name = "balance_tb";
             this.balance_tb.Size = new System.Drawing.Size(174, 22);
             this.balance_tb.TabIndex = 4;
@@ -139,7 +139,7 @@
             // 
             this.name_tb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.name_tb.Location = new System.Drawing.Point(4, 37);
-            this.name_tb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.name_tb.Margin = new System.Windows.Forms.Padding(4);
             this.name_tb.Name = "name_tb";
             this.name_tb.Size = new System.Drawing.Size(174, 22);
             this.name_tb.TabIndex = 3;
@@ -174,7 +174,7 @@
             this.bank_type_cb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bank_type_cb.FormattingEnabled = true;
             this.bank_type_cb.Location = new System.Drawing.Point(4, 103);
-            this.bank_type_cb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bank_type_cb.Margin = new System.Windows.Forms.Padding(4);
             this.bank_type_cb.Name = "bank_type_cb";
             this.bank_type_cb.Size = new System.Drawing.Size(174, 24);
             this.bank_type_cb.TabIndex = 5;
@@ -183,7 +183,7 @@
             // 
             this.save_bt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.save_bt.Location = new System.Drawing.Point(4, 367);
-            this.save_bt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.save_bt.Margin = new System.Windows.Forms.Padding(4);
             this.save_bt.Name = "save_bt";
             this.save_bt.Size = new System.Drawing.Size(174, 25);
             this.save_bt.TabIndex = 6;
@@ -195,7 +195,7 @@
             // 
             this.edite_bt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.edite_bt.Location = new System.Drawing.Point(186, 367);
-            this.edite_bt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.edite_bt.Margin = new System.Windows.Forms.Padding(4);
             this.edite_bt.Name = "edite_bt";
             this.edite_bt.Size = new System.Drawing.Size(174, 25);
             this.edite_bt.TabIndex = 7;
@@ -207,7 +207,7 @@
             // 
             this.delete_bt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.delete_bt.Location = new System.Drawing.Point(4, 400);
-            this.delete_bt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.delete_bt.Margin = new System.Windows.Forms.Padding(4);
             this.delete_bt.Name = "delete_bt";
             this.delete_bt.Size = new System.Drawing.Size(174, 25);
             this.delete_bt.TabIndex = 8;
@@ -219,7 +219,7 @@
             // 
             this.reset_bt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.reset_bt.Location = new System.Drawing.Point(186, 400);
-            this.reset_bt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.reset_bt.Margin = new System.Windows.Forms.Padding(4);
             this.reset_bt.Name = "reset_bt";
             this.reset_bt.Size = new System.Drawing.Size(174, 25);
             this.reset_bt.TabIndex = 9;
@@ -234,7 +234,7 @@
             this.ClientSize = new System.Drawing.Size(891, 478);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Banks";
             this.Text = "مدیریت حساب ها";
             this.tableLayoutPanel1.ResumeLayout(false);

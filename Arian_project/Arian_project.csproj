@@ -119,6 +119,7 @@
     <Compile Include="Backend\Database\Transactions_database.cs" />
     <Compile Include="Backend\Database\Users_database.cs" />
     <Compile Include="Backend\logs\logs.cs" />
+    <Compile Include="Backend\styles\Form_Style.cs" />
     <Compile Include="Backend\styles\GlassButton.cs" />
     <Compile Include="Backend\styles\RoundPanel.cs">
       <SubType>Component</SubType>

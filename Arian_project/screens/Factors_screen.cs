@@ -51,6 +51,7 @@ namespace Arian_project.screens
         private void set_style()
         {
             new Style().Factor_list_style(factor_list);
+            new Form_Styles().Style(this);
         }
 
         private void Get_factors_list_base_on_pay_status(string status)

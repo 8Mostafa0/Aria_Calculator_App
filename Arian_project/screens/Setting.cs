@@ -1,4 +1,5 @@
 ﻿using Arian_project.Backend;
+using Arian_project.Backend.styles;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -27,6 +28,7 @@ namespace Arian_project.screens
         private void Set_Style_From()
         {
 
+            new Form_Styles().Style(this);
             Font app_font = theme.app_font();
             Color main_color = theme.Theme_Mode ? theme.Light_Theme_Main_Color:theme.Dark_Theme_Main_Color ;
 

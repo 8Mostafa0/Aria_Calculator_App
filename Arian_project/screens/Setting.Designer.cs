@@ -124,7 +124,7 @@ namespace Arian_project.screens
             this.tableLayoutPanel1.Controls.Add(this.Dark_Theme_Main_Color_pn, 0, 17);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 27;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.703704F));
@@ -176,7 +176,7 @@ namespace Arian_project.screens
             this.List_Font_Bold_cb.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.List_Font_Bold_cb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.List_Font_Bold_cb.Location = new System.Drawing.Point(4, 139);
-            this.List_Font_Bold_cb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.List_Font_Bold_cb.Margin = new System.Windows.Forms.Padding(4);
             this.List_Font_Bold_cb.Name = "List_Font_Bold_cb";
             this.List_Font_Bold_cb.Size = new System.Drawing.Size(204, 19);
             this.List_Font_Bold_cb.TabIndex = 49;
@@ -189,7 +189,7 @@ namespace Arian_project.screens
             this.roundPanel5.CornerRadius = 30;
             this.roundPanel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.roundPanel5.Location = new System.Drawing.Point(4, 409);
-            this.roundPanel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.roundPanel5.Margin = new System.Windows.Forms.Padding(4);
             this.roundPanel5.Name = "roundPanel5";
             this.roundPanel5.Size = new System.Drawing.Size(417, 1);
             this.roundPanel5.TabIndex = 40;
@@ -201,7 +201,7 @@ namespace Arian_project.screens
             this.roundPanel4.CornerRadius = 30;
             this.roundPanel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.roundPanel4.Location = new System.Drawing.Point(4, 166);
-            this.roundPanel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.roundPanel4.Margin = new System.Windows.Forms.Padding(4);
             this.roundPanel4.Name = "roundPanel4";
             this.roundPanel4.Size = new System.Drawing.Size(417, 1);
             this.roundPanel4.TabIndex = 40;
@@ -213,7 +213,7 @@ namespace Arian_project.screens
             this.roundPanel3.CornerRadius = 30;
             this.roundPanel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.roundPanel3.Location = new System.Drawing.Point(4, 85);
-            this.roundPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.roundPanel3.Margin = new System.Windows.Forms.Padding(4);
             this.roundPanel3.Name = "roundPanel3";
             this.roundPanel3.Size = new System.Drawing.Size(417, 1);
             this.roundPanel3.TabIndex = 40;
@@ -225,7 +225,7 @@ namespace Arian_project.screens
             this.roundPanel2.CornerRadius = 30;
             this.roundPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.roundPanel2.Location = new System.Drawing.Point(4, 301);
-            this.roundPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.roundPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.roundPanel2.Name = "roundPanel2";
             this.roundPanel2.Size = new System.Drawing.Size(417, 1);
             this.roundPanel2.TabIndex = 39;
@@ -381,7 +381,7 @@ namespace Arian_project.screens
             // 
             this.Theme_Font_Size_tb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Theme_Font_Size_tb.Location = new System.Drawing.Point(4, 31);
-            this.Theme_Font_Size_tb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Theme_Font_Size_tb.Margin = new System.Windows.Forms.Padding(4);
             this.Theme_Font_Size_tb.Name = "Theme_Font_Size_tb";
             this.Theme_Font_Size_tb.Size = new System.Drawing.Size(204, 22);
             this.Theme_Font_Size_tb.TabIndex = 42;
@@ -390,7 +390,7 @@ namespace Arian_project.screens
             // 
             this.List_Font_Size_tb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.List_Font_Size_tb.Location = new System.Drawing.Point(4, 112);
-            this.List_Font_Size_tb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.List_Font_Size_tb.Margin = new System.Windows.Forms.Padding(4);
             this.List_Font_Size_tb.Name = "List_Font_Size_tb";
             this.List_Font_Size_tb.Size = new System.Drawing.Size(204, 22);
             this.List_Font_Size_tb.TabIndex = 43;
@@ -399,7 +399,7 @@ namespace Arian_project.screens
             // 
             this.Theme_Bt_Font_Size_tb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Theme_Bt_Font_Size_tb.Location = new System.Drawing.Point(4, 274);
-            this.Theme_Bt_Font_Size_tb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Theme_Bt_Font_Size_tb.Margin = new System.Windows.Forms.Padding(4);
             this.Theme_Bt_Font_Size_tb.Name = "Theme_Bt_Font_Size_tb";
             this.Theme_Bt_Font_Size_tb.Size = new System.Drawing.Size(204, 22);
             this.Theme_Bt_Font_Size_tb.TabIndex = 45;
@@ -408,7 +408,7 @@ namespace Arian_project.screens
             // 
             this.Theme_Lb_Font_Size_tb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Theme_Lb_Font_Size_tb.Location = new System.Drawing.Point(4, 382);
-            this.Theme_Lb_Font_Size_tb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Theme_Lb_Font_Size_tb.Margin = new System.Windows.Forms.Padding(4);
             this.Theme_Lb_Font_Size_tb.Name = "Theme_Lb_Font_Size_tb";
             this.Theme_Lb_Font_Size_tb.Size = new System.Drawing.Size(204, 22);
             this.Theme_Lb_Font_Size_tb.TabIndex = 47;
@@ -419,7 +419,7 @@ namespace Arian_project.screens
             this.Theme_Font_Bold_cb.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Theme_Font_Bold_cb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Theme_Font_Bold_cb.Location = new System.Drawing.Point(4, 58);
-            this.Theme_Font_Bold_cb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Theme_Font_Bold_cb.Margin = new System.Windows.Forms.Padding(4);
             this.Theme_Font_Bold_cb.Name = "Theme_Font_Bold_cb";
             this.Theme_Font_Bold_cb.Size = new System.Drawing.Size(204, 19);
             this.Theme_Font_Bold_cb.TabIndex = 48;
@@ -431,7 +431,7 @@ namespace Arian_project.screens
             this.Theme_Bt_Font_Bold_cb.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Theme_Bt_Font_Bold_cb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Theme_Bt_Font_Bold_cb.Location = new System.Drawing.Point(4, 247);
-            this.Theme_Bt_Font_Bold_cb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Theme_Bt_Font_Bold_cb.Margin = new System.Windows.Forms.Padding(4);
             this.Theme_Bt_Font_Bold_cb.Name = "Theme_Bt_Font_Bold_cb";
             this.Theme_Bt_Font_Bold_cb.Size = new System.Drawing.Size(204, 19);
             this.Theme_Bt_Font_Bold_cb.TabIndex = 50;
@@ -491,7 +491,7 @@ namespace Arian_project.screens
             this.exit_bt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.exit_bt.ForeColor = System.Drawing.Color.Black;
             this.exit_bt.Location = new System.Drawing.Point(216, 706);
-            this.exit_bt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.exit_bt.Margin = new System.Windows.Forms.Padding(4);
             this.exit_bt.Name = "exit_bt";
             this.exit_bt.Size = new System.Drawing.Size(205, 31);
             this.exit_bt.TabIndex = 60;
@@ -508,7 +508,7 @@ namespace Arian_project.screens
             this.save_bt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.save_bt.ForeColor = System.Drawing.Color.Black;
             this.save_bt.Location = new System.Drawing.Point(4, 706);
-            this.save_bt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.save_bt.Margin = new System.Windows.Forms.Padding(4);
             this.save_bt.Name = "save_bt";
             this.save_bt.Size = new System.Drawing.Size(204, 31);
             this.save_bt.TabIndex = 61;
@@ -521,7 +521,7 @@ namespace Arian_project.screens
             this.Theme_Lb_Font_Bold_cb.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Theme_Lb_Font_Bold_cb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Theme_Lb_Font_Bold_cb.Location = new System.Drawing.Point(4, 355);
-            this.Theme_Lb_Font_Bold_cb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Theme_Lb_Font_Bold_cb.Margin = new System.Windows.Forms.Padding(4);
             this.Theme_Lb_Font_Bold_cb.Name = "Theme_Lb_Font_Bold_cb";
             this.Theme_Lb_Font_Bold_cb.Size = new System.Drawing.Size(204, 19);
             this.Theme_Lb_Font_Bold_cb.TabIndex = 51;
@@ -534,7 +534,7 @@ namespace Arian_project.screens
             this.roundPanel1.CornerRadius = 30;
             this.roundPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.roundPanel1.Location = new System.Drawing.Point(4, 571);
-            this.roundPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.roundPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.roundPanel1.Name = "roundPanel1";
             this.roundPanel1.Size = new System.Drawing.Size(417, 1);
             this.roundPanel1.TabIndex = 38;
@@ -545,7 +545,7 @@ namespace Arian_project.screens
             this.Theme_Mode_cb.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Theme_Mode_cb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Theme_Mode_cb.Location = new System.Drawing.Point(4, 544);
-            this.Theme_Mode_cb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Theme_Mode_cb.Margin = new System.Windows.Forms.Padding(4);
             this.Theme_Mode_cb.Name = "Theme_Mode_cb";
             this.Theme_Mode_cb.Size = new System.Drawing.Size(204, 19);
             this.Theme_Mode_cb.TabIndex = 52;
@@ -657,7 +657,7 @@ namespace Arian_project.screens
             this.ClientSize = new System.Drawing.Size(425, 741);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Setting";
             this.Text = "تنظیمات";
             this.tableLayoutPanel1.ResumeLayout(false);

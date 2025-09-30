@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Arian_project.Backend.styles;
+using System;
 using System.Windows.Forms;
 
 namespace Arian_project.screens
@@ -33,6 +34,7 @@ namespace Arian_project.screens
             }
            
             tableLayoutPanel1.Controls.Add(panel, 0, 1);
+            new Form_Styles().Style(this);
         }
 
         private void button_clicked(Button sender, EventArgs e) {

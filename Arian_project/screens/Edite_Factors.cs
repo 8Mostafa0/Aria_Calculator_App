@@ -116,24 +116,9 @@ namespace Arian_project.screens
 
         private void Set_Style()
         {
+            new Form_Styles().Style(this);
             style.Payments_list_style(payments_llist);
             style.Store_Items_List(list_items);
-            Theme_style theme = new Theme_style();
-            Font app_font = theme.app_font();
-            Color bt_color = theme.Theme_Bt_Color;
-            Color bg_color = theme.Theme_Mode?theme.Dark_Theme_Main_Color: theme.Light_Theme_Main_Color;
-            
-            label1.Font = app_font;
-            label2.Font = app_font;
-            label3.Font = app_font;
-            label4.Font = app_font;
-            Date_lb.Font = app_font;
-            Factor_id_lb.Font = app_font;
-
-            Client_Name_tb.Font = app_font;
-            Client_phone_tb.Font= app_font;
-
-            this.BackColor = bg_color;
         }
         private bool item_exist_in_list(int item_id) {
             if(list_items.Rows.Count > 1)

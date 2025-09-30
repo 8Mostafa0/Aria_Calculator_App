@@ -50,7 +50,7 @@
             this.tableLayoutPanel1.Controls.Add(this.items_list, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -75,7 +75,7 @@
             this.tableLayoutPanel2.Controls.Add(this.stores_cb, 5, 2);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 4);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 6;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
@@ -114,7 +114,7 @@
             // item_name_tb
             // 
             this.item_name_tb.Location = new System.Drawing.Point(524, 37);
-            this.item_name_tb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.item_name_tb.Margin = new System.Windows.Forms.Padding(4);
             this.item_name_tb.Name = "item_name_tb";
             this.item_name_tb.Size = new System.Drawing.Size(95, 22);
             this.item_name_tb.TabIndex = 2;
@@ -136,7 +136,7 @@
             this.items_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.items_list.Dock = System.Windows.Forms.DockStyle.Fill;
             this.items_list.Location = new System.Drawing.Point(4, 211);
-            this.items_list.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.items_list.Margin = new System.Windows.Forms.Padding(4);
             this.items_list.Name = "items_list";
             this.items_list.RowHeadersWidth = 51;
             this.items_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -151,7 +151,7 @@
             this.ClientSize = new System.Drawing.Size(845, 414);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Chouse_Item";
             this.Text = "ایتم ها";
             this.tableLayoutPanel1.ResumeLayout(false);

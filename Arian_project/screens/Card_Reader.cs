@@ -60,6 +60,7 @@ namespace Arian_project.screens
             name_tb.Text = "";
             bank_id_cb.Text = "";
             new Style().Card_Reader_List_Style(card_reader_list);
+            new Form_Styles().Style(this);
         }
         private void SelectRowAndFillFields(int id)
         {

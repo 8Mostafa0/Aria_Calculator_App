@@ -50,6 +50,7 @@ namespace Arian_project.screens
         }
         private void Set_Style()
         {
+            new Form_Styles().Style(this);
             new Style().Debts_List_Style(debts_list);
         }
 

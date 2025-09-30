@@ -85,6 +85,7 @@ namespace Arian_project.screens
         private void set_style() {
             style.Stores_List_Style(service_items);
             style.Services_List_Style(services_list);
+            new Form_Styles().Style(this);
         }
         private Store get_selected_item()
         {

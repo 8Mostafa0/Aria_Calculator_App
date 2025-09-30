@@ -29,6 +29,7 @@ namespace Arian_project.screens
 
         private void Set_Style()
         {
+            new Form_Styles().Style(this);
             Style style = new Style();
             style.Payments_list_style(payments_list);
             style.installment_dates_list_style(installment_list);

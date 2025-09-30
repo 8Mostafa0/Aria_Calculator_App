@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace Arian_project.Backend.styles
 {
-    internal class Style
+    public class Style
     {
 
         private Arian_project.Properties.Settings Props = Properties.Settings.Default;

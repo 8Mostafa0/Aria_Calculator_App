@@ -68,6 +68,7 @@ namespace Arian_project.screens
             items_list.EditMode = DataGridViewEditMode.EditProgrammatically;
             style.Stores_List_Style(items_list);
             add_stores_to_cb();
+            new Form_Styles().Style(this);
         }
 
         private void stores_cb_SelectedValueChanged(object sender, System.EventArgs e)

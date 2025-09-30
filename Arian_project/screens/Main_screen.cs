@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using ghest.Backend.Logs;
 using Arian_project.Backend.Database;
+using Arian_project.Backend.styles;
 
 namespace Arian_project.screens
 {
@@ -78,36 +79,7 @@ namespace Arian_project.screens
 
         private void Set_From_Style()
         {
-            Theme_style theme = new Theme_style();
-            this.BackColor = theme.Theme_Mode ? theme.Dark_Theme_Main_Color : theme.Light_Theme_Main_Color;
-            widgets_panel.BackColor = theme.Theme_Secondary_Color;
-            
-            Color bt_color =theme.Theme_Bt_Color;
-
-            Font app_font = theme.app_font();
-            buy_screen_bt.Font = app_font;
-            cell_screen_Bt.Font = app_font;
-            services_screen_bt.Font = app_font;
-            clients_screen_bt.Font= app_font;
-            card_readers_screen_bt.Font = app_font;
-            banks_screen_bt.Font = app_font;
-            stores_screen_bt.Font = app_font;
-            instalments_screen_bt.Font = app_font;
-            debs_screen_bt.Font = app_font;
-            setting_screen_bt.Font = app_font;
-            Exit_bt.Font = app_font;
-
-            buy_screen_bt.BackColor = bt_color;
-            cell_screen_Bt.BackColor = bt_color;
-            services_screen_bt.BackColor= bt_color;
-            clients_screen_bt.BackColor =bt_color;
-            card_readers_screen_bt.BackColor = bt_color ;
-            banks_screen_bt.BackColor = bt_color ;
-            stores_screen_bt.BackColor = bt_color ;
-            instalments_screen_bt.BackColor = bt_color;
-            debs_screen_bt.BackColor = bt_color;
-            setting_screen_bt.BackColor = bt_color;
-            Exit_bt.BackColor = bt_color;
+            new Form_Styles().Style(this);
         }
 
         private void buy_screen_bt_Click(object sender, EventArgs e)

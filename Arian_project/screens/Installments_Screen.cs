@@ -18,6 +18,7 @@ namespace Arian_project.screens
         }
         
         private void Set_Style() {
+            new Form_Styles().Style(this);
             new Style().Installments_list_style(Installments_List);
         }
 

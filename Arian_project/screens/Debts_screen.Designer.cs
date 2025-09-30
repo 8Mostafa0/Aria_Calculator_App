@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Debts_screen));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.add_item_bt = new GlassButton();
             this.label1 = new System.Windows.Forms.Label();
             this.prices_lb = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,6 +49,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.next_day_bt = new GlassButton();
             this.previce_day_bt = new GlassButton();
+            this.add_item_bt = new GlassButton();
             this.debts_list = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -114,21 +114,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(727, 156);
             this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // add_item_bt
-            // 
-            this.add_item_bt.BackAlpha = 120;
-            this.add_item_bt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.add_item_bt.CornerRadius = 20;
-            this.add_item_bt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.add_item_bt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.add_item_bt.ForeColor = System.Drawing.Color.Black;
-            this.add_item_bt.Location = new System.Drawing.Point(3, 3);
-            this.add_item_bt.Name = "add_item_bt";
-            this.add_item_bt.Size = new System.Drawing.Size(115, 16);
-            this.add_item_bt.TabIndex = 1;
-            this.add_item_bt.Text = "افزودن مورد";
-            this.add_item_bt.Click += new System.EventHandler(this.add_item_bt_Click);
             // 
             // label1
             // 
@@ -333,6 +318,21 @@
             this.previce_day_bt.TabIndex = 2;
             this.previce_day_bt.Text = "<";
             this.previce_day_bt.Click += new System.EventHandler(this.previce_day_bt_Click);
+            // 
+            // add_item_bt
+            // 
+            this.add_item_bt.BackAlpha = 120;
+            this.add_item_bt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.add_item_bt.CornerRadius = 20;
+            this.add_item_bt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.add_item_bt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.add_item_bt.ForeColor = System.Drawing.Color.Black;
+            this.add_item_bt.Location = new System.Drawing.Point(3, 3);
+            this.add_item_bt.Name = "add_item_bt";
+            this.add_item_bt.Size = new System.Drawing.Size(115, 16);
+            this.add_item_bt.TabIndex = 1;
+            this.add_item_bt.Text = "افزودن مورد";
+            this.add_item_bt.Click += new System.EventHandler(this.add_item_bt_Click);
             // 
             // debts_list
             // 

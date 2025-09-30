@@ -55,6 +55,7 @@ namespace Arian_project.screens
             Clients_List.Rows.Clear();
             new Style().Clients_List_Style(Clients_List);
             Clients_Lits_Set = clients_db.Clients_list();
+            new Form_Styles().Style(this);
         }
         private void Chouse_Client_Load_1(object sender, System.EventArgs e)
         {

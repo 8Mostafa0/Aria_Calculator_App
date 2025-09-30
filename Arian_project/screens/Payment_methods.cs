@@ -1,5 +1,6 @@
 ﻿using Arian_project.Backend;
 using Arian_project.Backend.Database;
+using Arian_project.Backend.styles;
 using System;
 using System.Collections.Generic;
 using System.Transactions;
@@ -54,6 +55,7 @@ namespace Arian_project.screens
         }
         public void set_style()
         {
+            new Form_Styles().Style(this);
 
         }
 
